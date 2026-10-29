@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mi Tienda de Apps</title>
+<style>
+:root{--bg:#fff;--surface:#f1f3f4;--text:#202124;--muted:#5f6368;--accent:#01875f;--accent-text:#fff;--line:#dadce0;--star:#f9ab00;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131314;--surface:#1f2021;--text:#e8eaed;--muted:#9aa0a6;--accent:#34d399;--accent-text:#00281c;--line:#3c4043;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 "Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+header{position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid var(--line);padding:10px 16px}
+.bar{max-width:1000px;margin:auto;display:flex;gap:12px;align-items:center}
+.logo{font-weight:700;font-size:20px;color:var(--accent);cursor:pointer;white-space:nowrap}
+.search{flex:1;background:var(--surface);border:0;border-radius:24px;padding:10px 16px;color:var(--text);font:inherit;min-width:0}
+main{max-width:1000px;margin:auto;padding:16px;min-height:70vh}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
+.chip{border:1px solid var(--line);background:none;color:var(--text);border-radius:8px;padding:6px 14px;font:inherit;font-size:14px;white-space:nowrap;cursor:pointer}
+.chip.on{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+h2{font-size:20px;margin:20px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:20px 14px}
+.card{cursor:pointer;min-width:0}
+.ico{width:100%;aspect-ratio:1;max-width:120px;border-radius:22%;display:grid;place-items:center;font-size:48px;margin-bottom:8px;background:var(--surface);overflow:hidden}
+.ico img{width:100%;height:100%;object-fit:cover}
+.card b{display:block;font-weight:500;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card small{color:var(--muted);font-size:12px;display:block}
+.top{display:flex;gap:16px;align-items:center}
+.top .ico{width:96px;max-width:96px;font-size:44px;margin:0;flex:none}
+.top h1{margin:0;font-size:24px;line-height:1.2}
+.top .dev{color:var(--accent);font-weight:500}
+.stats{display:flex;justify-content:space-around;text-align:center;margin:20px 0;padding:12px 0;border-block:1px solid var(--line)}
+.stats div{flex:1}.stats b{display:block}.stats small{color:var(--muted)}
+.btn{background:var(--accent);color:var(--accent-text);border:0;border-radius:24px;padding:12px;font:inherit;font-weight:600;width:100%;cursor:pointer;display:block;text-align:center;text-decoration:none;margin-bottom:10px}
+.btn.alt{background:none;color:var(--accent);border:1px solid var(--accent)}
+.shots{display:flex;gap:10px;overflow-x:auto;padding:4px 0}
+.shots img{flex:none;height:270px;border-radius:12px}
+.stars{color:var(--star);letter-spacing:2px}
+.pick span{font-size:32px;cursor:pointer;color:var(--line);padding:0 2px}.pick span.on{color:var(--star)}
+.in{width:100%;background:var(--surface);border:0;border-radius:12px;padding:10px 14px;color:var(--text);font:inherit;margin:6px 0}
+.rev{border-top:1px solid var(--line);padding:12px 0}
+.back{background:none;border:0;color:var(--accent);font:inherit;cursor:pointer;padding:0 0 12px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 18px;border-radius:8px;z-index:20;font-size:14px}
+.pill{color:var(--muted);font-size:13px}
+footer{border-top:1px solid var(--line);padding:24px 16px;text-align:center}
+footer p{margin:0 0 12px;color:var(--muted);font-size:14px}
+.soc{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.soc a{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:24px;color:#fff;text-decoration:none;font-weight:600;font-size:15px}
+.soc svg{width:20px;height:20px;fill:#fff}
+.tt{background:#000;box-shadow:-2px -2px 0 #25f4ee,2px 2px 0 #fe2c55}
+.tg{background:#229ED9}
+pre{background:var(--surface);padding:12px;border-radius:12px;overflow-x:auto;font-size:13px;white-space:pre-wrap;word-break:break-all}
+</style>
+</head>
+<body>
+<header><div class="bar"><span class="logo" id="logo">▶ MiTienda</span><input class="search" id="q" type="search" placeholder="Buscar apps y juegos"></div></header>
+<main id="app"></main>
+<footer><p>Síguenos para enterarte de nuevas apps</p><div class="soc" id="soc"></div></footer>
+
+<script>
+/* ==========================================================
+   1) TUS REDES SOCIALES  (deja '' para ocultar un botón)
+   ========================================================== */
+const REDES={
+  tiktok:'https://www.tiktok.com/@tuusuario',
+  telegram:'https://t.me/tucanal'
+};
+
+/* ==========================================================
+   2) TUS APPS
+   Para agregar una app: copia un bloque { ... }, pégalo debajo
+   del último (con una coma entre bloques) y cambia los datos.
+   Tip: abre tu página con #nueva al final del enlace y usa el
+   generador, que te escribe el bloque listo para pegar.
+
+   icon: un emoji (📷) o la ruta/enlace de una imagen (iconos/foto.png)
+   downloads: uno o varios botones de descarga
+   shots: capturas (opcional), enlaces o rutas de imágenes
+   ========================================================== */
+const APPS=[
+{
+  id:'fotoflow',
+  name:'FotoFlow',
+  version:'1.2.0',
+  cat:'Fotografía',
+  icon:'📷',
+  size:'18 MB',
+  rating:4.6,
+  desc:'Edita tus fotos con filtros, recortes y ajustes de luz en segundos.',
+  downloads:[
+    {label:'Descargar APK',url:'#'}
+  ],
+  shots:[]
+},
+{
+  id:'musicbox',
+  name:'MusicBox',
+  version:'3.4.0',
+  cat:'Música',
+  icon:'🎧',
+  size:'24 MB',
+  rating:4.8,
+  desc:'Reproductor de música con ecualizador y temporizador para dormir.',
+  downloads:[
+    {label:'Descargar (Mega)',url:'#'},
+    {label:'Descargar (Mediafire)',url:'#'}
+  ],
+  shots:[]
+}
+];
+/* ===================== FIN DE LA CONFIGURACIÓN ===================== */
+
+const $=s=>document.querySelector(s),app=$('#app');
+let cat='Todas',query='';
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const stars=n=>'★'.repeat(Math.round(n))+'☆'.repeat(5-Math.round(n));
+const ico=a=>/[\/.]/.test(a.icon)?`<img src="${esc(a.icon)}" alt="">`:esc(a.icon);
+function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),2400)}
+
+const SVG={
+ tt:'<svg viewBox="0 0 24 24"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.4a7.39 7.39 0 0 0 4.3 1.38V7.72s-1.88.09-3.24-1.9z"/></svg>',
+ tg:'<svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>'
+};
+$('#soc').innerHTML=
+ (REDES.tiktok?`<a class="tt" href="${esc(REDES.tiktok)}" target="_blank" rel="noopener">${SVG.tt}TikTok</a>`:'')+
+ (REDES.telegram?`<a class="tg" href="${esc(REDES.telegram)}" target="_blank" rel="noopener">${SVG.tg}Telegram</a>`:'');
+
+function home(){
+  const cats=['Todas',...new Set(APPS.map(a=>a.cat))];
+  const list=APPS.filter(a=>(cat==='Todas'||a.cat===cat)&&(a.name+a.cat+a.desc).toLowerCase().includes(query.toLowerCase()));
+  app.innerHTML=`<div class="chips">${cats.map(c=>`<button class="chip${c===cat?' on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('')}</div>
+  <h2>${cat==='Todas'?'Recomendadas para ti':esc(cat)}</h2>
+  ${list.length?`<div class="grid">${list.map(a=>`<div class="card" data-id="${esc(a.id)}"><div class="ico">${ico(a)}</div><b>${esc(a.name)}</b><small>${esc(a.cat)}</small><small>${a.rating} ★</small></div>`).join('')}</div>`:'<p class="pill">No encontramos apps con esa búsqueda. Prueba con otra palabra.</p>'}`;
+  app.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{cat=b.dataset.c;home()});
+  app.querySelectorAll('.card').forEach(c=>c.onclick=()=>{location.hash=c.dataset.id});
+}
+
+function detail(a){
+  const key='rev:'+a.id,revs=store.get(key,[]);let pick=0;
+  const avg=(revs.reduce((x,r)=>x+r.s,0)+a.rating*5)/(revs.length+5);
+  const dls=(a.downloads||[]).map((d,i)=>`<a class="btn${i?' alt':''}" data-u="${esc(d.url)}" href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.label||'Descargar')}</a>`).join('');
+  app.innerHTML=`<button class="back" id="bk">‹ Volver</button>
+  <div class="top"><div class="ico">${ico(a)}</div><div><h1>${esc(a.name)}</h1><div class="dev">${esc(a.cat)}</div><div class="pill">Versión ${esc(a.version)}</div></div></div>
+  <div class="stats"><div><b>${avg.toFixed(1)} ★</b><small>${revs.length+5} reseñas</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b>${esc(a.version)}</b><small>Versión</small></div></div>
+  ${dls}
+  ${(a.shots&&a.shots.length)?`<h2>Capturas de pantalla</h2><div class="shots">${a.shots.map(s=>`<img src="${esc(s)}" alt="">`).join('')}</div>`:''}
+  <h2>Acerca de esta app</h2><p>${esc(a.desc)}</p>
+  <h2>Calificaciones y reseñas</h2>
+  <div class="pick" id="pk">${[1,2,3,4,5].map(i=>`<span data-s="${i}">★</span>`).join('')}</div>
+  <input class="in" id="nm" placeholder="Tu nombre" maxlength="30"><textarea class="in" id="tx" rows="3" placeholder="Cuenta tu experiencia" maxlength="300"></textarea>
+  <button class="btn" id="sv">Publicar reseña</button>
+  <div>${revs.length?revs.slice().reverse().map(r=>`<div class="rev"><b>${esc(r.n)}</b> <span class="stars">${stars(r.s)}</span><p>${esc(r.t)}</p></div>`).join(''):'<p class="pill">Aún no hay reseñas. Sé el primero en calificar.</p>'}</div>`;
+  $('#bk').onclick=()=>{location.hash=''};
+  app.querySelectorAll('[data-u]').forEach(b=>b.onclick=e=>{if(b.dataset.u==='#'||!b.dataset.u){e.preventDefault();toast('Aún no hay enlace de descarga')}});
+  $('#pk').onclick=e=>{const s=e.target.dataset.s;if(!s)return;pick=+s;[...$('#pk').children].forEach((x,i)=>x.classList.toggle('on',i<pick))};
+  $('#sv').onclick=()=>{const n=$('#nm').value.trim()||'Anónimo',t=$('#tx').value.trim();if(!pick){toast('Elige de 1 a 5 estrellas');return}revs.push({n,s:pick,t});store.set(key,revs);toast('Reseña publicada');detail(a)};
+}
+
+function gen(){
+  app.innerHTML=`<button class="back" id="bk">‹ Volver</button><h1>Agregar una app</h1>
+  <p class="pill">Llena los datos, copia el bloque y pégalo dentro de APPS en tu index.html.</p>
+  <input class="in" id="g1" placeholder="Nombre de la app">
+  <input class="in" id="g2" placeholder="Versión (ej. 1.0.0)">
+  <input class="in" id="g3" placeholder="Categoría (ej. Juegos)">
+  <input class="in" id="g4" placeholder="Icono: emoji o ruta de imagen (iconos/app.png)">
+  <input class="in" id="g5" placeholder="Tamaño (ej. 25 MB)">
+  <textarea class="in" id="g6" rows="3" placeholder="Descripción"></textarea>
+  <textarea class="in" id="g7" rows="3" placeholder="Enlaces de descarga, uno por línea:&#10;Descargar APK | https://...&#10;Descargar (Mega) | https://..."></textarea>
+  <button class="btn" id="gb">Crear bloque</button><pre id="go" hidden></pre><button class="btn alt" id="gc" hidden>Copiar</button>`;
+  $('#bk').onclick=()=>{location.hash=''};
+  $('#gb').onclick=()=>{
+    const v=i=>$('#g'+i).value.trim().replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    const id=($('#g1').value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''))||'app';
+    const dl=$('#g7').value.split('\n').map(l=>l.trim()).filter(Boolean).map(l=>{const p=l.split('|');const u=(p.pop()||'').trim(),t=(p.join('|')||'Descargar').trim();return `    {label:'${t.replace(/\\/g,'').replace(/'/g,"\\'")}',url:'${u.replace(/'/g,'%27')}'}`}).join(',\n');
+    const code=`{\n  id:'${id}',\n  name:'${v(1)}',\n  version:'${v(2)}',\n  cat:'${v(3)||'Apps'}',\n  icon:'${v(4)||'📱'}',\n  size:'${v(5)}',\n  rating:5,\n  desc:'${v(6).replace(/\n/g,' ')}',\n  downloads:[\n${dl}\n  ],\n  shots:[]\n},`;
+    $('#go').textContent=code;$('#go').hidden=false;$('#gc').hidden=false;
+  };
+  $('#gc').onclick=()=>{const t=$('#go').textContent;try{navigator.clipboard.writeText(t).then(()=>toast('Copiado'),()=>toast('Mantén presionado para copiar'))}catch(e){toast('Mantén presionado para copiar')}};
+}
+
+function route(){const id=location.hash.slice(1);if(id==='nueva'){gen();scrollTo(0,0);return}const a=APPS.find(x=>x.id===id);a?detail(a):home();scrollTo(0,0)}
+$('#q').oninput=e=>{query=e.target.value;if(location.hash)location.hash='';else home()};
+$('#logo').onclick=()=>{cat='Todas';location.hash=''};
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
