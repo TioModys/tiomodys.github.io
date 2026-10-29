@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mi Tienda de Apps</title>
 <style>
-:root{--bg:#fff;--surface:#f1f3f4;--text:#202124;--muted:#5f6368;--accent:#01875f;--accent-text:#fff;--line:#dadce0;--star:#f9ab00;color-scheme:light}
+:root{--bg:#fff;--surface:#f1f3f4;--text:#202124;--muted:#5f6368;--accent:#01875f;--accent-text:#fff;--line:#dadce0;color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131314;--surface:#1f2021;--text:#e8eaed;--muted:#9aa0a6;--accent:#34d399;--accent-text:#00281c;--line:#3c4043;color-scheme:dark}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 "Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -24,6 +24,7 @@ h2{font-size:20px;margin:20px 0 12px}
 .ico img{width:100%;height:100%;object-fit:cover}
 .card b{display:block;font-weight:500;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .card small{color:var(--muted);font-size:12px;display:block}
+.badge{display:inline-block;background:var(--accent);color:var(--accent-text);border-radius:6px;padding:1px 8px;font-size:11px;font-weight:600;margin-top:2px}
 .top{display:flex;gap:16px;align-items:center}
 .top .ico{width:96px;max-width:96px;font-size:44px;margin:0;flex:none}
 .top h1{margin:0;font-size:24px;line-height:1.2}
@@ -34,13 +35,13 @@ h2{font-size:20px;margin:20px 0 12px}
 .btn.alt{background:none;color:var(--accent);border:1px solid var(--accent)}
 .shots{display:flex;gap:10px;overflow-x:auto;padding:4px 0}
 .shots img{flex:none;height:270px;border-radius:12px}
-.stars{color:var(--star);letter-spacing:2px}
-.pick span{font-size:32px;cursor:pointer;color:var(--line);padding:0 2px}.pick span.on{color:var(--star)}
 .in{width:100%;background:var(--surface);border:0;border-radius:12px;padding:10px 14px;color:var(--text);font:inherit;margin:6px 0}
-.rev{border-top:1px solid var(--line);padding:12px 0}
 .back{background:none;border:0;color:var(--accent);font:inherit;cursor:pointer;padding:0 0 12px}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 18px;border-radius:8px;z-index:20;font-size:14px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 18px;border-radius:8px;z-index:20;font-size:14px;text-align:center;max-width:90%}
 .pill{color:var(--muted);font-size:13px}
+.row{display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.row .ico{width:48px;height:48px;font-size:24px;margin:0;flex:none;border-radius:12px}
+.rt{flex:1;min-width:0}.rt b,.rt small{display:block}.rt small{color:var(--muted);font-size:12px}
 footer{border-top:1px solid var(--line);padding:24px 16px;text-align:center}
 footer p{margin:0 0 12px;color:var(--muted);font-size:14px}
 .soc{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
@@ -48,74 +49,39 @@ footer p{margin:0 0 12px;color:var(--muted);font-size:14px}
 .soc svg{width:20px;height:20px;fill:#fff}
 .tt{background:#000;box-shadow:-2px -2px 0 #25f4ee,2px 2px 0 #fe2c55}
 .tg{background:#229ED9}
-pre{background:var(--surface);padding:12px;border-radius:12px;overflow-x:auto;font-size:13px;white-space:pre-wrap;word-break:break-all}
 </style>
 </head>
 <body>
 <header><div class="bar"><span class="logo" id="logo">▶ MiTienda</span><input class="search" id="q" type="search" placeholder="Buscar apps y juegos"></div></header>
-<main id="app"></main>
+<main id="app"><p class="pill">Cargando…</p></main>
 <footer><p>Síguenos para enterarte de nuevas apps</p><div class="soc" id="soc"></div></footer>
 
 <script>
-/* ==========================================================
-   1) TUS REDES SOCIALES  (deja '' para ocultar un botón)
-   ========================================================== */
+/* TUS REDES SOCIALES ('' para ocultar un botón) */
 const REDES={
-  tiktok:'https://www.tiktok.com/@tuusuario',
-  telegram:'https://t.me/tucanal'
+  tiktok:'https://www.tiktok.com/@tiomody',
+  telegram:'https://t.me/ModifyProXoficial'
 };
+/* Días que se muestra la etiqueta "Actualizado" / "Nuevo" */
+const DIAS_ETIQUETA=15;
 
-/* ==========================================================
-   2) TUS APPS
-   Para agregar una app: copia un bloque { ... }, pégalo debajo
-   del último (con una coma entre bloques) y cambia los datos.
-   Tip: abre tu página con #nueva al final del enlace y usa el
-   generador, que te escribe el bloque listo para pegar.
-
-   icon: un emoji (📷) o la ruta/enlace de una imagen (iconos/foto.png)
-   downloads: uno o varios botones de descarga
-   shots: capturas (opcional), enlaces o rutas de imágenes
-   ========================================================== */
-const APPS=[
-{
-  id:'fotoflow',
-  name:'FotoFlow',
-  version:'1.2.0',
-  cat:'Fotografía',
-  icon:'📷',
-  size:'18 MB',
-  rating:4.6,
-  desc:'Edita tus fotos con filtros, recortes y ajustes de luz en segundos.',
-  downloads:[
-    {label:'Descargar APK',url:'#'}
-  ],
-  shots:[]
-},
-{
-  id:'musicbox',
-  name:'MusicBox',
-  version:'3.4.0',
-  cat:'Música',
-  icon:'🎧',
-  size:'24 MB',
-  rating:4.8,
-  desc:'Reproductor de música con ecualizador y temporizador para dormir.',
-  downloads:[
-    {label:'Descargar (Mega)',url:'#'},
-    {label:'Descargar (Mediafire)',url:'#'}
-  ],
-  shots:[]
-}
-];
-/* ===================== FIN DE LA CONFIGURACIÓN ===================== */
+/* Las apps ya NO se editan aquí: se administran desde tu página
+   abriendo  tu-enlace/#admin  (se guardan en el archivo apps.json) */
 
 const $=s=>document.querySelector(s),app=$('#app');
-let cat='Todas',query='';
+let APPS=[],cat='Todas',query='';
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-const stars=n=>'★'.repeat(Math.round(n))+'☆'.repeat(5-Math.round(n));
-const ico=a=>/[\/.]/.test(a.icon)?`<img src="${esc(a.icon)}" alt="">`:esc(a.icon);
-function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),2400)}
+const ico=a=>/[\/.]/.test(a.icon||'')?`<img src="${esc(a.icon)}" alt="">`:esc(a.icon||'📱');
+function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),3200)}
+const hoy=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const pd=s=>{const[y,m,d]=String(s).split('-').map(Number);return new Date(y,m-1,d)};
+function badge(a){
+  if(!a.updated||!a.badge)return'';
+  const dias=Math.floor((new Date().setHours(0,0,0,0)-pd(a.updated).getTime())/864e5);
+  if(isNaN(dias)||dias>=DIAS_ETIQUETA)return'';
+  return `<span class="badge">${esc(a.badge)} · ${pd(a.updated).toLocaleDateString('es',{day:'numeric',month:'short',year:'numeric'})}</span>`;
+}
 
 const SVG={
  tt:'<svg viewBox="0 0 24 24"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.4a7.39 7.39 0 0 0 4.3 1.38V7.72s-1.88.09-3.24-1.9z"/></svg>',
@@ -125,63 +91,121 @@ $('#soc').innerHTML=
  (REDES.tiktok?`<a class="tt" href="${esc(REDES.tiktok)}" target="_blank" rel="noopener">${SVG.tt}TikTok</a>`:'')+
  (REDES.telegram?`<a class="tg" href="${esc(REDES.telegram)}" target="_blank" rel="noopener">${SVG.tg}Telegram</a>`:'');
 
+/* ---------- Tienda pública ---------- */
 function home(){
   const cats=['Todas',...new Set(APPS.map(a=>a.cat))];
-  const list=APPS.filter(a=>(cat==='Todas'||a.cat===cat)&&(a.name+a.cat+a.desc).toLowerCase().includes(query.toLowerCase()));
+  const list=APPS.filter(a=>(cat==='Todas'||a.cat===cat)&&((a.name||'')+(a.cat||'')+(a.desc||'')).toLowerCase().includes(query.toLowerCase()));
   app.innerHTML=`<div class="chips">${cats.map(c=>`<button class="chip${c===cat?' on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('')}</div>
   <h2>${cat==='Todas'?'Recomendadas para ti':esc(cat)}</h2>
-  ${list.length?`<div class="grid">${list.map(a=>`<div class="card" data-id="${esc(a.id)}"><div class="ico">${ico(a)}</div><b>${esc(a.name)}</b><small>${esc(a.cat)}</small><small>${a.rating} ★</small></div>`).join('')}</div>`:'<p class="pill">No encontramos apps con esa búsqueda. Prueba con otra palabra.</p>'}`;
+  ${list.length?`<div class="grid">${list.map(a=>`<div class="card" data-id="${esc(a.id)}"><div class="ico">${ico(a)}</div><b>${esc(a.name)}</b><small>${esc(a.cat)}</small><small>${esc(a.rating)} ★</small>${badge(a)}</div>`).join('')}</div>`:'<p class="pill">No hay apps para mostrar.</p>'}`;
   app.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{cat=b.dataset.c;home()});
   app.querySelectorAll('.card').forEach(c=>c.onclick=()=>{location.hash=c.dataset.id});
 }
-
 function detail(a){
-  const key='rev:'+a.id,revs=store.get(key,[]);let pick=0;
-  const avg=(revs.reduce((x,r)=>x+r.s,0)+a.rating*5)/(revs.length+5);
   const dls=(a.downloads||[]).map((d,i)=>`<a class="btn${i?' alt':''}" data-u="${esc(d.url)}" href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.label||'Descargar')}</a>`).join('');
   app.innerHTML=`<button class="back" id="bk">‹ Volver</button>
-  <div class="top"><div class="ico">${ico(a)}</div><div><h1>${esc(a.name)}</h1><div class="dev">${esc(a.cat)}</div><div class="pill">Versión ${esc(a.version)}</div></div></div>
-  <div class="stats"><div><b>${avg.toFixed(1)} ★</b><small>${revs.length+5} reseñas</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b>${esc(a.version)}</b><small>Versión</small></div></div>
+  <div class="top"><div class="ico">${ico(a)}</div><div><h1>${esc(a.name)}</h1><div class="dev">${esc(a.cat)}</div><div class="pill">Versión ${esc(a.version)}</div>${badge(a)}</div></div>
+  <div class="stats"><div><b>${esc(a.rating)} ★</b><small>Calificación</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b>${esc(a.version)}</b><small>Versión</small></div></div>
   ${dls}
   ${(a.shots&&a.shots.length)?`<h2>Capturas de pantalla</h2><div class="shots">${a.shots.map(s=>`<img src="${esc(s)}" alt="">`).join('')}</div>`:''}
   <h2>Acerca de esta app</h2><p>${esc(a.desc)}</p>
-  <h2>Calificaciones y reseñas</h2>
-  <div class="pick" id="pk">${[1,2,3,4,5].map(i=>`<span data-s="${i}">★</span>`).join('')}</div>
-  <input class="in" id="nm" placeholder="Tu nombre" maxlength="30"><textarea class="in" id="tx" rows="3" placeholder="Cuenta tu experiencia" maxlength="300"></textarea>
-  <button class="btn" id="sv">Publicar reseña</button>
-  <div>${revs.length?revs.slice().reverse().map(r=>`<div class="rev"><b>${esc(r.n)}</b> <span class="stars">${stars(r.s)}</span><p>${esc(r.t)}</p></div>`).join(''):'<p class="pill">Aún no hay reseñas. Sé el primero en calificar.</p>'}</div>`;
+  ${REDES.telegram?`<h2>¿Tienes dudas u opiniones?</h2><a class="btn alt" href="${esc(REDES.telegram)}" target="_blank" rel="noopener">Escríbenos en Telegram</a>`:''}`;
   $('#bk').onclick=()=>{location.hash=''};
   app.querySelectorAll('[data-u]').forEach(b=>b.onclick=e=>{if(b.dataset.u==='#'||!b.dataset.u){e.preventDefault();toast('Aún no hay enlace de descarga')}});
-  $('#pk').onclick=e=>{const s=e.target.dataset.s;if(!s)return;pick=+s;[...$('#pk').children].forEach((x,i)=>x.classList.toggle('on',i<pick))};
-  $('#sv').onclick=()=>{const n=$('#nm').value.trim()||'Anónimo',t=$('#tx').value.trim();if(!pick){toast('Elige de 1 a 5 estrellas');return}revs.push({n,s:pick,t});store.set(key,revs);toast('Reseña publicada');detail(a)};
 }
 
-function gen(){
-  app.innerHTML=`<button class="back" id="bk">‹ Volver</button><h1>Agregar una app</h1>
-  <p class="pill">Llena los datos, copia el bloque y pégalo dentro de APPS en tu index.html.</p>
-  <input class="in" id="g1" placeholder="Nombre de la app">
-  <input class="in" id="g2" placeholder="Versión (ej. 1.0.0)">
-  <input class="in" id="g3" placeholder="Categoría (ej. Juegos)">
-  <input class="in" id="g4" placeholder="Icono: emoji o ruta de imagen (iconos/app.png)">
-  <input class="in" id="g5" placeholder="Tamaño (ej. 25 MB)">
-  <textarea class="in" id="g6" rows="3" placeholder="Descripción"></textarea>
-  <textarea class="in" id="g7" rows="3" placeholder="Enlaces de descarga, uno por línea:&#10;Descargar APK | https://...&#10;Descargar (Mega) | https://..."></textarea>
-  <button class="btn" id="gb">Crear bloque</button><pre id="go" hidden></pre><button class="btn alt" id="gc" hidden>Copiar</button>`;
+/* ---------- Panel de administración (#admin) ---------- */
+let AD=null;
+const enc=s=>{let b='';new TextEncoder().encode(s).forEach(x=>b+=String.fromCharCode(x));return btoa(b)};
+const dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g,'')),c=>c.charCodeAt(0)));
+function guess(){const h=location.hostname;if(h.endsWith('.github.io')){const seg=location.pathname.split('/')[1];return{o:h.split('.')[0],r:(seg&&!seg.includes('.'))?seg:h}}return{o:'',r:''}}
+const gh=(c,method,body)=>fetch(`https://api.github.com/repos/${c.o}/${c.r}/contents/apps.json`,{method,headers:Object.assign({Authorization:'Bearer '+c.t,Accept:'application/vnd.github+json'},body?{'Content-Type':'application/json'}:{}),body:body?JSON.stringify(body):undefined});
+
+function adLogin(msg){
+  const g=Object.assign(guess(),store.get('adm',null)||{});
+  app.innerHTML=`<h1>Administrar</h1><p class="pill">${esc(msg||'Entra con tu token de GitHub. Se guarda solo en este teléfono.')}</p>
+  <input class="in" id="a1" placeholder="Usuario de GitHub" value="${esc(g.o)}">
+  <input class="in" id="a2" placeholder="Repositorio" value="${esc(g.r)}">
+  <input class="in" id="a3" type="password" placeholder="Token de GitHub" value="${esc(g.t||'')}">
+  <button class="btn" id="ab">Entrar</button>`;
+  $('#ab').onclick=()=>{const c={o:$('#a1').value.trim(),r:$('#a2').value.trim(),t:$('#a3').value.trim()};if(!c.o||!c.r||!c.t){toast('Completa los tres campos');return}store.set('adm',c);adLoad(c)};
+}
+async function adLoad(c){
+  app.innerHTML='<p class="pill">Conectando con GitHub…</p>';
+  try{
+    const r=await gh(c,'GET');
+    if(r.status===401||r.status===403){adLogin('El token no es válido o no tiene permiso para este repositorio.');return}
+    if(r.status===404){
+      const rr=await fetch(`https://api.github.com/repos/${c.o}/${c.r}`,{headers:{Authorization:'Bearer '+c.t}});
+      if(!rr.ok){adLogin('No encuentro ese repositorio. Revisa el usuario y el nombre.');return}
+      AD={c,sha:null,apps:[]};
+    }else if(r.ok){const j=await r.json();AD={c,sha:j.sha,apps:JSON.parse(dec(j.content)).apps||[]}}
+    else{adLogin('Error '+r.status);return}
+  }catch(e){adLogin('No se pudo conectar. Revisa tu internet.');return}
+  adList();
+}
+async function adSave(msg){
+  const body={message:msg,content:enc(JSON.stringify({apps:AD.apps},null,1))};if(AD.sha)body.sha=AD.sha;
+  try{
+    const r=await gh(AD.c,'PUT',body);
+    if(r.ok){const j=await r.json();AD.sha=j.content.sha;toast('Guardado. Se verá en la tienda en 1 a 3 minutos');return true}
+    toast(r.status===409||r.status===422?'Hubo un conflicto. Intenta de nuevo.':'No se pudo guardar (error '+r.status+')');
+  }catch(e){toast('Sin conexión')}
+  return false;
+}
+function adList(){
+  app.innerHTML=`<button class="back" id="bk">‹ Ver la tienda</button><h1>Administrar apps</h1>
+  <button class="btn" id="add">+ Agregar app</button>
+  ${AD.apps.length?AD.apps.map((a,i)=>`<div class="row"><div class="ico">${ico(a)}</div><div class="rt"><b>${esc(a.name)}</b><small>v${esc(a.version)} ${badge(a)}</small></div><button class="chip" data-e="${i}">Editar</button><button class="chip" data-d="${i}">Borrar</button></div>`).join(''):'<p class="pill">Aún no hay apps.</p>'}
+  <p><button class="chip" id="out">Cerrar sesión</button></p>`;
   $('#bk').onclick=()=>{location.hash=''};
-  $('#gb').onclick=()=>{
-    const v=i=>$('#g'+i).value.trim().replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-    const id=($('#g1').value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''))||'app';
-    const dl=$('#g7').value.split('\n').map(l=>l.trim()).filter(Boolean).map(l=>{const p=l.split('|');const u=(p.pop()||'').trim(),t=(p.join('|')||'Descargar').trim();return `    {label:'${t.replace(/\\/g,'').replace(/'/g,"\\'")}',url:'${u.replace(/'/g,'%27')}'}`}).join(',\n');
-    const code=`{\n  id:'${id}',\n  name:'${v(1)}',\n  version:'${v(2)}',\n  cat:'${v(3)||'Apps'}',\n  icon:'${v(4)||'📱'}',\n  size:'${v(5)}',\n  rating:5,\n  desc:'${v(6).replace(/\n/g,' ')}',\n  downloads:[\n${dl}\n  ],\n  shots:[]\n},`;
-    $('#go').textContent=code;$('#go').hidden=false;$('#gc').hidden=false;
+  $('#add').onclick=()=>adForm(-1);
+  $('#out').onclick=()=>{store.set('adm',null);AD=null;adLogin()};
+  app.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>adForm(+b.dataset.e));
+  app.querySelectorAll('[data-d]').forEach(b=>b.onclick=async()=>{
+    const i=+b.dataset.d;if(!confirm('¿Borrar '+AD.apps[i].name+'?'))return;
+    AD.apps.splice(i,1);(await adSave('Borrar app'))?adList():adLoad(AD.c);
+  });
+}
+function adForm(i){
+  const n=i<0,a=n?{name:'',version:'',cat:'',icon:'',size:'',rating:4.5,desc:'',downloads:[]}:AD.apps[i];
+  const links=(a.downloads||[]).map(d=>d.label+' | '+d.url).join('\n');
+  app.innerHTML=`<button class="back" id="bk">‹ Cancelar</button><h1>${n?'Agregar app':'Editar app'}</h1>
+  <input class="in" id="f1" placeholder="Nombre" value="${esc(a.name)}">
+  <input class="in" id="f2" placeholder="Versión (ej. 1.0.0)" value="${esc(a.version)}">
+  <input class="in" id="f3" placeholder="Categoría (ej. Juegos)" value="${esc(a.cat)}">
+  <input class="in" id="f4" placeholder="Icono: un emoji o el enlace de una imagen" value="${esc(a.icon)}">
+  <input class="in" id="f5" placeholder="Tamaño (ej. 25 MB)" value="${esc(a.size)}">
+  <input class="in" id="f8" placeholder="Calificación (ej. 4.5)" value="${esc(a.rating)}">
+  <textarea class="in" id="f6" rows="3" placeholder="Descripción">${esc(a.desc)}</textarea>
+  <textarea class="in" id="f7" rows="4" placeholder="Enlaces de descarga, uno por línea:&#10;Descargar APK | https://...&#10;Descargar (Mega) | https://...">${esc(links)}</textarea>
+  ${n?'':'<label class="pill"><input type="checkbox" id="f9"> Marcar como actualizada hoy (se marca sola si cambias la versión)</label>'}
+  <button class="btn" id="fs" style="margin-top:12px">Guardar</button>`;
+  $('#bk').onclick=adList;
+  $('#fs').onclick=async()=>{
+    const v=k=>$('#f'+k).value.trim(),name=v(1);
+    if(!name){toast('Escribe el nombre');return}
+    const downloads=v(7).split('\n').map(l=>l.trim()).filter(Boolean).map(l=>{const p=l.split('|');const url=p.pop().trim();return{label:p.join('|').trim()||'Descargar',url}});
+    let id=a.id;
+    if(!id){const base=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'app';id=base;let k=2;while(id==='admin'||AD.apps.some(x=>x.id===id))id=base+'-'+k++}
+    const o={id,name,version:v(2),cat:v(3)||'Apps',icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),downloads,shots:a.shots||[]};
+    if(n){o.updated=hoy();o.badge='Nuevo';AD.apps.unshift(o)}
+    else{o.updated=a.updated;o.badge=a.badge;if(o.version!==a.version||$('#f9').checked){o.updated=hoy();o.badge='Actualizado'}AD.apps[i]=o}
+    (await adSave((n?'Agregar ':'Editar ')+name))?adList():adLoad(AD.c);
   };
-  $('#gc').onclick=()=>{const t=$('#go').textContent;try{navigator.clipboard.writeText(t).then(()=>toast('Copiado'),()=>toast('Mantén presionado para copiar'))}catch(e){toast('Mantén presionado para copiar')}};
 }
 
-function route(){const id=location.hash.slice(1);if(id==='nueva'){gen();scrollTo(0,0);return}const a=APPS.find(x=>x.id===id);a?detail(a):home();scrollTo(0,0)}
+/* ---------- Rutas ---------- */
+function route(){
+  const id=location.hash.slice(1);
+  scrollTo(0,0);
+  if(id==='admin'){const s=store.get('adm',null);s&&s.t?adLoad(s):adLogin();return}
+  const a=APPS.find(x=>x.id===id);a?detail(a):home();
+}
 $('#q').oninput=e=>{query=e.target.value;if(location.hash)location.hash='';else home()};
 $('#logo').onclick=()=>{cat='Todas';location.hash=''};
-addEventListener('hashchange',route);route();
+addEventListener('hashchange',route);
+fetch('apps.json?v='+Date.now()).then(r=>r.json()).then(j=>{APPS=j.apps||[]}).catch(()=>{APPS=[]}).then(route);
 </script>
 </body>
 </html>

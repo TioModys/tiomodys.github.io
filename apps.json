@@ -1,0 +1,37 @@
+{
+ "apps": [
+  {
+   "id": "fotoflow",
+   "name": "FotoFlow",
+   "version": "1.2.0",
+   "cat": "Fotografía",
+   "icon": "📷",
+   "size": "18 MB",
+   "rating": 4.6,
+   "desc": "Edita tus fotos con filtros, recortes y ajustes de luz en segundos.",
+   "downloads": [
+    { "label": "Descargar APK", "url": "#" }
+   ],
+   "shots": [],
+   "updated": "2026-10-29",
+   "badge": "Nuevo"
+  },
+  {
+   "id": "musicbox",
+   "name": "MusicBox",
+   "version": "3.4.0",
+   "cat": "Música",
+   "icon": "🎧",
+   "size": "24 MB",
+   "rating": 4.8,
+   "desc": "Reproductor de música con ecualizador y temporizador para dormir.",
+   "downloads": [
+    { "label": "Descargar (Mega)", "url": "#" },
+    { "label": "Descargar (Mediafire)", "url": "#" }
+   ],
+   "shots": [],
+   "updated": "2026-10-29",
+   "badge": "Actualizado"
+  }
+ ]
+}
