@@ -38,8 +38,22 @@ h2{font-size:20px;margin:20px 0 12px}
 .stats div{flex:1}.stats b{display:block}.stats small{color:var(--muted)}
 .btn{background:var(--accent);color:var(--accent-text);border:0;border-radius:24px;padding:12px;font:inherit;font-weight:600;width:100%;cursor:pointer;display:block;text-align:center;text-decoration:none;margin-bottom:10px}
 .btn.alt{background:none;color:var(--accent);border:1px solid var(--accent)}
-.shots{display:flex;gap:10px;overflow-x:auto;padding:4px 0}
-.shots img{flex:none;height:270px;border-radius:12px}
+.car{position:relative;margin:18px 0;border-radius:14px;overflow:hidden;background:var(--surface)}
+.cs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.cs::-webkit-scrollbar{display:none}
+.cs img{flex:0 0 100%;width:100%;height:min(60vh,420px);object-fit:contain;scroll-snap-align:center}
+.cn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);color:#fff;border:0;width:36px;height:36px;border-radius:50%;font-size:22px;cursor:pointer}
+.cn.p{left:8px}.cn.n{right:8px}
+.dots{position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55)}.dots i.on{background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.3)}
+.thumbs{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 10px}
+.thumb{position:relative;width:72px;height:72px}.thumb img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+.thumb b{position:absolute;top:-6px;right:-6px;background:#d93025;color:#fff;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:12px;cursor:pointer}
+.dlmask{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:30;display:grid;place-items:center;padding:20px}
+.dlbox{background:var(--bg);border-radius:16px;padding:22px;width:100%;max-width:380px;text-align:center}
+.dlbar{height:14px;border-radius:8px;background:var(--surface);overflow:hidden;margin:16px 0 8px}
+.dlfill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00);background-size:200% 100%;animation:rgb .9s linear infinite;transition:width 5s linear;box-shadow:0 0 10px rgba(255,0,255,.6)}
+@keyframes rgb{to{background-position:200% 0}}
 .in{width:100%;background:var(--surface);border:0;border-radius:12px;padding:10px 14px;color:var(--text);font:inherit;margin:6px 0}
 .back{background:none;border:0;color:var(--accent);font:inherit;cursor:pointer;padding:0 0 12px}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 18px;border-radius:8px;z-index:20;font-size:14px;text-align:center;max-width:90%}
@@ -104,7 +118,23 @@ const CATS={
 };
 const RES=['admin','apps','juegos','apps-top','juegos-top'];
 const tipo=a=>a.type||(CATS.juego.includes(a.cat)?'juego':'app');
-const dlTxt=n=>{n=+n||0;if(!n)return'—';if(n>=1e6)return (n/1e6).toFixed(1).replace('.0','')+' M+';if(n>=1e3)return Math.floor(n/1e3)+' mil+';return n+'+'};
+const fmtV=n=>{n=+n||0;if(n>=1e6)return (n/1e6).toFixed(1).replace('.0','')+' M';if(n>=1e3)return (n/1e3).toFixed(1).replace('.0','')+' mil';return String(n)};
+/* Contador de visitas compartido (servicio gratuito Abacus) */
+const NS=('tiomody-'+location.hostname).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-+$/,'');
+const CNT='https://abacus.jasoncameron.dev';
+let VIS={};
+const conTiempo=(p,ms)=>Promise.race([p,new Promise((_,no)=>setTimeout(no,ms))]);
+async function contar(id,sumar){
+  try{
+    const r=await conTiempo(fetch(`${CNT}/${sumar?'hit':'get'}/${NS}/${encodeURIComponent(id)}`),7000);
+    if(r.status===404)return 0;
+    if(!r.ok)return null;
+    const j=await r.json();return +j.value||0;
+  }catch(e){return null}
+}
+async function cargarVisitas(){
+  await Promise.all(APPS.map(async a=>{const n=await contar(a.id,false);if(n!==null)VIS[a.id]=n}));
+}
 const cardH=a=>`<div class="card" data-id="${esc(a.id)}"><div class="ico">${ico(a)}</div><b>${esc(a.name)}</b><small>${esc(a.cat)}</small><small>${esc(a.rating)} ★</small>${badge(a)}</div>`;
 function bindCards(){
   app.querySelectorAll('.card').forEach(c=>c.onclick=()=>{location.hash=c.dataset.id});
@@ -114,7 +144,7 @@ function section(title,list,go){
   if(!list.length)return'';
   return `<div class="rowh"><h2>${esc(title)}</h2><button class="chip" data-go="${go}">Más</button></div><div class="hs">${list.slice(0,10).map(cardH).join('')}</div>`;
 }
-const masPop=t=>APPS.filter(a=>tipo(a)===t).sort((x,y)=>(+y.dl||0)-(+x.dl||0));
+const masPop=t=>APPS.filter(a=>tipo(a)===t).sort((x,y)=>(VIS[y.id]||0)-(VIS[x.id]||0));
 const recent=t=>APPS.filter(a=>tipo(a)===t);
 function home(){
   if(query.trim()){
@@ -138,17 +168,34 @@ function listView(id){
   app.querySelectorAll('.chip[data-c]').forEach(b=>b.onclick=()=>{cat=b.dataset.c;listView(id)});
   bindCards();
 }
+function descargar(url){
+  const m=document.createElement('div');m.className='dlmask';
+  m.innerHTML='<div class="dlbox"><b>Preparando tu descarga…</b><div class="dlbar"><div class="dlfill" id="dlf"></div></div><p class="pill" id="dlt">5 s</p><button class="chip" id="dlc">Cancelar</button></div>';
+  document.body.appendChild(m);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{const f=$('#dlf');if(f)f.style.width='100%'}));
+  let s=5;const iv=setInterval(()=>{s--;const t=$('#dlt');if(t&&s>0)t.textContent=s+' s'},1000);
+  const tm=setTimeout(()=>{clearInterval(iv);const t=$('#dlt');if(t)t.textContent='Abriendo…';location.href=url;setTimeout(()=>m.remove(),1500)},5000);
+  $('#dlc').onclick=()=>{clearTimeout(tm);clearInterval(iv);m.remove()};
+}
 function detail(a){
   const dls=(a.downloads||[]).map((d,i)=>`<a class="btn${i?' alt':''}" data-u="${esc(fixUrl(d.url))}" href="${esc(fixUrl(d.url))}" target="_blank" rel="noopener">${esc(d.label||'Descargar')}</a>`).join('');
   app.innerHTML=`<button class="back" id="bk">‹ Volver</button>
   <div class="top"><div class="ico">${ico(a)}</div><div><h1>${esc(a.name)}</h1><div class="dev">${esc(a.cat)}</div><div class="pill">Versión ${esc(a.version)}</div>${badge(a)}</div></div>
-  <div class="stats"><div><b>${esc(a.rating)} ★</b><small>Calificación</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b>${dlTxt(a.dl)}</b><small>Descargas</small></div></div>
+  <div class="stats"><div><b>${esc(a.rating)} ★</b><small>Calificación</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b id="vv">${VIS[a.id]==null?'…':fmtV(VIS[a.id])}</b><small>Visitas</small></div></div>
   ${dls}
-  ${(a.shots&&a.shots.length)?`<h2>Capturas de pantalla</h2><div class="shots">${a.shots.map(s=>`<img src="${esc(s)}" alt="">`).join('')}</div>`:''}
+  ${(a.shots&&a.shots.length)?`<div class="car"><div class="cs" id="cs">${a.shots.map(s=>`<img src="${esc(s)}" alt="">`).join('')}</div>${a.shots.length>1?`<button class="cn p" id="cp">‹</button><button class="cn n" id="cx">›</button><div class="dots" id="cd">${a.shots.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`:''}</div>`:''}
   <h2>Acerca de esta app</h2><p>${esc(a.desc)}</p>
   ${REDES.telegram?`<h2>¿Tienes dudas u opiniones?</h2><a class="btn alt" href="${esc(REDES.telegram)}" target="_blank" rel="noopener">Escríbenos en Telegram</a>`:''}`;
   $('#bk').onclick=()=>{location.hash=''};
-  app.querySelectorAll('[data-u]').forEach(b=>b.onclick=e=>{if(b.dataset.u==='#'||!b.dataset.u){e.preventDefault();toast('Aún no hay enlace de descarga')}});
+  app.querySelectorAll('[data-u]').forEach(b=>b.onclick=e=>{e.preventDefault();if(b.dataset.u==='#'||!b.dataset.u){toast('Aún no hay enlace de descarga');return}descargar(b.dataset.u)});
+  const cs=$('#cs');
+  if(cs&&$('#cp')){
+    const go=d=>cs.scrollBy({left:d*cs.clientWidth,behavior:'smooth'});
+    $('#cp').onclick=()=>go(-1);$('#cx').onclick=()=>go(1);
+    cs.onscroll=()=>{const k=Math.round(cs.scrollLeft/cs.clientWidth);$('#cd').querySelectorAll('i').forEach((d,j)=>d.classList.toggle('on',j===k))};
+  }
+  const key='vis:'+a.id,ya=store.get(key,null)===hoy();
+  contar(a.id,!ya).then(n=>{if(n===null)return;if(!ya)store.set(key,hoy());VIS[a.id]=n;const e=$('#vv');if(e)e.textContent=fmtV(n)});
 }
 
 /* ---------- Panel de administración (#admin) ---------- */
@@ -158,6 +205,10 @@ const dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g,'')),
 function guess(){const h=location.hostname;if(h.endsWith('.github.io')){const seg=location.pathname.split('/')[1];return{o:h.split('.')[0],r:(seg&&!seg.includes('.'))?seg:h}}return{o:'',r:''}}
 const gh=(c,method,body)=>fetch(`https://api.github.com/repos/${c.o}/${c.r}/contents/apps.json`,{method,headers:Object.assign({Authorization:'Bearer '+c.t,Accept:'application/vnd.github+json'},body?{'Content-Type':'application/json'}:{}),body:body?JSON.stringify(body):undefined});
 
+function comprimir(file){return new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,1280/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.82))};im.onerror=no;im.src=r.result};r.onerror=no;r.readAsDataURL(file)})}
+async function subirImg(c,path,dataUrl){
+  try{const r=await fetch(`https://api.github.com/repos/${c.o}/${c.r}/contents/${path}`,{method:'PUT',headers:{Authorization:'Bearer '+c.t,Accept:'application/vnd.github+json','Content-Type':'application/json'},body:JSON.stringify({message:'Agregar imagen',content:dataUrl.split(',')[1]})});return r.ok}catch(e){return false}
+}
 function adLogin(msg){
   const g=Object.assign(guess(),store.get('adm',null)||{});
   app.innerHTML=`<h1>Administrar</h1><p class="pill">${esc(msg||'Entra con tu token de GitHub. Se guarda solo en este teléfono.')}</p>
@@ -216,20 +267,36 @@ function adForm(i){
   <input class="in" id="f4" placeholder="Icono: un emoji o el enlace de una imagen" value="${esc(a.icon)}">
   <input class="in" id="f5" placeholder="Tamaño (ej. 25 MB)" value="${esc(a.size)}">
   <input class="in" id="f8" placeholder="Calificación (ej. 4.5)" value="${esc(a.rating)}">
-  <input class="in" id="f10" type="number" min="0" placeholder="Descargas aproximadas (ej. 15000), sirve para ordenar los más populares" value="${a.dl||''}">
   <textarea class="in" id="f6" rows="3" placeholder="Descripción">${esc(a.desc)}</textarea>
   <textarea class="in" id="f7" rows="4" placeholder="Enlaces de descarga, uno por línea:&#10;Descargar APK | https://...&#10;Descargar (Mega) | https://...">${esc(links)}</textarea>
+  <label class="pill">Imágenes del carrusel (opcional)</label>
+  <div class="thumbs" id="th"></div>
+  <input type="file" id="fi" accept="image/*" multiple hidden>
+  <button class="btn alt" id="fa" type="button">+ Agregar imágenes</button>
   ${n?'':'<label class="pill"><input type="checkbox" id="f9"> Marcar como actualizada hoy (se marca sola si cambias la versión)</label>'}
   <button class="btn" id="fs" style="margin-top:12px">Guardar</button>`;
   $('#bk').onclick=adList;
   $('#f0').onchange=()=>{$('#f3').innerHTML=opts($('#f0').value,'')};
+  let imgs=(a.shots||[]).map(src=>({src,nuevo:false}));
+  const rt=()=>{$('#th').innerHTML=imgs.map((m,k)=>`<div class="thumb"><img src="${esc(m.src)}" alt=""><b data-x="${k}">✕</b></div>`).join('');$('#th').querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>{imgs.splice(+b.dataset.x,1);rt()})};rt();
+  $('#fa').onclick=()=>$('#fi').click();
+  $('#fi').onchange=async e=>{for(const f of e.target.files){try{imgs.push({src:await comprimir(f),nuevo:true})}catch(x){toast('No pude leer una imagen')}}e.target.value='';rt()};
   $('#fs').onclick=async()=>{
     const v=k=>$('#f'+k).value.trim(),name=v(1);
     if(!name){toast('Escribe el nombre');return}
     const downloads=v(7).split('\n').map(l=>l.trim()).filter(Boolean).map(l=>{const p=l.split('|');const url=p.pop().trim();return{label:p.join('|').trim()||'Descargar',url:fixUrl(url)}});
     let id=a.id;
     if(!id){const base=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'app';id=base;let k=2;while(RES.includes(id)||AD.apps.some(x=>x.id===id))id=base+'-'+k++}
-    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,dl:parseInt(v(10))||0,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),downloads,shots:a.shots||[]};
+    const btn=$('#fs');btn.disabled=true;btn.textContent='Guardando…';
+    const shots=[];let q=0;
+    for(const m of imgs){
+      if(!m.nuevo){shots.push(m.src);continue}
+      toast('Subiendo imágenes…');
+      const path='img/'+id+'-'+Date.now()+'-'+(q++)+'.jpg';
+      if(await subirImg(AD.c,path,m.src))shots.push(path);
+      else{toast('No se pudo subir una imagen. Intenta de nuevo.');btn.disabled=false;btn.textContent='Guardar';return}
+    }
+    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),downloads,shots};
     if(n){o.updated=hoy();o.badge='Nuevo';AD.apps.unshift(o)}
     else{o.updated=a.updated;o.badge=a.badge;if(o.version!==a.version||$('#f9').checked){o.updated=hoy();o.badge='Actualizado'}AD.apps[i]=o}
     (await adSave((n?'Agregar ':'Editar ')+name))?adList():adLoad(AD.c);
@@ -247,7 +314,10 @@ function route(){
 $('#q').oninput=e=>{query=e.target.value;if(location.hash)location.hash='';else home()};
 $('#logo').onclick=()=>{cat='Todas';location.hash=''};
 addEventListener('hashchange',route);
-fetch('apps.json?v='+Date.now()).then(r=>r.json()).then(j=>{APPS=j.apps||[]}).catch(()=>{APPS=[]}).then(route);
+fetch('apps.json?v='+Date.now()).then(r=>r.json()).then(j=>{APPS=j.apps||[]}).catch(()=>{APPS=[]}).then(route).then(()=>cargarVisitas()).then(()=>{
+  const id=location.hash.slice(1);
+  if(!id)home();else if(['apps-top','juegos-top'].includes(id))listView(id);
+});
 </script>
 </body>
 </html>
