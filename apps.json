@@ -1,6 +1,27 @@
 {
  "apps": [
   {
+   "id": "poppy-playtime-chapter-5",
+   "name": "Poppy Playtime - Chapter 5",
+   "version": "0.9.5",
+   "type": "juego",
+   "cat": "Casual",
+   "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAdXg_fwOyxAcdG7a1AZWZkuRa15AV4Qy1eA32lUN71Q&s=10",
+   "size": "",
+   "rating": 4.7,
+   "desc": "Si ya vienes siguiendo la historia de la fábrica abandonada, sabes que cada capítulo sube la intensidad.",
+   "downloads": [
+    {
+     "label": "Descarga APK",
+     "url": "https://shortxlinks.in/aJaezZ"
+    }
+   ],
+   "play": "",
+   "shots": [],
+   "updated": "2026-10-30",
+   "badge": "Nuevo"
+  },
+  {
    "id": "mortal-kombat-9-komplete-edition",
    "name": "Mortal Kombat 9: Komplete Edition",
    "version": "0.6.0",
