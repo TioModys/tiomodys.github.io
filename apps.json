@@ -1,6 +1,27 @@
 {
  "apps": [
   {
+   "id": "onefootball-pro",
+   "name": "OneFootball Pro",
+   "version": "15.147.0",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://img.utdstc.com/icon/fd6/31f/fd631ff2080355e0cc3ead9d3eb864fcabac02d4b4c7f9c218d0503a526fa97b:600",
+   "size": "134.12",
+   "rating": 4.8,
+   "desc": "Sigue la Copa Libertadores, Sudamericana, la tabla y el mercado de fichajes.\n\n🏆 LIBERTADORES Y SUDAMERICANA: ¡SE JUEGA LA VIDA!\n- ¡Minuto a minuto! Seguí todos los cruces, goles y el cuadro de la fase final de la CONMEBOL Libertadores en tiempo real.\n- La mística de la Copa: No te pierdas ni un detalle del camino de los equipos hacia la Gloria Eterna en esta Copa Libertadores.\n- Cuidado con las sorpresas: Los resultados, estadísticas y esos equipos que vienen dando el golpe en la CONMEBOL Sudamericana.\n- Toda la data: Noticias de último momento, videos y lo mejor de cada fecha de la Copa Sudamericana e información clave de la Libertadores.\n\n🏆 TODOS LOS EQUIPOS Y COMPETENCIAS\nFÚTBOL LATINOAMERICANO: Liga Argentina, Primera A de Colombia, Primera División de Chile, Perú Liga 1, Liga Pro de Ecuador, Copa Libertadores, Copa Sudamericana y más\nFÚTBOL EUROPEO: Serie A, La Liga, Premier League, Bundesliga, Eredivisie, Champions League, Europa League\nFÚTBOL INTERNACIONAL: MLS, Copa del Mundo",
+   "downloads": [
+    {
+     "label": "Descarga APK",
+     "url": "https://1024terabox.com/s/1VZQM4oNap7z3KEgWW54nzg"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=de.motain.iliga",
+   "shots": [],
+   "updated": "2026-10-29",
+   "badge": "Nuevo"
+  },
+  {
    "id": "snaptube-pro",
    "name": "Snaptube Pro",
    "version": "7.68.1.76",
