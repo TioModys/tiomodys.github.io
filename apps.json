@@ -1,6 +1,27 @@
 {
  "apps": [
   {
+   "id": "adguard-pro",
+   "name": "AdGuard Pro",
+   "version": "4.15.1",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/71/51/cd/7151cd02-32e4-551b-4f95-a00bb33f457e/ProAppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/1920x1080ia-80.png",
+   "size": "77.95 MB",
+   "rating": 4.4,
+   "desc": "Bloqueo de anuncios ligero y protección DNS sin configuraciones complejas\n\nBloquea anuncios, rastreadores y ventanas emergentes intrusivas en Android. Disfruta de protección en el navegador Samsung Internet y Yandex Browser, además de filtrado DNS en todo el dispositivo. Navega con más privacidad, rapidez y menos anuncios con solo unos toques.",
+   "downloads": [
+    {
+     "label": "Descarga APK",
+     "url": "https://1024terabox.com/s/1fSIvbNjKUVqxO6zspGGSUQ"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=sansunsen3.imagesearcher",
+   "shots": [],
+   "updated": "2026-10-29",
+   "badge": "Nuevo"
+  },
+  {
    "id": "image-search-man-pro",
    "name": "Image Search Man Pro",
    "version": "3.73",
