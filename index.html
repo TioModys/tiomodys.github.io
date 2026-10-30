@@ -26,6 +26,9 @@ h2{font-size:20px;margin:20px 0 12px}
 .card b{display:block;font-weight:500;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .card small{color:var(--muted);font-size:12px;display:block}
 .badge{display:inline-block;background:var(--accent);color:var(--accent-text);border-radius:6px;padding:1px 8px;font-size:11px;font-weight:600;margin-top:2px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px}
+.play{display:inline-flex;align-items:center;gap:6px;padding:3px 12px 3px 8px;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--text);text-decoration:none;font-size:13px;font-weight:600}
+.play svg{width:16px;height:16px}
 .rowh{display:flex;justify-content:space-between;align-items:center;margin:22px 0 10px}
 .rowh h2{margin:0}
 .hs{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px}
@@ -51,8 +54,8 @@ h2{font-size:20px;margin:20px 0 12px}
 .thumb b{position:absolute;top:-6px;right:-6px;background:#d93025;color:#fff;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:12px;cursor:pointer}
 .dlmask{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:30;display:grid;place-items:center;padding:20px}
 .dlbox{background:var(--bg);border-radius:16px;padding:22px;width:100%;max-width:380px;text-align:center}
-.dlbar{height:14px;border-radius:8px;background:var(--surface);overflow:hidden;margin:16px 0 8px}
-.dlfill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00);background-size:200% 100%;animation:rgb .9s linear infinite;transition:width 5s linear;box-shadow:0 0 10px rgba(255,0,255,.6)}
+.dlbar{height:14px;border-radius:8px;background:var(--surface);overflow:hidden;margin:16px 0 8px;border:1px solid #00c853}
+.dlfill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,#00c853,#ffffff,#00c853,#ffffff,#00c853);background-size:200% 100%;animation:rgb 1.2s linear infinite;transition:width 5s linear;box-shadow:0 0 10px rgba(0,200,83,.6)}
 @keyframes rgb{to{background-position:200% 0}}
 .in{width:100%;background:var(--surface);border:0;border-radius:12px;padding:10px 14px;color:var(--text);font:inherit;margin:6px 0}
 .back{background:none;border:0;color:var(--accent);font:inherit;cursor:pointer;padding:0 0 12px}
@@ -177,10 +180,12 @@ function descargar(url){
   const tm=setTimeout(()=>{clearInterval(iv);const t=$('#dlt');if(t)t.textContent='Abriendo…';location.href=url;setTimeout(()=>m.remove(),1500)},5000);
   $('#dlc').onclick=()=>{clearTimeout(tm);clearInterval(iv);m.remove()};
 }
+const PLAYSVG='<svg viewBox="0 0 24 24"><path fill="#00A0FF" d="M3.5 2.2L13.3 12 3.5 21.8z"/><path fill="#00F076" d="M3.5 2.2L16.6 9.6 13.3 12z"/><path fill="#FFD500" d="M16.6 9.6L21 12l-4.4 2.4L13.3 12z"/><path fill="#FF3A44" d="M3.5 21.8L16.6 14.4 13.3 12z"/></svg>';
+const playBtn=a=>a.play?`<a class="play" href="${esc(fixUrl(a.play))}" target="_blank" rel="noopener">${PLAYSVG}Play Store</a>`:'';
 function detail(a){
   const dls=(a.downloads||[]).map((d,i)=>`<a class="btn${i?' alt':''}" data-u="${esc(fixUrl(d.url))}" href="${esc(fixUrl(d.url))}" target="_blank" rel="noopener">${esc(d.label||'Descargar')}</a>`).join('');
   app.innerHTML=`<button class="back" id="bk">‹ Volver</button>
-  <div class="top"><div class="ico">${ico(a)}</div><div><h1>${esc(a.name)}</h1><div class="dev">${esc(a.cat)}</div><div class="pill">Versión ${esc(a.version)}</div>${badge(a)}</div></div>
+  <div class="top"><div class="ico">${ico(a)}</div><div><h1>${esc(a.name)}</h1><div class="dev">${esc(a.cat)}</div><div class="pill">Versión ${esc(a.version)}</div><div class="meta">${badge(a)}${playBtn(a)}</div></div></div>
   <div class="stats"><div><b>${esc(a.rating)} ★</b><small>Calificación</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b id="vv">${VIS[a.id]==null?'…':fmtV(VIS[a.id])}</b><small>Visitas</small></div></div>
   ${dls}
   ${(a.shots&&a.shots.length)?`<div class="car"><div class="cs" id="cs">${a.shots.map(s=>`<img src="${esc(s)}" alt="">`).join('')}</div>${a.shots.length>1?`<button class="cn p" id="cp">‹</button><button class="cn n" id="cx">›</button><div class="dots" id="cd">${a.shots.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`:''}</div>`:''}
@@ -269,6 +274,8 @@ function adForm(i){
   <input class="in" id="f8" placeholder="Calificación (ej. 4.5)" value="${esc(a.rating)}">
   <textarea class="in" id="f6" rows="3" placeholder="Descripción">${esc(a.desc)}</textarea>
   <textarea class="in" id="f7" rows="4" placeholder="Enlaces de descarga, uno por línea:&#10;Descargar APK | https://...&#10;Descargar (Mega) | https://...">${esc(links)}</textarea>
+  <label class="pill">Enlace de Play Store (opcional)</label>
+  <input class="in" id="f11" placeholder="https://play.google.com/store/apps/details?id=..." value="${esc(a.play||'')}">
   <label class="pill">Imágenes del carrusel (opcional)</label>
   <div class="thumbs" id="th"></div>
   <input type="file" id="fi" accept="image/*" multiple hidden>
@@ -296,7 +303,7 @@ function adForm(i){
       if(await subirImg(AD.c,path,m.src))shots.push(path);
       else{toast('No se pudo subir una imagen. Intenta de nuevo.');btn.disabled=false;btn.textContent='Guardar';return}
     }
-    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),downloads,shots};
+    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),downloads,play:fixUrl(v(11)),shots};
     if(n){o.updated=hoy();o.badge='Nuevo';AD.apps.unshift(o)}
     else{o.updated=a.updated;o.badge=a.badge;if(o.version!==a.version||$('#f9').checked){o.updated=hoy();o.badge='Actualizado'}AD.apps[i]=o}
     (await adSave((n?'Agregar ':'Editar ')+name))?adList():adLoad(AD.c);
