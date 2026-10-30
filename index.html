@@ -64,6 +64,13 @@ h2{font-size:20px;margin:20px 0 12px}
 .sw i{position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:var(--accent);transition:left .25s;z-index:0}
 .sw.dark i{left:37px}
 .wm{margin-top:auto;padding-top:24px;text-align:center;color:var(--muted);font-size:12px;opacity:.85}
+.ico{position:relative}
+.badge.new{background:var(--accent);color:var(--accent-text)}
+.badge.upd{background:#1a73e8;color:#fff}
+.mod{position:absolute;top:4px;right:4px;background:#fff;color:#000;font-weight:800;font-size:10px;line-height:1.3;padding:1px 5px;border-radius:5px;box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.row .ico .mod{font-size:7px;padding:0 3px;top:2px;right:2px}
+.btn.done{background:#fff;color:#202124;box-shadow:inset 0 0 0 1px #cfd3d8}
+.desc{white-space:pre-wrap;overflow-wrap:anywhere;margin:0 0 8px}
 .top{display:flex;gap:16px;align-items:center}
 .top .ico{width:96px;max-width:96px;font-size:44px;margin:0;flex:none}
 .top h1{margin:0;font-size:24px;line-height:1.2}
@@ -116,8 +123,7 @@ const REDES={
   telegram:'https://t.me/ModifyProXoficial',
   chat:'https://t.me/Modifyproxchat'
 };
-/* Días que se muestra la etiqueta "Actualizado" / "Nuevo" */
-const DIAS_ETIQUETA=15;
+/* Duración de las etiquetas: "Nuevo" 24 horas, "Actualizado" 5 días (ver función badge) */
 
 /* Las apps ya NO se editan aquí: se administran desde tu página
    abriendo  tu-enlace/#admin  (se guardan en el archivo apps.json) */
@@ -127,15 +133,16 @@ let APPS=[],cat='Todas',query='';
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const fixUrl=u=>{u=String(u||'').trim();return(!u||u==='#'||/^[a-z][a-z0-9+.-]*:/i.test(u))?u:'https://'+u.replace(/^\/+/,'')};
-const ico=a=>/[\/.]/.test(a.icon||'')?`<img src="${esc(a.icon)}" alt="">`:esc(a.icon||'📱');
+const ico=a=>(/[\/.]/.test(a.icon||'')?`<img src="${esc(a.icon)}" alt="">`:esc(a.icon||'📱'))+(a.mod?'<span class="mod">MOD</span>':'');
 function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),3200)}
 const hoy=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const pd=s=>{const[y,m,d]=String(s).split('-').map(Number);return new Date(y,m-1,d)};
 function badge(a){
-  if(!a.updated||!a.badge)return'';
-  const dias=Math.floor((new Date().setHours(0,0,0,0)-pd(a.updated).getTime())/864e5);
-  if(isNaN(dias)||dias>=DIAS_ETIQUETA)return'';
-  return `<span class="badge">${esc(a.badge)} · ${pd(a.updated).toLocaleDateString('es',{day:'numeric',month:'short',year:'numeric'})}</span>`;
+  if(!a.badge)return'';
+  const nuevo=a.badge==='Nuevo',dur=nuevo?864e5:5*864e5;
+  const t0=a.ts||(a.updated?pd(a.updated).getTime():NaN);
+  if(isNaN(t0)||Date.now()-t0>=dur)return'';
+  return `<span class="badge ${nuevo?'new':'upd'}">${esc(a.badge)} · ${new Date(t0).toLocaleDateString('es',{day:'numeric',month:'short',year:'numeric'})}</span>`;
 }
 
 const SVG={
@@ -222,16 +229,26 @@ function catView(t,k){
 const PLAYSVG='<svg viewBox="0 0 24 24"><path fill="#00A0FF" d="M3.5 2.2L13.3 12 3.5 21.8z"/><path fill="#00F076" d="M3.5 2.2L16.6 9.6 13.3 12z"/><path fill="#FFD500" d="M16.6 9.6L21 12l-4.4 2.4L13.3 12z"/><path fill="#FF3A44" d="M3.5 21.8L16.6 14.4 13.3 12z"/></svg>';
 const playBtn=a=>a.play?`<a class="play" href="${esc(fixUrl(a.play))}" target="_blank" rel="noopener">${PLAYSVG}Play Store</a>`:'';
 function detail(a){
-  const dls=(a.downloads||[]).map((d,i)=>`<a class="btn${i?' alt':''}" data-u="${esc(fixUrl(d.url))}" href="${esc(fixUrl(d.url))}" target="_blank" rel="noopener">${esc(d.label||'Descargar')}</a>`).join('');
+  const dls=(a.downloads||[]).map((d,i)=>`<a class="btn" data-u="${esc(fixUrl(d.url))}" href="${esc(fixUrl(d.url))}" target="_blank" rel="noopener">${esc(d.label||'Descargar')}</a>`).join('');
   app.innerHTML=`<button class="back" id="bk">‹ Volver</button>
   <div class="top"><div class="ico">${ico(a)}</div><div><h1>${esc(a.name)}</h1><div class="dev">${esc(a.cat)}</div><div class="pill">Versión ${esc(a.version)}</div><div class="meta">${badge(a)}${playBtn(a)}</div></div></div>
   <div class="stats"><div><b>${esc(a.rating)} ★</b><small>Calificación</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b id="vv">${VIS[a.id]==null?'…':fmtV(VIS[a.id])}</b><small>Visitas</small></div></div>
   ${dls}
   ${(a.shots&&a.shots.length)?`<div class="car"><div class="cs" id="cs">${a.shots.map(s=>`<img src="${esc(s)}" alt="">`).join('')}</div>${a.shots.length>1?`<button class="cn p" id="cp">‹</button><button class="cn n" id="cx">›</button><div class="dots" id="cd">${a.shots.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`:''}</div>`:''}
-  <h2>Acerca de esta app</h2><p>${esc(a.desc)}</p>
-  ${REDES.telegram?`<h2>¿Tienes dudas u opiniones?</h2><a class="btn alt" href="${esc(REDES.telegram)}" target="_blank" rel="noopener">Escríbenos en Telegram</a>`:''}`;
+  <h2>Acerca de esta app</h2><p class="desc">${esc(a.desc)}</p>
+  ${(REDES.telegram||REDES.chat)?`<h2>¿Tienes dudas u opiniones?</h2>${REDES.telegram?`<a class="btn alt" href="${esc(REDES.telegram)}" target="_blank" rel="noopener">Escríbenos en Telegram</a>`:''}${REDES.chat?`<a class="btn alt" href="${esc(REDES.chat)}" target="_blank" rel="noopener">Únete al chat de Telegram</a>`:''}`:''}`;
   $('#bk').onclick=()=>{location.hash=''};
-  app.querySelectorAll('[data-u]').forEach(b=>b.onclick=e=>{e.preventDefault();if(b.dataset.u==='#'||!b.dataset.u){toast('Aún no hay enlace de descarga');return}if(b.classList.contains('pop'))return;b.classList.add('pop');setTimeout(()=>{b.classList.remove('pop');descargar(b.dataset.u)},230)});
+  app.querySelectorAll('[data-u]').forEach(b=>{
+    const k='dlc:'+b.dataset.u,t=store.get(k,0),resta=600000-(Date.now()-t);
+    if(t&&resta>0){b.classList.add('done');setTimeout(()=>b.classList.remove('done'),resta)}
+    b.onclick=e=>{
+      e.preventDefault();
+      if(b.dataset.u==='#'||!b.dataset.u){toast('Aún no hay enlace de descarga');return}
+      if(b.classList.contains('pop'))return;
+      store.set(k,Date.now());b.classList.add('pop');
+      setTimeout(()=>{b.classList.remove('pop');b.classList.add('done');setTimeout(()=>b.classList.remove('done'),600000);descargar(b.dataset.u)},230);
+    };
+  });
   const cs=$('#cs');
   if(cs&&$('#cp')){
     const go=d=>cs.scrollBy({left:d*cs.clientWidth,behavior:'smooth'});
@@ -315,6 +332,7 @@ function adForm(i){
   <textarea class="in" id="f7" rows="4" placeholder="Enlaces de descarga, uno por línea:&#10;Descargar APK | https://...&#10;Descargar (Mega) | https://...">${esc(links)}</textarea>
   <label class="pill">Enlace de Play Store (opcional)</label>
   <input class="in" id="f11" placeholder="https://play.google.com/store/apps/details?id=..." value="${esc(a.play||'')}">
+  <label class="pill"><input type="checkbox" id="f12"${a.mod?' checked':''}> Mostrar etiqueta MOD en el icono</label>
   <label class="pill">Imágenes del carrusel (opcional)</label>
   <div class="thumbs" id="th"></div>
   <input type="file" id="fi" accept="image/*" multiple hidden>
@@ -342,9 +360,9 @@ function adForm(i){
       if(await subirImg(AD.c,path,m.src))shots.push(path);
       else{toast('No se pudo subir una imagen. Intenta de nuevo.');btn.disabled=false;btn.textContent='Guardar';return}
     }
-    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),downloads,play:fixUrl(v(11)),shots};
-    if(n){o.updated=hoy();o.badge='Nuevo';AD.apps.unshift(o)}
-    else{o.updated=a.updated;o.badge=a.badge;if(o.version!==a.version||$('#f9').checked){o.updated=hoy();o.badge='Actualizado'}AD.apps[i]=o}
+    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),downloads,play:fixUrl(v(11)),mod:$('#f12').checked,shots};
+    if(n){o.updated=hoy();o.ts=Date.now();o.badge='Nuevo';AD.apps.unshift(o)}
+    else{o.updated=a.updated;o.ts=a.ts;o.badge=a.badge;if(o.version!==a.version||$('#f9').checked){o.updated=hoy();o.ts=Date.now();o.badge='Actualizado'}AD.apps[i]=o}
     (await adSave((n?'Agregar ':'Editar ')+name))?adList():adLoad(AD.c);
   };
 }
