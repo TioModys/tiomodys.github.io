@@ -114,20 +114,20 @@ function section(title,list,go){
   if(!list.length)return'';
   return `<div class="rowh"><h2>${esc(title)}</h2><button class="chip" data-go="${go}">Más</button></div><div class="hs">${list.slice(0,10).map(cardH).join('')}</div>`;
 }
-const top=t=>APPS.filter(a=>tipo(a)===t).sort((x,y)=>(+y.dl||0)-(+x.dl||0));
+const masPop=t=>APPS.filter(a=>tipo(a)===t).sort((x,y)=>(+y.dl||0)-(+x.dl||0));
 const recent=t=>APPS.filter(a=>tipo(a)===t);
 function home(){
   if(query.trim()){
     const q=query.toLowerCase(),list=APPS.filter(a=>((a.name||'')+(a.cat||'')+(a.desc||'')).toLowerCase().includes(q));
     app.innerHTML=`<h2>Resultados</h2>${list.length?`<div class="grid">${list.map(cardH).join('')}</div>`:'<p class="pill">No encontramos nada con esa búsqueda.</p>'}`;
   }else{
-    app.innerHTML=APPS.length?section('Apps más populares',top('app'),'apps-top')+section('Juegos más populares',top('juego'),'juegos-top')+section('Apps',recent('app'),'apps')+section('Juegos',recent('juego'),'juegos'):'<p class="pill">Aún no hay apps publicadas.</p>';
+    app.innerHTML=APPS.length?section('Apps más populares',masPop('app'),'apps-top')+section('Juegos más populares',masPop('juego'),'juegos-top')+section('Apps',recent('app'),'apps')+section('Juegos',recent('juego'),'juegos'):'<p class="pill">Aún no hay apps publicadas.</p>';
   }
   bindCards();
 }
 function listView(id){
   const t=id.startsWith('apps')?'app':'juego',pop=id.endsWith('-top');
-  const base=pop?top(t):recent(t);
+  const base=pop?masPop(t):recent(t);
   const cats=['Todas',...new Set(base.map(a=>a.cat))];
   if(!cats.includes(cat))cat='Todas';
   const list=base.filter(a=>cat==='Todas'||a.cat===cat);
