@@ -1,6 +1,35 @@
 {
  "apps": [
   {
+   "id": "mortal-kombat-9-komplete-edition",
+   "name": "Mortal Kombat 9: Komplete Edition",
+   "version": "0.6.0",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7dfaa9c3-48ad-47b0-8b1c-1fd103d9e81a/d70zded-5cd4abdd-2245-46da-95e5-105594eb0b33.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi83ZGZhYTljMy00OGFkLTQ3YjAtOGIxYy0xZmQxMDNkOWU4MWEvZDcwemRlZC01Y2Q0YWJkZC0yMjQ1LTQ2ZGEtOTVlNS0xMDU1OTRlYjBiMzMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.EKK2jhYd9fUyYSk_i0EX_FDcOMeqxNG4EgQCuuFMQ50",
+   "size": "10 GB",
+   "rating": 4.5,
+   "desc": "es un juego de lucha donde puedes enfrentarte a personajes legendarios como Scorpion, Sub-Zero, Liu Kang, Raiden y Johnny Cage en combates llenos de acción. Desarrollado originalmente por NetherRealm Studios, destaca por sus combos, ataques especiales, movimientos de rayos X y los brutales Fatalities que caracterizan a la saga. Gracias al proyecto MK9 Recomp, ahora cuenta con una adaptación no oficial de la versión de Xbox 360 para Android.",
+   "downloads": [
+    {
+     "label": "Descarga APK Adreno",
+     "url": "https://shortxlinks.in/OjSVN"
+    },
+    {
+     "label": "Descarga APK Mali",
+     "url": "https://shortxlinks.in/6V87A5NhN"
+    },
+    {
+     "label": "Descarga Datos",
+     "url": "https://shortxlinks.in/kYhshcTdf"
+    }
+   ],
+   "play": "",
+   "shots": [],
+   "updated": "2026-10-29",
+   "badge": "Nuevo"
+  },
+  {
    "id": "onefootball-pro",
    "name": "OneFootball Pro",
    "version": "15.147.0",
