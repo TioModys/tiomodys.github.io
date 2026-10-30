@@ -1,3 +1,25 @@
 {
- "apps": []
+ "apps": [
+  {
+   "id": "image-search-man-pro",
+   "name": "Image Search Man Pro",
+   "version": "3.73",
+   "type": "app",
+   "cat": "Productividad",
+   "icon": "https://play-lh.googleusercontent.com/l0SKSbBhJpdZk4z9cTMX1dagxXRPPvaAHplzplQAaicJJap4_fuW_Uh_3ZGAM8uJQmfdCZcT1rUId94hb2W8=w526-h296-rw",
+   "size": "8.83 MB",
+   "rating": 4.3,
+   "desc": "Buscar imágenes, descargar imágenes, compartir imágenes\n\nLa búsqueda de imágenes es más rápida y sencilla que nunca. Ahorre su tiempo con esta aplicación.\n\nLas características de ImageSearchMan incluyen:\n\n・ Buscar imágenes (por palabras clave o archivo de imagen)\n・ Comparte imágenes con otras aplicaciones\n・ Descargar imágenes\n・ Configuración como fondo de pantalla\n・ Buscar imágenes gif de animación\n·Buscar Historia\n・ Visualización a escala de la imagen\n・ Filtros de búsqueda (tipo de contenido, color, tamaño, hora)\n\n¡Por supuesto, es gratis!",
+   "downloads": [
+    {
+     "label": "Descarga APK",
+     "url": "https://1024terabox.com/s/1z5e9a8nlKUjxLJQg90l9fw"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=sansunsen3.imagesearcher",
+   "shots": [],
+   "updated": "2026-10-29",
+   "badge": "Nuevo"
+  }
+ ]
 }
