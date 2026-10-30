@@ -4,6 +4,7 @@
    "id": "pocas",
    "name": "Pocas",
    "version": "27",
+   "type": "app",
    "cat": "Juego",
    "icon": "😎",
    "size": "78 MB",
@@ -15,7 +16,11 @@
      "url": "https://t.me/ModifyProXoficial"
     }
    ],
-   "shots": [],
+   "shots": [
+    "img/pocas-1793331202332-0.jpg",
+    "img/pocas-1793331204454-1.jpg",
+    "img/pocas-1793331206047-2.jpg"
+   ],
    "updated": "2026-10-29",
    "badge": "Nuevo"
   },
