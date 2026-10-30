@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mi Tienda de Apps</title>
+<title>TíoMody</title>
 <style>
 :root{--bg:#fff;--surface:#f1f3f4;--text:#202124;--muted:#5f6368;--accent:#01875f;--accent-text:#fff;--line:#dadce0;color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131314;--surface:#1f2021;--text:#e8eaed;--muted:#9aa0a6;--accent:#34d399;--accent-text:#00281c;--line:#3c4043;color-scheme:dark}}
@@ -11,7 +11,8 @@
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 "Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 header{position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid var(--line);padding:10px 16px}
 .bar{max-width:1000px;margin:auto;display:flex;gap:12px;align-items:center}
-.logo{font-weight:700;font-size:20px;color:var(--accent);cursor:pointer;white-space:nowrap}
+.logo{font-weight:700;font-size:21px;color:var(--accent);cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.logo svg{width:28px;height:28px;fill:#3DDC84}
 .search{flex:1;background:var(--surface);border:0;border-radius:24px;padding:10px 16px;color:var(--text);font:inherit;min-width:0}
 main{max-width:1000px;margin:auto;padding:16px;min-height:70vh}
 .chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
@@ -25,6 +26,10 @@ h2{font-size:20px;margin:20px 0 12px}
 .card b{display:block;font-weight:500;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .card small{color:var(--muted);font-size:12px;display:block}
 .badge{display:inline-block;background:var(--accent);color:var(--accent-text);border-radius:6px;padding:1px 8px;font-size:11px;font-weight:600;margin-top:2px}
+.rowh{display:flex;justify-content:space-between;align-items:center;margin:22px 0 10px}
+.rowh h2{margin:0}
+.hs{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px}
+.hs .card{flex:none;width:112px;scroll-snap-align:start}
 .top{display:flex;gap:16px;align-items:center}
 .top .ico{width:96px;max-width:96px;font-size:44px;margin:0;flex:none}
 .top h1{margin:0;font-size:24px;line-height:1.2}
@@ -52,7 +57,7 @@ footer p{margin:0 0 12px;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
-<header><div class="bar"><span class="logo" id="logo">▶ MiTienda</span><input class="search" id="q" type="search" placeholder="Buscar apps y juegos"></div></header>
+<header><div class="bar"><span class="logo" id="logo"><svg viewBox="0 0 24 24"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85a.637.637 0 0 0-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67a.643.643 0 0 0-.87-.2c-.28.18-.37.54-.22.83L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>TíoMody</span><input class="search" id="q" type="search" placeholder="Buscar apps y juegos"></div></header>
 <main id="app"><p class="pill">Cargando…</p></main>
 <footer><p>Síguenos para enterarte de nuevas apps</p><div class="soc" id="soc"></div></footer>
 
@@ -72,6 +77,7 @@ const $=s=>document.querySelector(s),app=$('#app');
 let APPS=[],cat='Todas',query='';
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const fixUrl=u=>{u=String(u||'').trim();return(!u||u==='#'||/^[a-z][a-z0-9+.-]*:/i.test(u))?u:'https://'+u.replace(/^\/+/,'')};
 const ico=a=>/[\/.]/.test(a.icon||'')?`<img src="${esc(a.icon)}" alt="">`:esc(a.icon||'📱');
 function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),3200)}
 const hoy=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
@@ -92,20 +98,51 @@ $('#soc').innerHTML=
  (REDES.telegram?`<a class="tg" href="${esc(REDES.telegram)}" target="_blank" rel="noopener">${SVG.tg}Telegram</a>`:'');
 
 /* ---------- Tienda pública ---------- */
-function home(){
-  const cats=['Todas',...new Set(APPS.map(a=>a.cat))];
-  const list=APPS.filter(a=>(cat==='Todas'||a.cat===cat)&&((a.name||'')+(a.cat||'')+(a.desc||'')).toLowerCase().includes(query.toLowerCase()));
-  app.innerHTML=`<div class="chips">${cats.map(c=>`<button class="chip${c===cat?' on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('')}</div>
-  <h2>${cat==='Todas'?'Recomendadas para ti':esc(cat)}</h2>
-  ${list.length?`<div class="grid">${list.map(a=>`<div class="card" data-id="${esc(a.id)}"><div class="ico">${ico(a)}</div><b>${esc(a.name)}</b><small>${esc(a.cat)}</small><small>${esc(a.rating)} ★</small>${badge(a)}</div>`).join('')}</div>`:'<p class="pill">No hay apps para mostrar.</p>'}`;
-  app.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{cat=b.dataset.c;home()});
+const CATS={
+ app:['Herramientas','Productividad','Fotografía y video','Música y audio','Social y comunicación','Educación','Entretenimiento','Personalización','Salud y fitness','Finanzas','Estilo de vida','Noticias y revistas'],
+ juego:['Acción','Aventura','Arcade','Carreras','Deportes','Puzzle','Estrategia','Simulación','Rol (RPG)','Casual','Educativos','Disparos']
+};
+const RES=['admin','apps','juegos','apps-top','juegos-top'];
+const tipo=a=>a.type||(CATS.juego.includes(a.cat)?'juego':'app');
+const dlTxt=n=>{n=+n||0;if(!n)return'—';if(n>=1e6)return (n/1e6).toFixed(1).replace('.0','')+' M+';if(n>=1e3)return Math.floor(n/1e3)+' mil+';return n+'+'};
+const cardH=a=>`<div class="card" data-id="${esc(a.id)}"><div class="ico">${ico(a)}</div><b>${esc(a.name)}</b><small>${esc(a.cat)}</small><small>${esc(a.rating)} ★</small>${badge(a)}</div>`;
+function bindCards(){
   app.querySelectorAll('.card').forEach(c=>c.onclick=()=>{location.hash=c.dataset.id});
+  app.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
+}
+function section(title,list,go){
+  if(!list.length)return'';
+  return `<div class="rowh"><h2>${esc(title)}</h2><button class="chip" data-go="${go}">Más</button></div><div class="hs">${list.slice(0,10).map(cardH).join('')}</div>`;
+}
+const top=t=>APPS.filter(a=>tipo(a)===t).sort((x,y)=>(+y.dl||0)-(+x.dl||0));
+const recent=t=>APPS.filter(a=>tipo(a)===t);
+function home(){
+  if(query.trim()){
+    const q=query.toLowerCase(),list=APPS.filter(a=>((a.name||'')+(a.cat||'')+(a.desc||'')).toLowerCase().includes(q));
+    app.innerHTML=`<h2>Resultados</h2>${list.length?`<div class="grid">${list.map(cardH).join('')}</div>`:'<p class="pill">No encontramos nada con esa búsqueda.</p>'}`;
+  }else{
+    app.innerHTML=APPS.length?section('Apps más populares',top('app'),'apps-top')+section('Juegos más populares',top('juego'),'juegos-top')+section('Apps',recent('app'),'apps')+section('Juegos',recent('juego'),'juegos'):'<p class="pill">Aún no hay apps publicadas.</p>';
+  }
+  bindCards();
+}
+function listView(id){
+  const t=id.startsWith('apps')?'app':'juego',pop=id.endsWith('-top');
+  const base=pop?top(t):recent(t);
+  const cats=['Todas',...new Set(base.map(a=>a.cat))];
+  if(!cats.includes(cat))cat='Todas';
+  const list=base.filter(a=>cat==='Todas'||a.cat===cat);
+  app.innerHTML=`<button class="back" id="bk">‹ Inicio</button><h2 style="margin-top:0">${t==='app'?'Apps':'Juegos'}${pop?' más populares':''}</h2>
+  <div class="chips">${cats.map(c=>`<button class="chip${c===cat?' on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('')}</div>
+  ${list.length?`<div class="grid">${list.map(cardH).join('')}</div>`:'<p class="pill">No hay nada aquí todavía.</p>'}`;
+  $('#bk').onclick=()=>{location.hash=''};
+  app.querySelectorAll('.chip[data-c]').forEach(b=>b.onclick=()=>{cat=b.dataset.c;listView(id)});
+  bindCards();
 }
 function detail(a){
-  const dls=(a.downloads||[]).map((d,i)=>`<a class="btn${i?' alt':''}" data-u="${esc(d.url)}" href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.label||'Descargar')}</a>`).join('');
+  const dls=(a.downloads||[]).map((d,i)=>`<a class="btn${i?' alt':''}" data-u="${esc(fixUrl(d.url))}" href="${esc(fixUrl(d.url))}" target="_blank" rel="noopener">${esc(d.label||'Descargar')}</a>`).join('');
   app.innerHTML=`<button class="back" id="bk">‹ Volver</button>
   <div class="top"><div class="ico">${ico(a)}</div><div><h1>${esc(a.name)}</h1><div class="dev">${esc(a.cat)}</div><div class="pill">Versión ${esc(a.version)}</div>${badge(a)}</div></div>
-  <div class="stats"><div><b>${esc(a.rating)} ★</b><small>Calificación</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b>${esc(a.version)}</b><small>Versión</small></div></div>
+  <div class="stats"><div><b>${esc(a.rating)} ★</b><small>Calificación</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b>${dlTxt(a.dl)}</b><small>Descargas</small></div></div>
   ${dls}
   ${(a.shots&&a.shots.length)?`<h2>Capturas de pantalla</h2><div class="shots">${a.shots.map(s=>`<img src="${esc(s)}" alt="">`).join('')}</div>`:''}
   <h2>Acerca de esta app</h2><p>${esc(a.desc)}</p>
@@ -169,26 +206,30 @@ function adList(){
 }
 function adForm(i){
   const n=i<0,a=n?{name:'',version:'',cat:'',icon:'',size:'',rating:4.5,desc:'',downloads:[]}:AD.apps[i];
+  const t0=tipo(a),opts=(t,sel)=>{const l=CATS[t].slice();if(sel&&!l.includes(sel))l.push(sel);return l.map(c=>`<option${c===sel?' selected':''}>${esc(c)}</option>`).join('')};
   const links=(a.downloads||[]).map(d=>d.label+' | '+d.url).join('\n');
   app.innerHTML=`<button class="back" id="bk">‹ Cancelar</button><h1>${n?'Agregar app':'Editar app'}</h1>
   <input class="in" id="f1" placeholder="Nombre" value="${esc(a.name)}">
   <input class="in" id="f2" placeholder="Versión (ej. 1.0.0)" value="${esc(a.version)}">
-  <input class="in" id="f3" placeholder="Categoría (ej. Juegos)" value="${esc(a.cat)}">
+  <label class="pill">Tipo</label><select class="in" id="f0"><option value="app"${t0==='app'?' selected':''}>Aplicación</option><option value="juego"${t0==='juego'?' selected':''}>Juego</option></select>
+  <label class="pill">Categoría</label><select class="in" id="f3">${opts(t0,a.cat)}</select>
   <input class="in" id="f4" placeholder="Icono: un emoji o el enlace de una imagen" value="${esc(a.icon)}">
   <input class="in" id="f5" placeholder="Tamaño (ej. 25 MB)" value="${esc(a.size)}">
   <input class="in" id="f8" placeholder="Calificación (ej. 4.5)" value="${esc(a.rating)}">
+  <input class="in" id="f10" type="number" min="0" placeholder="Descargas aproximadas (ej. 15000), sirve para ordenar los más populares" value="${a.dl||''}">
   <textarea class="in" id="f6" rows="3" placeholder="Descripción">${esc(a.desc)}</textarea>
   <textarea class="in" id="f7" rows="4" placeholder="Enlaces de descarga, uno por línea:&#10;Descargar APK | https://...&#10;Descargar (Mega) | https://...">${esc(links)}</textarea>
   ${n?'':'<label class="pill"><input type="checkbox" id="f9"> Marcar como actualizada hoy (se marca sola si cambias la versión)</label>'}
   <button class="btn" id="fs" style="margin-top:12px">Guardar</button>`;
   $('#bk').onclick=adList;
+  $('#f0').onchange=()=>{$('#f3').innerHTML=opts($('#f0').value,'')};
   $('#fs').onclick=async()=>{
     const v=k=>$('#f'+k).value.trim(),name=v(1);
     if(!name){toast('Escribe el nombre');return}
-    const downloads=v(7).split('\n').map(l=>l.trim()).filter(Boolean).map(l=>{const p=l.split('|');const url=p.pop().trim();return{label:p.join('|').trim()||'Descargar',url}});
+    const downloads=v(7).split('\n').map(l=>l.trim()).filter(Boolean).map(l=>{const p=l.split('|');const url=p.pop().trim();return{label:p.join('|').trim()||'Descargar',url:fixUrl(url)}});
     let id=a.id;
-    if(!id){const base=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'app';id=base;let k=2;while(id==='admin'||AD.apps.some(x=>x.id===id))id=base+'-'+k++}
-    const o={id,name,version:v(2),cat:v(3)||'Apps',icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),downloads,shots:a.shots||[]};
+    if(!id){const base=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'app';id=base;let k=2;while(RES.includes(id)||AD.apps.some(x=>x.id===id))id=base+'-'+k++}
+    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,dl:parseInt(v(10))||0,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),downloads,shots:a.shots||[]};
     if(n){o.updated=hoy();o.badge='Nuevo';AD.apps.unshift(o)}
     else{o.updated=a.updated;o.badge=a.badge;if(o.version!==a.version||$('#f9').checked){o.updated=hoy();o.badge='Actualizado'}AD.apps[i]=o}
     (await adSave((n?'Agregar ':'Editar ')+name))?adList():adLoad(AD.c);
@@ -200,6 +241,7 @@ function route(){
   const id=location.hash.slice(1);
   scrollTo(0,0);
   if(id==='admin'){const s=store.get('adm',null);s&&s.t?adLoad(s):adLogin();return}
+  if(['apps','juegos','apps-top','juegos-top'].includes(id)){cat='Todas';listView(id);return}
   const a=APPS.find(x=>x.id===id);a?detail(a):home();
 }
 $('#q').oninput=e=>{query=e.target.value;if(location.hash)location.hash='';else home()};
