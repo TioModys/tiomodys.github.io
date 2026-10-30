@@ -1,6 +1,25 @@
 {
  "apps": [
   {
+   "id": "pocas",
+   "name": "Pocas",
+   "version": "27",
+   "cat": "Juego",
+   "icon": "😎",
+   "size": "78 MB",
+   "rating": 4.5,
+   "desc": "38kwmwm",
+   "downloads": [
+    {
+     "label": "DESCARGA APK",
+     "url": "https://t.me/ModifyProXoficial"
+    }
+   ],
+   "shots": [],
+   "updated": "2026-10-29",
+   "badge": "Nuevo"
+  },
+  {
    "id": "fotoflow",
    "name": "FotoFlow",
    "version": "1.2.0",
