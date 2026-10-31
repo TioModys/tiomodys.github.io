@@ -1,25 +1,32 @@
 name: Avisar en Telegram
 on:
-  workflow_run:
-    workflows: ["pages build and deployment"]
-    types: [completed]
+  push:
+    paths: ['apps.json']
+  workflow_dispatch:
 jobs:
   avisar:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
-          fetch-depth: 2
+          fetch-depth: 0
+      - name: Esperar a que la página se actualice
+        run: |
+          BASE="https://tiomodys.github.io"
+          for i in $(seq 1 36); do
+            curl -s "$BASE/apps.json?t=$(date +%s)" | jq -S . > web.json 2>/dev/null
+            jq -S . apps.json > local.json
+            if cmp -s web.json local.json; then echo "Página actualizada"; break; fi
+            echo "Esperando... intento $i"; sleep 10
+          done
       - name: Enviar apps nuevas y actualizadas
         env:
           TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ANTES: ${{ github.event.before }}
         run: |
-          sleep 20
           BASE="https://tiomodys.github.io"
-          git show HEAD~1:apps.json > old.json 2>/dev/null || echo "[]" > old.json
+          git show "$ANTES":apps.json > old.json 2>/dev/null || git show HEAD~1:apps.json > old.json 2>/dev/null || echo "[]" > old.json
           jq -c --slurpfile old old.json '
             def L: if type=="array" then . else (.apps // []) end;
             def firma: ((.version // .ver // "" | tostring) + "|" + (.actualizado // .actualizada // .updated // .updatedAt // .fechaActualizacion // .fecha // "" | tostring));
@@ -28,7 +35,9 @@ jobs:
             | if ($oldk|has($i)|not) then $a + {_estado:"nuevo"}
               elif $oldk[$i] != ($a|firma) then $a + {_estado:"actualizado"}
               else empty end
-          ' apps.json | while read -r app; do
+          ' apps.json > cambios.jsonl
+          echo "Apps a enviar: $(wc -l < cambios.jsonl)"
+          while read -r app; do
             id=$(echo "$app" | jq -r '.id')
             estado=$(echo "$app" | jq -r '._estado')
             echo "Campos de la app: $(echo "$app" | jq -c 'keys')"
@@ -60,9 +69,10 @@ jobs:
               --data-urlencode "caption=$cap" \
               --data-urlencode "parse_mode=HTML" \
               --data-urlencode "reply_markup=$kb")
+            echo "$res"
             echo "$res" | grep -q '"ok":true' || curl -s "https://api.telegram.org/bot$TOKEN/sendMessage" \
               --data-urlencode "chat_id=$CHAT" \
               --data-urlencode "text=$cap" \
               --data-urlencode "parse_mode=HTML" \
               --data-urlencode "reply_markup=$kb"
-          done
+          done < cambios.jsonl
