@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "ai-image-generator-pro",
+   "name": "AI Image Generator Pro",
+   "version": "84.0",
+   "type": "app",
+   "cat": "Fotografía y video",
+   "icon": "https://play-lh.googleusercontent.com/TRq8m0yN-r_NQ-zemXjFo1jrQS0Q0YrF_ox6dkycTD-h1TwwmCknIrrVdBI7ov37uiXdAk57QL-J78FbvGIp=w480-h960-rw",
+   "size": "19.7 MB",
+   "rating": 4,
+   "desc": "El Generador de Imágenes con IA Ilimitado te permite crear impresionantes imágenes y obras de arte generadas con IA, gratis y sin límites. Convierte tus ideas en imágenes al instante. Ya sea que quieras fotos realistas, arte digital o ilustraciones únicas, nuestro generador de IA lo gestiona todo.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1IF6abd45XAoD2Lvmbmk4Yg"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.technosub.unlimitedaiimagen",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-10-31",
+   "ts": 1793450793858,
+   "badge": "Nuevo"
+  },
+  {
    "id": "adobe-acrobat-pro",
    "name": "Adobe Acrobat Pro",
    "version": "26.9.2",
