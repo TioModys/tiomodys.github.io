@@ -53,7 +53,7 @@ jobs:
               | (.peso // .size // .tamano // .["tamaño"] // "" | t) as $p
               | (.categoria // .["categoría"] // .category // .categorias // .["categorías"] // "" | t) as $c
               | (.descripcion // .["descripción"] // .description // .desc // "" | t) as $d0
-              | (if ($d0|length)>600 then $d0[0:600]+"…" else $d0 end) as $d
+              | (if ($d0|length)>100 then $d0[0:100]+"…" else $d0 end) as $d
               | (.playstore // .playStore // .play_store // .play // .enlacePlay // .linkPlay // "" | t) as $pl
               | (if $e=="actualizado" then "🔄 <b>¡ACTUALIZADA!</b> 🚀\n" else "🆕 <b>¡NUEVA!</b> 🎉\n" end)
                 + "🔥📱 <b>\($n|h) \($v|h)</b> ✅"
