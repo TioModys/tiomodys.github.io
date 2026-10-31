@@ -1,29 +1,6 @@
 {
  "apps": [
   {
-   "id": "picasa",
-   "name": "Picasa",
-   "version": "38",
-   "type": "app",
-   "cat": "Herramientas",
-   "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQJfBeQ0vYJjU848HD93ozDTeUa3c547SmFlE1L3Rn6A&s=10",
-   "size": "45 MB",
-   "rating": 4.5,
-   "desc": "W8woqo0q qqowowkdbd\nQiwowlsanbe\nIqoqoebej",
-   "downloads": [
-    {
-     "label": "Descargar APK",
-     "url": "https://tiomodys.github.io/"
-    }
-   ],
-   "play": "",
-   "mod": true,
-   "shots": [],
-   "updated": "2026-10-31",
-   "ts": 1793476990773,
-   "badge": "Nuevo"
-  },
-  {
    "id": "capcut-pro",
    "name": "CapCut Pro",
    "version": "20.0.0",
