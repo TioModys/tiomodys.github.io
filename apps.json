@@ -3,7 +3,7 @@
   {
    "id": "picasa",
    "name": "Picasa",
-   "version": "38.1",
+   "version": "38.2",
    "type": "app",
    "cat": "Herramientas",
    "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQJfBeQ0vYJjU848HD93ozDTeUa3c547SmFlE1L3Rn6A&s=10",
@@ -20,7 +20,7 @@
    "mod": true,
    "shots": [],
    "updated": "2026-10-31",
-   "ts": 1793480238826,
+   "ts": 1793480765519,
    "badge": "Actualizado"
   },
   {
