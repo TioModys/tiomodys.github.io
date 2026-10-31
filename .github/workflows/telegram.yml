@@ -48,11 +48,11 @@ jobs:
               def h: tostring | gsub("&";"&amp;") | gsub("<";"&lt;") | gsub(">";"&gt;");
               def t: if type=="array" then map(tostring) | join(", ") else tostring end;
               (.nombre // .name // "App nueva" | t) as $n
-              | (.version // .ver // .versión // "" | t) as $v0
+              | (.version // .["versión"] // .ver // "" | t) as $v0
               | (if $v0=="" then "" elif ($v0|test("^[vV]")) then $v0 else "v"+$v0 end) as $v
-              | (.peso // .size // .tamano // .tamaño // "" | t) as $p
-              | (.categoria // .categoría // .category // .categorias // .categorías // "" | t) as $c
-              | (.descripcion // .descripción // .description // .desc // "" | t) as $d0
+              | (.peso // .size // .tamano // .["tamaño"] // "" | t) as $p
+              | (.categoria // .["categoría"] // .category // .categorias // .["categorías"] // "" | t) as $c
+              | (.descripcion // .["descripción"] // .description // .desc // "" | t) as $d0
               | (if ($d0|length)>600 then $d0[0:600]+"…" else $d0 end) as $d
               | (.playstore // .playStore // .play_store // .play // .enlacePlay // .linkPlay // "" | t) as $pl
               | (if $e=="actualizado" then "🔄 <b>¡ACTUALIZADA!</b> 🚀\n" else "🆕 <b>¡NUEVA!</b> 🎉\n" end)
