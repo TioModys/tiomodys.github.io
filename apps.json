@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "adobe-acrobat-pro",
+   "name": "Adobe Acrobat Pro",
+   "version": "26.9.2",
+   "type": "app",
+   "cat": "Productividad",
+   "icon": "https://upload.wikimedia.org/wikipedia/commons/4/42/Adobe_Acrobat_DC_logo_2020.svg?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=original",
+   "size": "157.9 MB",
+   "rating": 4.7,
+   "desc": "Colabora y comparte archivos en PDF Spaces, y crea contenido destacado en Acrobat Reader con herramientas de diseño impulsadas por Adobe Express.\n\nEl editor PDF, convertidor a PDF y lector de PDF más confiable del mundo, con más de 635 millones de descargas. Visualiza, comparte, anota, comenta y firma documentos PDF, todo en una aplicación. Guarda tus PDF en línea y lee documentos donde sea con el lector de PDF.\n\nObtén tu prueba gratuita de 7 días y disfruta todas las funciones de Acrobat Reader.\n\nFunciones de pago\n\nAsistente de IA de Adobe Acrobat\n• Trabaja con varios archivos en un solo lugar con PDF Spaces. Colabora y usa el Asistente de IA en archivos PDF.\n• Usa comandos de voz o texto con el chatbot del Asistente de IA.\n• Haz preguntas y obtén respuestas con citas de fuentes acerca de tu documento.\n• Comparte las respuestas que recibas.\n• Haz consultas con el soporte de voz y escucha las respuestas en voz alta.\n• Genera resúmenes de archivos PDF con los Resúmenes generativos de IA.\n• Obtén contenido para correos, notas de estudio, blogs y más.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1kiUcxpBHz_1WFzpOjacoOw"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.adobe.reader",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-10-31",
+   "ts": 1793448009215,
+   "badge": "Nuevo"
+  },
+  {
    "id": "truecaller-pro",
    "name": "Truecaller Pro",
    "version": "26.42.5",
