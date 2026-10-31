@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "truecaller-pro",
+   "name": "Truecaller Pro",
+   "version": "26.42.5",
+   "type": "app",
+   "cat": "Social y comunicación",
+   "icon": "https://play-lh.googleusercontent.com/kVMxXC3fV4cyG56MZunYS2-HYaHh3eM3YTWoDbYaN5-G9xIU2k235hHVQmRrm79tzBSzt0cZ6GsBbzGzGbbMwg",
+   "size": "107.81 MB",
+   "rating": 4.8,
+   "desc": "El identificador de llamadas o SMS más querido del mundo latino. Decenas de millones de usuarios confían en Truecaller en Latinoamérica para resolver sus necesidades de comunicación, ya sea para identificar y bloquear llamadas y SMS desconocidas. Filtra lo indeseable y te permite conectar con aquellos que de\n\nverdad te importan.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1-li32YLcRPYWKNLSkKypdA"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.truecaller",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-10-31",
+   "ts": 1793426939644,
+   "badge": "Nuevo"
+  },
+  {
    "id": "tomb-raider",
    "name": "Tomb Raider",
    "version": "1.4RC6",
