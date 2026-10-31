@@ -1,29 +1,6 @@
 {
  "apps": [
   {
-   "id": "picasa",
-   "name": "Picasa",
-   "version": "38.2",
-   "type": "app",
-   "cat": "Herramientas",
-   "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQJfBeQ0vYJjU848HD93ozDTeUa3c547SmFlE1L3Rn6A&s=10",
-   "size": "35 MB",
-   "rating": 4.5,
-   "desc": "La imagen 1 ponla en el centro de la imagen 2 con un tamaño mediano, agregale sombra",
-   "downloads": [
-    {
-     "label": "Descargar APK",
-     "url": "https://t.me/androforever_oficial"
-    }
-   ],
-   "play": "",
-   "mod": true,
-   "shots": [],
-   "updated": "2026-10-31",
-   "ts": 1793480765519,
-   "badge": "Actualizado"
-  },
-  {
    "id": "capcut-pro",
    "name": "CapCut Pro",
    "version": "20.0.1",
