@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "capcut-pro",
+   "name": "CapCut Pro",
+   "version": "20.0.0",
+   "type": "app",
+   "cat": "Fotografía y video",
+   "icon": "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxtHdRB6xk71KqOPxE23.XPjuAxVNssF0udQLAdx_dIhBrGt7vUeepQD.KMjJ.cwgokl6QLtiJ_0Sblki9liDHLw-&format=source",
+   "size": "252.7 MB",
+   "rating": 3.5,
+   "desc": "Captura el momento y corta\n\nCapCut es una aplicación de edición de video todo en uno gratuita, que te ayuda a crear videos increíbles.\n\n「Fácil de usar」\nCorta, retrocede y cambia la velocidad: hacerlo bien es más fácil que nunca, publicando sólo tus mejores momentos.\n\n「Alta calidad」\nLos filtros avanzados y los efectos de belleza abren un mundo nuevo de posibilidades\n\n「Top Music Hits / Suena increíble」\nGran biblioteca musical y canciones con derechos de autor exclusivas\n\n「Pegatinas y texto」\nStickers y fuentes en tendencia que te permitirán expresarte en tus videos\n\n 「Efecto」\nExplora tu creatividad con una variedad de efectos mágicos",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1JqUTpqCJFkBS0PN6JMc8mw"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.lemon.lvoverseas",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-10-31",
+   "ts": 1793473697372,
+   "badge": "Nuevo"
+  },
+  {
    "id": "ai-image-generator-pro",
    "name": "AI Image Generator Pro",
    "version": "84.0",
