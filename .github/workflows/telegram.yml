@@ -1,0 +1,29 @@
+name: Avisar en Telegram
+on:
+  push:
+    paths: ['apps.json']
+jobs:
+  avisar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Enviar apps nuevas
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          git show HEAD~1:apps.json > old.json || echo "[]" > old.json
+          jq -c --slurpfile old old.json '
+            def L: if type=="array" then . else (.apps // []) end;
+            ($old[0] | L | map(.id)) as $ids
+            | (L)[] | select(.id as $i | ($ids | index($i)) | not)
+          ' apps.json | while read -r app; do
+            nombre=$(echo "$app" | jq -r '.nombre // .name // "App nueva"')
+            version=$(echo "$app" | jq -r '.version // ""')
+            msg=$(printf '🆕 %s %s\n\nDescárgala aquí: https://tiomodys.github.io/' "$nombre" "$version")
+            curl -s "https://api.telegram.org/bot$TOKEN/sendMessage" \
+              -d chat_id="$CHAT" \
+              --data-urlencode "text=$msg"
+          done
