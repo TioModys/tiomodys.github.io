@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "picada",
+   "name": "Picada",
+   "version": "38.1",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQJfBeQ0vYJjU848HD93ozDTeUa3c547SmFlE1L3Rn6A&s=10",
+   "size": "67",
+   "rating": 4.5,
+   "desc": "29wkqoqnsjw qiqkwkqoabdbe",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://tiomodys.github.io/#"
+    }
+   ],
+   "play": "",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-10-31",
+   "ts": 1793476545445,
+   "badge": "Nuevo"
+  },
+  {
    "id": "capcut-pro",
    "name": "CapCut Pro",
    "version": "20.0.0",
