@@ -14,16 +14,23 @@ jobs:
           TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
+          BASE="https://tiomodys.github.io"
           git show HEAD~1:apps.json > old.json || echo "[]" > old.json
           jq -c --slurpfile old old.json '
             def L: if type=="array" then . else (.apps // []) end;
             ($old[0] | L | map(.id)) as $ids
             | (L)[] | select(.id as $i | ($ids | index($i)) | not)
           ' apps.json | while read -r app; do
+            id=$(echo "$app" | jq -r '.id')
             nombre=$(echo "$app" | jq -r '.nombre // .name // "App nueva"')
             version=$(echo "$app" | jq -r '.version // ""')
-            msg=$(printf '🆕 %s %s\n\nDescárgala aquí: https://tiomodys.github.io/' "$nombre" "$version")
-            curl -s "https://api.telegram.org/bot$TOKEN/sendMessage" \
-              -d chat_id="$CHAT" \
-              --data-urlencode "text=$msg"
+            foto=$(echo "$app" | jq -r '.icono // .icon // .imagen // .logo // ""')
+            case "$foto" in http*|"") ;; *) foto="$BASE/${foto#/}";; esac
+            link="$BASE/#$id"
+            cap=$(jq -rn --arg n "$nombre" --arg v "$version" '"🆕 <b>\($n|@html)</b>\n📦 Versión: \($v|@html)"')
+            body=$(jq -n --arg chat "$CHAT" --arg photo "$foto" --arg cap "$cap" --arg url "$link" \
+              '{chat_id:$chat, photo:$photo, caption:$cap, parse_mode:"HTML",
+                reply_markup:{inline_keyboard:[[{text:"📥 Descargar", url:$url}]]}}')
+            curl -s -H "Content-Type: application/json" -d "$body" \
+              "https://api.telegram.org/bot$TOKEN/sendPhoto"
           done
