@@ -1,36 +1,68 @@
 name: Avisar en Telegram
 on:
-  push:
-    paths: ['apps.json']
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
 jobs:
   avisar:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.workflow_run.head_sha }}
           fetch-depth: 2
-      - name: Enviar apps nuevas
+      - name: Enviar apps nuevas y actualizadas
         env:
           TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
+          sleep 20
           BASE="https://tiomodys.github.io"
-          git show HEAD~1:apps.json > old.json || echo "[]" > old.json
+          git show HEAD~1:apps.json > old.json 2>/dev/null || echo "[]" > old.json
           jq -c --slurpfile old old.json '
             def L: if type=="array" then . else (.apps // []) end;
-            ($old[0] | L | map(.id)) as $ids
-            | (L)[] | select(.id as $i | ($ids | index($i)) | not)
+            def firma: ((.version // .ver // "" | tostring) + "|" + (.actualizado // .actualizada // .updated // .updatedAt // .fechaActualizacion // .fecha // "" | tostring));
+            ($old[0] | L | map({(.id|tostring): firma}) | add // {}) as $oldk
+            | (L)[] | . as $a | ($a.id|tostring) as $i
+            | if ($oldk|has($i)|not) then $a + {_estado:"nuevo"}
+              elif $oldk[$i] != ($a|firma) then $a + {_estado:"actualizado"}
+              else empty end
           ' apps.json | while read -r app; do
             id=$(echo "$app" | jq -r '.id')
-            nombre=$(echo "$app" | jq -r '.nombre // .name // "App nueva"')
-            version=$(echo "$app" | jq -r '.version // ""')
-            foto=$(echo "$app" | jq -r '.icono // .icon // .imagen // .logo // ""')
+            estado=$(echo "$app" | jq -r '._estado')
+            echo "Campos de la app: $(echo "$app" | jq -c 'keys')"
+            foto=$(echo "$app" | jq -r '.icono // .icon // .imagen // .logo // .img // ""')
             case "$foto" in http*|"") ;; *) foto="$BASE/${foto#/}";; esac
             link="$BASE/#$id"
-            cap=$(jq -rn --arg n "$nombre" --arg v "$version" '"🆕 <b>\($n|@html)</b>\n📦 Versión: \($v|@html)"')
-            body=$(jq -n --arg chat "$CHAT" --arg photo "$foto" --arg cap "$cap" --arg url "$link" \
-              '{chat_id:$chat, photo:$photo, caption:$cap, parse_mode:"HTML",
-                reply_markup:{inline_keyboard:[[{text:"📥 Descargar", url:$url}]]}}')
-            curl -s -H "Content-Type: application/json" -d "$body" \
-              "https://api.telegram.org/bot$TOKEN/sendPhoto"
+            cap=$(echo "$app" | jq -r --arg e "$estado" '
+              def h: tostring | gsub("&";"&amp;") | gsub("<";"&lt;") | gsub(">";"&gt;");
+              def t: if type=="array" then map(tostring) | join(", ") else tostring end;
+              (.nombre // .name // "App nueva" | t) as $n
+              | (.version // .ver // .versión // "" | t) as $v0
+              | (if $v0=="" then "" elif ($v0|test("^[vV]")) then $v0 else "v"+$v0 end) as $v
+              | (.peso // .size // .tamano // .tamaño // "" | t) as $p
+              | (.categoria // .categoría // .category // .categorias // .categorías // "" | t) as $c
+              | (.descripcion // .descripción // .description // .desc // "" | t) as $d0
+              | (if ($d0|length)>600 then $d0[0:600]+"…" else $d0 end) as $d
+              | (.playstore // .playStore // .play_store // .play // .enlacePlay // .linkPlay // "" | t) as $pl
+              | (if $e=="actualizado" then "🔄 <b>¡ACTUALIZADA!</b> 🚀\n" else "🆕 <b>¡NUEVA!</b> 🎉\n" end)
+                + "🔥📱 <b>\($n|h) \($v|h)</b> ✅"
+                + (if $p!="" then "\n\n📦 <b>Peso:</b> \($p|h)" else "" end)
+                + (if $c!="" then "\n🏷️ <b>Categoría:</b> \($c|h)" else "" end)
+                + (if $d!="" then "\n\n📝 <b>Descripción:</b>\n\($d|h)" else "" end)
+                + (if $pl!="" then "\n\n▶️ <a href=\"\($pl|h)\">PLAYSTORE</a> 🛒" else "" end)
+            ')
+            kb='{"inline_keyboard":[[{"text":"📥 Descargar","url":"'"$link"'"}]]}'
+            res=$(curl -s "https://api.telegram.org/bot$TOKEN/sendPhoto" \
+              --data-urlencode "chat_id=$CHAT" \
+              --data-urlencode "photo=$foto" \
+              --data-urlencode "caption=$cap" \
+              --data-urlencode "parse_mode=HTML" \
+              --data-urlencode "reply_markup=$kb")
+            echo "$res" | grep -q '"ok":true' || curl -s "https://api.telegram.org/bot$TOKEN/sendMessage" \
+              --data-urlencode "chat_id=$CHAT" \
+              --data-urlencode "text=$cap" \
+              --data-urlencode "parse_mode=HTML" \
+              --data-urlencode "reply_markup=$kb"
           done
