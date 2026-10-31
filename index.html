@@ -36,6 +36,14 @@ h2{font-size:20px;margin:20px 0 12px}
 .hs{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px}
 .hs .card{flex:none;width:112px;scroll-snap-align:start}
 .hs{padding:8px;margin:0 -8px}
+.cbox{position:relative}
+.cbox .ct{margin:0}
+.cbox.col{padding-bottom:26px}
+.cbox.col:not(.open) .ct{overflow:hidden}
+.cbox.col:not(.open)::after{content:"";position:absolute;left:0;right:0;bottom:26px;height:32px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+.arw{position:absolute;right:6px;bottom:2px;width:32px;height:24px;border:0;border-radius:12px;background:var(--surface);color:var(--text);font-size:15px;line-height:1;cursor:pointer}
+.modbox{background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:0 3px 14px rgba(0,0,0,.22);padding:12px 14px;margin:18px 0}
+.mt{display:block;margin-bottom:6px;color:var(--accent)}
 .sim{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
 .sim .ico{width:56px;height:56px;max-width:56px;font-size:28px;margin:0;flex:none;border-radius:14px}
 .sim .mod{font-size:8px;padding:0 3px;top:2px;right:2px}
@@ -279,6 +287,16 @@ function catView(t,k){
 }
 const PLAYSVG='<svg viewBox="0 0 24 24"><path fill="#00A0FF" d="M3.5 2.2L13.3 12 3.5 21.8z"/><path fill="#00F076" d="M3.5 2.2L16.6 9.6 13.3 12z"/><path fill="#FFD500" d="M16.6 9.6L21 12l-4.4 2.4L13.3 12z"/><path fill="#FF3A44" d="M3.5 21.8L16.6 14.4 13.3 12z"/></svg>';
 const playBtn=a=>a.play?`<a class="play" href="${esc(fixUrl(a.play))}" target="_blank" rel="noopener">${PLAYSVG}Play Store</a>`:'';
+function contraible(box,limite,visibles){
+  if(!box)return;
+  const t=box.querySelector('.ct'),lh=parseFloat(getComputedStyle(t).lineHeight)||24;
+  if(Math.round(t.scrollHeight/lh)<=limite)return;
+  const alto=lh*visibles+'px';
+  box.classList.add('col');t.style.maxHeight=alto;
+  const b=document.createElement('button');b.className='arw';b.textContent='▾';b.setAttribute('aria-label','Mostrar todo el texto');
+  b.onclick=()=>{const abierto=box.classList.toggle('open');t.style.maxHeight=abierto?'none':alto;b.textContent=abierto?'▴':'▾'};
+  box.appendChild(b);
+}
 function similares(a){
   const t=tipo(a);
   return APPS.filter(x=>x.id!==a.id&&tipo(x)===t)
@@ -296,11 +314,13 @@ function detail(a){
   <div class="stats"><div><b>${esc(a.rating)} ★</b><small>Calificación</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b id="vv">${VIS[a.id]==null?'…':fmtV(VIS[a.id])}</b><small>Visitas</small></div></div>
   ${dls}
   ${(a.shots&&a.shots.length)?`<div class="car"><div class="cs" id="cs">${a.shots.map(s=>`<img src="${esc(s)}" alt="">`).join('')}</div>${a.shots.length>1?`<button class="cn p" id="cp">‹</button><button class="cn n" id="cx">›</button><div class="dots" id="cd">${a.shots.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`:''}</div>`:''}
-  <h2>Acerca de esta app</h2><p class="desc">${esc(a.desc)}</p>
+  ${a.modinfo?`<div class="cbox modbox" id="mbox"><b class="mt">MOD / Tutorial</b><div class="ct desc">${esc(a.modinfo)}</div></div>`:''}
+  <h2>Acerca de esta app</h2><div class="cbox" id="dbox"><div class="ct desc">${esc(a.desc)}</div></div>
   ${simHTML(a)}
   ${REDES.chat?`<h2>¿Tienes dudas u opiniones?</h2><a class="btn alt" href="${esc(REDES.chat)}" target="_blank" rel="noopener">Únete al chat de Telegram</a>`:''}`;
   $('#bk').onclick=()=>{location.hash=''};
   app.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.v});
+  contraible($('#mbox'),4,4);contraible($('#dbox'),40,10);
   app.querySelectorAll('[data-u]').forEach(b=>{
     const k='dlc:'+b.dataset.u,t=store.get(k,0),resta=600000-(Date.now()-t);
     if(t&&resta>0){b.classList.add('done');setTimeout(()=>b.classList.remove('done'),resta)}
@@ -323,7 +343,7 @@ function detail(a){
 }
 
 /* ---------- Panel de administración (#admin) ---------- */
-let AD=null;
+let AD=null,ADQ='';
 const enc=s=>{let b='';new TextEncoder().encode(s).forEach(x=>b+=String.fromCharCode(x));return btoa(b)};
 const dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g,'')),c=>c.charCodeAt(0)));
 function guess(){const h=location.hostname;if(h.endsWith('.github.io')){const seg=location.pathname.split('/')[1];return{o:h.split('.')[0],r:(seg&&!seg.includes('.'))?seg:h}}return{o:'',r:''}}
@@ -368,10 +388,14 @@ async function adSave(msg){
 function adList(){
   app.innerHTML=`<button class="back" id="bk">‹ Ver la tienda</button><h1>Administrar apps</h1>
   <button class="btn" id="add">+ Agregar app</button>
-  ${AD.apps.length?AD.apps.map((a,i)=>`<div class="row"><div class="ico">${ico(a)}</div><div class="rt"><b>${esc(a.name)}</b><small>v${esc(a.version)} ${badge(a)}</small></div><button class="chip" data-e="${i}">Editar</button><button class="chip" data-d="${i}">Borrar</button></div>`).join(''):'<p class="pill">Aún no hay apps.</p>'}
+  <input class="in" id="as" type="search" placeholder="Buscar app para editar o borrar" value="${esc(ADQ)}">
+  <p class="pill" id="ac"></p>
+  ${AD.apps.length?AD.apps.map((a,i)=>`<div class="row" data-n="${esc(((a.name||'')+' '+(a.cat||'')).toLowerCase())}"><div class="ico">${ico(a)}</div><div class="rt"><b>${esc(a.name)}</b><small>v${esc(a.version)} ${badge(a)}</small></div><button class="chip" data-e="${i}">Editar</button><button class="chip" data-d="${i}">Borrar</button></div>`).join(''):'<p class="pill">Aún no hay apps.</p>'}
   <p><button class="chip" id="out">Cerrar sesión</button></p>`;
   $('#bk').onclick=()=>{location.hash=''};
   $('#add').onclick=()=>adForm(-1);
+  const filtrar=()=>{ADQ=$('#as').value;const q=ADQ.trim().toLowerCase();let c=0;app.querySelectorAll('.row').forEach(r=>{const ok=!q||r.dataset.n.includes(q);r.style.display=ok?'':'none';if(ok)c++});$('#ac').textContent=q?(c+' resultado'+(c===1?'':'s')):(AD.apps.length+' apps')};
+  $('#as').oninput=filtrar;filtrar();
   $('#out').onclick=()=>{store.set('adm',null);AD=null;adLogin()};
   app.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>adForm(+b.dataset.e));
   app.querySelectorAll('[data-d]').forEach(b=>b.onclick=async()=>{
@@ -382,7 +406,7 @@ function adList(){
 function adForm(i){
   const n=i<0,a=n?{name:'',version:'',cat:'',icon:'',size:'',rating:4.5,desc:'',downloads:[]}:AD.apps[i];
   const t0=tipo(a),opts=(t,sel)=>{const l=CATS[t].slice();if(sel&&!l.includes(sel))l.push(sel);return l.map(c=>`<option${c===sel?' selected':''}>${esc(c)}</option>`).join('')};
-  const links=(a.downloads||[]).map(d=>d.label+' | '+d.url).join('\n');
+  const links=n?'Descargar APK | ':(a.downloads||[]).map(d=>d.label+' | '+d.url).join('\n');
   app.innerHTML=`<button class="back" id="bk">‹ Cancelar</button><h1>${n?'Agregar app':'Editar app'}</h1>
   <input class="in" id="f1" placeholder="Nombre" value="${esc(a.name)}">
   <input class="in" id="f2" placeholder="Versión (ej. 1.0.0)" value="${esc(a.version)}">
@@ -392,7 +416,10 @@ function adForm(i){
   <input class="in" id="f5" placeholder="Tamaño (ej. 25 MB)" value="${esc(a.size)}">
   <input class="in" id="f8" placeholder="Calificación (ej. 4.5)" value="${esc(a.rating)}">
   <textarea class="in" id="f6" rows="3" placeholder="Descripción">${esc(a.desc)}</textarea>
+  <label class="pill">Texto del MOD o tutorial (opcional, aparece arriba de la descripción)</label>
+  <textarea class="in" id="f13" rows="4" placeholder="Qué trae el MOD, cómo instalarlo, tutorial…">${esc(a.modinfo||'')}</textarea>
   <textarea class="in" id="f7" rows="4" placeholder="Enlaces de descarga, uno por línea:&#10;Descargar APK | https://...&#10;Descargar (Mega) | https://...">${esc(links)}</textarea>
+  <button class="chip" id="fl" type="button">+ Otro enlace</button>
   <label class="pill">Enlace de Play Store (opcional)</label>
   <input class="in" id="f11" placeholder="https://play.google.com/store/apps/details?id=..." value="${esc(a.play||'')}">
   <label class="pill"><input type="checkbox" id="f12"${a.mod?' checked':''}> Mostrar etiqueta MOD en el icono</label>
@@ -403,6 +430,7 @@ function adForm(i){
   ${n?'':'<label class="pill"><input type="checkbox" id="f9"> Marcar como actualizada hoy (se marca sola si cambias la versión)</label>'}
   <button class="btn" id="fs" style="margin-top:12px">Guardar</button>`;
   $('#bk').onclick=adList;
+  $('#fl').onclick=()=>{const t=$('#f7');t.value+=(t.value&&!t.value.endsWith('\n')?'\n':'')+'Descargar APK | ';t.focus()};
   $('#f0').onchange=()=>{$('#f3').innerHTML=opts($('#f0').value,'')};
   let imgs=(a.shots||[]).map(src=>({src,nuevo:false}));
   const rt=()=>{$('#th').innerHTML=imgs.map((m,k)=>`<div class="thumb"><img src="${esc(m.src)}" alt=""><b data-x="${k}">✕</b></div>`).join('');$('#th').querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>{imgs.splice(+b.dataset.x,1);rt()})};rt();
@@ -411,7 +439,7 @@ function adForm(i){
   $('#fs').onclick=async()=>{
     const v=k=>$('#f'+k).value.trim(),name=v(1);
     if(!name){toast('Escribe el nombre');return}
-    const downloads=v(7).split('\n').map(l=>l.trim()).filter(Boolean).map(l=>{const p=l.split('|');const url=p.pop().trim();return{label:p.join('|').trim()||'Descargar',url:fixUrl(url)}});
+    const downloads=v(7).split('\n').map(l=>l.trim()).filter(Boolean).map(l=>{const p=l.split('|');const url=p.pop().trim();return{label:p.join('|').trim()||'Descargar APK',url:fixUrl(url)}}).filter(d=>d.url);
     let id=a.id;
     if(!id){const base=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'app';id=base;let k=2;while(RES.includes(id)||/^cat-(app|juego)-\d+$/.test(id)||AD.apps.some(x=>x.id===id))id=base+'-'+k++}
     const btn=$('#fs');btn.disabled=true;btn.textContent='Guardando…';
@@ -423,7 +451,7 @@ function adForm(i){
       if(await subirImg(AD.c,path,m.src))shots.push(path);
       else{toast('No se pudo subir una imagen. Intenta de nuevo.');btn.disabled=false;btn.textContent='Guardar';return}
     }
-    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),downloads,play:fixUrl(v(11)),mod:$('#f12').checked,shots};
+    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),modinfo:$('#f13').value.trim()||undefined,downloads,play:fixUrl(v(11)),mod:$('#f12').checked,shots};
     if(n){o.updated=hoy();o.ts=Date.now();o.badge='Nuevo';AD.apps.unshift(o)}
     else{o.updated=a.updated;o.ts=a.ts;o.badge=a.badge;if(o.version!==a.version||$('#f9').checked){o.updated=hoy();o.ts=Date.now();o.badge='Actualizado'}AD.apps[i]=o}
     (await adSave((n?'Agregar ':'Editar ')+name))?adList():adLoad(AD.c);
