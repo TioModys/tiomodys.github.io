@@ -1,30 +1,6 @@
 {
  "apps": [
   {
-   "id": "picsart",
-   "name": "PicsArt",
-   "version": "38",
-   "type": "app",
-   "cat": "Herramientas",
-   "icon": "https://play-lh.googleusercontent.com/TRq8m0yN-r_NQ-zemXjFo1jrQS0Q0YrF_ox6dkycTD-h1TwwmCknIrrVdBI7ov37uiXdAk57QL-J78FbvGIp=w480-h960-rw",
-   "size": "67MB",
-   "rating": 4.5,
-   "desc": "‎Agregar una opción estilo descripción donde este el texto del MOD o tutoriales, (debajo de la descripción de la publicación) pero si no se pone en el momento de hacer una publicación no aparezca eso, pero que sea un texto que si es muy largo se contraiga y solo aparesca una pequeña parte, pero en una esquina inferior derecha este una flecha qué cuando se le de click se expanda todo el texto, y hacer eso también  con la descripción de cada aplicación qué si es muy larga se contraiga para que solo aparezca un poco del texto y tenga el mismo botón estilo flecha  y se expanda todo sería a obcion del usuario que si quiere leer todo el texto. Otra cosa que quiero agreges es un buscador en la página donde se hace la publicación para haci buscar la aplicación qué se va actualizar o borrar porque son muchas y es complicado buscar entre tantas. Y dejes predefinida en el botón de descarga cuando se va agregar el link para no estar escribiendo siempre el Descarga APK |.",
-   "modinfo": "TRANSFORMA LA IMAGEN CARGADA DE BAJA CALIDAD Y BORROSA EN UNA IMAGEN CON CALIDAD CINEMATOGRÁFICA Y UN NIVEL DE DETALLE EXTREMO. MEJORA DE IMAGEN PROFESIONAL DE CALIDAD ULTRA- PREMIUM.\n\nPRESERVA EL 100% DE LA IDENTIDAD ORIGINAL, LA ESTRUCTURA FACIAL, LA EXPRESIÓN,\n\nLA POSE, LA VESTIMENTA, LOS ACCESORIOS, EL FONDO, EL ENCUADRE Y LA COMPOSICIÓN. NO ALTERES, REDISEÑES, REEMPLACES NI AÑADAS NADA.\n\nRECUPERACIÓN DE MICRODETALLES:\n\n- RASGOS FACIALES NÍTIDOS - TEXTURA DE PIEL NATURAL\n\n- POROS VISIBLES\n\n- OJOS CRISTALINOS\n\n- HEBRAS DE CABELLO REALISTAS\n\n- BORDES LIMPIOS Y REFINADOS\n\nCLARIDAD DE ALTO CONTRASTE, PROFUNDIDAD INTENSA E ILUMINACIÓN\n\nCINEMATOGRÁFICA EQUILIBRADA.\n\nREALISMO DIGNO DE UN PÓSTER, CON DETALLES DRAMÁTICOS PERO PRECISOS. SALIDA EN RESOLUCIÓN 8K, CALIDAD PRORES Y NITIDEZ DE NIVEL DE ESTUDIO. SOLO TEXTURAS FOTORREALISTAS. SOLO MEJORAS FIELES A LA FUENTE ORIGINAL. MANTÉN TODO EXACTAMENTE IGUAL; SIMPLEMENTE MEJORA LA CALIDAD.",
-   "downloads": [
-    {
-     "label": "Descargar APK",
-     "url": "https://surl.li/maufuw"
-    }
-   ],
-   "play": "",
-   "mod": true,
-   "shots": [],
-   "updated": "2026-10-31",
-   "ts": 1793451975458,
-   "badge": "Nuevo"
-  },
-  {
    "id": "ai-image-generator-pro",
    "name": "AI Image Generator Pro",
    "version": "84.0",
