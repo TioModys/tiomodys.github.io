@@ -36,6 +36,24 @@ h2{font-size:20px;margin:20px 0 12px}
 .hs{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px}
 .hs .card{flex:none;width:112px;scroll-snap-align:start}
 .hs{padding:8px;margin:0 -8px}
+.sim{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.sim .ico{width:56px;height:56px;max-width:56px;font-size:28px;margin:0;flex:none;border-radius:14px}
+.sim .mod{font-size:8px;padding:0 3px;top:2px;right:2px}
+.si2{flex:1;min-width:0}
+.si2 b{display:block;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.si2 small{display:block;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sim .btn{width:auto;margin:0;padding:8px 22px;flex:none}
+.vh{display:flex;gap:14px;align-items:center;margin-bottom:8px}
+.vh .ico{width:64px;height:64px;max-width:64px;font-size:30px;margin:0;flex:none;border-radius:16px}
+.rb{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:14px 16px;cursor:pointer;max-width:340px;margin:14px 0}
+.rb span:nth-child(2){flex:1;font-weight:500}
+.rb small{color:var(--muted);font-size:11px}
+.chk{width:26px;height:26px;border:2px solid var(--muted);border-radius:6px;display:grid;place-items:center;flex:none;background:var(--bg)}
+.chk.spin{border-color:var(--accent);border-top-color:transparent;border-radius:50%;animation:giro .8s linear infinite}
+.chk.ok{background:var(--accent);border-color:var(--accent)}
+.chk.ok::after{content:"✓";color:var(--accent-text);font-weight:900;font-size:16px}
+.rb.okb{cursor:default}
+@keyframes giro{to{transform:rotate(360deg)}}
 .btn{transition:transform .2s ease}
 .btn.pop{transform:scale(1.07)}
 .card .ico{transition:transform .2s ease}
@@ -94,7 +112,7 @@ h2{font-size:20px;margin:20px 0 12px}
 .dlmask{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:30;display:grid;place-items:center;padding:20px}
 .dlbox{background:var(--bg);border-radius:16px;padding:22px;width:100%;max-width:380px;text-align:center}
 .dlbar{height:14px;border-radius:8px;background:var(--surface);overflow:hidden;margin:16px 0 8px;border:1px solid #00c853}
-.dlfill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,#00c853,#ffffff,#00c853,#ffffff,#00c853);background-size:200% 100%;animation:rgb 1.2s linear infinite;transition:width 5s linear;box-shadow:0 0 10px rgba(0,200,83,.6)}
+.dlfill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,#00c853,#ffffff,#00c853,#ffffff,#00c853);background-size:200% 100%;animation:rgb 1.2s linear infinite;transition:width 3s linear;box-shadow:0 0 10px rgba(0,200,83,.6)}
 @keyframes rgb{to{background-position:200% 0}}
 .in{width:100%;background:var(--surface);border:0;border-radius:12px;padding:10px 14px;color:var(--text);font:inherit;margin:6px 0}
 .back{background:none;border:0;color:var(--accent);font:inherit;cursor:pointer;padding:0 0 12px}
@@ -165,7 +183,7 @@ const CATS={
  app:['Herramientas','Productividad','Fotografía y video','Música y audio','Social y comunicación','Educación','Entretenimiento','Personalización','Salud y fitness','Finanzas','Estilo de vida','Noticias y revistas'],
  juego:['Acción','Aventura','Arcade','Carreras','Deportes','Puzzle','Estrategia','Simulación','Rol (RPG)','Casual','Educativos','Disparos']
 };
-const RES=['admin','apps','juegos','apps-top','juegos-top'];
+const RES=['verificar','admin','apps','juegos','apps-top','juegos-top'];
 const tipo=a=>a.type||(CATS.juego.includes(a.cat)?'juego':'app');
 const fmtV=n=>{n=+n||0;if(n>=1e6)return (n/1e6).toFixed(1).replace('.0','')+' M';if(n>=1e3)return (n/1e3).toFixed(1).replace('.0','')+' mil';return String(n)};
 /* Contador de visitas compartido (servicio gratuito Abacus) */
@@ -217,14 +235,40 @@ function listView(id){
   app.querySelectorAll('.chip[data-c]').forEach(b=>b.onclick=()=>{cat=b.dataset.c;listView(id)});
   bindCards();
 }
-function descargar(url){
+function descargar(url,id){
   const m=document.createElement('div');m.className='dlmask';
-  m.innerHTML='<div class="dlbox"><b>Preparando tu descarga…</b><div class="dlbar"><div class="dlfill" id="dlf"></div></div><p class="pill" id="dlt">5 s</p><button class="chip" id="dlc">Cancelar</button></div>';
+  m.innerHTML='<div class="dlbox"><b>Preparando tu descarga…</b><div class="dlbar"><div class="dlfill" id="dlf"></div></div><p class="pill" id="dlt">3 s</p><button class="chip" id="dlc">Cancelar</button></div>';
   document.body.appendChild(m);
   requestAnimationFrame(()=>requestAnimationFrame(()=>{const f=$('#dlf');if(f)f.style.width='100%'}));
-  let s=5;const iv=setInterval(()=>{s--;const t=$('#dlt');if(t&&s>0)t.textContent=s+' s'},1000);
-  const tm=setTimeout(()=>{clearInterval(iv);const t=$('#dlt');if(t)t.textContent='Abriendo…';location.href=url;setTimeout(()=>m.remove(),1500)},5000);
+  let s=3;const iv=setInterval(()=>{s--;const t=$('#dlt');if(t&&s>0)t.textContent=s+' s'},1000);
+  const tm=setTimeout(()=>{clearInterval(iv);store.set('pend',{id,url});m.remove();location.hash='verificar'},3000);
   $('#dlc').onclick=()=>{clearTimeout(tm);clearInterval(iv);m.remove()};
+}
+/* Página de verificación y generación del enlace */
+function verifyView(){
+  const p=store.get('pend',null),a=p&&APPS.find(x=>x.id===p.id);
+  if(!p||!a||!p.url){location.hash='';return}
+  app.innerHTML=`<button class="back" id="bk">‹ Volver a ${esc(a.name)}</button>
+  <div class="vh"><div class="ico">${ico(a)}</div><div><h2 style="margin:0">${esc(a.name)}</h2><div class="pill">Versión ${esc(a.version)} · ${esc(a.size)}</div></div></div>
+  <h2>Verificación</h2><p class="pill">Confirma que no eres un robot para generar tu enlace de descarga.</p>
+  <div class="rb" id="rb"><span class="chk" id="chk"></span><span>No soy un robot</span><small>TíoMody</small></div>
+  <div id="gen" hidden><p id="gt"><b>Generando link…</b> <span id="gp">0%</span></p><div class="dlbar"><div class="dlfill" id="gf" style="transition-duration:4s"></div></div></div>
+  <div id="dd" hidden><a class="btn" id="go" href="${esc(p.url)}">Descargar</a></div>`;
+  $('#bk').onclick=()=>{location.hash=a.id};
+  let busy=false;
+  $('#rb').onclick=e=>{
+    if(busy||!e.isTrusted)return;busy=true;
+    $('#chk').className='chk spin';
+    setTimeout(()=>{
+      if(!$('#rb'))return;
+      $('#chk').className='chk ok';$('#rb').classList.add('okb');
+      $('#gen').hidden=false;
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{const f=$('#gf');if(f)f.style.width='100%'}));
+      let n=0;const iv=setInterval(()=>{const g=$('#gp');if(!g){clearInterval(iv);return}n=Math.min(100,n+5);g.textContent=n+'%';if(n>=100)clearInterval(iv)},200);
+      setTimeout(()=>{const t=$('#gt');if(!t)return;t.innerHTML='<b>Link generado ✓</b>';$('#dd').hidden=false},4000);
+    },1100);
+  };
+  $('#go').onclick=e=>{e.preventDefault();location.href=p.url};
 }
 function catView(t,k){
   const c=CATS[t][k];if(!c){home();return}
@@ -235,6 +279,16 @@ function catView(t,k){
 }
 const PLAYSVG='<svg viewBox="0 0 24 24"><path fill="#00A0FF" d="M3.5 2.2L13.3 12 3.5 21.8z"/><path fill="#00F076" d="M3.5 2.2L16.6 9.6 13.3 12z"/><path fill="#FFD500" d="M16.6 9.6L21 12l-4.4 2.4L13.3 12z"/><path fill="#FF3A44" d="M3.5 21.8L16.6 14.4 13.3 12z"/></svg>';
 const playBtn=a=>a.play?`<a class="play" href="${esc(fixUrl(a.play))}" target="_blank" rel="noopener">${PLAYSVG}Play Store</a>`:'';
+function similares(a){
+  const t=tipo(a);
+  return APPS.filter(x=>x.id!==a.id&&tipo(x)===t)
+    .sort((x,y)=>((y.cat===a.cat)-(x.cat===a.cat))||((VIS[y.id]||0)-(VIS[x.id]||0))).slice(0,5);
+}
+function simHTML(a){
+  const l=similares(a);if(!l.length)return'';
+  return `<h2>${tipo(a)==='app'?'Apps que te podrían gustar':'Juegos que te podrían gustar'}</h2>`+
+    l.map(x=>`<div class="sim"><div class="ico">${ico(x)}</div><div class="si2"><b>${esc(x.name)}</b><small>${esc(x.cat)} · ${esc(x.size)}</small><small>${esc(x.rating)} ★ · v${esc(x.version)}</small></div><button class="btn" data-v="${esc(x.id)}">Ver</button></div>`).join('');
+}
 function detail(a){
   const dls=(a.downloads||[]).map((d,i)=>`<a class="btn" data-u="${esc(fixUrl(d.url))}" href="${esc(fixUrl(d.url))}" target="_blank" rel="noopener">${esc(d.label||'Descargar')}</a>`).join('');
   app.innerHTML=`<button class="back" id="bk">‹ Volver</button>
@@ -243,8 +297,10 @@ function detail(a){
   ${dls}
   ${(a.shots&&a.shots.length)?`<div class="car"><div class="cs" id="cs">${a.shots.map(s=>`<img src="${esc(s)}" alt="">`).join('')}</div>${a.shots.length>1?`<button class="cn p" id="cp">‹</button><button class="cn n" id="cx">›</button><div class="dots" id="cd">${a.shots.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`:''}</div>`:''}
   <h2>Acerca de esta app</h2><p class="desc">${esc(a.desc)}</p>
-  ${(REDES.telegram||REDES.chat)?`<h2>¿Tienes dudas u opiniones?</h2>${REDES.telegram?`<a class="btn alt" href="${esc(REDES.telegram)}" target="_blank" rel="noopener">Escríbenos en Telegram</a>`:''}${REDES.chat?`<a class="btn alt" href="${esc(REDES.chat)}" target="_blank" rel="noopener">Únete al chat de Telegram</a>`:''}`:''}`;
+  ${simHTML(a)}
+  ${REDES.chat?`<h2>¿Tienes dudas u opiniones?</h2><a class="btn alt" href="${esc(REDES.chat)}" target="_blank" rel="noopener">Únete al chat de Telegram</a>`:''}`;
   $('#bk').onclick=()=>{location.hash=''};
+  app.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.v});
   app.querySelectorAll('[data-u]').forEach(b=>{
     const k='dlc:'+b.dataset.u,t=store.get(k,0),resta=600000-(Date.now()-t);
     if(t&&resta>0){b.classList.add('done');setTimeout(()=>b.classList.remove('done'),resta)}
@@ -253,7 +309,7 @@ function detail(a){
       if(b.dataset.u==='#'||!b.dataset.u){toast('Aún no hay enlace de descarga');return}
       if(b.classList.contains('pop'))return;
       store.set(k,Date.now());b.classList.add('pop');
-      setTimeout(()=>{b.classList.remove('pop');b.classList.add('done');setTimeout(()=>b.classList.remove('done'),600000);descargar(b.dataset.u)},230);
+      setTimeout(()=>{b.classList.remove('pop');b.classList.add('done');setTimeout(()=>b.classList.remove('done'),600000);descargar(b.dataset.u,a.id)},230);
     };
   });
   const cs=$('#cs');
@@ -410,6 +466,7 @@ function route(){
   const id=location.hash.slice(1);
   scrollTo(0,0);
   if(id==='admin'){const s=store.get('adm',null);s&&s.t?adLoad(s):adLogin();return}
+  if(id==='verificar'){verifyView();return}
   const mc=id.match(/^cat-(app|juego)-(\d+)$/);if(mc){catView(mc[1],+mc[2]);return}
   if(['apps','juegos','apps-top','juegos-top'].includes(id)){cat='Todas';listView(id);return}
   const a=APPS.find(x=>x.id===id);a?detail(a):home();
