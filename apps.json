@@ -3,7 +3,7 @@
   {
    "id": "tomb-raider",
    "name": "Tomb Raider",
-   "version": "v1.4RC6",
+   "version": "1.4RC6",
    "type": "juego",
    "cat": "Acción",
    "icon": "https://play-lh.googleusercontent.com/7HgM2hUw-T74b4Hgwu8u9iShbH_VX_Sz-LudBGxZ0pmvQ6OOVVd4kWf4G1MUr_mSyonQBMyls-McHAyeGhlfSQ=s0-br30",
@@ -20,8 +20,8 @@
    "mod": false,
    "shots": [],
    "updated": "2026-10-30",
-   "ts": 1793422942447,
-   "badge": "Nuevo"
+   "ts": 1793422959452,
+   "badge": "Actualizado"
   },
   {
    "id": "poppy-playtime-chapter-5",
