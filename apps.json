@@ -1,6 +1,30 @@
 {
  "apps": [
   {
+   "id": "es-file-explorer-premium",
+   "name": "ES File Explorer Premium",
+   "version": "4.4.3.7",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://img.utdstc.com/icon/826/725/82672572ac96972a9e4e56717258c0651d296e707ae49309ce6bf81630ce3159:600",
+   "size": "60.28 MB",
+   "rating": 4.6,
+   "desc": "Si estás buscando esta aplicación por sus herramientas avanzadas, estas eran sus características principales:\n• Sin publicidad: Eliminaba los anuncios intrusivos y flotantes de la versión estándar.\n• Conectividad de Red: Soporte para servidores FTP, SFTP, WebDAV y almacenamiento en la nube (Google Drive, OneDrive, Dropbox).\n• Explorador Root: Capacidad para modificar archivos del sistema en dispositivos rooteados.\n• Gestión de Comprimidos: Compresión y descompresión nativa de archivos ZIP y RAR.\n• Personalización: Soporte para temas y esquemas de colores personalizados.",
+   "modinfo": "PREMIUM",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://shortxlinks.in/W81mge"
+    }
+   ],
+   "play": "",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-11-01",
+   "ts": 1793532300948,
+   "badge": "Nuevo"
+  },
+  {
    "id": "xuper",
    "name": "Xuper",
    "version": "6.2.20",
