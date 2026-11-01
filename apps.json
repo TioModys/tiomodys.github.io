@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "xuper",
+   "name": "Xuper",
+   "version": "6.2.20",
+   "type": "app",
+   "cat": "Entretenimiento",
+   "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc7TXbF8dAPZJwAFWPGPVCNLK_O6STkOftSuio8L-n5w&s=10",
+   "size": "37.29 MB",
+   "rating": 4.5,
+   "desc": "Desde televisión en vivo hasta películas y series completas, todo el contenido está al alcance de tu mano, en cualquier momento y en cualquier dispositivo. Ya no necesitas cambiar entre diferentes plataformas: con Xuper TV tienes todo en un solo lugar, fácil de usar y\ncon calidad de reproducción superior.\n\nCon Xuper TV accedes a cientos de canales en vivo, así como a una amplia biblioteca de películas y series bajo demanda. No importa si estás en casa, en el trabajo o de viaje, puedes disfrutar de tu contenido favorito cuando quieras.\n\nTelevisión en vivo: canales\n\nnacionales e internacionales actualizados las 24 horas.\n\nPelículas y series: desde los\n\núltimos estrenos hasta los clásicos que no pasan de moda.\n\nContenido bajo demanda: tú\n\neliges qué ver, cuándo verlo y en qué dispositivo.\n\nTodo está diseñado con una interfaz intuitiva que te permite navegar fácilmente, buscar títulos específicos o descubrir nuevas opciones según tus gustos.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://shortxlinks.in/xn3tnMiZ"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [],
+   "updated": "2026-10-31",
+   "ts": 1793505583885,
+   "badge": "Nuevo"
+  },
+  {
    "id": "light-room-pro",
    "name": "Light room Pro",
    "version": "11.6.12",
