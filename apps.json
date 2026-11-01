@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "picsart-pro",
+   "name": "PicsArt Pro",
+   "version": "31.0.5",
+   "type": "app",
+   "cat": "Fotografía y video",
+   "icon": "https://img.utdstc.com/icon/7ca/e68/7cae689089d12acb995d93f72c77958ec48270c351b8ad3d6953cd200a3e6f5b:600",
+   "size": "77.8 MB",
+   "rating": 4.2,
+   "desc": "Haz stickers, videos y collage. Edita stories y fotos con filtros y fondos.\n\nDesata tu potencial creativo con Picsart, el editor de fotos IA, editor de videos IA y estudio de diseño todo en uno, gratuito y fácil de usar. Desde diseños para negocios hasta arte IA, pasa de la inspiración a la creación en poco tiempo. Crea con un generador de fotos IA y un generador de videos IA, edita con un editor de imágenes IA, elimina fondos con Eliminador de fondos (BG remover), borra objetos con Object Remover (Object Eraser), aplica efectos IA, filtros y herramientas de retoque, y convierte ideas en diseños con plantillas, collage, creador de historias y más. Crea con nuevas herramientas de imagen a video, avatares de video IA, IA Try-On, avatares IA, Gen AI Studio, AI Playground y Picsart Persona.\n\nCONOCE PICSART AURA\nConvierte tus ideas en imágenes por chat. Basada en la plataforma de Picsart y usada por más de 150M de creadores, Aura es tu compañera creativa. De un prompt a un diseño en segundos, crea, edita y perfecciona en una sola conversación. Sugiere prompts, genera fotos y videos IA, recuerda tus chats y permite compartir sesiones.\nAura combina modelos de IA para crear y editar imágenes IA y videos. Usa Nano Banana™ para generación de imágenes y modelos de video como Veo™ (Veo 3), Kling, Runway y Luma. La disponibilidad puede variar. Las marcas comerciales son de sus propietarios.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://shortxlinks.in/Iffh"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.picsart.studio",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-11-01",
+   "ts": 1793538626059,
+   "badge": "Nuevo"
+  },
+  {
    "id": "musify-pro",
    "name": "Musify Pro",
    "version": "10.6.0",
