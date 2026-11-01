@@ -1,6 +1,32 @@
 {
  "apps": [
   {
+   "id": "musify-pro",
+   "name": "Musify Pro",
+   "version": "10.6.0",
+   "type": "app",
+   "cat": "Música y audio",
+   "icon": "https://img.utdstc.com/icon/d52/8d3/d528d366ad273608ed6689f965f25b3a1dba263cf03b75507abe1f5abf987e6d:600",
+   "size": "31.5 MB",
+   "rating": 3.5,
+   "desc": "Musify es una aplicación de música que ofrece una alternativa gratuita a servicios de música en streaming más populares como Spotify. Con Musify, podrás disfrutar de tu música favorita sin pagar suscripciones, brindándote acceso ilimitado a un vasto catálogo de canciones y artistas.\n\nEl modo en que Musify funciona es sencillo e intuitivo. La aplicación cuenta con un buscador integrado que te permite encontrar fácilmente a tus artistas y canciones preferidos. Además, puedes explorar listas de reproducción preestablecidas, diseñadas para satisfacer diferentes gustos musicales, o incluso crear tus propias listas personalizadas para tener siempre a mano tus canciones favoritas. También podrás acceder a los tops del momento y descubrir las últimas tendencias musicales.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://shortxlinks.in/XqnteJ"
+    }
+   ],
+   "play": "",
+   "mod": true,
+   "shots": [
+    "img/musify-pro-1793537332986-0.jpg",
+    "img/musify-pro-1793537335404-1.jpg"
+   ],
+   "updated": "2026-11-01",
+   "ts": 1793537337644,
+   "badge": "Nuevo"
+  },
+  {
    "id": "es-file-explorer-premium",
    "name": "ES File Explorer Premium",
    "version": "4.4.3.7",
