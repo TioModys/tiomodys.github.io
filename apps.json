@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "light-room-pro",
+   "name": "Light room Pro",
+   "version": "11.6.12",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ6Bf-ie9BEcm8Log9ZYb71MMDor0eX9WyyIHljLO5tQ&s=10",
+   "size": "160.22 MB",
+   "rating": 4.8,
+   "desc": "Las Acciones rápidas sugieren al instante ediciones para mejorar tus fotos.\n\nConozca Adobe Lightroom, un editor de fotos más inteligente. Haga que todas las fotos sean especiales con nuestro increíble editor fácil de usar. Lightroom está aquí para ayudarlo a crear fotos dignas de publicar y capturar atardeceres, momentos en familia o delicias culinarias. Elimine objetos de fotos, cambie el tono de las imágenes o use herramientas de corrección para suavizar la piel. Las herramientas del editor de imágenes de Lightroom le permitirán corregir fotos, mejorar la calidad y editar videos.  \n \nYa sea que quiera hacer una cuidadosa selección de imágenes para sus redes o tomar una foto rápida, lleve las herramientas de edición en el bolsillo con este editor de fotos. Lightroom está aquí para ayudarlo a crear fotos para enorgullecerse.\n \nPOR QUÉ DEBERÍA USAR LIGHTROOM:\n \nCREE IMÁGENES INCREÍBLES CON NUESTRO EDITOR\n- Editor de imágenes: Elimine imperfecciones, ilumine fotografías o suavice los fondos con unos pocos toques.\n- Edite fotos al instante: Las Acciones rápidas y los Presets adaptativos le permiten mejorar la calidad de sus fotos en segundos.\n- Presets para fotos: Descubra filtros o cree su propio estilo personal.\n- Edición de video: Use la misma energía creativa en sus clips con presets y herramientas para dar luz y color.\n \nELIMINAR OBJETOS Y DIFUMINAR FONDOS\n- Las herramientas del editor de imágenes producen resultados profesionales.\n- Use la Eliminación generativa para borrar objetos. Es ideal para hacer correcciones rápidas o darles su toque único a las fotos, sin necesidad de experiencia.\n- Ajuste los detalles y difumine el fondo de las fotos para obtener una imagen más refinada.\n \nUNA FORMA INTUITIVA Y ÚTIL DE EDITAR FOTOS\n- Controle la luz con las herramientas para retocar la exposición, las luces y las sombras de sus fotos.\n- Juegue con los presets, los efectos de fotos, la graduación de colores, las tonalidades y la saturación, y desenfoque o añada un efecto bokeh con nuestro editor de imágenes.\n \nDÉJESE INSPIRAR POR LA COMUNIDAD\n- Busque filtros y presets compartidos por fotógrafos aficionados de todo el mundo.\n- Encuentre inspiración en la comunidad que se adapte a su estética. Ya sea que busque hacer ediciones audaces con el editor de fotos con IA o retoques sutiles para editar un retrato refinado, encuentre un estilo que se adapte al suyo... o cree uno propio.\n \nEDITE UNA FOTO Y APLIQUE LAS EDICIONES A VARIAS FOTOS\n- Elimine objetos de fondo, ilumine sus imágenes o cambie los tonos de los colores. Con las herramientas de Lightroom, puede crear ediciones únicas de manera rápida, fácil y sencilla.\n- Edición de fotos en serie: Copie y pegue sus ediciones en varias fotos para mantener un estilo consistente.\n- Guarde sus ediciones favoritas y siéntase identificado con todas sus fotos.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://shortxlinks.in/6j0xqJAEYN"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.adobe.lrmobile",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-10-31",
+   "ts": 1793504496321,
+   "badge": "Nuevo"
+  },
+  {
    "id": "capcut-pro",
    "name": "CapCut Pro",
    "version": "20.0.0",
