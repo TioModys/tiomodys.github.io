@@ -189,7 +189,7 @@ const CATS={
  app:['Herramientas','Productividad','Fotografía y video','Música y audio','Social y comunicación','Educación','Entretenimiento','Personalización','Salud y fitness','Finanzas','Estilo de vida','Noticias y revistas'],
  juego:['Acción','Aventura','Arcade','Carreras','Deportes','Puzzle','Estrategia','Simulación','Rol (RPG)','Casual','Educativos','Disparos']
 };
-const RES=['verificar','admin','apps','juegos','apps-top','juegos-top'];
+const RES=['verificar','admin','anuncios','apps','juegos','apps-top','juegos-top'];
 const tipo=a=>a.type||(CATS.juego.includes(a.cat)?'juego':'app');
 const fmtV=n=>{n=+n||0;if(n>=1e6)return (n/1e6).toFixed(1).replace('.0','')+' M';if(n>=1e3)return (n/1e3).toFixed(1).replace('.0','')+' mil';return String(n)};
 /* Contador de visitas compartido (servicio gratuito Abacus) */
@@ -341,7 +341,7 @@ function detail(a){
 }
 
 /* ---------- Panel de administración (#admin) ---------- */
-let AD=null,ADQ='';
+let AD=null,ADQ='',ADV='list',ADS={};
 const enc=s=>{let b='';new TextEncoder().encode(s).forEach(x=>b+=String.fromCharCode(x));return btoa(b)};
 const dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g,'')),c=>c.charCodeAt(0)));
 function guess(){const h=location.hostname;if(h.endsWith('.github.io')){const seg=location.pathname.split('/')[1];return{o:h.split('.')[0],r:(seg&&!seg.includes('.'))?seg:h}}return{o:'',r:''}}
@@ -368,14 +368,14 @@ async function adLoad(c){
     if(r.status===404){
       const rr=await fetch(`https://api.github.com/repos/${c.o}/${c.r}`,{headers:{Authorization:'Bearer '+c.t}});
       if(!rr.ok){adLogin('No encuentro ese repositorio. Revisa el usuario y el nombre.');return}
-      AD={c,sha:null,apps:[]};
-    }else if(r.ok){const j=await r.json();AD={c,sha:j.sha,apps:JSON.parse(dec(j.content)).apps||[]}}
+      AD={c,sha:null,apps:[],ads:{}};
+    }else if(r.ok){const j=await r.json();const d=JSON.parse(dec(j.content));AD={c,sha:j.sha,apps:d.apps||[],ads:d.ads||{}}}
     else{adLogin('Error '+r.status);return}
   }catch(e){adLogin('No se pudo conectar. Revisa tu internet.');return}
-  adList();
+  ADV==='ads'?adAds():adList();
 }
 async function adSave(msg){
-  const body={message:msg,content:enc(JSON.stringify({apps:AD.apps},null,1))};if(AD.sha)body.sha=AD.sha;
+  const body={message:msg,content:enc(JSON.stringify({apps:AD.apps,ads:AD.ads||{}},null,1))};if(AD.sha)body.sha=AD.sha;
   try{
     const r=await gh(AD.c,'PUT',body);
     if(r.ok){const j=await r.json();AD.sha=j.content.sha;toast('Guardado. Se verá en la tienda en 1 a 3 minutos');return true}
@@ -386,12 +386,14 @@ async function adSave(msg){
 function adList(){
   app.innerHTML=`<button class="back" id="bk">‹ Ver la tienda</button><h1>Administrar apps</h1>
   <button class="btn" id="add">+ Agregar app</button>
+  <button class="btn alt" id="aads">📣 Publicidad</button>
   <input class="in" id="as" type="search" placeholder="Buscar app para editar o borrar" value="${esc(ADQ)}">
   <p class="pill" id="ac"></p>
   ${AD.apps.length?AD.apps.map((a,i)=>`<div class="row" data-n="${esc(((a.name||'')+' '+(a.cat||'')).toLowerCase())}"><div class="ico">${ico(a)}</div><div class="rt"><b>${esc(a.name)}</b><small>v${esc(a.version)} ${badge(a)}</small></div><button class="chip" data-e="${i}">Editar</button><button class="chip" data-d="${i}">Borrar</button></div>`).join(''):'<p class="pill">Aún no hay apps.</p>'}
   <p><button class="chip" id="out">Cerrar sesión</button></p>`;
   $('#bk').onclick=()=>{location.hash=''};
   $('#add').onclick=()=>adForm(-1);
+  $('#aads').onclick=adAds;
   const filtrar=()=>{ADQ=$('#as').value;const q=ADQ.trim().toLowerCase();let c=0;app.querySelectorAll('.row').forEach(r=>{const ok=!q||r.dataset.n.includes(q);r.style.display=ok?'':'none';if(ok)c++});$('#ac').textContent=q?(c+' resultado'+(c===1?'':'s')):(AD.apps.length+' apps')};
   $('#as').oninput=filtrar;filtrar();
   $('#out').onclick=()=>{store.set('adm',null);AD=null;adLogin()};
@@ -400,6 +402,29 @@ function adList(){
     const i=+b.dataset.d;if(!confirm('¿Borrar '+AD.apps[i].name+'?'))return;
     AD.apps.splice(i,1);(await adSave('Borrar app'))?adList():adLoad(AD.c);
   });
+}
+function adAds(){
+  const A=AD.ads||{};
+  app.innerHTML=`<button class="back" id="bk">‹ Volver al panel</button><h1>Publicidad</h1>
+  <p class="pill">Pega aquí el código de anuncios completo (el que empieza con &lt;script). Se carga en la tienda, no en este panel.</p>
+  <textarea class="in" id="ac" rows="9" placeholder="&lt;script type=&quot;text/javascript&quot;&gt;…">${esc(A.code||'')}</textarea>
+  <label class="pill" style="display:block;margin:8px 0"><input type="checkbox" id="ao"${A.on===false?'':' checked'}> Anuncios activados</label>
+  <button class="btn" id="asv">Guardar</button>
+  <button class="btn alt" id="adl">Borrar código</button>
+  <p class="pill">${A.code&&A.on!==false?'Estado: anuncios activos':'Estado: sin anuncios'}</p>
+  <p class="pill">Pega solo código de redes en las que confíes: se ejecuta en la página de todos tus visitantes. Los cambios tardan de 1 a 3 minutos en verse.</p>`;
+  $('#bk').onclick=adList;
+  $('#asv').onclick=async()=>{
+    const code=$('#ac').value.trim();
+    if(code&&!/<script|<ins|<div|<iframe/i.test(code)){toast('Pega el código completo, tal como lo da la red de anuncios');return}
+    AD.ads={code,on:$('#ao').checked};
+    (await adSave('Actualizar publicidad'))?adAds():adLoad(AD.c);
+  };
+  $('#adl').onclick=async()=>{
+    if(!confirm('¿Borrar el código de publicidad?'))return;
+    AD.ads={code:'',on:false};
+    (await adSave('Borrar publicidad'))?adAds():adLoad(AD.c);
+  };
 }
 function adForm(i){
   const n=i<0,a=n?{name:'',version:'',cat:'',icon:'',size:'',rating:4.5,desc:'',downloads:[]}:AD.apps[i];
@@ -487,11 +512,25 @@ const guardado=store.get('tema',null);if(guardado)document.documentElement.datas
 pintarTema();
 $('#tema').onclick=()=>{const t=oscuro()?'light':'dark';document.documentElement.dataset.theme=t;store.set('tema',t);pintarTema()};
 
+/* ---------- Publicidad (se administra en #admin → Publicidad) ---------- */
+function cargarAnuncios(){
+  const h=location.hash.slice(1);
+  if(!ADS||!ADS.code||ADS.on===false||h==='admin'||h==='anuncios'||window.__ads)return;
+  window.__ads=1;
+  try{
+    const c=document.createElement('div');c.className='adslot';c.innerHTML=ADS.code;
+    const sc=[...c.querySelectorAll('script')];
+    sc.forEach(o=>o.remove());
+    if(c.innerHTML.trim())document.body.insertBefore(c,document.querySelector('footer'));
+    sc.forEach(o=>{const n=document.createElement('script');[...o.attributes].forEach(t=>n.setAttribute(t.name,t.value));n.text=o.textContent;document.head.appendChild(n)});
+  }catch(e){}
+}
+
 /* ---------- Rutas ---------- */
 function route(){
   const id=location.hash.slice(1);
   scrollTo(0,0);
-  if(id==='admin'){const s=store.get('adm',null);s&&s.t?adLoad(s):adLogin();return}
+  if(id==='admin'||id==='anuncios'){ADV=id==='anuncios'?'ads':'list';const s=store.get('adm',null);s&&s.t?adLoad(s):adLogin();return}
   if(id==='verificar'){verifyView();return}
   const mc=id.match(/^cat-(app|juego)-(\d+)$/);if(mc){catView(mc[1],+mc[2]);return}
   if(['apps','juegos','apps-top','juegos-top'].includes(id)){cat='Todas';listView(id);return}
@@ -500,7 +539,7 @@ function route(){
 $('#q').oninput=e=>{query=e.target.value;if(location.hash)location.hash='';else home()};
 $('#logo').onclick=()=>{cat='Todas';location.hash=''};
 addEventListener('hashchange',route);
-fetch('apps.json?v='+Date.now()).then(r=>r.json()).then(j=>{APPS=j.apps||[]}).catch(()=>{APPS=[]}).then(route).then(()=>cargarVisitas()).then(()=>{
+fetch('apps.json?v='+Date.now()).then(r=>r.json()).then(j=>{APPS=j.apps||[];ADS=j.ads||{}}).catch(()=>{APPS=[]}).then(route).then(()=>{cargarAnuncios();return cargarVisitas()}).then(()=>{
   const id=location.hash.slice(1);
   if(!id)home();else if(['apps-top','juegos-top'].includes(id))listView(id);
 });
