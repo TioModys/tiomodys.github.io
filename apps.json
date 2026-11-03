@@ -1,6 +1,38 @@
 {
  "apps": [
   {
+   "id": "just-cause-2",
+   "name": "Just Cause 2",
+   "version": "v1.0.1",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://apkgstore.co/wp-content/uploads/2026/11/Just-Cause-2-Logo-300x300.jpg",
+   "size": "4.5 GB",
+   "rating": 4.1,
+   "desc": "Just Cause 2 APK es un juego de acción y mundo abierto donde controlas a Rico Rodríguez, un agente especializado en misiones peligrosas que puede recorrer enormes escenarios, conducir vehículos, utilizar armas y provocar explosiones mientras se enfrenta a las fuerzas de un régimen militar. La aventura transcurre en Panau, un archipiélago tropical lleno de ciudades, montañas, selvas y bases enemigas que puedes explorar con total libertad.\n\nLo que hace diferente a Just Cause 2 es la combinación de un gancho de agarre y un paracaídas que permite desplazarte rápidamente por el mapa, saltar desde edificios, engancharte a vehículos y realizar maniobras espectaculares. El juego original fue desarrollado por Avalanche Studios y cuenta con una adaptación no oficial para Android, creada por la comunidad.",
+   "modinfo": "1. Descarga el APK y los datos del juego.\n\n2. Extrae los datos con ZArchiver.\n\n3. Instala el APK, ábrelo y selecciona la carpeta descomprimida del juego.\n\n4. Espera a que cargue y disfruta de Just Cause 2.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://download2274.mediafire.com/2ry7x87ijhygX1HO_gaTIqUP5paGuKzwu5pICXJZophInWnXgHb9FbEEStDu8nymZhtLX22W04aw9xUAUllQ6W4Ku4pVGUoESVfxzwASN2f8SFF3K1c-55zmk8J2x6PkVN1k4S0y-2CvYfgS-TzlgGKUa3LU7SsKCpJH4CgtH6imgIk/bdigpp6hbwio18x/JustCause2_Android_v1.0.1_beta.apk"
+    },
+    {
+     "label": "Descargar DATOS",
+     "url": "https://des.apkgstore.co/Just%20Cause%202.zip"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/just-cause-2-1793667721878-0.jpg",
+    "img/just-cause-2-1793667724379-1.jpg",
+    "img/just-cause-2-1793667726615-2.jpg"
+   ],
+   "updated": "2026-11-02",
+   "ts": 1793667728548,
+   "badge": "Nuevo"
+  },
+  {
    "id": "well-dweller",
    "name": "Well Dweller",
    "version": "v1.0",
