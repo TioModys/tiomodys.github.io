@@ -1,6 +1,30 @@
 {
  "apps": [
   {
+   "id": "call-of-duty-strike-team",
+   "name": "Call of Duty: Strike Team",
+   "version": "1.0.40",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://upload.wikimedia.org/wikipedia/en/3/3a/Call_of_Duty_Strike_Team_icon.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
+   "size": "1 GB",
+   "rating": 4.5,
+   "desc": "Call of Duty: Strike Team\nCall of Duty: Strike Team\nAcción · v1.0.40\n4.5\n4.6K opiniones\n30K+\nDescargas\n1GB\nTamaño\n9.0+\nAndroid\nActualización\n31 Oct 2026\nClasificación\nApto para todos\nGoogle Play\nNo disponible\nCapturas de pantalla\n2 / 3\n\n\nDescripción\nInstalación / Ayuda\nAcerca de Call of Duty: Strike Team\nCall of Duty: Strike Team APK es un juego de disparos y acción táctica donde controlas a un escuadrón de operaciones especiales, completas misiones militares y puedes cambiar en cualquier momento entre combatir en primera persona o dirigir a tus soldados desde una vista superior. Antes de entrar en combate puedes elegir armas, equipamiento y habilidades para cada miembro del equipo y después decidir si atacar directamente, flanquear enemigos o avanzar utilizando sigilo.\n\nÍndice de Contenido\n1. Acerca de Call of Duty: Strike Team\n2. Cambia entre primera persona y una vista táctica\n3. Dirige un escuadrón de hasta cuatro soldados\n4. Utiliza sigilo, flanqueos y ataques coordinados\n5. Personaliza las armas y habilidades del equipo\n6. Completa objetivos militares por diferentes zonas del mundo\n7. Sobrevive a oleadas de enemigos\n8. Un Call of Duty creado específicamente para móviles\n9. Fue una versión oficial de Call of Duty para Android\n10. ¿Vale la pena jugar Call of Duty: Strike Team?\n11. Preguntas frecuentes sobre Call of Duty: Strike Team APK\n12. ¿Call of Duty: Strike Team fue lanzado oficialmente para Android?\n13. ¿Call of Duty: Strike Team sigue disponible en Google Play?\n14. ¿Se puede cambiar entre primera y tercera persona?\n15. ¿Call of Duty: Strike Team tiene modo Supervivencia?\n16. ¿Call of Duty: Strike Team tiene multijugador?\nLa campaña está ambientada en el año 2020, después de que un ataque sorpresa lleve a Estados Unidos a una guerra contra un enemigo inicialmente desconocido. Tu misión es dirigir una unidad conjunta de operaciones especiales por diferentes lugares del mundo para descubrir quién está detrás del ataque, mientras alternas entre tiroteos tradicionales y órdenes tácticas para todo el escuadrón.\n\nCambia entre primera persona y una vista táctica\nLa característica más particular de Strike Team es poder cambiar de perspectiva durante una misión. En primera persona controlas directamente a un soldado, apuntas y disparas como en un Call of Duty tradicional.\n\nAl pasar a la vista superior puedes observar mejor el campo de batalla, seleccionar miembros del escuadrón y ordenar hacia dónde deben moverse o qué posición deben atacar.\n\nDirige un escuadrón de hasta cuatro soldados\nEl equipo puede estar formado por hasta cuatro operadores y no tienes que controlar siempre al mismo personaje. Puedes organizar al grupo desde la vista táctica y después tomar directamente el control de uno de sus integrantes cuando necesites participar en el combate.",
+   "modinfo": "DINERO ILUMITADO",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/twu8q3cmwg4u5gy/Call+Of+Duty+Strike+Team_v1.0.40.apk/file?action=check"
+    }
+   ],
+   "play": "",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-11-02",
+   "ts": 1793677049701,
+   "badge": "Nuevo"
+  },
+  {
    "id": "just-cause-2",
    "name": "Just Cause 2",
    "version": "1.0.1",
