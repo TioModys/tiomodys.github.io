@@ -35,7 +35,7 @@
   {
    "id": "well-dweller",
    "name": "Well Dweller",
-   "version": "v1.0",
+   "version": "1.0",
    "type": "juego",
    "cat": "Acción",
    "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd_fzEN5HUsWou11mj8idEZBmR64E0m69k8_4wjHAd5w&s=10",
@@ -57,8 +57,8 @@
     "img/well-dweller-1793667187162-2.jpg"
    ],
    "updated": "2026-11-02",
-   "ts": 1793667189403,
-   "badge": "Nuevo"
+   "ts": 1793676822387,
+   "badge": "Actualizado"
   },
   {
    "id": "picsart-pro",
