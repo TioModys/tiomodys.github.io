@@ -3,7 +3,7 @@
   {
    "id": "just-cause-2",
    "name": "Just Cause 2",
-   "version": "v1.0.1",
+   "version": "1.0.1",
    "type": "juego",
    "cat": "Acción",
    "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7yRTP6SGJXV2zVZTf21d2PdLHHrHhKSsBKvR4o6Ekiw&s=10",
@@ -29,8 +29,8 @@
     "img/just-cause-2-1793667726615-2.jpg"
    ],
    "updated": "2026-11-02",
-   "ts": 1793667728548,
-   "badge": "Nuevo"
+   "ts": 1793676841265,
+   "badge": "Actualizado"
   },
   {
    "id": "well-dweller",
