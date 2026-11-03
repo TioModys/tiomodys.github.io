@@ -1,6 +1,34 @@
 {
  "apps": [
   {
+   "id": "well-dweller",
+   "name": "Well Dweller",
+   "version": "v1.0",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd_fzEN5HUsWou11mj8idEZBmR64E0m69k8_4wjHAd5w&s=10",
+   "size": "668 MB",
+   "rating": 4.1,
+   "desc": "Well Dweller APK es un juego de acción y aventura en 2D donde exploras un reino oscuro, luchas contra criaturas y jefes, resuelves puzles y consigues nuevas habilidades que permiten abrir caminos antes inaccesibles. Controlas a Glimmer, un pequeño pájaro armado con una cerilla que debe recorrer bosques, ruinas y zonas ocultas para rescatar a sus hermanos y llegar hasta la malvada reina que los capturó.",
+   "modinfo": "Descarga el archivo APK o XAPK en tu dispositivo Android. Abre la carpeta Descargas y localiza el archivo descargado. Si el archivo es APK, tócalo para iniciar la instalación. Si el archivo es XAPK o APKS, instálalo utilizando SAI (Split APKs Installer) o cualquier instalador compatible. Si Android lo solicita, habilita la instalación desde fuentes desconocidas. Espera unos segundos hasta que finalice la instalación y abre la aplicación.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://apkgstore.co/well-dweller-apk/download/0"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/well-dweller-1793667182415-0.jpg",
+    "img/well-dweller-1793667184924-1.jpg",
+    "img/well-dweller-1793667187162-2.jpg"
+   ],
+   "updated": "2026-11-02",
+   "ts": 1793667189403,
+   "badge": "Nuevo"
+  },
+  {
    "id": "picsart-pro",
    "name": "PicsArt Pro",
    "version": "31.0.5",
