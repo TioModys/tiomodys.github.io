@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "sally-face",
+   "name": "Sally Face",
+   "version": "1.5.56",
+   "type": "juego",
+   "cat": "Aventura",
+   "icon": "https://i0.wp.com/adescargar.net/wp-content/uploads/2026/08/Sally-Face.png?fit=300%2C300&ssl=1",
+   "size": "700 MB",
+   "rating": 5,
+   "desc": "Sally Face APK es una aventura de misterio para Android donde acompañas a Sal, un chico con una prótesis facial que comienza a descubrir sucesos extraños alrededor de su pueblo. Con la ayuda de sus amigos y una consola portátil capaz de captar presencias del más allá, tendrás que investigar asesinatos, hablar con fantasmas y unir pistas que poco a poco revelan una historia mucho más oscura.\n\nEl juego mezcla exploración, conversaciones y puzles con una estética inspirada en los dibujos animados de los años 90. Aunque la historia tiene momentos inquietantes, también está llena de personajes extraños, humor y situaciones inesperadas que ayudan a darle una personalidad muy marcada.\n\n¿Qué es Sally Face?\nSally Face es una aventura narrativa protagonizada por Sal Fisher, un joven que se muda a un nuevo lugar y pronto comienza a notar que algo no encaja. Los sucesos extraños, las desapariciones y los misterios que rodean a sus vecinos lo llevan a investigar junto a sus amigos.\n\nLa historia avanza por episodios y va mostrando diferentes momentos de la vida de Sal. Cada capítulo añade nuevas preguntas, personajes y pistas que permiten entender mejor lo que realmente está ocurriendo.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://download2288.mediafire.com/patfbxkyxk3g-M3Sy0mKfHMv0E9TKCLpIdUO5kAN07nASTsTfUDh2c5rRWDAGUwUSWkooO17sygaHAeMH8-DFBhuBytYY-8erWSeLuYUG9GJ3SLdFPoEfolWIncMp22DvhkAVmV3u68aztOBXKcdOX1AOA3vPdg7yjhc1HSRxnVQSGE/xx7e81u10qhmalg/Sally+Face+Mod+v1.5.56.apk"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/sally-face-1793677422815-0.jpg",
+    "img/sally-face-1793677425024-1.jpg",
+    "img/sally-face-1793677427185-2.jpg"
+   ],
+   "updated": "2026-11-02",
+   "ts": 1793677429184,
+   "badge": "Nuevo"
+  },
+  {
    "id": "call-of-duty-strike-team",
    "name": "Call of Duty: Strike Team",
    "version": "1.0.40",
