@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "malwarebytes-vpn-y-antivirus",
+   "name": "Malwarebytes - VPN y antivirus",
+   "version": "5.34.0",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://play-lh.googleusercontent.com/qB0MqW9JALRW6P_nm4so9SMkSWoKe395SknZo0Uomqux4GOnX7AWKfdN1xEJwnFyftt0_pMUvjYv-_XGvhYk=s256-rw",
+   "size": "57.12 MB",
+   "rating": 4.8,
+   "desc": "Protege tu celular y tu privacidad con un antimalware, antivirus y VPN fiables.\nTu máxima protección móvil 🛡️\n\nDetén las amenazas inmediatamente 🕵️‍♀️\n\n¡NUEVO! Scam Guard: Detén a los estafadores al instante con asesoría en tiempo real. Simplemente sube un texto o captura de pantalla para recibir consejos inmediatos que te ayudarán a evitar fraudes, phishing y robo de identidad.\n\nPotente antivirus móvil que elimina virus y malware. Bloquea spam y recupera tu tranquilidad. Navega y transmite contenido con seguridad y privacidad mejorada. Protección de identidad y alertas de monitoreo de crédito mantienen tus datos confidenciales a salvo.\n\nVPN de próxima generación: tu capa digital\n\nNavega con privacidad y seguridad: tus datos son solo TUYOS. Protege tu conexión Wi-Fi dondequiera que vayas: cafetería, aeropuerto, ¡en cualquier lugar! Disfruta navegación ultrarrápida sin interrupciones.\n\nFunciones principales:\n\n🛡️ Protección antivirus sencilla: Nuestro antivirus gratuito, fácil de usar, trabaja silenciosamente en segundo plano, protegiéndote automáticamente contra virus, malware y otras amenazas en línea sin configuraciones complicadas.",
+   "modinfo": "Premium🔥",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1KVe5L9n8mBV9LrjuSXVW4w"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=org.malwarebytes.antimalware",
+   "mod": true,
+   "shots": [
+    "img/malwarebytes-vpn-y-antivirus-1793776801717-0.jpg",
+    "img/malwarebytes-vpn-y-antivirus-1793776804123-1.jpg"
+   ],
+   "updated": "2026-11-04",
+   "ts": 1793776806471,
+   "badge": "Nuevo"
+  },
+  {
    "id": "sally-face",
    "name": "Sally Face",
    "version": "1.5.56",
@@ -488,44 +515,5 @@
  "ads": {
   "code": "<script type=\"text/javascript\" data-cfasync=\"false\">\n/*<![CDATA[/* */\n(function(){var w=window,o=\"defca94bcbc94f78ec0af53f4234e692\",y=[[\"siteId\",686+144+364*376-926+5189014],[\"minBid\",0],[\"popundersPerIP\",\"0\"],[\"delayBetween\",0],[\"default\",false],[\"defaultPerDay\",0],[\"topmostLayer\",\"always\"]],v=[\"d3d3LmJldHRlcmFkc3lzdGVtLmNvbS96RmFzdEFjdGl2ZS5taW4uY3Nz\",\"ZDJrazBvM2ZyN2VkMDEuY2xvdWRmcm9udC5uZXQvUUtVai9pZXZlLm1pbi5qcw==\"],e=-1,j,u,c=function(){clearTimeout(u);e++;if(v[e]&&!(1819635610000<(new Date).getTime()&&1<e)){j=w.document.createElement(\"script\");j.type=\"text/javascript\";j.async=!0;var g=w.document.getElementsByTagName(\"script\")[0];j.src=\"https://\"+atob(v[e]);j.crossOrigin=\"anonymous\";j.onerror=c;j.onload=function(){clearTimeout(u);w[o.slice(0,16)+o.slice(0,16)]||c()};u=setTimeout(c,5E3);g.parentNode.insertBefore(j,g)}};if(!w[o]){try{Object.freeze(w[o]=y)}catch(e){}c()}})();\n/*]]>/* */\n</script>\n\n\n<meta name=\"ppck-ver\" content=\"7017c0182f0676567dabe1767ed7a10f\" />",
   "on": true
- },
- "slots": [
-  {
-   "id": "smw1mu5n7",
-   "pos": "footer",
-   "size": "468x60",
-   "code": "<script>\n  atOptions = {\n    'key' : '0a067d1a14f0eb6ba7d0422398b666ee',\n    'format' : 'iframe',\n    'height' : 60,\n    'width' : 468,\n    'params' : {}\n  };\n</script>\n<script src=\"https://cleavegrate.com/0a067d1a14f0eb6ba7d0422398b666ee/invoke.js\"></script>",
-   "on": true
-  },
-  {
-   "id": "smw1n7lru",
-   "pos": "download",
-   "size": "300x250",
-   "code": "https://cleavegrate.com/pnzw7rh8?key=a4d7fa0e0c2d8d5d4081dde7b15bb106",
-   "on": true,
-   "kind": "link",
-   "label": ""
-  },
-  {
-   "id": "smw1njpji",
-   "pos": "home-mid",
-   "size": "nativo",
-   "code": "<script async=\"async\" data-cfasync=\"false\" src=\"https://cleavegrate.com/62ae239df246fd4ea4ed33e0ac4dd8d6/invoke.js\"></script>\n<div id=\"container-62ae239df246fd4ea4ed33e0ac4dd8d6\"></div>",
-   "on": true
-  },
-  {
-   "id": "smw1no0mi",
-   "pos": "app-mid",
-   "size": "160x300",
-   "code": "<script>\n  atOptions = {\n    'key' : '2390f1fc78b103c28115cdb9e72cf796',\n    'format' : 'iframe',\n    'height' : 300,\n    'width' : 160,\n    'params' : {}\n  };\n</script>\n<script src=\"https://cleavegrate.com/2390f1fc78b103c28115cdb9e72cf796/invoke.js\"></script>",
-   "on": true
-  },
-  {
-   "id": "smw1o036o",
-   "pos": "home-top",
-   "size": "468x60",
-   "code": "<script>\n  atOptions = {\n    'key' : '0a067d1a14f0eb6ba7d0422398b666ee',\n    'format' : 'iframe',\n    'height' : 60,\n    'width' : 468,\n    'params' : {}\n  };\n</script>\n<script src=\"https://cleavegrate.com/0a067d1a14f0eb6ba7d0422398b666ee/invoke.js\"></script>",
-   "on": true
-  }
- ]
+ }
 }
