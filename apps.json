@@ -512,6 +512,13 @@
    "size": "nativo",
    "code": "<script async=\"async\" data-cfasync=\"false\" src=\"https://cleavegrate.com/62ae239df246fd4ea4ed33e0ac4dd8d6/invoke.js\"></script>\n<div id=\"container-62ae239df246fd4ea4ed33e0ac4dd8d6\"></div>",
    "on": true
+  },
+  {
+   "id": "smw1no0mi",
+   "pos": "app-mid",
+   "size": "160x300",
+   "code": "<script>\n  atOptions = {\n    'key' : '2390f1fc78b103c28115cdb9e72cf796',\n    'format' : 'iframe',\n    'height' : 300,\n    'width' : 160,\n    'params' : {}\n  };\n</script>\n<script src=\"https://cleavegrate.com/2390f1fc78b103c28115cdb9e72cf796/invoke.js\"></script>",
+   "on": true
   }
  ]
 }
