@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "recuperaci-n-de-datos",
+   "name": "Recuperación de datos",
+   "version": "2.0.98",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://img.utdstc.com/icon/9e6/c11/9e6c11001c118ebf2507ed5903bbda3c57424df168ee8d0288696a37a8ebdf84:600",
+   "size": "34.78 MB",
+   "rating": 4,
+   "desc": "Data Recovery es una herramienta muy útil que te permite recuperar fotos y vídeos que hayas borrado por error. Esta innovadora aplicación te ofrece una solución óptima para restaurar fotos, videos y otros documentos importantes, con una serie de características destacadas que aseguran una recuperación eficiente y sin complicaciones.\n\nData Recovery no solo recupera imágenes; también es capaz de restaurar videos, documentos y archivos de audio con una gran eficacia. No importa si los datos están guardados en la memoria interna del dispositivo o en medios externos, la aplicación se encarga de hacer copias de seguridad y restauraciones precisas. Además, tiene una interfaz de usuario sencilla y amigable, que hace que el proceso de recuperación sea muy fácil, sin necesidad de realizar procesos técnicos complejos, como el rooteo del dispositivo.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1WdoY2pz-al8EluZXl1P9zQ"
+    }
+   ],
+   "play": "",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-11-04",
+   "ts": 1793818066549,
+   "badge": "Nuevo"
+  },
+  {
    "id": "malwarebytes-vpn-y-antivirus",
    "name": "Malwarebytes - VPN y antivirus",
    "version": "5.34.0",
