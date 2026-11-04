@@ -523,6 +523,13 @@
    "size": "468x60",
    "code": "<script>\n  atOptions = {\n    'key' : '0a067d1a14f0eb6ba7d0422398b666ee',\n    'format' : 'iframe',\n    'height' : 60,\n    'width' : 468,\n    'params' : {}\n  };\n</script>\n<script src=\"https://cleavegrate.com/0a067d1a14f0eb6ba7d0422398b666ee/invoke.js\"></script>",
    "on": true
+  },
+  {
+   "id": "smw1sj4n8",
+   "pos": "footer",
+   "size": "468x60",
+   "code": "<script>\n  atOptions = {\n    'key' : '0a067d1a14f0eb6ba7d0422398b666ee',\n    'format' : 'iframe',\n    'height' : 60,\n    'width' : 468,\n    'params' : {}\n  };\n</script>\n<script src=\"https://cleavegrate.com/0a067d1a14f0eb6ba7d0422398b666ee/invoke.js\"></script>",
+   "on": true
   }
  ]
 }
