@@ -550,8 +550,8 @@
   {
    "id": "smw1sp5qg",
    "pos": "app-mid",
-   "size": "nativo",
-   "code": "<script src=\"https://cleavegrate.com/d1/fa/b3/d1fab3e0dd6c7d723bb06cc3cc1714cb.js\"></script>",
+   "size": "468x60",
+   "code": "<script>\n  atOptions = {\n    'key' : '0a067d1a14f0eb6ba7d0422398b666ee',\n    'format' : 'iframe',\n    'height' : 60,\n    'width' : 468,\n    'params' : {}\n  };\n</script>\n<script src=\"https://cleavegrate.com/0a067d1a14f0eb6ba7d0422398b666ee/invoke.js\"></script>",
    "on": true
   }
  ]
