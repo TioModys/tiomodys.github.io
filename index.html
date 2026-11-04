@@ -36,6 +36,11 @@ h2{font-size:20px;margin:20px 0 12px}
 .hs{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px}
 .hs .card{flex:none;width:112px;scroll-snap-align:start}
 .hs{padding:8px;margin:0 -8px}
+.adbox{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:8px;margin:18px 0;text-align:center}
+.adbox small{display:block;color:var(--muted);font-size:11px;margin-bottom:6px}
+.adwrap{margin:0 auto;overflow:hidden;max-width:100%}
+.adwrap iframe{display:block;border:0;background:transparent}
+#fslots{max-width:1000px;margin:auto;padding:0 16px}
 .cbox{position:relative}
 .cbox .ct{margin:0}
 .cbox.col{padding-bottom:26px}
@@ -145,6 +150,7 @@ footer p{margin:0 0 12px;color:var(--muted);font-size:14px}
 <p class="pill">Cargando…</p>
 <noscript><p>Activa JavaScript en tu navegador para ver el catálogo completo.</p></noscript>
 </main>
+<div id="fslots"></div>
 <footer><p>Síguenos para enterarte de nuevas apps</p><div class="soc" id="soc"><a href="https://t.me/ModifyProXoficial">Telegram</a> <a href="https://www.tiktok.com/@tiomody">TikTok</a></div></footer>
 
 <script>
@@ -189,7 +195,7 @@ const CATS={
  app:['Herramientas','Productividad','Fotografía y video','Música y audio','Social y comunicación','Educación','Entretenimiento','Personalización','Salud y fitness','Finanzas','Estilo de vida','Noticias y revistas'],
  juego:['Acción','Aventura','Arcade','Carreras','Deportes','Puzzle','Estrategia','Simulación','Rol (RPG)','Casual','Educativos','Disparos']
 };
-const RES=['verificar','admin','anuncios','apps','juegos','apps-top','juegos-top'];
+const RES=['verificar','admin','anuncios','cuadros','apps','juegos','apps-top','juegos-top'];
 const tipo=a=>a.type||(CATS.juego.includes(a.cat)?'juego':'app');
 const fmtV=n=>{n=+n||0;if(n>=1e6)return (n/1e6).toFixed(1).replace('.0','')+' M';if(n>=1e3)return (n/1e3).toFixed(1).replace('.0','')+' mil';return String(n)};
 /* Contador de visitas compartido (servicio gratuito Abacus) */
@@ -224,9 +230,10 @@ function home(){
     const q=query.toLowerCase(),list=APPS.filter(a=>((a.name||'')+(a.cat||'')+(a.desc||'')).toLowerCase().includes(q));
     app.innerHTML=`<h2>Resultados</h2>${list.length?`<div class="grid">${list.map(cardH).join('')}</div>`:'<p class="pill">No encontramos nada con esa búsqueda.</p>'}`;
   }else{
-    app.innerHTML=APPS.length?section('Apps más populares',masPop('app'),'apps-top',5)+section('Juegos más populares',masPop('juego'),'juegos-top',5)+section('Apps',recent('app'),'apps')+section('Juegos',recent('juego'),'juegos'):'<p class="pill">Aún no hay apps publicadas.</p>';
+    app.innerHTML=APPS.length?slotsHTML('home-top')+section('Apps más populares',masPop('app'),'apps-top',5)+section('Juegos más populares',masPop('juego'),'juegos-top',5)+slotsHTML('home-mid')+section('Apps',recent('app'),'apps')+section('Juegos',recent('juego'),'juegos'):'<p class="pill">Aún no hay apps publicadas.</p>';
   }
   bindCards();
+  if(VISLISTO)montarSlots(app);
 }
 function listView(id){
   const t=id.startsWith('apps')?'app':'juego',pop=id.endsWith('-top');
@@ -312,13 +319,15 @@ function detail(a){
   <div class="stats"><div><b>${esc(a.rating)} ★</b><small>Calificación</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b id="vv">${VIS[a.id]==null?'…':fmtV(VIS[a.id])}</b><small>Visitas</small></div></div>
   ${dls}
   ${(a.shots&&a.shots.length)?`<div class="car"><div class="cs" id="cs">${a.shots.map(s=>`<img src="${esc(s)}" alt="">`).join('')}</div>${a.shots.length>1?`<button class="cn p" id="cp">‹</button><button class="cn n" id="cx">›</button><div class="dots" id="cd">${a.shots.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`:''}</div>`:''}
+  ${slotsHTML('app-mid')}
   ${a.modinfo?`<div class="cbox modbox" id="mbox"><b class="mt">MOD / Tutorial</b><div class="ct desc">${esc(a.modinfo)}</div></div>`:''}
   <h2>Acerca de esta app</h2><div class="cbox" id="dbox"><div class="ct desc">${esc(a.desc)}</div></div>
   ${simHTML(a)}
+  ${slotsHTML('app-bottom')}
   ${REDES.chat?`<h2>¿Tienes dudas u opiniones?</h2><a class="btn alt" href="${esc(REDES.chat)}" target="_blank" rel="noopener">Únete al chat de Telegram</a>`:''}`;
   $('#bk').onclick=()=>{location.hash=''};
   app.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.v});
-  contraible($('#mbox'),4,4);contraible($('#dbox'),15,15);
+  contraible($('#mbox'),4,4);contraible($('#dbox'),15,15);montarSlots(app);
   app.querySelectorAll('[data-u]').forEach(b=>{
     const k='dlc:'+b.dataset.u,t=store.get(k,0),resta=600000-(Date.now()-t);
     if(t&&resta>0){b.classList.add('done');setTimeout(()=>b.classList.remove('done'),resta)}
@@ -341,7 +350,7 @@ function detail(a){
 }
 
 /* ---------- Panel de administración (#admin) ---------- */
-let AD=null,ADQ='',ADV='list',ADS={};
+let AD=null,ADQ='',ADV='list',ADS={},SLOTS=[],VISLISTO=false;
 const enc=s=>{let b='';new TextEncoder().encode(s).forEach(x=>b+=String.fromCharCode(x));return btoa(b)};
 const dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g,'')),c=>c.charCodeAt(0)));
 function guess(){const h=location.hostname;if(h.endsWith('.github.io')){const seg=location.pathname.split('/')[1];return{o:h.split('.')[0],r:(seg&&!seg.includes('.'))?seg:h}}return{o:'',r:''}}
@@ -368,14 +377,14 @@ async function adLoad(c){
     if(r.status===404){
       const rr=await fetch(`https://api.github.com/repos/${c.o}/${c.r}`,{headers:{Authorization:'Bearer '+c.t}});
       if(!rr.ok){adLogin('No encuentro ese repositorio. Revisa el usuario y el nombre.');return}
-      AD={c,sha:null,apps:[],ads:{}};
-    }else if(r.ok){const j=await r.json();const d=JSON.parse(dec(j.content));AD={c,sha:j.sha,apps:d.apps||[],ads:d.ads||{}}}
+      AD={c,sha:null,apps:[],ads:{},slots:[]};
+    }else if(r.ok){const j=await r.json();const d=JSON.parse(dec(j.content));AD={c,sha:j.sha,apps:d.apps||[],ads:d.ads||{},slots:d.slots||[]}}
     else{adLogin('Error '+r.status);return}
   }catch(e){adLogin('No se pudo conectar. Revisa tu internet.');return}
-  ADV==='ads'?adAds():adList();
+  ADV==='ads'?adAds():ADV==='slots'?adSlots():adList();
 }
 async function adSave(msg){
-  const body={message:msg,content:enc(JSON.stringify({apps:AD.apps,ads:AD.ads||{}},null,1))};if(AD.sha)body.sha=AD.sha;
+  const body={message:msg,content:enc(JSON.stringify({apps:AD.apps,ads:AD.ads||{},slots:AD.slots||[]},null,1))};if(AD.sha)body.sha=AD.sha;
   try{
     const r=await gh(AD.c,'PUT',body);
     if(r.ok){const j=await r.json();AD.sha=j.content.sha;toast('Guardado. Se verá en la tienda en 1 a 3 minutos');return true}
@@ -387,6 +396,7 @@ function adList(){
   app.innerHTML=`<button class="back" id="bk">‹ Ver la tienda</button><h1>Administrar apps</h1>
   <button class="btn" id="add">+ Agregar app</button>
   <button class="btn alt" id="aads">📣 Publicidad</button>
+  <button class="btn alt" id="aslots">🧩 Cuadros de anuncios</button>
   <input class="in" id="as" type="search" placeholder="Buscar app para editar o borrar" value="${esc(ADQ)}">
   <p class="pill" id="ac"></p>
   ${AD.apps.length?AD.apps.map((a,i)=>`<div class="row" data-n="${esc(((a.name||'')+' '+(a.cat||'')).toLowerCase())}"><div class="ico">${ico(a)}</div><div class="rt"><b>${esc(a.name)}</b><small>v${esc(a.version)} ${badge(a)}</small></div><button class="chip" data-e="${i}">Editar</button><button class="chip" data-d="${i}">Borrar</button></div>`).join(''):'<p class="pill">Aún no hay apps.</p>'}
@@ -394,6 +404,7 @@ function adList(){
   $('#bk').onclick=()=>{location.hash=''};
   $('#add').onclick=()=>adForm(-1);
   $('#aads').onclick=adAds;
+  $('#aslots').onclick=adSlots;
   const filtrar=()=>{ADQ=$('#as').value;const q=ADQ.trim().toLowerCase();let c=0;app.querySelectorAll('.row').forEach(r=>{const ok=!q||r.dataset.n.includes(q);r.style.display=ok?'':'none';if(ok)c++});$('#ac').textContent=q?(c+' resultado'+(c===1?'':'s')):(AD.apps.length+' apps')};
   $('#as').oninput=filtrar;filtrar();
   $('#out').onclick=()=>{store.set('adm',null);AD=null;adLogin()};
@@ -402,6 +413,44 @@ function adList(){
     const i=+b.dataset.d;if(!confirm('¿Borrar '+AD.apps[i].name+'?'))return;
     AD.apps.splice(i,1);(await adSave('Borrar app'))?adList():adLoad(AD.c);
   });
+}
+const POS={'home-top':'Inicio · arriba','home-mid':'Inicio · entre secciones','app-mid':'Publicación · antes de la descripción','app-bottom':'Publicación · al final','footer':'Todas las páginas · pie'};
+const SIZES=['320x50','300x250','468x60','728x90','160x600','160x300','nativo'];
+function adSlots(){
+  const L=AD.slots||[];
+  app.innerHTML=`<button class="back" id="bk">‹ Volver al panel</button><h1>Cuadros de anuncios</h1>
+  <p class="pill">Cuadros para códigos de banner de Adsterra u otras redes. Se ven en la tienda, no en este panel. Los cambios tardan de 1 a 3 minutos.</p>
+  <button class="btn" id="sn">+ Agregar cuadro</button>
+  ${L.length?L.map((x,i)=>`<div class="row"><div class="rt"><b>${esc(POS[x.pos]||x.pos)}</b><small>${esc(x.size)} · ${x.on===false?'apagado':'activo'}</small></div><button class="chip" data-e="${i}">Editar</button><button class="chip" data-d="${i}">Borrar</button></div>`).join(''):'<p class="pill">Aún no hay cuadros.</p>'}`;
+  $('#bk').onclick=adList;
+  $('#sn').onclick=()=>adSlotForm(-1);
+  app.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>adSlotForm(+b.dataset.e));
+  app.querySelectorAll('[data-d]').forEach(b=>b.onclick=async()=>{
+    if(!confirm('¿Borrar este cuadro?'))return;
+    AD.slots.splice(+b.dataset.d,1);
+    (await adSave('Borrar cuadro de anuncios'))?adSlots():adLoad(AD.c);
+  });
+}
+function adSlotForm(i){
+  const n=i<0,x=n?{pos:'home-top',size:'300x250',on:true,code:''}:AD.slots[i];
+  app.innerHTML=`<button class="back" id="bk">‹ Cancelar</button><h1>${n?'Agregar cuadro':'Editar cuadro'}</h1>
+  <label class="pill">Dónde se muestra</label>
+  <select class="in" id="sp">${Object.entries(POS).map(([k,v])=>`<option value="${k}"${k===x.pos?' selected':''}>${esc(v)}</option>`).join('')}</select>
+  <label class="pill">Tamaño (el mismo que elegiste en Adsterra)</label>
+  <select class="in" id="ss">${SIZES.map(z=>`<option value="${z}"${z===x.size?' selected':''}>${z==='nativo'?'Nativo (ancho completo)':z}</option>`).join('')}</select>
+  <label class="pill">Código del anuncio</label>
+  <textarea class="in" id="sc" rows="8" placeholder="&lt;script …&gt;">${esc(x.code)}</textarea>
+  <label class="pill" style="display:block;margin:8px 0"><input type="checkbox" id="so"${x.on===false?'':' checked'}> Activado</label>
+  <button class="btn" id="sv">Guardar</button>`;
+  $('#bk').onclick=adSlots;
+  $('#sv').onclick=async()=>{
+    const code=$('#sc').value.trim();
+    if(!code){toast('Pega el código del anuncio');return}
+    if(!/<script|<ins|<iframe|<div/i.test(code)){toast('Pega el código completo, tal como lo da la red de anuncios');return}
+    const o={id:x.id||('s'+Date.now().toString(36)),pos:$('#sp').value,size:$('#ss').value,code,on:$('#so').checked};
+    n?AD.slots.push(o):AD.slots[i]=o;
+    (await adSave('Guardar cuadro de anuncios'))?adSlots():adLoad(AD.c);
+  };
 }
 function adAds(){
   const A=AD.ads||{};
@@ -512,6 +561,34 @@ const guardado=store.get('tema',null);if(guardado)document.documentElement.datas
 pintarTema();
 $('#tema').onclick=()=>{const t=oscuro()?'light':'dark';document.documentElement.dataset.theme=t;store.set('tema',t);pintarTema()};
 
+/* ---------- Cuadros de anuncios (se administran en #admin → Cuadros de anuncios) ---------- */
+const TAM={'320x50':[320,50],'300x250':[300,250],'468x60':[468,60],'728x90':[728,90],'160x600':[160,600],'160x300':[160,300]};
+function slotsHTML(pos){
+  return SLOTS.filter(x=>x.on!==false&&x.code&&x.pos===pos).map(x=>`<div class="adbox" data-slot="${esc(x.id)}"><small>Publicidad</small><div class="adwrap"></div></div>`).join('');
+}
+function montarSlots(raiz){
+  (raiz||document).querySelectorAll('.adbox').forEach(b=>{
+    const x=SLOTS.find(t=>t.id===b.dataset.slot),w=b.querySelector('.adwrap');
+    if(!x||!w||w.firstChild)return;
+    const f=document.createElement('iframe');
+    f.setAttribute('scrolling','no');f.setAttribute('frameborder','0');f.title='Publicidad';
+    if(x.size==='nativo'){f.style.width='100%';f.style.height='300px';w.style.height='300px'}
+    else{
+      const d=TAM[x.size]||[300,250],av=w.clientWidth||d[0],k=Math.min(1,av/d[0]);
+      f.style.width=d[0]+'px';f.style.height=d[1]+'px';
+      f.style.transform='scale('+k+')';f.style.transformOrigin='0 0';
+      w.style.width=Math.round(d[0]*k)+'px';w.style.height=Math.round(d[1]*k)+'px';
+    }
+    f.srcdoc='<!DOCTYPE html><html><head><meta charset="utf-8"><style>html,body{margin:0;padding:0;overflow:hidden;background:transparent}</style></head><body>'+x.code+'</body></html>';
+    w.appendChild(f);
+  });
+}
+function cargarSlotsFooter(){
+  const f=$('#fslots'),h=location.hash.slice(1);
+  if(!f||f.firstChild||['admin','anuncios','cuadros'].includes(h))return;
+  f.innerHTML=slotsHTML('footer');montarSlots(f);
+}
+
 /* ---------- Publicidad (se administra en #admin → Publicidad) ---------- */
 function cargarAnuncios(){
   const h=location.hash.slice(1);
@@ -530,7 +607,7 @@ function cargarAnuncios(){
 function route(){
   const id=location.hash.slice(1);
   scrollTo(0,0);
-  if(id==='admin'||id==='anuncios'){ADV=id==='anuncios'?'ads':'list';const s=store.get('adm',null);s&&s.t?adLoad(s):adLogin();return}
+  if(id==='admin'||id==='anuncios'||id==='cuadros'){const fs=$('#fslots');if(fs)fs.innerHTML='';ADV=id==='anuncios'?'ads':id==='cuadros'?'slots':'list';const s=store.get('adm',null);s&&s.t?adLoad(s):adLogin();return}
   if(id==='verificar'){verifyView();return}
   const mc=id.match(/^cat-(app|juego)-(\d+)$/);if(mc){catView(mc[1],+mc[2]);return}
   if(['apps','juegos','apps-top','juegos-top'].includes(id)){cat='Todas';listView(id);return}
@@ -539,7 +616,8 @@ function route(){
 $('#q').oninput=e=>{query=e.target.value;if(location.hash)location.hash='';else home()};
 $('#logo').onclick=()=>{cat='Todas';location.hash=''};
 addEventListener('hashchange',route);
-fetch('apps.json?v='+Date.now()).then(r=>r.json()).then(j=>{APPS=j.apps||[];ADS=j.ads||{}}).catch(()=>{APPS=[]}).then(route).then(()=>{cargarAnuncios();return cargarVisitas()}).then(()=>{
+fetch('apps.json?v='+Date.now()).then(r=>r.json()).then(j=>{APPS=j.apps||[];ADS=j.ads||{};SLOTS=j.slots||[]}).catch(()=>{APPS=[]}).then(route).then(()=>{cargarAnuncios();cargarSlotsFooter();return cargarVisitas()}).then(()=>{
+  VISLISTO=true;
   const id=location.hash.slice(1);
   if(!id)home();else if(['apps-top','juegos-top'].includes(id))listView(id);
 });
