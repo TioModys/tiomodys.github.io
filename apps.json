@@ -539,6 +539,13 @@
    "on": true,
    "kind": "link",
    "label": ""
+  },
+  {
+   "id": "smw1slx9s",
+   "pos": "home-mid",
+   "size": "nativo",
+   "code": "<script async=\"async\" data-cfasync=\"false\" src=\"https://cleavegrate.com/62ae239df246fd4ea4ed33e0ac4dd8d6/invoke.js\"></script>\n<div id=\"container-62ae239df246fd4ea4ed33e0ac4dd8d6\"></div>",
+   "on": true
   }
  ]
 }
