@@ -530,6 +530,15 @@
    "size": "468x60",
    "code": "<script>\n  atOptions = {\n    'key' : '0a067d1a14f0eb6ba7d0422398b666ee',\n    'format' : 'iframe',\n    'height' : 60,\n    'width' : 468,\n    'params' : {}\n  };\n</script>\n<script src=\"https://cleavegrate.com/0a067d1a14f0eb6ba7d0422398b666ee/invoke.js\"></script>",
    "on": true
+  },
+  {
+   "id": "smw1skhwj",
+   "pos": "download",
+   "size": "nativo",
+   "code": "https://cleavegrate.com/pnzw7rh8?key=a4d7fa0e0c2d8d5d4081dde7b15bb106",
+   "on": true,
+   "kind": "link",
+   "label": ""
   }
  ]
 }
