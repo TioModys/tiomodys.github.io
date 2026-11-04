@@ -38,6 +38,7 @@ h2{font-size:20px;margin:20px 0 12px}
 .hs{padding:8px;margin:0 -8px}
 .adbox{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:8px;margin:18px 0;text-align:center}
 .adbox small{display:block;color:var(--muted);font-size:11px;margin-bottom:6px}
+.adbox .btn{margin:0}
 .adwrap{margin:0 auto;overflow:hidden;max-width:100%}
 .adwrap iframe{display:block;border:0;background:transparent}
 #fslots{max-width:1000px;margin:auto;padding:0 16px}
@@ -281,7 +282,12 @@ function verifyView(){
       setTimeout(()=>{const t=$('#gt');if(!t)return;t.innerHTML='<b>Link generado ✓</b>';$('#dd').hidden=false},4000);
     },1100);
   };
-  $('#go').onclick=e=>{e.preventDefault();location.href=p.url};
+  $('#go').onclick=e=>{
+    e.preventDefault();
+    const d=SLOTS.find(x=>x.pos==='download'&&x.kind==='link'&&x.on!==false&&x.code);
+    if(d&&Date.now()-store.get('dlad',0)>18e5){store.set('dlad',Date.now());window.open(d.code,'_blank','noopener')}
+    location.href=p.url;
+  };
 }
 function catView(t,k){
   const c=CATS[t][k];if(!c){home();return}
@@ -414,14 +420,14 @@ function adList(){
     AD.apps.splice(i,1);(await adSave('Borrar app'))?adList():adLoad(AD.c);
   });
 }
-const POS={'home-top':'Inicio · arriba','home-mid':'Inicio · entre secciones','app-mid':'Publicación · antes de la descripción','app-bottom':'Publicación · al final','footer':'Todas las páginas · pie'};
+const POS={'home-top':'Inicio · arriba','home-mid':'Inicio · entre secciones','app-mid':'Publicación · antes de la descripción','app-bottom':'Publicación · al final','footer':'Todas las páginas · pie','download':'Al tocar Descargar (solo enlaces)'};
 const SIZES=['320x50','300x250','468x60','728x90','160x600','160x300','nativo'];
 function adSlots(){
   const L=AD.slots||[];
   app.innerHTML=`<button class="back" id="bk">‹ Volver al panel</button><h1>Cuadros de anuncios</h1>
   <p class="pill">Cuadros para códigos de banner de Adsterra u otras redes. Se ven en la tienda, no en este panel. Los cambios tardan de 1 a 3 minutos.</p>
   <button class="btn" id="sn">+ Agregar cuadro</button>
-  ${L.length?L.map((x,i)=>`<div class="row"><div class="rt"><b>${esc(POS[x.pos]||x.pos)}</b><small>${esc(x.size)} · ${x.on===false?'apagado':'activo'}</small></div><button class="chip" data-e="${i}">Editar</button><button class="chip" data-d="${i}">Borrar</button></div>`).join(''):'<p class="pill">Aún no hay cuadros.</p>'}`;
+  ${L.length?L.map((x,i)=>`<div class="row"><div class="rt"><b>${esc(POS[x.pos]||x.pos)}</b><small>${x.kind==='link'?'enlace':esc(x.size)} · ${x.on===false?'apagado':'activo'}</small></div><button class="chip" data-e="${i}">Editar</button><button class="chip" data-d="${i}">Borrar</button></div>`).join(''):'<p class="pill">Aún no hay cuadros.</p>'}`;
   $('#bk').onclick=adList;
   $('#sn').onclick=()=>adSlotForm(-1);
   app.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>adSlotForm(+b.dataset.e));
@@ -438,16 +444,21 @@ function adSlotForm(i){
   <select class="in" id="sp">${Object.entries(POS).map(([k,v])=>`<option value="${k}"${k===x.pos?' selected':''}>${esc(v)}</option>`).join('')}</select>
   <label class="pill">Tamaño (el mismo que elegiste en Adsterra)</label>
   <select class="in" id="ss">${SIZES.map(z=>`<option value="${z}"${z===x.size?' selected':''}>${z==='nativo'?'Nativo (ancho completo)':z}</option>`).join('')}</select>
-  <label class="pill">Código del anuncio</label>
-  <textarea class="in" id="sc" rows="8" placeholder="&lt;script …&gt;">${esc(x.code)}</textarea>
+  <label class="pill">Código del anuncio o enlace inteligente (Direct Link)</label>
+  <textarea class="in" id="sc" rows="8" placeholder="&lt;script …&gt; o https://…">${esc(x.code)}</textarea>
+  <label class="pill">Texto del botón (solo para enlaces)</label>
+  <input class="in" id="sl" placeholder="Apoyar con un clic" maxlength="40" value="${esc(x.label||'')}">
   <label class="pill" style="display:block;margin:8px 0"><input type="checkbox" id="so"${x.on===false?'':' checked'}> Activado</label>
   <button class="btn" id="sv">Guardar</button>`;
   $('#bk').onclick=adSlots;
   $('#sv').onclick=async()=>{
-    const code=$('#sc').value.trim();
-    if(!code){toast('Pega el código del anuncio');return}
-    if(!/<script|<ins|<iframe|<div/i.test(code)){toast('Pega el código completo, tal como lo da la red de anuncios');return}
-    const o={id:x.id||('s'+Date.now().toString(36)),pos:$('#sp').value,size:$('#ss').value,code,on:$('#so').checked};
+    const c0=$('#sc').value.trim(),link=/^(https?:)?\/\/\S+$/i.test(c0),pos=$('#sp').value;
+    if(!c0){toast('Pega el código del anuncio o el enlace');return}
+    if(pos==='download'&&!link){toast('Para "Al tocar Descargar" pega un enlace inteligente que empiece con https://');return}
+    if(!link&&!/<script|<ins|<iframe|<div/i.test(c0)){toast('Pega el código completo o un enlace que empiece con https://');return}
+    const code=link&&c0.startsWith('//')?'https:'+c0:c0;
+    const o={id:x.id||('s'+Date.now().toString(36)),pos,size:$('#ss').value,code,on:$('#so').checked};
+    if(link){o.kind='link';o.label=$('#sl').value.trim()}
     n?AD.slots.push(o):AD.slots[i]=o;
     (await adSave('Guardar cuadro de anuncios'))?adSlots():adLoad(AD.c);
   };
@@ -564,7 +575,7 @@ $('#tema').onclick=()=>{const t=oscuro()?'light':'dark';document.documentElement
 /* ---------- Cuadros de anuncios (se administran en #admin → Cuadros de anuncios) ---------- */
 const TAM={'320x50':[320,50],'300x250':[300,250],'468x60':[468,60],'728x90':[728,90],'160x600':[160,600],'160x300':[160,300]};
 function slotsHTML(pos){
-  return SLOTS.filter(x=>x.on!==false&&x.code&&x.pos===pos).map(x=>`<div class="adbox" data-slot="${esc(x.id)}"><small>Publicidad</small><div class="adwrap"></div></div>`).join('');
+  return SLOTS.filter(x=>x.on!==false&&x.code&&x.pos===pos).map(x=>x.kind==='link'?`<div class="adbox" data-slot="${esc(x.id)}"><small>Publicidad</small><a class="btn" href="${esc(x.code)}" target="_blank" rel="noopener sponsored nofollow">${esc(x.label||'Apoyar con un clic')}</a></div>`:`<div class="adbox" data-slot="${esc(x.id)}"><small>Publicidad</small><div class="adwrap"></div></div>`).join('');
 }
 function montarSlots(raiz){
   (raiz||document).querySelectorAll('.adbox').forEach(b=>{
