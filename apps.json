@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "filmora-editor-de-v-deo-ia-pro",
+   "name": "Filmora - Editor de Vídeo IA Pro",
+   "version": "15.7.70",
+   "type": "app",
+   "cat": "Fotografía y video",
+   "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwvC_8VlKIgLUJw7ILjfNwWsznxi2iqG6svLQ_HIgCsg&s=10",
+   "size": "210.21 MB",
+   "rating": 4.5,
+   "desc": "Editor de video con IA para TikTok, Reels y YouTube: rápido, pro y fácil de usar\n\nFilmora (formerly FilmoraGo video editor) es un editor de video con IA para creadores sociales: más fácil que las herramientas profesionales y más potente que las apps básicas. \n\nConvierte clips, fotos o guiones en videos llamativos para TikTok, Reels, YouTube y más, sin experiencia previa. Disfruta de herramientas de IA, plantillas y efectos profesionales fáciles de usar.\n\n🤖Nuevas y potentes funciones de IA\nImage to Video\n· Escribe tus ideas creativas y deja que la IA dé vida mágicamente a tus fotos.\nSubtítulos Dinámicos\n· Conversión automática de voz a texto en subtítulos dinámicos palabra por palabra.\nTexto a Vídeo\n· Crea fácilmente una película de IA mediante sencillas indicaciones, ¡visualiza tus grandes ideas!\nEliminación IA\n· Borra sin esfuerzo los elementos no deseados de los vídeos.\nCorte Automático IA\n· Une a la perfección los mejores momentos para crear historias cinematográficas.\nVideoGen\n· Esta función de video a video te permite intercambiar o agregar elementos a tus videos sin problemas.\nTexto a Voz\n· Transforma texto en locuciones profesionales para tus vídeos.\nMúsica y Efectos sonoros AI\n• Genera música y efectos sonoros libres de derechos y de calidad profesional para tus vídeos.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1Uew9F1oMlh-hKtG-QvJ_vw"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.wondershare.filmorago",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-11-05",
+   "ts": 1793908720873,
+   "badge": "Nuevo"
+  },
+  {
    "id": "refoto-creador-de-fotos-ia-pro",
    "name": "Refoto: Creador de Fotos IA Pro",
    "version": "1.2.1",
