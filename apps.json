@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "psiphon-vpn",
+   "name": "Psiphon VPN",
+   "version": "2.5.13",
+   "type": "app",
+   "cat": "Productividad",
+   "icon": "https://play-lh.googleusercontent.com/8lvPDjWAexZh4EZAfCD-IX4eDdPu7k-eJI0PJacFqIS2WnRs0f5qzIXF4JdvV3eK889yRlPwD-Y58RdiVBY7=s0-br30",
+   "size": "108.21 MB",
+   "rating": 3.9,
+   "desc": "VPN rápida y segura para navegación privada y acceso confiable donde estés.\n\nPsiphon es una VPN de confianza y de código abierto, diseñada para ofrecer un acceso a internet rápido, seguro y confiable.\n\nDurante más de 20 años, Psiphon ha ayudado a millones de personas en todo el mundo a acceder a sus aplicaciones, sitios web y servicios favoritos. Psiphon combina tecnologías de VPN, proxy y elusión de la censura para ayudarte a mantenerte conectado, incluso en redes restringidas.\n\nYa sea que estés protegiendo tu conexión en una red Wi-Fi pública, navegando con más privacidad o accediendo a contenido donde internet está restringido, Psiphon hace que conectarte sea fácil, con un solo toque.\n\n¿POR QUÉ PSIPHON?\n\nVPN RÁPIDA Y CONFIABLE\n\nPsiphon selecciona automáticamente el mejor método de conexión según las condiciones de tu red, para ayudarte a mantenerte conectado dondequiera que estés.\n\nDISEÑADO PARA EL ACCESO\n\nMás que una VPN tradicional. Psiphon utiliza múltiples tecnologías de VPN, proxy y elusión de la censura, diseñadas para ayudarte a acceder a sitios web, aplicaciones y servicios en línea, incluso en redes restringidas.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1DdmcworipuMvDZpC-n8z8A"
+    }
+   ],
+   "play": "",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-11-05",
+   "ts": 1793860105082,
+   "badge": "Nuevo"
+  },
+  {
    "id": "recuperaci-n-de-datos",
    "name": "Recuperación de datos",
    "version": "2.0.98",
