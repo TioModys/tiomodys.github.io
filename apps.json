@@ -1,6 +1,37 @@
 {
  "apps": [
   {
+   "id": "gears-of-war-3",
+   "name": "Gears of War 3",
+   "version": "1.0.0",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://fbi.cults3d.com/uploaders/21821699/illustration-file/3d141378-e146-45fc-b887-e8ae400a6d16/Gears_Logo_1.png",
+   "size": "8.7 GB",
+   "rating": 4.5,
+   "desc": "Una campaña llena de acción y supervivencia\nLa campaña de Gears of War 3 lleva al jugador por diferentes escenarios devastados por la guerra, desde instalaciones militares hasta ciudades en ruinas y territorios infestados de enemigos. Cada misión presenta situaciones distintas, con ataques sorpresa, enfrentamientos contra grandes criaturas y secuencias donde tendrás que avanzar junto a los integrantes de tu escuadrón.\n\nUno de los aspectos más importantes es la relación entre Marcus Fenix, Dominic Santiago y los demás soldados del Escuadrón Delta. La historia profundiza en sus sacrificios y en las consecuencias de una guerra que ha llevado a la humanidad al borde de la extinción.\n\nCombates con coberturas y un arsenal de armas\nEl sistema de combate se desarrolla desde una perspectiva en tercera persona y permite aprovechar paredes, vehículos y otros elementos del escenario para protegerse de los ataques. Puedes disparar desde las coberturas, cambiar de posición rápidamente, lanzar granadas y acercarte a los enemigos para realizar ataques cuerpo a cuerpo.\n\nEntre las armas más conocidas se encuentra el rifle Lancer, equipado con una motosierra para los enfrentamientos cercanos. También puedes utilizar escopetas, rifles de precisión, pistolas y armamento pesado. La recarga activa añade un elemento de habilidad, ya que permite recargar con mayor rapidez y obtener ventajas durante el combate cuando se ejecuta correctamente.",
+   "modinfo": "1. Descarga el APK y los datos de Gears of War 3.\n\n2. Instala el APK, abre el juego y pulsa «Importar ISO» para seleccionar el archivo de datos descargado.\n\n3. Espera a que finalice la importación y ¡listo! Ya puedes jugar Gears of War 3 en Android.\n\nRequisitos recomendados para Android\nAndroid: 10 o superior (64 bits).\n\nProcesador: Snapdragon 8 Gen 2 o superior.\n\nGPU: Adreno compatible con Vulkan.\n\nRAM: 8 GB o más.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://download2440.mediafire.com/casfjc5xk3igJZkutqC4PJkWcam3TKhGjnto4M688moG61MCyBx0_Ub9J02dfuJ8-gtdCWGrtYTTY3dz3ctFFiStKzuGup4BvQdIhDG2vG5JJVVFInmo8YR4F1oEBfkxhQ4zx4B5wJmlnPeuBfUhI2gKXzZEu2Umv6cQUJnPNroTek4/6h95qnxh2v4psw1/Gears+of+War+3.apk"
+    },
+    {
+     "label": "Descargar DATOS",
+     "url": "https://des.apkgstore.co/Gears%20of%20War%203.iso"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/gears-of-war-3-1793889349508-0.jpg",
+    "img/gears-of-war-3-1793889352365-1.jpg"
+   ],
+   "updated": "2026-11-05",
+   "ts": 1793889354930,
+   "badge": "Nuevo"
+  },
+  {
    "id": "gang-beasts",
    "name": "Gang Beasts",
    "version": "1.2.9",
