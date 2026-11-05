@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "gang-beasts",
+   "name": "Gang Beasts",
+   "version": "1.2.9",
+   "type": "juego",
+   "cat": "Aventura",
+   "icon": "https://apkgstore.co/wp-content/uploads/2026/11/gang-beasts-logo-298x300.jpg",
+   "size": "1.6 GB",
+   "rating": 4.4,
+   "desc": "Los movimientos deliberadamente torpes hacen que cada enfrentamiento sea impredecible. Puedes sujetarte a un borde después de una caída, agarrar a otro jugador y arrastrarlo contigo o intentar levantarlo mientras ambos pierden el equilibrio. Actualmente también existe un port comunitario para Android con controles táctiles y multijugador local.\n\nGolpea, agarra y lanza a los demás jugadores\nLos combates utilizan acciones sencillas como puñetazos, patadas, cabezazos y agarres, pero combinarlas correctamente requiere aprender cómo responde el cuerpo del personaje.\n\nPuedes sujetar a un rival con ambas manos, intentar levantarlo y acercarlo lentamente hacia un borde. El problema es que el otro jugador puede agarrarse a ti o al escenario y convertir una eliminación aparentemente segura en una pelea completamente distinta.\n\nLas físicas hacen que ninguna pelea salga como esperas\nLos personajes se tambalean, caen y reaccionan a los golpes mediante un sistema físico que hace difícil controlar cada movimiento con total precisión. Esa falta de estabilidad forma parte directa de la jugabilidad.\n\nUn puñetazo puede dejar inconsciente temporalmente a un rival, pero también puedes perder el equilibrio mientras intentas arrojarlo. Muchas veces el escenario termina siendo más peligroso que los propios jugadores.",
+   "modinfo": "Descarga el archivo APK o XAPK en tu\n\ndispositivo Android. Abre la carpeta Descargas y localiza el archivo descargado. Si el archivo es APK, tócalo para iniciar la instalación. Si el archivo es XAPK o APKS, instálalo utilizando SAI (Split APKs Installer) o cualquier instalador compatible. Si Android lo solicita, habilita la instalación desde fuentes desconocidas. Espera unos segundos hasta que finalice la instalación y abre la aplicación.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/6osmq21uvqcrhny/Gang+Beasts_v1.2.9.apk/file?action=check"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/gang-beasts-1793888493892-0.jpg",
+    "img/gang-beasts-1793888496625-1.jpg"
+   ],
+   "updated": "2026-11-05",
+   "ts": 1793888498583,
+   "badge": "Nuevo"
+  },
+  {
    "id": "psiphon-vpn",
    "name": "Psiphon VPN",
    "version": "2.5.13",
