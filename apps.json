@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "refoto-creador-de-fotos-ia-pro",
+   "name": "Refoto: Creador de Fotos IA Pro",
+   "version": "1.2.1",
+   "type": "app",
+   "cat": "Fotografía y video",
+   "icon": "https://play-lh.googleusercontent.com/XzW_EVdg647o_H0EYfMMA9Q2c78HD6hgn7gh7Y7Evygz5sxKatDhx7gyt-6IC9B5VPIHqneR0N87pqWW5pQt=s0-br30",
+   "size": "50.59 MB",
+   "rating": 4.7,
+   "desc": "🎉 ¡NUEVA ACTUALIZACIÓN: Ya está aquí el generador de vídeos con IA! 🎉\n¡Refoto ha evolucionado! Ahora puedes convertir tus fotos favoritas en vídeos dinámicos, listos para hacerse virales, con un solo toque. Accede a las plantillas de vídeo más populares y da vida a tus imágenes al instante.\n\nEn Refoto, tus selfies cotidianos se transforman en segundos en impresionantes retratos, vídeos y fotos de perfil hiperrealistas, todo ello mediante IA y con calidad profesional. Diseñada para los creadores actuales, nuestra plataforma te ayuda a estar siempre al día con las tendencias en redes sociales, gracias a una biblioteca de plantillas para fotos y vídeos que se actualiza constantemente.\n\nOlvídate de costosas sesiones de estudio o de necesitar conocimientos de edición de vídeo. Disfruta de una potente creación con IA, de forma sencilla.\n\n📸 ¿Qué puedes hacer con Refoto?\n\n► Vídeos con IA en un solo toque (¡NUEVO!): ¡Da vida a tus fotos! Genera al instante vídeos de alta calidad mediante IA utilizando plantillas en tendencia. Ideal para crear vídeos llamativos para TikTok, Reels y Shorts, sin complicaciones de edición.\n► Retratos con IA en tendencia: Explora cientos de estilos virales que arrasan en redes sociales. Desde el estilo «Old Money» o «Retro Vintage» hasta portadas de revistas o ciborgs futuristas; nuestras plantillas se actualizan regularmente para ofrecerte siempre lo que es tendencia en este momento.\n► Fotos de perfil profesionales con IA: Genera retratos de calidad de estudio para LinkedIn, tu currículum o perfiles profesionales. Luce una imagen impecable, segura y sofisticada, sin necesidad de reservar un estudio.\n► Estética de temporada y festividades: ¡No te pierdas ninguna tendencia! Accede a plantillas nuevas y personalizadas para festividades, estaciones del año o retos virales, y mantén tu feed siempre interesante y atractivo.\n► Fusión de grupos con IA: ¡Crea fotos de grupo divertidas y realistas al instante! Combina a personas que aparecen en selfies distintos en una sola imagen coherente y estilizada; perfecto para colaboraciones soñadas o fotos familiares.\n► Avatares artísticos: Convierte tus fotos al instante en arte digital de alta definición. Elige entre estilos cinematográficos, de fantasía, anime o dibujos animados para expresar tu estilo único.\n► «Yearbook» (anuario) nostálgico con IA: Revive tus años de instituto con espectaculares fotos al estilo de los anuarios escolares, con la estética clásica de los años 90 y la era Y2K. ✨",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1JdKAj59hR5AA_sAnFe-qBg"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.refoto.aiportrait",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-11-05",
+   "ts": 1793903433628,
+   "badge": "Nuevo"
+  },
+  {
    "id": "gears-of-war-3",
    "name": "Gears of War 3",
    "version": "1.0.0",
