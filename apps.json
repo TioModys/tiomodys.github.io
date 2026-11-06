@@ -1,6 +1,37 @@
 {
  "apps": [
   {
+   "id": "pro-evolution-soccer-2013",
+   "name": "Pro Evolution Soccer 2013",
+   "version": "0.3.3",
+   "type": "juego",
+   "cat": "Deportes",
+   "icon": "https://apkgstore.co/wp-content/uploads/2026/11/Pes-2013-logo-300x300.jpg",
+   "size": "5.8 GB",
+   "rating": 4.4,
+   "desc": "Jugabilidad y control del balón\nUno de los aspectos más conocidos de PES 2013 es su sistema Player ID, que reproduce movimientos y características particulares de futbolistas reconocidos. Esto permite que jugadores como Cristiano Ronaldo tengan estilos de carrera, regate y disparo diferenciados.\n\nEl sistema FullControl también ofrece mayor precisión al realizar pases, controlar el balón y dirigir los disparos. Puedes cambiar la formación del equipo, ajustar las tácticas y utilizar diferentes estrategias según el rival, desde mantener la posesión hasta buscar ataques rápidos por las bandas.\n\nModos de juego y competiciones\nPro Evolution Soccer 2013 incluye diferentes modalidades en su versión original. En Liga Máster puedes dirigir un club, realizar fichajes, organizar la plantilla y competir para conseguir títulos. Por otro lado, Ser una Leyenda permite controlar a un futbolista durante su carrera profesional, mejorar sus habilidades y buscar oportunidades en nuevos equipos.\n\nEl juego también incorpora partidos amistosos, competiciones de liga, copas y torneos como la UEFA Champions League y la Copa Libertadores. Cada modalidad ofrece una manera diferente de disfrutar del fútbol, ya sea participando en encuentros individuales o avanzando durante varias temporadas.",
+   "modinfo": "1. Descarga el APK y los datos de Pro Evolution Soccer 2013.\n\n2. Descomprime o extrae los datos del juego utilizando ZArchiver.\n\n3. Instala el APK, abre el launcher y concede los permisos necesarios.\n\n4. Pulsa «Escolher pasta» (Elegir carpeta) y selecciona la carpeta extraída de PES 2013 que contiene el archivo default.xex\n\n5. Espera a que cargue el juego y ¡listo! Ya puedes disfrutar de PES 2013 en Android.\n\n \n\nREQUISITOS\n\nAndroid: 11 o superior (64 bits).",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://download2389.mediafire.com/olsjjusb0trgI2ylWEGZcOdjRKNlmazsWtnSit-o840vZUhPbK9aimgWKEonKKG2peRd0S5iJY_C-rUlsBiMtRelXjAxmaCvLT575Mm2YBMW8NGvdM3kahlSD9kyJK1pTdo_ngx3kPTC-EyEeYM8UxoJ7s7D_Mu4QgYOjAHpRP5v4Z0/urr7jzj5fjm9opc/PES-2013_v0.3.3.apk"
+    },
+    {
+     "label": "Descargar APK",
+     "url": "https://des.apkgstore.co/PES-2013.zip"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/pro-evolution-soccer-2013-1793997027195-0.jpg",
+    "img/pro-evolution-soccer-2013-1793997030228-1.jpg"
+   ],
+   "updated": "2026-11-06",
+   "ts": 1793997032750,
+   "badge": "Nuevo"
+  },
+  {
    "id": "the-bunny-graveyard",
    "name": "The Bunny Graveyard",
    "version": "1.8.3",
