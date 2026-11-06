@@ -1,6 +1,30 @@
 {
  "apps": [
   {
+   "id": "the-bunny-graveyard",
+   "name": "The Bunny Graveyard",
+   "version": "1.8.3",
+   "type": "juego",
+   "cat": "Aventura",
+   "icon": "https://apkgstore.co/wp-content/uploads/2026/11/gplay-logo-1ab75e958681a9164e-300x300.webp",
+   "size": "135 MB",
+   "rating": 3.1,
+   "desc": "La aventura cambia constantemente entre actividades tranquilas y momentos inquietantes. Puedes estar ayudando a un personaje o completando un pequeño desafío y, poco después, descubrir algo que cambia por completo lo que creías saber sobre ese lugar. Parte de la historia está escondida en conversaciones, pistas y secretos que puedes pasar por alto si avanzas demasiado rápido.\n\nExplora nuevas zonas y conoce a sus habitantes\nEl mundo está formado por diferentes lugares que vas descubriendo mientras avanzas en la historia. En ellos encuentras personajes con los que puedes hablar, realizar actividades y obtener información sobre lo que sucede alrededor de Skye.\n\nNo todos los encuentros son tan inocentes como parecen. Algunos personajes pueden ayudarte, mientras otros terminan mostrando un lado mucho más extraño conforme empiezas a comprender mejor el mundo en el que estás atrapado.\n\nPesca, cultiva y participa en campeonatos de lucha\nThe Bunny Graveyard utiliza diferentes minijuegos para desarrollar la aventura. Puedes participar en actividades de pesca y jardinería, además de enfrentarte a desafíos y peleas que utilizan mecánicas distintas.\n\nEstas actividades no están colocadas únicamente para distraerte de la historia. Muchas sirven para relacionarte con los personajes, avanzar hacia nuevas zonas o preparar situaciones que después adquieren un significado diferente.\n\nToma decisiones y descubre interacciones diferentes\nEn varios momentos puedes elegir cómo responder o actuar ante determinadas situaciones. Algunas decisiones cambian las conversaciones y permiten ver reacciones distintas de los personajes.\n\nEl juego no gira alrededor de construir estadísticas ni elegir una clase, sino de prestar atención a lo que ocurre y explorar las diferentes posibilidades que aparecen durante la historia.",
+   "modinfo": "Descarga el archivo APK o XAPK en tu dispositivo Android. Abre la carpeta Descargas y localiza el archivo descargado. Si el archivo es APK, tócalo para iniciar la instalación. Si el archivo es XAPK o APKS, instálalo utilizando SAI (Split APKs Installer) o cualquier instalador compatible. Si Android lo solicita, habilita la instalación desde fuentes desconocidas. Espera unos segundos hasta que finalice la instalación y abre la aplicación.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://download2283.mediafire.com/mgy1311yq54gYt3fI1WkFFdysEKiRuZyrG4IehHxkVU4cQloO-NAPdLX2yLTUedmG2RuXBuMFTTaTZwgf8uA4NFS2bsGtF-n9OtUkHxAn4iL_bGrP7-UhDmTHAw_6A7d_e8yiQU8O7NLuvZftZ3JxSmce2hHKsyFk3ss4MvYm8J7wgQ/ejv7b1h6xqcb7hx/The+Bunny+Graveyard+v1.8.3.apk"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [],
+   "updated": "2026-11-06",
+   "ts": 1793994129688,
+   "badge": "Nuevo"
+  },
+  {
    "id": "drama-box-pro",
    "name": "Drama Box Pro",
    "version": "6.9.3",
