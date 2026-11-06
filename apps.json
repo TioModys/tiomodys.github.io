@@ -19,7 +19,11 @@
    ],
    "play": "",
    "mod": false,
-   "shots": [],
+   "shots": [
+    "img/the-bunny-graveyard-1793994175272-0.jpg",
+    "img/the-bunny-graveyard-1793994177386-1.jpg",
+    "img/the-bunny-graveyard-1793994181552-2.jpg"
+   ],
    "updated": "2026-11-06",
    "ts": 1793994129688,
    "badge": "Nuevo"
