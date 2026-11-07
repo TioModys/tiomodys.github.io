@@ -19,9 +19,11 @@
    "play": "https://play.google.com/store/apps/details?id=com.shazam.android",
    "mod": true,
    "shots": [],
+   "pkg": "com.shazam.android",
+   "vc": 1606500,
    "updated": "2026-11-07",
-   "ts": 1794062082138,
-   "badge": "Nuevo"
+   "ts": 1794095083503,
+   "badge": "Actualizado"
   },
   {
    "id": "pro-evolution-soccer-2013",
