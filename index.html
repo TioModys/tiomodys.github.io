@@ -556,6 +556,8 @@ function adForm(i){
   app.innerHTML=`<button class="back" id="bk">‹ Cancelar</button><h1>${n?'Agregar app':'Editar app'}</h1>
   <input class="in" id="f1" placeholder="Nombre" value="${esc(a.name)}">
   <input class="in" id="f2" placeholder="Versión (ej. 1.0.0)" value="${esc(a.version)}">
+  <input class="in" id="f14" placeholder="Package de la app (ej. com.ejemplo.app) para el aviso de actualización" value="${esc(a.pkg||'')}" autocapitalize="none" autocorrect="off" spellcheck="false">
+  <input class="in" id="f15" type="number" inputmode="numeric" placeholder="versionCode del APK (número, ej. 13)" value="${esc(a.vc||'')}">
   <label class="pill">Tipo</label><select class="in" id="f0"><option value="app"${t0==='app'?' selected':''}>Aplicación</option><option value="juego"${t0==='juego'?' selected':''}>Juego</option></select>
   <label class="pill">Categoría</label><select class="in" id="f3">${opts(t0,a.cat)}</select>
   <input class="in" id="f4" placeholder="Icono: un emoji o el enlace de una imagen" value="${esc(a.icon)}">
@@ -597,9 +599,9 @@ function adForm(i){
       if(await subirImg(AD.c,path,m.src))shots.push(path);
       else{toast('No se pudo subir una imagen. Intenta de nuevo.');btn.disabled=false;btn.textContent='Guardar';return}
     }
-    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),modinfo:$('#f13').value.trim()||undefined,downloads,play:fixUrl(v(11)),mod:$('#f12').checked,shots};
+    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),modinfo:$('#f13').value.trim()||undefined,downloads,play:fixUrl(v(11)),mod:$('#f12').checked,shots,pkg:v(14)||undefined,vc:parseInt(v(15))||undefined};
     if(n){o.updated=hoy();o.ts=Date.now();o.badge='Nuevo';AD.apps.unshift(o)}
-    else{o.updated=a.updated;o.ts=a.ts;o.badge=a.badge;if(o.version!==a.version||$('#f9').checked){o.updated=hoy();o.ts=Date.now();o.badge='Actualizado'}AD.apps[i]=o}
+    else{o.updated=a.updated;o.ts=a.ts;o.badge=a.badge;if(o.version!==a.version||o.vc!==a.vc||$('#f9').checked){o.updated=hoy();o.ts=Date.now();o.badge='Actualizado'}AD.apps[i]=o}
     (await adSave((n?'Agregar ':'Editar ')+name))?adList():adLoad(AD.c);
   };
 }
