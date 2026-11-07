@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "shazam-pro",
+   "name": "Shazam Pro",
+   "version": "16.65.0",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://img.utdstc.com/icon/7ff/273/7ff273ac73369189ae72df5427b4beb1fd1d6c501dc31b64821636a4b3cb8596:600",
+   "size": "29.7 MB",
+   "rating": 4.9,
+   "desc": "¿QUIERES SABER CÓMO SE LLAMA ESA CANCIÓN?\n\n¿Cómo se llama esa canción?\"\" Shazam identifica al instante la música que suena a tu alrededor o en apps como TikTok, Instagram, YouTube y Snapchat. Descubre conciertos cerca de ti, letras de canciones, videos y más. Con decenas de millones de usuarios diarios, Shazam tiene la confianza de la comunidad melómana en todo el mundo.\n\nShazam tiene miles de reseñas de cinco estrellas y está entre las apps musicales mejor calificadas.\n“Shazam es un regalo… cambió las reglas del juego”. (Pharrell Williams, GQ)\n“No sé cómo vivíamos antes de Shazam”. (Marshmello)\n“Shazam es algo mágico: escuchas una melodía, sostienes el teléfono como si fuera una varita y te dice exactamente qué canción es, quién la canta e incluso te permite agregarla a tu playlist o compartirla en redes sociales. ¿A poco no es magia pura?”. (Calum Scott)\n\nPOR QUÉ TE ENCANTARÁ\n\n* Identifica música al instante.\n* Reconoce canciones incluso sin conexión, mientras usas audífonos o cuando estás en otra app. \n* Descubre conciertos de artistas que te encantan cerca de ti o mediante una selección de recomendaciones.\n* Disfruta tu historial de descubrimientos musicales en tu biblioteca cuando quieras.\n* Recibe sugerencias de canciones y playlists similares a las que has descubierto.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1xbzzitUxOz83BvzF45LPZg"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.shazam.android",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-11-07",
+   "ts": 1794062082138,
+   "badge": "Nuevo"
+  },
+  {
    "id": "pro-evolution-soccer-2013",
    "name": "Pro Evolution Soccer 2013",
    "version": "0.3.3",
