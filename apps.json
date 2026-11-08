@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "youtube-pro",
+   "name": "YouTube Pro",
+   "version": "21.44.534",
+   "type": "app",
+   "cat": "Entretenimiento",
+   "icon": "https://yt3.googleusercontent.com/6_ecK6MU_8WaCTYgIWbkVlTIatPBKcwx3DQO4UhxWzzFflSJ-luObwrcf3nnxGqkwgZJDnEaAQ=s900-c-k-c0x00ffffff-no-rj",
+   "size": "121.7 MB",
+   "rating": 4,
+   "desc": "Disfruta de tus listas, canales y videos favoritos estés donde estés.\n\nInstala la app oficial de YouTube para teléfonos y tablets Android. Descubre lo que está mirando el mundo, desde los videos musicales más populares hasta las tendencias en videojuegos, moda, belleza, noticias, aprendizaje y mucho más. Suscríbete a tus canales favoritos, crea tu propio contenido, mira videos en cualquier dispositivo y compártelos con tus amigos.\n\nMira contenido y suscríbete a canales \n● Explora recomendaciones personalizadas en la página principal.\n● Entérate de lo más reciente de tus canales favoritos en Suscripciones. \n● Busca los videos que miraste, los que marcaste como “me gusta” y los que guardaste para mirar más tarde en Biblioteca. \n\nDescubre diferentes temas, contenido popular y creadores en ascenso (disponible en algunos países)\n● Mantente al tanto de las novedades musicales, así como de videojuegos, belleza, noticias, aprendizaje y mucho más.\n● Descubre las tendencias del momento en YouTube y el mundo en la pestaña Explorar.\n● Conoce a los creadores, artistas y creadores de contenido de videojuegos en ascenso más geniales (disponible en algunos países).",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1YkRwiA4QEfa214HivhTHpQ"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.google.android.youtube",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.android.youtube.premium",
+   "vc": 1561307655,
+   "updated": "2026-11-08",
+   "ts": 1794179719916,
+   "badge": "Nuevo"
+  },
+  {
    "id": "tiktok-pro",
    "name": "TikTok Pro",
    "version": "47.5.4",
