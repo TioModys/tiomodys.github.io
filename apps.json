@@ -1,6 +1,32 @@
 {
  "apps": [
   {
+   "id": "duolingo-aprende-idiomas-pro",
+   "name": "Duolingo: Aprende Idiomas Pro",
+   "version": "6.105.1",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://m.media-amazon.com/images/I/41cwNN2n2wL.png",
+   "size": "152.2 MB",
+   "rating": 4.8,
+   "desc": "¡Aprende inglés, francés, italiano, portugués, matemáticas, música y más gratis!\n\n¡Aprende un nuevo idioma con la app educativa más descargada del mundo! Duolingo es la app gratuita para aprender más de 40 idiomas mientras te diviertes con lecciones cortas. Practica conversación, comprensión, lectura, escritura y desarrolla tus habilidades de gramática y vocabulario.\n\nDiseñado por expertos en idiomas y querido por cientos de millones de personas en todo el mundo, Duolingo te ayuda a prepararte para conversar en la vida real en español, francés, chino, italiano, alemán, inglés ¡y más!\n\n¡Ahora, también puedes aprender Matemáticas y Música a la manera de Duolingo!\n\n• Desarrolla habilidades matemáticas que usarás en la vida real (desde calcular propinas a identificar patrones) y fortalece tu destreza mental con nuestro curso de matemáticas.\n\n• Aprende a leer y tocar canciones famosas en tu dispositivo con nuestro nuevo curso de música. ¡No necesitas ningún instrumento!",
+   "modinfo": "✅ Vidas ilimitadas.\n✅ Todos los trajes desbloqueados.\n✅ Bonificación desbloqueada.\n✅ Disponible para descargar sin conexión",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1-suAvTtPHU6vvJs00Jk28Q"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.duolingo",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.duolingo",
+   "vc": 2496,
+   "updated": "2026-11-07",
+   "ts": 1794108542608,
+   "badge": "Nuevo"
+  },
+  {
    "id": "shazam-pro",
    "name": "Shazam Pro",
    "version": "16.65.0",
