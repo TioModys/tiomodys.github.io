@@ -171,6 +171,12 @@ footer p{margin:0 0 12px;color:var(--muted);font-size:14px}
 .soc svg{width:20px;height:20px;fill:#fff}
 .tt{background:#000;box-shadow:-2px -2px 0 #25f4ee,2px 2px 0 #fe2c55}
 .tg{background:#229ED9}
+.stp{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:14px 0}
+.stp h3{margin:0 0 8px;font-size:16px;color:var(--accent)}
+.stp p{margin:6px 0}
+.cb{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0 6px;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-all;user-select:all}
+.stp details{margin:8px 0}
+.stp summary{cursor:pointer;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
@@ -461,6 +467,7 @@ function adList(){
   <button class="btn" id="add">+ Agregar app</button>
   <button class="btn alt" id="aads">📣 Publicidad</button>
   <button class="btn alt" id="aslots">🧩 Cuadros de anuncios</button>
+  <button class="btn alt" id="aupd">📲 Aviso de actualización (guía)</button>
   <input class="in" id="as" type="search" placeholder="Buscar app para editar o borrar" value="${esc(ADQ)}">
   <p class="pill" id="ac"></p>
   ${AD.apps.length?AD.apps.map((a,i)=>`<div class="row" data-n="${esc(((a.name||'')+' '+(a.cat||'')).toLowerCase())}"><div class="ico">${ico(a)}</div><div class="rt"><b>${esc(a.name)}</b><small>v${esc(a.version)} ${badge(a)}</small></div><button class="chip" data-e="${i}">Editar</button><button class="chip" data-d="${i}">Borrar</button></div>`).join(''):'<p class="pill">Aún no hay apps.</p>'}
@@ -469,6 +476,7 @@ function adList(){
   $('#add').onclick=()=>adForm(-1);
   $('#aads').onclick=adAds;
   $('#aslots').onclick=adSlots;
+  $('#aupd').onclick=adUpd;
   const filtrar=()=>{ADQ=$('#as').value;const q=ADQ.trim().toLowerCase();let c=0;app.querySelectorAll('.row').forEach(r=>{const ok=!q||r.dataset.n.includes(q);r.style.display=ok?'':'none';if(ok)c++});$('#ac').textContent=q?(c+' resultado'+(c===1?'':'s')):(AD.apps.length+' apps')};
   $('#as').oninput=filtrar;filtrar();
   $('#out').onclick=()=>{store.set('adm',null);AD=null;adLogin()};
@@ -477,6 +485,55 @@ function adList(){
     const i=+b.dataset.d;if(!confirm('¿Borrar '+AD.apps[i].name+'?'))return;
     AD.apps.splice(i,1);(await adSave('Borrar app'))?adList():adLoad(AD.c);
   });
+}
+/* ---------- Guía: aviso de actualización (#admin) ---------- */
+const SMALI_BASE=".class public Lcom/tiomody/Upd;\n.super Ljava/lang/Object;\n.implements Ljava/lang/Runnable;\n.implements Landroid/content/DialogInterface$OnClickListener;\n\n# Clase universal: misma para todas las apps.\n# Lee https://tiomodys.github.io/apps.json, busca la app por su package (campo pkg)\n# y compara su versionCode (campo vc). Abre https://tiomodys.github.io/#id\n# Durante 2 dias desde la fecha de actualizacion (campo ts) el aviso se puede cerrar\n# con \"Despues\". Pasados los 2 dias el aviso es obligatorio y la app se cierra al tocar Actualizar.\n\n.field a:Landroid/app/Activity;\n.field b:Ljava/lang/String;\n.field c:Ljava/lang/String;\n.field d:I\n.field e:I\n\n.method public constructor <init>()V\n    .locals 0\n    invoke-direct {p0}, Ljava/lang/Object;-><init>()V\n    return-void\n.end method\n\n.method public static check(Landroid/app/Activity;)V\n    .locals 2\n    new-instance v0, Lcom/tiomody/Upd;\n    invoke-direct {v0}, Lcom/tiomody/Upd;-><init>()V\n    iput-object p0, v0, Lcom/tiomody/Upd;->a:Landroid/app/Activity;\n    new-instance v1, Ljava/lang/Thread;\n    invoke-direct {v1, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V\n    invoke-virtual {v1}, Ljava/lang/Thread;->start()V\n    return-void\n.end method\n\n.method public run()V\n    .locals 11\n\n    iget v0, p0, Lcom/tiomody/Upd;->d:I\n    if-eqz v0, :fetch\n\n    :try_start_s\n    new-instance v0, Landroid/app/AlertDialog$Builder;\n    iget-object v1, p0, Lcom/tiomody/Upd;->a:Landroid/app/Activity;\n    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V\n    const-string v1, \"Actualización disponible\"\n    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;\n    move-result-object v0\n    iget-object v1, p0, Lcom/tiomody/Upd;->b:Ljava/lang/String;\n    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;\n    move-result-object v0\n    const-string v1, \"Actualizar\"\n    invoke-virtual {v0, v1, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;\n    move-result-object v0\n    iget v1, p0, Lcom/tiomody/Upd;->e:I\n    if-eqz v1, :suave\n    const/4 v1, 0x0\n    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;\n    move-result-object v0\n    goto :mostrar\n    :suave\n    const-string v1, \"Después\"\n    const/4 v2, 0x0\n    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;\n    move-result-object v0\n    :mostrar\n    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;\n    :try_end_s\n    .catch Ljava/lang/Exception; {:try_start_s .. :try_end_s} :done\n    return-void\n\n    :fetch\n    :try_start_f\n    new-instance v0, Ljava/net/URL;\n    const-string v1, \"https://tiomodys.github.io/apps.json\"\n    invoke-direct {v0, v1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V\n    invoke-virtual {v0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;\n    move-result-object v0\n    const/16 v1, 0x1f40\n    invoke-virtual {v0, v1}, Ljava/net/URLConnection;->setConnectTimeout(I)V\n    invoke-virtual {v0, v1}, Ljava/net/URLConnection;->setReadTimeout(I)V\n    invoke-virtual {v0}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;\n    move-result-object v0\n    new-instance v1, Ljava/util/Scanner;\n    const-string v2, \"UTF-8\"\n    invoke-direct {v1, v0, v2}, Ljava/util/Scanner;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V\n    const-string v0, \"\\\\A\"\n    invoke-virtual {v1, v0}, Ljava/util/Scanner;->useDelimiter(Ljava/lang/String;)Ljava/util/Scanner;\n    move-result-object v1\n    invoke-virtual {v1}, Ljava/util/Scanner;->next()Ljava/lang/String;\n    move-result-object v0\n    new-instance v1, Lorg/json/JSONObject;\n    invoke-direct {v1, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V\n\n    iget-object v0, p0, Lcom/tiomody/Upd;->a:Landroid/app/Activity;\n    invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;\n    move-result-object v2\n    const-string v3, \"apps\"\n    invoke-virtual {v1, v3}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;\n    move-result-object v1\n    if-eqz v1, :done\n    invoke-virtual {v1}, Lorg/json/JSONArray;->length()I\n    move-result v3\n    const/4 v4, 0x0\n\n    :loop\n    if-ge v4, v3, :done\n    invoke-virtual {v1, v4}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;\n    move-result-object v5\n    add-int/lit8 v4, v4, 0x1\n    if-eqz v5, :loop\n    const-string v6, \"pkg\"\n    const-string v7, \"\"\n    invoke-virtual {v5, v6, v7}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\n    move-result-object v6\n    invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z\n    move-result v6\n    if-eqz v6, :loop\n\n    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;\n    move-result-object v6\n    const/4 v7, 0x0\n    invoke-virtual {v6, v2, v7}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;\n    move-result-object v6\n    iget v6, v6, Landroid/content/pm/PackageInfo;->versionCode:I\n    const-string v8, \"vc\"\n    invoke-virtual {v5, v8, v7}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I\n    move-result v8\n    if-le v8, v6, :done\n\n    # ts = fecha (ms) en que subiste la actualizacion en #admin\n    const-string v6, \"ts\"\n    const-wide/16 v7, 0x0\n    invoke-virtual {v5, v6, v7, v8}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;J)J\n    move-result-wide v6\n    const-wide/16 v9, 0x0\n    cmp-long v8, v6, v9\n    if-gtz v8, :con_fecha\n    const/4 v8, 0x0\n    goto :guardar_modo\n    :con_fecha\n    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J\n    move-result-wide v9\n    sub-long/2addr v9, v6\n    const-wide/32 v6, 0xa4cb800\n    cmp-long v8, v9, v6\n    if-ltz v8, :dentro_plazo\n    const/4 v8, 0x1\n    goto :guardar_modo\n    :dentro_plazo\n    const/4 v8, 0x0\n    :guardar_modo\n    iput v8, p0, Lcom/tiomody/Upd;->e:I\n\n    const-string v6, \"version\"\n    const-string v7, \"\"\n    invoke-virtual {v5, v6, v7}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\n    move-result-object v6\n    if-eqz v8, :msg_suave\n    const-string v7, \"Es obligatorio actualizar para seguir usando la app. Versión: \"\n    goto :msg_unir\n    :msg_suave\n    const-string v7, \"Nueva versión disponible. Después de 2 días será obligatoria. Versión: \"\n    :msg_unir\n    invoke-virtual {v7, v6}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;\n    move-result-object v6\n    iput-object v6, p0, Lcom/tiomody/Upd;->b:Ljava/lang/String;\n    const-string v6, \"id\"\n    const-string v7, \"\"\n    invoke-virtual {v5, v6, v7}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\n    move-result-object v6\n    const-string v7, \"https://tiomodys.github.io/#\"\n    invoke-virtual {v7, v6}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;\n    move-result-object v6\n    iput-object v6, p0, Lcom/tiomody/Upd;->c:Ljava/lang/String;\n    const/4 v6, 0x1\n    iput v6, p0, Lcom/tiomody/Upd;->d:I\n    invoke-virtual {v0, p0}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V\n    :try_end_f\n    .catch Ljava/lang/Exception; {:try_start_f .. :try_end_f} :done\n\n    :done\n    return-void\n.end method\n\n.method public onClick(Landroid/content/DialogInterface;I)V\n    .locals 3\n\n    :try_start\n    iget-object v0, p0, Lcom/tiomody/Upd;->c:Ljava/lang/String;\n    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;\n    move-result-object v0\n    new-instance v1, Landroid/content/Intent;\n    const-string v2, \"android.intent.action.VIEW\"\n    invoke-direct {v1, v2, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V\n    iget-object v0, p0, Lcom/tiomody/Upd;->a:Landroid/app/Activity;\n    invoke-virtual {v0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V\n    iget v1, p0, Lcom/tiomody/Upd;->e:I\n    if-eqz v1, :done\n    invoke-virtual {v0}, Landroid/app/Activity;->finishAffinity()V\n    :try_end\n    .catch Ljava/lang/Exception; {:try_start .. :try_end} :done\n\n    :done\n    return-void\n.end method\n";
+function baseUrl(){return location.protocol==='https:'?location.origin+location.pathname.replace(/[^\/]*$/,''):'https://tiomodys.github.io/'}
+function smaliTxt(){return SMALI_BASE.split('https://tiomodys.github.io/').join(baseUrl())}
+async function copiar(txt){
+  try{await navigator.clipboard.writeText(txt);toast('Copiado');return}catch(e){}
+  const ta=document.createElement('textarea');ta.value=txt;ta.style.cssText='position:fixed;left:-9999px;top:0';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,txt.length);
+  try{document.execCommand('copy');toast('Copiado')}catch(e){toast('No se pudo copiar. Mantén pulsado el texto para copiarlo')}
+  ta.remove();
+}
+function adUpd(){
+  const K=[],cod=(t,l)=>{K.push(t);return `<div class="cb">${esc(t)}</div><button class="chip" data-k="${K.length-1}">📋 ${l||'Copiar'}</button>`};
+  const base=baseUrl(),smali=smaliTxt();
+  K.push(smali);const kS=K.length-1;
+  const S=[
+    ['Anota los datos de la app',`<p>En MT Manager toca el APK → <b>Ver</b> → <b>AndroidManifest.xml</b>. En la primera etiqueta <code>&lt;manifest&gt;</code> anota:</p>
+    <p>• <b>package</b> (ej. com.ejemplo.app)<br>• <b>versionCode</b> (un número, ej. 12)</p>
+    <p>No cambies el versionCode del APK para probar: el aviso sale cuando el número que pones en este panel es <b>mayor</b> que el del APK instalado.</p>`],
+    ['Registra la app en este panel',`<p>Vuelve al panel, toca <b>Editar</b> en la app (o <b>+ Agregar app</b>) y llena:</p>
+    <p>• <b>Package de la app</b>: el del paso 1<br>• <b>versionCode del APK</b>: para probar, uno más que el del APK (si el APK tiene 12, pon 13)</p>
+    <p>Toca <b>Guardar</b> y espera de 1 a 3 minutos.</p>`],
+    ['Permiso de internet',`<p>En el mismo AndroidManifest.xml busca <code>android.permission.INTERNET</code>. Si ya está, sigue al paso 4. Si no está, pega esta línea justo antes de <code>&lt;application</code>:</p>
+    ${cod('<uses-permission android:name="android.permission.INTERNET"/>')}
+    <p>Si al guardar el manifest sale <i>Unknown attr…</i>, borra esa línea del atributo que menciona el error y guarda otra vez.</p>`],
+    ['Crea la clase',`<p>Abre <b>classes.dex</b> con <b>Editor Dex plus</b>. Mantén pulsada la carpeta <b>com</b> (o usa el botón de añadir) y elige <b>Añadir</b>. Llena los dos campos:</p>
+    <p><b>Nombre del paquete</b></p>${cod('com.tiomody')}
+    <p><b>Nombre de la clase</b></p>${cod('Upd')}
+    <p>Toca <b>Aceptar</b>. Debe quedar <b>com → tiomody → Upd</b>.</p>`],
+    ['Pega el código de la clase',`<p>Abre la clase <b>Upd</b> en modo smali, <b>borra todo lo que trae</b> y pega el código completo. La primera línea debe decir <code>.class public Lcom/tiomody/Upd;</code>. Guarda.</p>
+    <button class="btn" data-k="${kS}">📋 Copiar el código completo</button>
+    <details><summary>Ver el código</summary><div class="cb" style="max-height:260px;overflow:auto">${esc(smali)}</div></details>
+    <p>Este código ya apunta a <b>${esc(base)}apps.json</b>. Es el mismo para todas las apps, no hay que editarlo.</p>`],
+    ['Llámala al abrir la app',`<p>En el AndroidManifest busca la actividad con <code>android.intent.action.MAIN</code>. Si es solo una pantalla de carga (nombre con <i>Splash</i>), usa la actividad principal a la que pasa después (suele llamarse <i>MainActivity</i>).</p>
+    <p>Ábrela en el Editor Dex plus y entra al método <code>onCreate(Landroid/os/Bundle;)V</code>. Pega esta línea <b>justo debajo</b> de la línea <code>invoke-super {p0, p1}, …onCreate(…)V</code>:</p>
+    ${cod('invoke-static {p0}, Lcom/tiomody/Upd;->check(Landroid/app/Activity;)V')}
+    <p>Ponla en una sola actividad, no en varias. Si la app tiene más archivos <i>classes2.dex</i>, <i>classes3.dex</i>, la actividad puede estar en otro.</p>`],
+    ['Guarda y prueba',`<p>Guarda todo y sal con <b>Guardar y salir</b>: MT Manager recompila y firma el APK. Si Android no deja instalarlo encima, desinstala primero la app original.</p>
+    <p>Instálalo, <b>cierra la app por completo</b> y ábrela con internet. Debe salir <b>Actualización disponible</b>. Al tocar Actualizar se abre la publicación de esa app en tu página.</p>`],
+    ['Cuando subas una actualización',`<p>1. Prepara el APK nuevo con el versionCode nuevo y la clase Upd incluida.<br>2. Aquí en el panel: <b>Editar</b> la app → cambia la <b>Versión</b>, el <b>versionCode</b> (el mismo del APK nuevo) y el enlace de descarga → <b>Guardar</b>.</p>
+    <p>• Durante <b>2 días</b> el aviso se puede cerrar con <b>Después</b>.<br>• Pasados los 2 días es <b>obligatorio</b>: no se puede cerrar y la app se cierra al tocar Actualizar.</p>
+    <p>Los 2 días cuentan desde que guardas el cambio. No marques <i>Marcar como actualizada hoy</i> si solo cambias textos, porque reinicia el plazo.</p>`]
+  ];
+  app.innerHTML=`<button class="back" id="bk">‹ Volver al panel</button><h1>Aviso de actualización</h1>
+  <p class="pill">Guía para poner el aviso en cualquier app con MT Manager. Toca <b>Copiar</b> en cada código y pégalo donde indique el paso.</p>`
+  +S.map((s,i)=>`<div class="stp"><h3>Paso ${i+1}. ${s[0]}</h3>${s[1]}</div>`).join('');
+  $('#bk').onclick=adList;
+  app.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>copiar(K[+b.dataset.k]));
+  scrollTo(0,0);
 }
 const POS={'home-top':'Inicio · arriba','home-mid':'Inicio · entre secciones','app-mid':'Publicación · antes de la descripción','app-bottom':'Publicación · al final','footer':'Todas las páginas · pie','download':'Al tocar Descargar (solo enlaces)','float':'Ventana flotante (aparece al azar)','full':'Pantalla completa (con botón para cerrar)'};
 const SIZES=['320x50','300x250','468x60','728x90','160x600','160x300','nativo'];
