@@ -1,6 +1,32 @@
 {
  "apps": [
   {
+   "id": "alarmy-pro",
+   "name": "Alarmy Pro",
+   "version": "26.42.1",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://www.latestmodapks.com/wp-content/uploads/2023/10/Alarmy-logo.webp",
+   "size": "143.60 MB",
+   "rating": 4.8,
+   "desc": "Esta herramienta entiende el canto de sirena del botón de repetición, pero esta es la cuestión: no te permitirá volver a caer en ese vórtice del sueño. Establece una misión fotográfica y esta herramienta no se callará hasta que captures una imagen de, por ejemplo, tu gato gruñón mirándote o tu cafetera desbordada: una forma segura de ponerte en acción.\n\nMás que una simple alarma: es como una navaja suiza para los madrugadores (o aquellos que aspiran a serlo). Realice un seguimiento de sus patrones de sueño, establezca recordatorios de la hora de acostarse para evitar atracones nocturnos en las redes sociales e incluso adormezca con relajantes paisajes sonoros. Es una ventanilla única para una rutina de sueño saludable, incluso para las personas más reacias a dormir.\n\nCaracterísticas de Alarmy Premium\nSe trata de una popular aplicación de alarma para ayudarte a despertar sin importar lo difícil que sea levantarte por las mañanas. A continuación, te detallo sus características principales:",
+   "modinfo": "✅ Premium | Funciones pagas desbloqueadas.\n✅ Sin anuncios.\n✅ Mod estable.\n✅ No es necesario iniciar sesión.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1VJh0A2lPjEuBgJHu7NP_dA"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=droom.sleepIfUCan",
+   "mod": true,
+   "shots": [],
+   "pkg": "droom.sleepIfUCan",
+   "vc": 264201,
+   "updated": "2026-11-08",
+   "ts": 1794199700762,
+   "badge": "Nuevo"
+  },
+  {
    "id": "youtube-music-pro",
    "name": "YouTube Music Pro",
    "version": "9.44.52",
