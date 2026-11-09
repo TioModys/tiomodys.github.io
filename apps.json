@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "microg",
+   "name": "MicroG",
+   "version": "7.3.0",
+   "type": "app",
+   "cat": "Productividad",
+   "icon": "https://vanced.to/assets/img/apps/thumbs/app.revanced.android.gms-re.webp",
+   "size": "107.85 MB",
+   "rating": 4,
+   "desc": "MicroG RE es una bifurcación de microG GmsCore, diseñada específicamente para su uso con aplicaciones de Google parcheadas con Morphe. Reemplaza por completo los Servicios de Google Play, lo que permite la autenticación completa de la cuenta de Google y los servicios en la nube sin necesidad de acceso root ni del paquete oficial de Servicios de Play.\n\nA diferencia del microG estándar, MicroG RE incluye una interfaz Material 3 Expressive renovada, una pantalla de autocomprobación integrada para verificar y configurar los permisos necesarios, compatibilidad mejorada con notificaciones push y actualizaciones activas de la versión de GMS para mantener la compatibilidad con las últimas versiones de la aplicación.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/12gCmrG0PRj99gdvC7TBE1A"
+    }
+   ],
+   "play": "",
+   "mod": true,
+   "shots": [],
+   "updated": "2026-11-08",
+   "ts": 1794188079534,
+   "badge": "Nuevo"
+  },
+  {
    "id": "youtube-pro",
    "name": "YouTube Pro",
    "version": "21.44.534",
