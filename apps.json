@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "photoroom-pro",
+   "name": "Photoroom Pro",
+   "version": "2026.45.02",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://play-lh.googleusercontent.com/oVnT6rDrRJKToWHtyjzoJcuR48XQjbA54QkGwNZQw995TrlY25GLkGJgnwBb9W_ve0cCMukIKnQZ3r84-omSPA=s0-br30",
+   "size": "197.73 MB",
+   "rating": 4.8,
+   "desc": "Anuncios de video con fotos de producto. Quita fondos, edita y retoca imágenes.\n\nLa solución visual con IA para e-commerce, con la confianza de más de 300 millones de usuarios.\n\nCrea publicaciones de productos profesionales y anuncios de video en minutos.\n\nQuita y reemplaza fondos, edita fotos de productos en lote, crea imágenes para tus publicaciones y convierte fotos en anuncios de video.\n\nConserva cada detalle, desde logotipos hasta texturas, con IA de calidad de estudio.\n\n¿Por qué elegir Photoroom?\n\nCREA PUBLICACIONES QUE DESTACAN\nCrea publicaciones completas a partir de una sola foto. Muestra tus productos con modelos de moda IA y crea imágenes lifestyle, maniquí invisible, flat lays y videos de productos. Imágenes de alta calidad para cada publicación.\n\nCREA ANUNCIOS DE VIDEO\nConvierte fotos de productos en anuncios de video con Video Ad Maker. Responde algunas preguntas, personaliza el estilo y el guion de voz en off sugeridos y elige un actor IA para crear videos para redes sociales y campañas publicitarias.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1ABnY5PLrMrVKTk4RjqMYJg"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.photoroom.app",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.photoroom.app",
+   "vc": 2618,
+   "updated": "2026-11-09",
+   "ts": 1794253632752,
+   "badge": "Nuevo"
+  },
+  {
    "id": "gta-5-mobile",
    "name": "GTA 5 Mobile",
    "version": "3.0.9",
