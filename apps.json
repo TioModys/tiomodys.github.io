@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "euro-truck-simulator-2-mobile",
+   "name": "Euro Truck Simulator 2 Mobile",
+   "version": "0.9.2",
+   "type": "juego",
+   "cat": "Simulación",
+   "icon": "https://i.pinimg.com/736x/f7/cb/15/f7cb15516894a39219d1d2039414f9e2.jpg",
+   "size": "3.4 GB",
+   "rating": 4.5,
+   "desc": "Euro Truck Simulator 2 Mobile APK es un simulador de camiones donde recorres carreteras de Europa transportando mercancías entre diferentes ciudades, ganas dinero con cada entrega y mejoras poco a poco tu propio negocio de transporte. Puedes conducir camiones de marcas conocidas, comprar nuevos vehículos, personalizarlos y realizar viajes cada vez más largos mientras amplías tu empresa.\n\nEl juego fue desarrollado originalmente para PC por SCS Software, mientras que esta versión para Android corresponde a un port no oficial reciente creado para llevar la experiencia de Euro Truck Simulator 2 a dispositivos móviles. La propuesta mantiene como base la conducción de camiones, los viajes por carretera y el transporte de cargas que caracterizan al juego original.\n\n¿Qué es Euro Truck Simulator 2?\nEuro Truck Simulator 2 es un juego de simulación y conducción donde trabajas como camionero realizando entregas por diferentes países de Europa. Empiezas aceptando trabajos para ganar dinero y experiencia, pero con el tiempo puedes comprar tu propio camión, adquirir garajes y convertir una pequeña actividad de transporte en una empresa mucho más grande.\n\nLa experiencia está pensada para disfrutar los viajes y aprender a manejar correctamente vehículos pesados, respetando las carreteras, organizando las rutas y entregando cada mercancía dentro de las condiciones establecidas",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/bviu65r1uqpnosa/Euro+Truck+Simulator+2+v0.9.2+.apk/file?action=check"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [],
+   "updated": "2026-11-09",
+   "ts": 1794226401492,
+   "badge": "Nuevo"
+  },
+  {
    "id": "musclewiki-pro",
    "name": "MuscleWiki Pro",
    "version": "3.2.5",
