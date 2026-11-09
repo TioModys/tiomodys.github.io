@@ -1,6 +1,36 @@
 {
  "apps": [
   {
+   "id": "musclewiki-pro",
+   "name": "MuscleWiki Pro",
+   "version": "3.2.5",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://play-lh.googleusercontent.com/ffOAEiTvmnU45IoIiKylsmliPmiz2rbU3HR3T_7SYLVosJ4rCR-38lH17XjPhIajuAX1Zpofh2vzCU2HsmBVlw",
+   "size": "46.9 MB",
+   "rating": 4.6,
+   "desc": "Planificador IA, Diario de Gym y Guía de Ejercicios. Simple y Offline.\n\nDeja de improvisar en el gimnasio. Empieza a ganar músculo con MuscleWiki, el tracker de entrenamiento y planificador de fitness sencillo, potente y 100% sin anuncios.\n\nCreemos que el fitness debe ser accesible para todos, en cualquier lugar. Por eso nuestras funciones clave, como la enorme biblioteca de ejercicios con vídeos, funcionan perfectamente sin conexión.\n\nFUNCIONES QUE DAN RESULTADOS:\n\nEntrenador Personal con IA: Recibe rutinas de entrenamiento inteligentes y personalizadas para tus objetivos: ganar músculo, perder peso y mucho más.\n\nEl Buscador de Ejercicios Definitivo: Usa nuestro mapa corporal interactivo único para localizar y trabajar cualquier músculo con precisión.\n\nBiblioteca de Ejercicios Gigante: Más de 1.700 ejercicios con vídeos claros para que perfecciones tu técnica.\n\nPotente Diario de Entrenamiento: Registra tus entrenamientos, anota tus levantamientos y visualiza tu progreso con nuestro intuitivo diario de gimnasio.\n\nFlexibilidad en Casa o en el Gym: Alcanza tus metas con entrenamientos de peso corporal en casa o planes avanzados de fuerza en el gimnasio.\n\n100% Sin Anuncios y Acceso Offline: ¿No tienes internet? No pasa nada. ¿Anuncios? Nunca. Solo concentración pura y sin interrupciones en tu fitness.",
+   "modinfo": "Premium 🔥",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1l6ogIPO7IHZlD6ACxrPmiQ"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.musclewiki.macro",
+   "mod": true,
+   "shots": [
+    "img/musclewiki-pro-1794205180173-0.jpg",
+    "img/musclewiki-pro-1794205182693-1.jpg",
+    "img/musclewiki-pro-1794205184880-2.jpg"
+   ],
+   "pkg": "com.musclewiki.macro",
+   "vc": 32523,
+   "updated": "2026-11-09",
+   "ts": 1794205187182,
+   "badge": "Nuevo"
+  },
+  {
    "id": "alarmy-pro",
    "name": "Alarmy Pro",
    "version": "26.42.1",
