@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "youtube-music-pro",
+   "name": "YouTube Music Pro",
+   "version": "9.44.52",
+   "type": "app",
+   "cat": "Música y audio",
+   "icon": "https://yt3.googleusercontent.com/ytc/AIdro_l-6FQr2F5viYuELhfXHiUU46MqDNZkXPwUqbdZagQMt9A=s900-c-k-c0x00ffffff-no-rj",
+   "size": "114.3 MB",
+   "rating": 4.4,
+   "desc": "Un mundo de música especialmente para ti\n\nAl conectarte al mundo de la música, disfrutarás de:\n● Contenido musical como actuaciones en directo, versiones, remixes y otros vídeos que no encontrarás en ningún otro sitio.\n● Miles de listas de reproducción de diversos géneros y para distintas actividades, especialmente seleccionadas.\n\nDescubre música personalizada para cada momento del día:\n● Listas de reproducción personalizadas y mixes creados según tus tipos de música favoritos.\n● Mixes personalizados según la actividad (por ejemplo, para cuando hagas ejercicio o necesites relajarte o concentrarte).\n● Crea listas de reproducción con sugerencias de canciones o colabora con otros fans de la música para crear la lista definitiva.\n● Personaliza tu biblioteca para ver todas las canciones, listas de reproducción, artistas y álbumes que has añadido y a los que has dado Me gusta.\n\nNo te pierdas las últimas tendencias y descubre las novedades musicales:\n● Escucha mixes preparados para ti, como el de descubrimientos o el de novedades.\n● Descubre música por géneros (hiphop, pop, country, dance y electrónica, blues, indie y alternativa, jazz, kpop, latina, rock y muchos más).\n● Accede a música según tu estado de ánimo (por ejemplo, para relajarte, sentirte bien, darte un subidón de energía, dormir, concentrarte, crear ambiente romántico, hacer ejercicio, escuchar de camino al trabajo o de fiesta).\n● Explora la música más popular en todo el mundo.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1M28pYDEydi2Kp8Fz-UoiuQ"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music",
+   "mod": true,
+   "shots": [],
+   "pkg": "app.morphe.android.apps.youtube.music",
+   "vc": 2147483647,
+   "updated": "2026-11-08",
+   "ts": 1794191461640,
+   "badge": "Nuevo"
+  },
+  {
    "id": "microg",
    "name": "MicroG",
    "version": "7.3.0",
