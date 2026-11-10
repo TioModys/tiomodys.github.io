@@ -375,25 +375,27 @@
   {
    "id": "drama-box-pro",
    "name": "Drama Box Pro",
-   "version": "6.9.3",
+   "version": "7.0.0",
    "type": "app",
    "cat": "Entretenimiento",
    "icon": "https://img.utdstc.com/icon/1cb/cda/1cbcda7e556f5173bbaf9a04caec6c1815a1111b7551538739a7acea2a3d40d5:600",
-   "size": "71.57 MB",
+   "size": "71.22 MB",
    "rating": 4.1,
    "desc": "DramaBox es una aplicación de visualización de vídeos cortos en la que tienes acceso a cientos de historias de dramas diferentes. A diferencia de las plataformas de streaming convencionales, los capítulos de las series de drama de DramaBox duran unos pocos minutos. Gracias a ello, podrás disfrutar del contenido en cualquier momento del día mientras haces una pequeña pausa.\n\nVarios subgéneros dentro del drama\nDramaBox cuenta con contenidos de todo tipo, con historias que te harán reír, llorar o simplemente pasar un rato entretenido. Todos los contenidos de DramaBox son originales, y cuentan también con subtítulos para que puedas visualizarlos incluso cuando no puedes escuchar el audio en tus dispositivos.",
    "downloads": [
     {
      "label": "Descargar APK",
-     "url": "https://1024terabox.com/s/1z0lChl5KrR_mP5KxBjfFHw"
+     "url": "https://1024terabox.com/s/1PfDj989MU1kcqnWWvd-3ZA"
     }
    ],
    "play": "",
    "mod": true,
    "shots": [],
-   "updated": "2026-11-06",
-   "ts": 1793993538659,
-   "badge": "Nuevo"
+   "pkg": "com.storymatrix.drama",
+   "vc": 1,
+   "updated": "2026-11-10",
+   "ts": 1794319672112,
+   "badge": "Actualizado"
   },
   {
    "id": "filmora-editor-de-v-deo-ia-pro",
