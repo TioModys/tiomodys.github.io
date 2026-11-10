@@ -566,7 +566,7 @@ function adUpd(){
   scrollTo(0,0);
 }
 /* DET:START — detector de actividad de inicio */
-const DET_IDS={0x01010003:'name',0x0101000e:'enabled',0x01010010:'exported',0x01010202:'targetActivity'};
+const DET_IDS={0x01010003:'name',0x0101000e:'enabled',0x01010010:'exported',0x01010202:'targetActivity',0x01010204:'taskAffinity'};
 const DET_PACKERS=['com.stub.StubApp','com.qihoo.util.StubApp','com.tencent.StubShell','com.secneo.apkwrapper','com.baidu.protect','s.h.e.l.l','com.ijiami','com.ijm.','com.shell.SuperApplication','com.wrapper.proxyapplication','com.bangcle'];
 function detEnt(s){return s.replace(/&(#x[0-9a-fA-F]+|#\d+|amp|lt|gt|quot|apos);/g,(m,e)=>{if(e[0]==='#')return String.fromCodePoint(e[1]==='x'?parseInt(e.slice(2),16):parseInt(e.slice(1),10));return {amp:'&',lt:'<',gt:'>',quot:'"',apos:"'"}[e]})}
 function detParseText(txt){
@@ -705,8 +705,8 @@ function detAnalyze(root){
   return info;
 }
 function detEsc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function detInicioBlock(full,theme){
-  return '<activity'+(theme?' android:theme="@01030010"':'')+' android:name="com.tiomody.Inicio" android:exported="true">\n'+
+function detInicioBlock(full,theme,aff){
+  return '<activity'+(theme?' android:theme="@01030010"':'')+' android:name="com.tiomody.Inicio" android:exported="true"'+(aff===undefined?'':' android:taskAffinity="'+aff+'"')+'>\n'+
   '    <intent-filter>\n        <action android:name="android.intent.action.MAIN"/>\n        <category android:name="android.intent.category.LAUNCHER"/>\n    </intent-filter>\n'+
   '    <meta-data android:name="tiomody.main" android:value="'+full+'"/>\n</activity>';
 }
@@ -736,7 +736,7 @@ function detRender(info,opts){
      '<p style="color:var(--muted)">Úsalos en los campos Package y versionCode al editar la app en el panel.</p></div>';
   if(info.hasInicio)warn.push('Este manifest ya tiene la actividad <b>com.tiomody.Inicio</b>. No la agregues otra vez.');
   if(info.packer)warn.push('La clase Application (<b>'+detEsc(info.packer)+'</b>) coincide con un protector conocido. Es posible que la app esté protegida y que los cambios no funcionen.');
-  if(info.launchers.length>1)warn.push('Encontré <b>'+info.launchers.length+' lanzadores</b>. Normalmente se usa el primero; revisa cuál abre la app de verdad.');
+  if(info.launchers.length>1)warn.push('Encontré <b>'+info.launchers.length+' lanzadores</b>. Borra el LAUNCHER en <b>todos</b>: si dejas uno, aparecerán dos iconos o dos ventanas de la app. El bloque Inicio pégalo <b>una sola vez</b>.');
   if(!info.launchers.length){
     warn.push('No encontré ninguna actividad con <b>MAIN + LAUNCHER</b>. Puede ser una app sin icono, o el texto pegado no es el manifest completo.');
     if(info.mainOnly.length)warn.push('Actividades con solo MAIN (sin LAUNCHER): '+info.mainOnly.map(x=>'<b>'+detEsc(x)+'</b>').join(', '));
@@ -747,17 +747,20 @@ function detRender(info,opts){
     let badges=[L.tag==='activity-alias'?'activity-alias → '+L.target:'activity'];
     if(L.exported==='false')badges.push('exported=false (en Android 12+ el lanzador debe ser exported=true)');
     if(L.enabled==='false')badges.push('enabled=false (desactivado)');
+    const lm=L.comp.attrs.launchMode;if(lm==='3'||lm==='singleInstance')badges.push('launchMode=singleInstance (siempre se abre en su propia ventana)');
+    if(L.comp.attrs.documentLaunchMode)badges.push('documentLaunchMode (puede crear una ventana por documento)');
+    if(L.comp.attrs.taskAffinity!==undefined)badges.push('taskAffinity="'+L.comp.attrs.taskAffinity+'" (ya va en el bloque Inicio)');
     h+='<div class="stp"><h3>'+(info.launchers.length>1?'Lanzador '+(i+1)+': ':'Actividad de inicio: ')+detEsc(short(name))+'</h3>'+
        '<p style="word-break:break-all"><b>'+detEsc(name)+'</b></p><p style="color:var(--muted)">'+badges.map(detEsc).join(' · ')+'</p>'+cp(name,'Copiar nombre completo')+
        '<p><b>Paso 1 · Busca en MT Manager</b> (pega cada uno en la búsqueda del manifest):</p>'+
        cp('android.intent.category.LAUNCHER','LAUNCHER')+' '+cp(short(name),short(name))+' '+cp(name,'nombre completo')+
-       '<p><b>Paso 2 · Borra el LAUNCHER</b> de esa actividad. En MT Manager la etiqueta ocupa 2 líneas: borra las dos marcadas en rojo y deja lo demás.</p>'+
+       '<p><b>Paso 2 · Borra el LAUNCHER</b> de esa actividad. En MT Manager la etiqueta ocupa 2 líneas: borra las dos marcadas en rojo y deja lo demás. Si hay más de un lanzador, hazlo en cada uno.</p>'+
        '<div class="cb">'+detSnippet(L)+'</div>'+
        (L.leanback?'<p style="color:var(--muted)">También tiene LEANBACK_LAUNCHER (Android TV). Si la app no es para TV puedes dejarlo.</p>':'')+
        '<p><b>Paso 3 · Pega la actividad Inicio</b> dentro de <code>&lt;application&gt;</code>, justo antes de la primera <code>&lt;activity</code>'+
        (info.firstActivity?' (en este manifest es la de <b>'+detEsc(short(info.firstActivity))+'</b>: búscala y pega el bloque en la línea de arriba de su <code>&lt;activity</code>)':'')+':</p>'+
-       '<div class="cb"><span class="ln add">'+detEsc(detInicioBlock(name,opts.theme)).replace(/\n/g,'</span><span class="ln add">')+'</span></div>'+
-       cp(detInicioBlock(name,opts.theme),'Copiar bloque Inicio')+
+       '<div class="cb"><span class="ln add">'+detEsc(detInicioBlock(name,opts.theme,L.comp.attrs.taskAffinity)).replace(/\n/g,'</span><span class="ln add">')+'</span></div>'+
+       cp(detInicioBlock(name,opts.theme,L.comp.attrs.taskAffinity),'Copiar bloque Inicio')+
        '<p><label><input type="checkbox" id="dth"'+(opts.theme?' checked':'')+'> Incluir android:theme (si el manifest da error al guardar, desmárcalo)</label></p></div>';
   });
   h+='<div class="stp"><h3>Permiso de internet</h3>'+(info.hasInternet?
