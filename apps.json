@@ -1,6 +1,37 @@
 {
  "apps": [
   {
+   "id": "cloudstream-pro",
+   "name": "CloudStream Pro",
+   "version": "6.3",
+   "type": "app",
+   "cat": "Entretenimiento",
+   "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuLPPUaQuuMZ7EKxywIyWZ8O6vej4dcfL-9pR0-4JccA&s=10",
+   "size": "138.1 MB",
+   "rating": 4.6,
+   "desc": "CloudStream APK es una aplicación para Android enfocada en la reproducción de televisión en vivo y contenido bajo demanda a través de internet. Funciona como un reproductor que agrupa canales, categorías y listas de contenido, todo desde una sola interfaz.\n\nNo viene de Google Play, así que se instala de forma manual. Eso ya dice bastante del tipo de usuario al que va dirigida: personas que saben lo básico de APKs y quieren más control sobre lo que instalan.\n\nLa app no destaca por gráficos espectaculares, sino por algo más práctico: acceso rápido al contenido y una navegación sencilla incluso en celulares de gama media.\n\nCaracterísticas de CloudStream Premium APK\nCloudStream Premium se apoya en funciones simples, pero bien pensadas:\n\nCanales en vivo organizados por categorías: deportes, noticias, entretenimiento, infantiles y más.\nSección de contenido bajo demanda: series y películas separadas del TV en vivo.\nCompatibilidad con Android TV y TV Box: manejo cómodo con control remoto.\nReproductor integrado: no necesitas apps externas para empezar a ver contenido.\nActualizaciones internas: algunas versiones avisan cuando hay cambios disponibles.\nConsumo ajustable de datos: la calidad se adapta según tu conexión.\nNo intenta reinventar nada, y justo ahí está parte de su atractivo.",
+   "modinfo": "✅ Compatible con todos los celulares aumentando\n✅ Estrenos al instante\n✅ Funcionando en tv box y android tv, celulares android\n✅ Interfaz limpia, rápida y sin complicaciones\n✅ Contenido Global\n✅ 100% GRATIS",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1CCRqwjSCz8e19PjUipjIhg"
+    }
+   ],
+   "play": "",
+   "mod": true,
+   "shots": [
+    "img/cloudstream-pro-1794351083912-0.jpg",
+    "img/cloudstream-pro-1794351086348-1.jpg",
+    "img/cloudstream-pro-1794351088582-2.jpg",
+    "img/cloudstream-pro-1794351090821-3.jpg"
+   ],
+   "pkg": "com.lagradost.cloudstream3.prereleasf",
+   "vc": 630,
+   "updated": "2026-11-10",
+   "ts": 1794351093072,
+   "badge": "Nuevo"
+  },
+  {
    "id": "airbrush-pro",
    "name": "Airbrush Pro",
    "version": "8.15.0",
