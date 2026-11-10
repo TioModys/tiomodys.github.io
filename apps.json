@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "airbrush-pro",
+   "name": "Airbrush Pro",
+   "version": "8.15.0",
+   "type": "app",
+   "cat": "Fotografía y video",
+   "icon": "https://cdn.aptoide.com/imgs/d/7/e/d7e6845788488911876f4e99e30a8197_icon.png",
+   "size": "572.87 MB",
+   "rating": 4.3,
+   "desc": "Retoca tus fotos con herramientas de alta calidad\n\n📸 Domina tus selfies con Airbrush – ¡el editor definitivo de fotos y videos! Con nuestras funciones fáciles de usar, puedes perfeccionar tus fotos con herramientas potenciadas por IA diseñadas para resaltar tu belleza natural manteniendo tu encanto auténtico.\n\n✨ EXCELENCIA EN CADA FOTO ✨\n✔ Retoque con IA – Mejora tus retratos con precisión automática.\n✔ Dientes blancos – Ilumina tu sonrisa al instante.\n✔ Eliminación de imperfecciones – Borra el acné y las manchas para una piel perfecta.\n✔ Suavizar – Atenúa arrugas y equilibra el tono de piel.\n✔ Iluminador – Resalta tus rasgos con brillo y textura.\n✔ Remodelar – Ajusta proporciones faciales y corporales fácilmente.\n✔ Contorno – Define tus facciones con precisión.\n✔ Realce de ojos – Corrige ojos rojos, sombras o cambia el color.\n✔ Maquillaje virtual – Aplica maquillaje digital con IA.\n✔ Peinado – Prueba nuevos estilos y colores de cabello.\n\n🎨 DESPIERTA TU IMAGINACIÓN 🎨\nEdición de fondo – Borra, reemplaza o mejora el fondo fácilmente.\nBorrador de IA – Elimina objetos no deseados en segundos.\nMejorador de IA – Ajusta brillo, saturación y temperatura automáticamente.\nFiltros y efectos – Transforma tus fotos con efectos artísticos.\nReparación de IA – Restaura imágenes de baja calidad con detalle.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1YFnDKOXFAsbbFv04kPUE4A"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.magicv.airbrush",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.magicv.airbrush",
+   "vc": 108150000,
+   "updated": "2026-11-09",
+   "ts": 1794273441397,
+   "badge": "Nuevo"
+  },
+  {
    "id": "photoroom-pro",
    "name": "Photoroom Pro",
    "version": "2026.45.02",
