@@ -130,6 +130,11 @@ h2{font-size:20px;margin:20px 0 12px}
 .ico{position:relative;container-type:inline-size}
 .badge.new{background:var(--accent);color:var(--accent-text)}
 .badge.upd{background:#1a73e8;color:#fff}
+.card small.vr{color:var(--text);font-weight:600}
+.novbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:2px 12px 10px;margin:4px 0 8px}
+.novbox .rowh{margin:12px 0 6px}
+.novbox .hs{padding:4px 8px 6px}
+.novbox .card .ico{background:var(--bg)}
 .mod{position:absolute;top:3%;right:3%;z-index:2;background:#fff;color:#000;font-weight:900;font-size:10px;line-height:1;padding:2px 5px;border-radius:5px;letter-spacing:.3px;box-shadow:0 1px 4px rgba(0,0,0,.3);font-size:max(8px,10.5cqw);padding:max(1.5px,2cqw) max(4px,4.5cqw);border-radius:max(4px,4.5cqw)}
 .btn.done{background:#fff;color:#202124;box-shadow:inset 0 0 0 1px #cfd3d8}
 .desc{white-space:pre-wrap;overflow-wrap:anywhere;margin:0 0 8px}
@@ -265,7 +270,7 @@ const CATS={
  app:['Herramientas','Productividad','Fotografía y video','Música y audio','Social y comunicación','Educación','Entretenimiento','Personalización','Salud y fitness','Finanzas','Estilo de vida','Noticias y revistas'],
  juego:['Acción','Aventura','Arcade','Carreras','Deportes','Puzzle','Estrategia','Simulación','Rol (RPG)','Casual','Educativos','Disparos']
 };
-const RES=['verificar','admin','anuncios','cuadros','apps','juegos','apps-top','juegos-top'];
+const RES=['verificar','admin','anuncios','cuadros','novedades','apps','juegos','apps-top','juegos-top'];
 const tipo=a=>a.type||(CATS.juego.includes(a.cat)?'juego':'app');
 const fmtV=n=>{n=+n||0;if(n>=1e6)return (n/1e6).toFixed(1).replace('.0','')+' M';if(n>=1e3)return (n/1e3).toFixed(1).replace('.0','')+' mil';return String(n)};
 /* Contador de visitas compartido (servicio gratuito Abacus) */
@@ -284,7 +289,24 @@ async function contar(id,sumar){
 async function cargarVisitas(){
   await Promise.all(APPS.map(async a=>{const n=await contar(a.id,false);if(n!==null)VIS[a.id]=n}));
 }
-const cardH=a=>`<div class="card" data-id="${esc(a.id)}"><div class="ico">${ico(a)}</div><b>${esc(a.name)}</b><small>${esc(a.cat)}</small><small>${esc(a.rating)} ★</small>${badge(a)}</div>`;
+const verTxt=a=>{const v=String(a.version==null?'':a.version).trim();return v?(/^v/i.test(v)?v:'v'+v):''};
+const cardH=a=>`<div class="card" data-id="${esc(a.id)}"><div class="ico">${ico(a)}</div><b>${esc(a.name)}</b><small>${esc(a.cat)}</small>${verTxt(a)?`<small class="vr">${esc(verTxt(a))}</small>`:''}<small>${esc(a.rating)} ★</small>${badge(a)}</div>`;
+/* Catálogo "Nuevas y actualizadas": apps agregadas o actualizadas en los últimos 30 días */
+const DIAS_NOV=30;
+const t0=a=>a.ts||(a.updated?pd(a.updated).getTime():NaN);
+const novList=()=>APPS.filter(a=>{const t=t0(a);return !isNaN(t)&&Date.now()-t<=DIAS_NOV*864e5}).sort((x,y)=>t0(y)-t0(x));
+const tagN=a=>`<span class="badge ${a.badge==='Nuevo'?'new':'upd'}">${a.badge==='Nuevo'?'Nuevo':'Actualizado'} · ${new Date(t0(a)).toLocaleDateString('es',{day:'numeric',month:'short'})}</span>`;
+const cardN=a=>`<div class="card" data-id="${esc(a.id)}"><div class="ico">${ico(a)}</div><b>${esc(a.name)}</b>${verTxt(a)?`<small class="vr">${esc(verTxt(a))}</small>`:`<small>${esc(a.cat)}</small>`}${tagN(a)}</div>`;
+function novSection(){
+  const l=novList();if(!l.length)return'';
+  return `<div class="novbox"><div class="rowh"><h2>Nuevas y actualizadas</h2><button class="chip" data-go="novedades">Más</button></div><div class="hs">${l.slice(0,12).map(cardN).join('')}</div></div>`;
+}
+function novView(){
+  const l=novList();
+  app.innerHTML=`<button class="back" id="bk">‹ Inicio</button><h2 style="margin-top:0">Nuevas y actualizadas</h2>${l.length?`<div class="grid">${l.map(cardN).join('')}</div>`:'<p class="pill">No hay novedades por ahora.</p>'}`;
+  $('#bk').onclick=()=>{location.hash=''};
+  bindCards();
+}
 function bindCards(){
   app.querySelectorAll('.card').forEach(c=>c.onclick=()=>{if(c.classList.contains('pop'))return;c.classList.add('pop');setTimeout(()=>{location.hash=c.dataset.id},230)});
   app.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
@@ -300,7 +322,7 @@ function home(){
     const q=query.toLowerCase(),list=APPS.filter(a=>((a.name||'')+(a.cat||'')+(a.desc||'')).toLowerCase().includes(q));
     app.innerHTML=`<h2>Resultados</h2>${list.length?`<div class="grid">${list.map(cardH).join('')}</div>`:'<p class="pill">No encontramos nada con esa búsqueda.</p>'}`;
   }else{
-    app.innerHTML=APPS.length?slotsHTML('home-top')+section('Apps más populares',masPop('app'),'apps-top',5)+section('Juegos más populares',masPop('juego'),'juegos-top',5)+slotsHTML('home-mid')+section('Apps',recent('app'),'apps')+section('Juegos',recent('juego'),'juegos'):'<p class="pill">Aún no hay apps publicadas.</p>';
+    app.innerHTML=APPS.length?novSection()+slotsHTML('home-top')+section('Apps más populares',masPop('app'),'apps-top',5)+section('Juegos más populares',masPop('juego'),'juegos-top',5)+slotsHTML('home-mid')+section('Apps',recent('app'),'apps')+section('Juegos',recent('juego'),'juegos'):'<p class="pill">Aún no hay apps publicadas.</p>';
   }
   bindCards();
   if(VISLISTO)montarSlots(app);
@@ -1039,6 +1061,7 @@ function route(){
   if(id==='admin'||id==='anuncios'||id==='cuadros'){const fs=$('#fslots');if(fs)fs.innerHTML='';cerrarFlot();ADV=id==='anuncios'?'ads':id==='cuadros'?'slots':'list';const s=store.get('adm',null);s&&s.t?adLoad(s):adLogin();return}
   if(id==='verificar'){verifyView();return}
   const mc=id.match(/^cat-(app|juego)-(\d+)$/);if(mc){catView(mc[1],+mc[2]);return}
+  if(id==='novedades'){novView();return}
   if(['apps','juegos','apps-top','juegos-top'].includes(id)){cat='Todas';listView(id);return}
   const a=APPS.find(x=>x.id===id);a?detail(a):home();
 }
