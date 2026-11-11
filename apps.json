@@ -1,6 +1,32 @@
 {
  "apps": [
   {
+   "id": "ninja-arashi",
+   "name": "Ninja Arashi",
+   "version": "v1.9.3",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://i0.wp.com/adescargar.net/wp-content/uploads/2025/10/Ninja%20Arashi-thumbnail.webp?fit=300%2C300&ssl=1",
+   "size": "94 MB",
+   "rating": 4.6,
+   "desc": "Sigilo, reflejos y pura paciencia en este increíble juego\nSi te soy sincero, cuando empecé a jugar Ninja Arashi pensé que iba a ser otro juego más de saltar y atacar. Pero no. Es de esos juegos que parecen simples al comienzo, pero mientras más avanzas, más te das cuenta que necesitas concentración, paciencia y buenos reflejos para seguir adelante.\n\nLa historia es directa: eres Arashi, un ninja que escapa de prisión para rescatar a su hijo. No hay escenas largas ni diálogos innecesarios. Todo se entiende jugando, avanzando y superando cada nivel. El juego va al grano y eso se agradece porque mantiene el ritmo desde el inicio.\n\nControles suaves de manejar, pero no te confíes\nLo primero que notas es que el personaje responde muy bien. Saltas y se siente preciso, atacas y el movimiento sale exactamente cuando lo necesitas. Lanzar shurikens también es rápido, sin retrasos raros. Esto es importante porque el juego exige precisión en casi todo momento.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/2ap66b711hbojil/Ninja_Arashi_v1.9.3_Mod_Adescargar.net.apk/file"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/ninja-arashi-1794400796013-0.jpg",
+    "img/ninja-arashi-1794400798510-1.jpg"
+   ],
+   "updated": "2026-11-11",
+   "ts": 1794400800335,
+   "badge": "Nuevo"
+  },
+  {
    "id": "hoa",
    "name": "Hoa",
    "version": "1.0.9",
