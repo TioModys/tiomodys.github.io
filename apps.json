@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "hoa",
+   "name": "Hoa",
+   "version": "1.0.9",
+   "type": "juego",
+   "cat": "Aventura",
+   "icon": "https://i0.wp.com/adescargar.net/wp-content/uploads/2026/09/Crunchyroll-Hoa.png?fit=300%2C300&ssl=1",
+   "size": "1.4 GB",
+   "rating": 4.5,
+   "desc": "Hoa APK es un juego de aventura y plataformas donde acompañas a una pequeña hada que regresa a su hogar después de una larga ausencia y descubre que el mundo que conocía ha perdido parte de su vida. A lo largo del viaje tendrás que explorar bosques, cuevas y otros lugares, resolver puzles y descubrir poco a poco qué ocurrió mientras ayudas a que la naturaleza vuelva a florecer.\n\nLa propuesta de Hoa es mucho más tranquila que la de otros juegos de plataformas. Aquí no hay combates constantes ni pantallas de Game Over",
+   "modinfo": "1. Descarga la versión completa.  \n2. No se necesita suscripción.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/xgfkazs35bieghg/Hoa_v1.0.9.apk/file?action=check"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/hoa-1794379211517-0.jpg",
+    "img/hoa-1794379214003-1.jpg"
+   ],
+   "updated": "2026-11-11",
+   "ts": 1794379215917,
+   "badge": "Nuevo"
+  },
+  {
    "id": "seekee-pro",
    "name": "Seekee Pro",
    "version": "2.18.1",
