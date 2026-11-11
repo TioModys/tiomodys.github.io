@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "seekee-pro",
+   "name": "Seekee Pro",
+   "version": "2.18.1",
+   "type": "app",
+   "cat": "Productividad",
+   "icon": "https://www.seekee.ai/images/logo.svg",
+   "size": "114.34 MB",
+   "rating": 4.5,
+   "desc": "Creación, aprendizaje, entretenimiento y más - buscador de IA todo en uno\n\n🚀 Seekee: tu asistente de IA todo en uno para buscar, aprender e informarte más fácil.\n\nSeekee combina búsqueda con IA, tendencias, herramientas de estudio y creación inteligente en una sola app.Encuentra contenido rápido, descubre novedades, inspírate y mejora tu productividad con ayuda de la IA.\n\nFunciones principales:\n\n🔍 Búsqueda con IA\nUn potente motor de búsqueda con IA que entiende mejor tu intención y encuentra rápidamente lo que realmente buscas. Olvídate de los anuncios innecesarios y de saltar entre páginas web. Obtén resultados directos al instante y accede a la información de forma más rápida y eficiente.\n\n📰 Noticias en tiempo real\nReúne de forma inteligente las noticias y tendencias más relevantes del mundo para recomendártelas con precisión. Ya sea tecnología de vanguardia, actualidad global, deportes intensos o novedades de tus estrellas favoritas... también puedes crear tus propios temas de interés y personalizar tu feed de noticias.\n\n🎙 Grabación y resumen\nNo te preocupes por distraerte en reuniones o clases. Una herramienta imprescindible para estudiantes y profesionales: activa con un toque la transcripción de voz de alta precisión, deja que la IA extraiga automáticamente los puntos clave y genere al instante resúmenes claros y bien organizados de reuniones o lecciones. Deja de tomar notas y concéntrate en escuchar; Seekee se encarga del resumen.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1BI-TSYojiX0KKdLWcJ4g-w"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.enzo.paulo",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.enzo.paulo",
+   "vc": 278,
+   "updated": "2026-11-11",
+   "ts": 1794377929182,
+   "badge": "Nuevo"
+  },
+  {
    "id": "cloudstream-pro",
    "name": "CloudStream Pro",
    "version": "6.3",
