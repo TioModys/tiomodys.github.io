@@ -1,6 +1,32 @@
 {
  "apps": [
   {
+   "id": "video-downloader-pro",
+   "name": "Video Downloader Pro",
+   "version": "1.9.9",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://img.utdstc.com/icon/291/a8f/291a8f4d2453daf6f5c3a436e0a1bf8e30e49ec4ee706a43dd3c5f026ed2adc3:200",
+   "size": "35.20 MB",
+   "rating": 3.8,
+   "desc": "Descargue vídeos rápido y fácil desde Internet con nuestra app.\n\n📥 Descargador todo en uno: descargue videos, historias, fotos y música de las plataformas de redes sociales con facilidad.\n🚀 Velocidades de descarga rápidas: obtén videos HD y descargas de historias en segundos con descargas ultrarrápidas.\n📱 * Todos los formatos compatibles, mp3, m4a, mp4, m4v, mov, avi, wmv, doc, xls, pdf, txt, dsb 🔒 Carpeta privada: protege tus videos descargados en una carpeta protegida con contraseña para mayor privacidad.\n📺 Reproductor de video de alta calidad: mira tus videos sin conexión en cualquier momento con nuestro reproductor de video HD incorporado.\n🔄 Descargas automáticas y por lotes: guarda varios videos o historias a la vez con solo un enlace o compartiéndolos.\nModo de empleo:\n\nCopia el enlace del vídeo o historia que deseas descargar.\nAbra Video Downloader y su descarga comenzará automáticamente.\n¡O comparte el contenido directamente en la aplicación para comenzar a descargarlo instantáneamente!\n¿Por qué elegir Video Downloader?\n\n¡Ha llegado el descargador de videos gratuito y el descargador de videos HD, mejor que nunca! ¡El descargador de videos gratuito y el descargador de videos HD te ayudan a descargar todos los videos de forma gratuita con alta definición!",
+   "modinfo": "✅ Premium Desbloqueado",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1dRw_BRg17RI3XrNOicbp-Q"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.all.social.video.downloader",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.all.social.video.downloader",
+   "vc": 26110611,
+   "updated": "2026-11-12",
+   "ts": 1794511189477,
+   "badge": "Nuevo"
+  },
+  {
    "id": "ninja-arashi",
    "name": "Ninja Arashi",
    "version": "v1.9.3",
