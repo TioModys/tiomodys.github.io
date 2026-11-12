@@ -1104,24 +1104,27 @@
   {
    "id": "snaptube-pro",
    "name": "Snaptube Pro",
-   "version": "7.68.1.76",
+   "version": "7.68.1.768",
    "type": "app",
    "cat": "Herramientas",
    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Snaptube_Isotipo_2022.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=original",
-   "size": "55.88 MB",
+   "size": "55.5 MB",
    "rating": 2.8,
    "desc": "Soporta más de 100 plataformas populares de redes sociales, incluyendo Instagram, Facebook, WhatsApp, Twitter, Pinterest, Vimeo, Kwai y más.",
    "downloads": [
     {
      "label": "Descargar APK",
-     "url": "https://1024terabox.com/s/1Ug1YxxH_wAf18JkW7z8M-Q"
+     "url": "https://1024terabox.com/s/1S0yWHABqqH0UwrPO4NVI4Q"
     }
    ],
    "play": "",
    "mod": true,
    "shots": [],
-   "updated": "2026-10-29",
-   "badge": "Nuevo"
+   "pkg": "com.snaptube.premium",
+   "vc": 76802901,
+   "updated": "2026-11-12",
+   "ts": 1794490836561,
+   "badge": "Actualizado"
   },
   {
    "id": "adguard-pro",
