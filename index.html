@@ -566,7 +566,7 @@ function adUpd(){
   scrollTo(0,0);
 }
 /* DET:START — detector de actividad de inicio */
-const DET_IDS={0x01010003:'name',0x0101000e:'enabled',0x01010010:'exported',0x01010202:'targetActivity',0x01010204:'taskAffinity'};
+const DET_IDS={0x01010003:'name',0x0101000e:'enabled',0x01010010:'exported',0x01010202:'targetActivity',0x01010012:'taskAffinity'};
 const DET_PACKERS=['com.stub.StubApp','com.qihoo.util.StubApp','com.tencent.StubShell','com.secneo.apkwrapper','com.baidu.protect','s.h.e.l.l','com.ijiami','com.ijm.','com.shell.SuperApplication','com.wrapper.proxyapplication','com.bangcle'];
 function detEnt(s){return s.replace(/&(#x[0-9a-fA-F]+|#\d+|amp|lt|gt|quot|apos);/g,(m,e)=>{if(e[0]==='#')return String.fromCodePoint(e[1]==='x'?parseInt(e.slice(2),16):parseInt(e.slice(1),10));return {amp:'&',lt:'<',gt:'>',quot:'"',apos:"'"}[e]})}
 function detParseText(txt){
