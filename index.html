@@ -742,6 +742,9 @@ function detRender(info,opts){
     if(info.mainOnly.length)warn.push('Actividades con solo MAIN (sin LAUNCHER): '+info.mainOnly.map(x=>'<b>'+detEsc(x)+'</b>').join(', '));
   }
   if(warn.length)h+='<div class="stp"><h3>Avisos</h3>'+warn.map(w=>'<p>• '+w+'</p>').join('')+'</div>';
+  h+='<div class="stp"><h3>Elige cómo hacerlo</h3>'+
+    '<p><b>Opción A · Actividad Inicio</b> (cambia el manifest): funciona aunque el <code>onCreate</code> esté bloqueado. Está en las tarjetas de abajo.</p>'+
+    '<p><b>Opción B · Las líneas invoke</b> (sin tocar el manifest): solo si el <code>onCreate</code> de la actividad principal <b>no</b> está bloqueado. Está en la tarjeta «Opción B».</p></div>';
   info.launchers.forEach((L,i)=>{
     const name=L.tag==='activity-alias'?L.full:L.full;
     let badges=[L.tag==='activity-alias'?'activity-alias → '+L.target:'activity'];
@@ -763,6 +766,19 @@ function detRender(info,opts){
        cp(detInicioBlock(name,opts.theme,L.comp.attrs.taskAffinity),'Copiar bloque Inicio')+
        '<p><label><input type="checkbox" id="dth"'+(opts.theme?' checked':'')+'> Incluir android:theme (si el manifest da error al guardar, desmárcalo)</label></p></div>';
   });
+  const inv1='invoke-static {p0}, Lcom/tiomody/Promo;->check(Landroid/app/Activity;)V',inv2='invoke-static {p0}, Lcom/tiomody/Upd;->check(Landroid/app/Activity;)V';
+  const L0=info.launchers[0],cls=L0?(L0.tag==='activity-alias'&&L0.target?L0.target:L0.full):'';
+  h+='<div class="stp"><h3>Opción B: poner las líneas en el onCreate</h3>'+
+    '<p>Úsala si el <code>onCreate</code> de la actividad principal <b>no está bloqueado</b> (no dice <code>native</code>). Así no agregas <code>Inicio</code> ni quitas el LAUNCHER.</p>'+
+    '<p><b>1.</b> En Editor Dex plus abre la clase '+(cls?'<b style="word-break:break-all">'+detEsc(cls)+'</b>':'de la actividad principal')+'.</p>'+
+    (cls?cp(cls,'Copiar nombre de la clase')+' '+cp(short(cls),'Copiar '+short(cls)):'')+
+    '<p><b>2.</b> Entra al método <code>onCreate(Landroid/os/Bundle;)V</code> y pega las dos líneas <b>justo debajo</b> de la línea <code>invoke-super {p0, p1}, …->onCreate(…)V</code>:</p>'+
+    '<div class="cb"><span class="ln add">'+detEsc(inv1)+'</span><span class="ln add">'+detEsc(inv2)+'</span></div>'+
+    cp(inv1+'\n'+inv2,'Copiar las 2 líneas')+' '+cp(inv1,'Solo bienvenida (Promo)')+' '+cp(inv2,'Solo actualización (Upd)')+
+    '<p style="color:var(--muted)">Para buscar el método en MT Manager:</p>'+cp('onCreate(Landroid/os/Bundle;)V','Buscar onCreate')+' '+cp('invoke-super','Buscar invoke-super')+
+    '<p><b>3.</b> Si <code>onCreate</code> dice <b>native</b> o no tiene código, aquí no sirve. Prueba el <code>onCreate</code> de la clase padre (la línea <code>.super</code> del inicio de la clase te dice cuál es), o el <code>onResume()V</code> de la misma clase, o usa la Opción A.</p>'+
+    '<p><b>4.</b> Si es solo una pantalla de carga que se cierra enseguida (nombre con <i>Splash</i>), usa la actividad principal que se abre después.</p>'+
+    '<p style="color:var(--muted)">Necesita las clases <b>Promo</b> y <b>Upd</b> en un dex (paquete <code>com.tiomody</code>) y el permiso INTERNET. Los dos diálogos salen una sola vez cada vez que se abre la app.</p></div>';
   h+='<div class="stp"><h3>Permiso de internet</h3>'+(info.hasInternet?
     '<p>✅ Este manifest ya tiene <code>android.permission.INTERNET</code>. No hace falta agregarlo.</p>':
     '<p>⚠️ Falta el permiso. Pega esta línea justo antes de <code>&lt;application</code>:</p><div class="cb"><span class="ln add">'+detEsc('<uses-permission android:name="android.permission.INTERNET"/>')+'</span></div>'+cp('<uses-permission android:name="android.permission.INTERNET"/>','Copiar permiso'))+'</div>';
