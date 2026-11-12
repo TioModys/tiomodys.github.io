@@ -269,7 +269,7 @@
   {
    "id": "youtube-music-pro",
    "name": "YouTube Music Pro",
-   "version": "9.44.52",
+   "version": "9.45.51",
    "type": "app",
    "cat": "Música y audio",
    "icon": "https://yt3.googleusercontent.com/ytc/AIdro_l-6FQr2F5viYuELhfXHiUU46MqDNZkXPwUqbdZagQMt9A=s900-c-k-c0x00ffffff-no-rj",
@@ -279,7 +279,7 @@
    "downloads": [
     {
      "label": "Descargar APK",
-     "url": "https://1024terabox.com/s/1M28pYDEydi2Kp8Fz-UoiuQ"
+     "url": "https://1024terabox.com/s/110fUnPF1rwXfCWTA2PK4DA"
     },
     {
      "label": "Descargar MicroG",
@@ -290,10 +290,10 @@
    "mod": true,
    "shots": [],
    "pkg": "app.morphe.android.apps.youtube.music",
-   "vc": 2147483647,
-   "updated": "2026-11-08",
-   "ts": 1794191461640,
-   "badge": "Nuevo"
+   "vc": 214748365,
+   "updated": "2026-11-12",
+   "ts": 1794466427282,
+   "badge": "Actualizado"
   },
   {
    "id": "microg",
