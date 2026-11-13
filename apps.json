@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "remini-pro",
+   "name": "Remini Pro",
+   "version": "3.7.1481.202527106",
+   "type": "app",
+   "cat": "Fotografía y video",
+   "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Tk_DPoJX_noKeftEB8Bh93eKZfUZ8MxpEw&s",
+   "size": "162.36",
+   "rating": 4.2,
+   "desc": "Remini utiliza inteligencia artificial para mejorar fotografías y convertir imágenes borrosas, pixeladas o antiguas en imágenes de mayor calidad y definición.\nFunciones principales:\nMejorar fotografías en HD.\nRestaurar fotografías antiguas.\nDesenfocar y recuperar detalles de rostros.\nMejorar selfies y retratos.\nCrear imágenes y avatares con IA.\nMejorar la calidad de fotografías de baja resolución.\nFunciones Pro:\nAcceso ampliado a herramientas Premium.\nMás opciones de mejora con IA.\nMenos restricciones de uso.\nExperiencia sin anuncios, según el plan contratado.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/1b99JexmfK0k76vP0gBq-rA"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.bigwinepot.nwdn.international",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.bigwinepot.nwdn.international",
+   "vc": 202527106,
+   "updated": "2026-11-13",
+   "ts": 1794593037807,
+   "badge": "Nuevo"
+  },
+  {
    "id": "video-downloader-pro",
    "name": "Video Downloader Pro",
    "version": "1.9.9",
