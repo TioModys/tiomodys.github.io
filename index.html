@@ -549,7 +549,7 @@ function adUpd(){
     <p>Este código ya apunta a <b>${esc(base)}apps.json</b>. Es el mismo para todas las apps, no hay que editarlo.</p>`],
     ['Llámala al abrir la app',`<p>En el AndroidManifest busca la actividad con <code>android.intent.action.MAIN</code>. Si es solo una pantalla de carga (nombre con <i>Splash</i>), usa la actividad principal a la que pasa después (suele llamarse <i>MainActivity</i>).</p>
     <p>Ábrela en el Editor Dex plus y entra al método <code>onCreate(Landroid/os/Bundle;)V</code>. Pega esta línea <b>justo debajo</b> de la línea <code>invoke-super {p0, p1}, …onCreate(…)V</code>:</p>
-    ${cod('invoke-static {p0}, Lcom/tiomody/Upd;->check(Landroid/app/Activity;)V')}
+    ${cod('invoke-static/range {p0 .. p0}, Lcom/tiomody/Upd;->check(Landroid/app/Activity;)V')}
     <p>Ponla en una sola actividad, no en varias. Si la app tiene más archivos <i>classes2.dex</i>, <i>classes3.dex</i>, la actividad puede estar en otro.</p>
     <p>Si <code>onCreate</code> dice <b>native</b> y no tiene código, usa en su lugar el método <code>onResume()V</code> de la misma clase: pega la línea justo debajo de <code>invoke-super {p0}, …onResume()V</code>. El aviso solo sale una vez cada vez que se abre la app.</p>`],
     ['Guarda y prueba',`<p>Guarda todo y sal con <b>Guardar y salir</b>: MT Manager recompila y firma el APK. Si Android no deja instalarlo encima, desinstala primero la app original.</p>
@@ -735,9 +735,11 @@ function detRender(info,opts){
      (info.versionCode?'<p>versionCode: <b>'+detEsc(info.versionCode)+'</b></p>'+cp(info.versionCode,'Copiar versionCode'):'')+
      (info.versionName?'<p>versionName: '+detEsc(info.versionName)+'</p>':'')+
      '<p style="color:var(--muted)">Úsalos en los campos Package y versionCode al editar la app en el panel.</p></div>';
-  if(info.hasInicio)warn.push('Este manifest ya tiene la actividad <b>com.tiomody.Inicio</b>. No la agregues otra vez.');
+  const iniL=info.launchers.find(l=>l.full==='com.tiomody.Inicio'),otrosL=info.launchers.filter(l=>l.full!=='com.tiomody.Inicio');
+  if(iniL&&otrosL.length)warn.push('⚠️ <b>Dos iconos:</b> este manifest tiene <b>dos lanzadores</b>: <b>com.tiomody.Inicio</b> y <b>'+detEsc(otrosL.map(l=>short(l.full)).join(', '))+'</b>. Si usas la <b>Opción B</b> (líneas invoke), borra del manifest toda la actividad <code>com.tiomody.Inicio</code>: desde <code>&lt;activity</code> hasta su <code>&lt;/activity&gt;</code> (búscala con «tiomody»). Si usas la <b>Opción A</b>, deja Inicio y borra el LAUNCHER de los otros lanzadores.');
+  else if(info.hasInicio)warn.push('Este manifest ya tiene la actividad <b>com.tiomody.Inicio</b>. No la agregues otra vez. Solo la necesitas con la Opción A: si usas la Opción B, bórrala.');
   if(info.packer)warn.push('La clase Application (<b>'+detEsc(info.packer)+'</b>) coincide con un protector conocido. Es posible que la app esté protegida y que los cambios no funcionen.');
-  if(info.launchers.length>1)warn.push('Encontré <b>'+info.launchers.length+' lanzadores</b>. Borra el LAUNCHER en <b>todos</b>: si dejas uno, aparecerán dos iconos o dos ventanas de la app. El bloque Inicio pégalo <b>una sola vez</b>.');
+  if(info.launchers.length>1&&!(iniL&&otrosL.length))warn.push('Encontré <b>'+info.launchers.length+' lanzadores</b>. Borra el LAUNCHER en <b>todos</b>: si dejas uno, aparecerán dos iconos o dos ventanas de la app. El bloque Inicio pégalo <b>una sola vez</b>.');
   if(!info.launchers.length){
     warn.push('No encontré ninguna actividad con <b>MAIN + LAUNCHER</b>. Puede ser una app sin icono, o el texto pegado no es el manifest completo.');
     if(info.mainOnly.length)warn.push('Actividades con solo MAIN (sin LAUNCHER): '+info.mainOnly.map(x=>'<b>'+detEsc(x)+'</b>').join(', '));
@@ -769,14 +771,14 @@ function detRender(info,opts){
   });
   const wrap=ls=>':try_start_tm\n'+ls.join('\n')+'\n:try_end_tm\n.catch Ljava/lang/Throwable; {:try_start_tm .. :try_end_tm} :catch_tm\n:catch_tm';
   const pre=t=>'<div class="cb">'+t.split('\n').map(x=>'<span class="ln add">'+detEsc(x)+'</span>').join('')+'</div>';
-  const inv1='invoke-static {p0}, Lcom/tiomody/Promo;->check(Landroid/app/Activity;)V',inv2='invoke-static {p0}, Lcom/tiomody/Upd;->check(Landroid/app/Activity;)V',invD='invoke-static {p0}, Lcom/tiomody/Diag;->ok(Landroid/app/Activity;)V';
+  const inv1='invoke-static/range {p0 .. p0}, Lcom/tiomody/Promo;->check(Landroid/app/Activity;)V',inv2='invoke-static/range {p0 .. p0}, Lcom/tiomody/Upd;->check(Landroid/app/Activity;)V',invD='invoke-static/range {p0 .. p0}, Lcom/tiomody/Diag;->ok(Landroid/app/Activity;)V';
   const blk=wrap([inv1,inv2]),blkD=wrap([invD]);
   const L0=info.launchers[0],cls=L0?(L0.tag==='activity-alias'&&L0.target?L0.target:L0.full):'';
   h+='<div class="stp"><h3>Opción B: poner las líneas en el onCreate</h3>'+
-    '<p>Úsala si el <code>onCreate</code> de la actividad principal <b>no está bloqueado</b> (no dice <code>native</code>). Así no agregas <code>Inicio</code> ni quitas el LAUNCHER.</p>'+
+    '<p>Úsala si el <code>onCreate</code> de la actividad principal <b>no está bloqueado</b> (no dice <code>native</code>). Así no agregas <code>Inicio</code> ni quitas el LAUNCHER. <b>Importante:</b> con esta opción el manifest <b>no debe tener</b> la actividad <code>com.tiomody.Inicio</code>; si la tiene, salen dos iconos.</p>'+
     '<p><b>1.</b> En Editor Dex plus abre la clase '+(cls?'<b style="word-break:break-all">'+detEsc(cls)+'</b>':'de la actividad principal')+'.</p>'+
     (cls?cp(cls,'Copiar nombre de la clase')+' '+cp(short(cls),'Copiar '+short(cls)):'')+
-    '<p><b>2.</b> Entra al método <code>onCreate(Landroid/os/Bundle;)V</code> y pega este bloque <b>justo debajo</b> de la línea <code>invoke-super {p0, p1}, …->onCreate(…)V</code>. Va protegido: si algo falla en los diálogos, la app no se cierra.</p>'+
+    '<p><b>2.</b> Entra al método <code>onCreate(Landroid/os/Bundle;)V</code> y pega este bloque <b>justo debajo</b> de la línea <code>invoke-super {p0, p1}, …->onCreate(…)V</code>. Va protegido: si algo falla en los diálogos, la app no se cierra. Usa la forma <code>/range</code>, que funciona aunque el método tenga muchos registros (con la forma normal sale «Invalid register: v17. Must be between v0 and v15»).</p>'+
     pre(blk)+cp(blk,'Copiar bloque protegido')+' '+cp(inv1+'\n'+inv2,'Copiar solo las 2 líneas')+
     '<p style="color:var(--muted)">Para buscar el método en MT Manager:</p>'+cp('onCreate(Landroid/os/Bundle;)V','Buscar onCreate')+' '+cp('invoke-super','Buscar invoke-super')+
     '<p><b>3.</b> Si <code>onCreate</code> dice <b>native</b> o no tiene código, aquí no sirve. Prueba el <code>onCreate</code> de la clase padre (la línea <code>.super</code> del inicio de la clase te dice cuál es), o el <code>onResume()V</code> de la misma clase, o usa la Opción A.</p>'+
