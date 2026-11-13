@@ -943,8 +943,8 @@
   },
   {
    "id": "light-room-pro",
-   "name": "Light room Pro",
-   "version": "11.6.12",
+   "name": "Lightroom Pro",
+   "version": "12.0.01",
    "type": "app",
    "cat": "Herramientas",
    "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ6Bf-ie9BEcm8Log9ZYb71MMDor0eX9WyyIHljLO5tQ&s=10",
@@ -954,15 +954,17 @@
    "downloads": [
     {
      "label": "Descargar APK",
-     "url": "https://shortxlinks.in/6j0xqJAEYN"
+     "url": "https://1024terabox.com/s/1Qu6CJaqI-iIXVzdqd1Z_pQ"
     }
    ],
    "play": "https://play.google.com/store/apps/details?id=com.adobe.lrmobile",
    "mod": true,
    "shots": [],
-   "updated": "2026-10-31",
-   "ts": 1793504496321,
-   "badge": "Nuevo"
+   "pkg": "com.adobe.lrmobile",
+   "vc": 711200010,
+   "updated": "2026-11-13",
+   "ts": 1794596169455,
+   "badge": "Actualizado"
   },
   {
    "id": "capcut-pro",
