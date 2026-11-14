@@ -1,6 +1,32 @@
 {
  "apps": [
   {
+   "id": "az-screen-recorder-pro",
+   "name": "AZ Screen Recorder Pro",
+   "version": "6.9.14",
+   "type": "app",
+   "cat": "Personalización",
+   "icon": "https://cdn.aptoide.com/imgs/8/7/1/8711bf1f469e5075acd8c68663213da3_icon.png",
+   "size": "54.59 MB",
+   "rating": 4.9,
+   "desc": "Graba la pantalla de tu teléfono con audio, gratis y sin límite de tiempo.\n\nAZ Screen Recorder es un grabador de pantalla confiable y fácil de usar. Graba la pantalla de tu teléfono con audio, crea videos de juegos, guarda videollamadas, toma capturas y transmite en vivo. También incluye herramientas para editar videos e imágenes sin salir de la app.\n\nVENTAJAS\n★ Fácil de usar.\n★ Video de alta calidad: hasta 1080p, 60 FPS y 12 Mbps.\n★ Grabaciones sin marca de agua y sin límite de tiempo.\n★ No necesita root.\n\nFUNCIONES PRINCIPALES\n★ Grabar pantalla con audio\n- Inicia y detén la grabación desde los controles flotantes o las notificaciones.\n- Pausa y reanuda la grabación cuando lo necesites.\n- Graba el sonido del micrófono.\n- Usa el audio interno en dispositivos compatibles con Android 10 o una versión posterior. Algunas apps pueden impedir la captura de su audio.\n- Muestra tu rostro en una ventana flotante con la cámara frontal.\n- Graba en orientación vertical u horizontal.\n- Muestra los toques en pantalla para explicar cada paso con claridad.\n- Dibuja en la pantalla mientras grabas.\n- Agita el teléfono para detener la grabación.\n- Convierte una grabación en GIF.\n- Transfiere videos y capturas a tu computadora por Wi-Fi.",
+   "modinfo": "✅ Premium | Funciones pagas desbloqueadas.\n✅ Sin anuncios.\n✅ Transmisión en vivo.\n✅ Sin marca de agua.\n✅ Compresión de vídeo.\n✅ Resolución 2K de alta calidad, 120 FPS.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://1024terabox.com/s/16YTB6riTub97-kUzN3gB1A"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.hecorat.screenrecorder.free",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.hecorat.screenrecorder.free",
+   "vc": 70392,
+   "updated": "2026-11-13",
+   "ts": 1794614400822,
+   "badge": "Nuevo"
+  },
+  {
    "id": "remini-pro",
    "name": "Remini Pro",
    "version": "3.7.1481.202527106",
