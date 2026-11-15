@@ -22,7 +22,10 @@
    ],
    "play": "",
    "mod": false,
-   "shots": [],
+   "shots": [
+    "img/halo-3-recomp-port-1794765595320-0.jpg",
+    "img/halo-3-recomp-port-1794765597504-1.jpg"
+   ],
    "updated": "2026-11-15",
    "ts": 1794765185864,
    "badge": "Nuevo"
