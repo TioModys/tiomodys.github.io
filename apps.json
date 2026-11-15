@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "mivo-al-art-face-swap-video-pro",
+   "name": "Mivo: Al Art & Face swap video Pro",
+   "version": "3.35.856",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://play-lh.googleusercontent.com/RJIKKf4x7r4QRsfIz9vBoH8ZrDK1Nj83Q2VTsLFVtiqQ6WoFjoos4V4Ymf1giU8fONzJvo-epoohtHUqsXWs",
+   "size": "182.55 MB",
+   "rating": 4.7,
+   "desc": "Creador de video con Música y Foto, Efecto de Transición con 3D y Neon y Cartoon\n\nMivo es una aplicación gratuita de edición de videos de intercambio de caras con plantillas de música y efectos fotográficos de IA. Puedes cambiar la cara en un video con tus fotos con un solo clic y generar tus retratos de IA sin tener que ir a un estudio fotográfico.\n\nCaracterísticas:\n✨Video y foto de intercambio de caras:\nCon la aplicación Mivo AI Face Swap, tu cara se transferirá de una foto a otra.\nCreador de memes de intercambio de caras: crea videos y GIF divertidos de intercambio de caras con solo una selfie.\nMiles de plantillas actualizadas con tendencias: encuentra los videos cortos más populares y renueva su rostro con tus fotos.\nIlustraciones perfectas de IA: la tecnología de IA aplica las características de la cara con precisión, lo que hace que cada video renovado parezca real para tu audiencia.\n\n✨Miles de plantillas de video de IA con música:\nNuevas plantillas de Face Dance: ¡Sube el nivel de diversión con Face Dance! Imagina la magia de ver cómo tus retratos favoritos cobran vida, el reproductor de animación de baile facial de Mivo da vida a tu rostro con expresiones y movimientos divertidos. Experimenta el futuro de la animación de fotos con Mivo y observa cómo tus selfies cobran vida propia.\n\nMivo Music Video Maker ofrece una gran cantidad de plantillas de video con excelentes efectos y transiciones. Puedes hacer videos creativos en las redes sociales con fotos usando las últimas canciones de moda.\nEdita videos automáticamente: Mivo Video Editor puede fusionar fotos, agregar música y textos animados a los videos y hacer presentaciones de diapositivas automáticamente, todo lo que necesitas hacer es cargar una foto.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/y7o1y22jwrbw2tq/Mivo_3.35.856.apk/file"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=ins.story.unfold",
+   "mod": true,
+   "shots": [],
+   "pkg": "ins.story.unfold",
+   "vc": 856,
+   "updated": "2026-11-15",
+   "ts": 1794777575864,
+   "badge": "Nuevo"
+  },
+  {
    "id": "es-explorador-de-archivos",
    "name": "ES Explorador de Archivos",
    "version": "4.4.3.7",
