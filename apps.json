@@ -1,6 +1,32 @@
 {
  "apps": [
   {
+   "id": "batman-the-dark-knight-rises",
+   "name": "Batman: The Dark Knight Rises",
+   "version": "1.1.6",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://i0.wp.com/adescargar.net/wp-content/uploads/2026/11/TDKR-logo.png?fit=300%2C300&ssl=1",
+   "size": "904.13 MB",
+   "rating": 4.5,
+   "desc": "Acerca de Batman: The Dark Knight Rises\nBatman: The Dark Knight Rises APK es un juego de acción y aventura donde controlas a Batman mientras recorres Gotham, peleas contra criminales, utilizas gadgets, completas misiones y te enfrentas a enemigos relacionados con la historia de la película. La jugabilidad combina combates cuerpo a cuerpo, exploración, conducción y desplazamiento por una ciudad dividida en varias zonas.\n\nEl juego fue desarrollado por Gameloft para dispositivos móviles y está basado en la película The Dark Knight Rises. A lo largo de la campaña puedes mejorar habilidades, desbloquear equipo y enfrentarte a diferentes amenazas mientras Batman intenta recuperar el control de Gotham.\n\n¿Qué es Batman: The Dark Knight Rises?\nBatman: The Dark Knight Rises es un juego de acción y aventura protagonizado por Batman donde exploras Gotham, completas objetivos, combates contra grupos de enemigos y utilizas diferentes gadgets para avanzar. La historia sigue los acontecimientos principales de la película, aunque adapta varias situaciones para convertirlas en misiones jugables.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/txtfdkg96gceg7c/Batman+The+Dark+Knight+Rises+v1.1.6.apk/file?action=check"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/batman-the-dark-knight-rises-1794719125540-0.jpg",
+    "img/batman-the-dark-knight-rises-1794719129368-1.jpg"
+   ],
+   "updated": "2026-11-14",
+   "ts": 1794719131935,
+   "badge": "Nuevo"
+  },
+  {
    "id": "edjing-mix-pro",
    "name": "edjing Mix Pro",
    "version": "7.41.00",
