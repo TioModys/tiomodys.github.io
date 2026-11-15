@@ -1,6 +1,32 @@
 {
  "apps": [
   {
+   "id": "es-explorador-de-archivos",
+   "name": "ES Explorador de Archivos",
+   "version": "4.4.3.7",
+   "type": "app",
+   "cat": "Personalización",
+   "icon": "https://dn710009.ca.archive.org/0/items/es-file-explorer-logo/ES_File_Explorer-logo.png",
+   "size": "60.01 MB",
+   "rating": 5,
+   "desc": "ES Explorador de Archivos PRO es un administrador avanzado para organizar y gestionar los archivos almacenados en dispositivos Android. Permite explorar carpetas, administrar aplicaciones, comprimir archivos y acceder a ubicaciones de red.\nFunciones principales:\nCopiar, cortar, pegar y mover archivos.\nCrear, eliminar y renombrar carpetas.\nAdministrar archivos ZIP y RAR.\nInstalar y desinstalar aplicaciones APK.\nAdministrar fotografías, videos y documentos.\nTransferir archivos mediante Wi-Fi y Bluetooth.\nAcceder a servidores FTP.\nPersonalizar la interfaz con diferentes temas.\nFunciones de la versión PRO:\nSin publicidad.\nMás opciones de personalización.\nTemas adicionales.\nInterfaz más limpia.",
+   "modinfo": "Características Premium / Pagadas desbloqueadas;\n\nMonitor en tiempo real desbloqueado;\n\nSelector de temas desbloqueado;\n\nArchivos ocultos del sistema desbloqueados;\n\nIdiomas: varios idiomas completos;",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/9ktfltr0knrg5m1/ES+Explorador+de+Archivos_4.4.3.7.apk/file"
+    }
+   ],
+   "play": "",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.estrongs.android.pop",
+   "vc": 10353,
+   "updated": "2026-11-15",
+   "ts": 1794768107549,
+   "badge": "Nuevo"
+  },
+  {
    "id": "halo-3-recomp-port",
    "name": "Halo 3 Recomp Port",
    "version": "v1.0.1",
