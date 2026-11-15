@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "halo-3-recomp-port",
+   "name": "Halo 3 Recomp Port",
+   "version": "v1.0.1",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://assetsio.gnwcdn.com/xbox-360-at-10-chasing-1000g-in-halo-3-1448540139573.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+   "size": "6.4 GB",
+   "rating": 4.4,
+   "desc": "La historia comienza con el regreso del Jefe Maestro a la Tierra, mientras las fuerzas del Covenant, dirigidas por el Profeta de la Verdad, intentan activar una antigua tecnología de los Forerunners. Para detenerlo, los humanos forman una alianza con el Inquisidor, un antiguo comandante élite que ahora combate contra los líderes del Covenant.\n\nLa amenaza no se limita a esta guerra. El Flood, un parásito capaz de infectar y transformar a diferentes especies, también representa un peligro para toda la galaxia. Mientras tanto, Cortana permanece en manos del Gravemind, lo que añade otra misión importante a la campaña.\n\nEl recorrido comienza en las selvas africanas y continúa por instalaciones militares, carreteras destruidas, bases alienígenas y enormes estructuras Forerunner. Misiones como Sierra 117, La Tormenta y El Arca presentan situaciones diferentes, desde rescates y ataques terrestres hasta enfrentamientos contra unidades enemigas de gran tamaño.\n\nCombates, armas y vehículos\nEl combate de Halo 3 combina disparos, granadas y ataques cuerpo a cuerpo. El Jefe Maestro dispone de un escudo de energía que se regenera cuando deja de recibir daño, por lo que buscar cobertura y elegir cuándo atacar resulta importante, especialmente en dificultades elevadas",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://download2336.mediafire.com/wfnuw5lplfsgNMI0eHoxonNW6Bq9pH9R2jCElCNim-6xMD50A7wmHszwMpMnlIHo1XtWmCW32rxpWiTUi_8yUxcotunOvbsMSWLuqoeXhH-dafuaf6L0TODkd2AKXvOFixiapHIh3-aJWLv21oB7k_KDiaJg9ZP610DiMZ1rIrrXSfI/zpg1zuhfs1g5whd/halo3recomp-1.0.1.apk"
+    },
+    {
+     "label": "DESCARGAR DATOS",
+     "url": "https://des.apkgstore.co/Halo-3.7z"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [],
+   "updated": "2026-11-15",
+   "ts": 1794765185864,
+   "badge": "Nuevo"
+  },
+  {
    "id": "batman-the-dark-knight-rises",
    "name": "Batman: The Dark Knight Rises",
    "version": "1.1.6",
