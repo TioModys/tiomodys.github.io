@@ -1,6 +1,36 @@
 {
  "apps": [
   {
+   "id": "spotify-pro",
+   "name": "Spotify Pro",
+   "version": "9.1.98.621",
+   "type": "app",
+   "cat": "Música y audio",
+   "icon": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/3840px-Spotify_App_Logo.svg.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail",
+   "size": "13.38 MB",
+   "rating": 4.5,
+   "desc": "Reproduce canciones y podcasts, crea playlists y descubre música que amarás\n\nExplora una biblioteca llena de música y podcasts gratis con Spotify. Crea tus propias playlists de música y reproduce millones de canciones, álbumes y podcasts gratis en tu dispositivo móvil o tablet. Suscríbete a Spotify Premium para descargar y escuchar música sin conexión y acceder a nuestro catálogo de audiolibros.\n\n¿Por qué usar Spotify como tu aplicación favorita de música y podcasts? Porque puedes hacer lo siguiente:\n• Escuchar más de 100 millones de canciones y 6 millones de podcasts\n• Explorar la selección que tiene Spotify de playlists de artistas especialmente seleccionadas para ti\n• Buscar tus canciones, álbumes, artistas y podcasts favoritos sin problemas\n• Descubrir recomendaciones musicales personalizadas según tu gusto musical único\n• Suscribirte a tus podcasts gratuitos favoritos e incluso crear tu propia biblioteca de podcasts\n\nLa versión gratuita de Spotify es más que un reproductor de música. Puedes encontrar los sonidos que te encantan y escuchar música y podcasts gratis en línea. Disfruta de playlists musicales personalizadas o crea y comparte las tuyas, descubre los últimos lanzamientos, explora los próximos eventos de tus artistas favoritos y más.\n• Reproduce millones de canciones y podcasts gratis.\n• Crea playlists con tu música favorita.\n• Comparte canciones y playlists con amigos y familiares (se pueden aplicar restricciones de funcionalidades en algunas regiones).\n• Descubre playlists personalizadas y colabora en la creación de playlists con tus amigos.\n• Disfruta de la playlist Descubrimiento Semanal para encontrar tus nuevas canciones favoritas cada semana.\n• Mantente al día con las playlists Release Radar y New Music Friday.\n• Encuentra eventos y conciertos de tus artistas favoritos cerca de ti.\n• Descubre cuáles fueron las canciones, géneros, artistas, podcasts y demás más escuchados por ti con el resumen anual de Spotify Wrapped.\n• Reproduce música en todos tus dispositivos con Spotify.\n• Usa Spotify Connect y disfruta de escuchar contenido en altavoces inteligentes, computadoras de escritorio y portátiles, smart TV, Chromecast, PlayStation®, dispositivos que lleves puestos y más. Hay una cantidad limitada de modelos de dispositivos compatibles.",
+   "modinfo": "✅ Version Premiun\n\nCrear una cuenta nueva de Spotify en el navegador de tu preferencia y iniciarla en la aplicación o iniciar con su cuenta personal pero a su responsabilidad",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://shortxlinks.in/OcghyZItH"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.spotify.music",
+   "mod": true,
+   "shots": [
+    "img/spotify-pro-1794893910415-0.jpg",
+    "img/spotify-pro-1794893912734-1.jpg"
+   ],
+   "cover": "img/spotify-pro-portada-1794893914975.jpg",
+   "pkg": "app.spoti.nemecio",
+   "vc": 1090,
+   "updated": "2026-11-16",
+   "ts": 1794893917535,
+   "badge": "Nuevo"
+  },
+  {
    "id": "dragon-ball-xenoverse",
    "name": "Dragon Ball Xenoverse",
    "version": "0.1.46.1",
