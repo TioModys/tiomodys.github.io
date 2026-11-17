@@ -1,6 +1,29 @@
 {
  "apps": [
   {
+   "id": "god-of-war-chains-of-olympus",
+   "name": "God Of War Chains Of Olympus",
+   "version": "1.0",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://apkgstore.co/wp-content/uploads/2025/10/God-Of-War-Chains-Of-Olympus-300x300.jpg",
+   "size": "1.7 GB",
+   "rating": 4.4,
+   "desc": "¿Qué es God of War: Chains of Olympus APK?\nGod of War: Chains of Olympus es un videojuego originalmente desarrollado por Ready at Dawn y publicado por Sony Computer Entertainment para PSP. La versión APK permite disfrutar del juego en smartphones Android mediante emulación, conservando los combates, gráficos y narrativa que lo convirtieron en uno de los títulos más destacados de la franquicia.\n\nHistoria del juego\nLa trama de Chains of Olympus sigue a Kratos durante su servicio a los dioses del Olimpo. Tras la desaparición del sol y el caos que amenaza al mundo, Kratos es enviado en una misión para restaurar la luz y descubrir quién está detrás de la catástrofe. Su viaje lo lleva a enfrentarse a criaturas como Perséfone y al titán Atlas, mientras revela detalles cruciales sobre su pasado.\n\nCaracterísticas principales de God of War: Chains of Olympus APK\nGráficos de consola: Visuales impresionantes que conservan el estilo cinematográfico de la saga.\nJugabilidad fluida: Controles táctiles adaptados y mecánicas de combate ágiles y sangrientas.\nHistoria profunda: Explora los orígenes de Kratos y su conexión con los dioses del Olimpo.\nVariedad de armas: Usa las icónicas Espadas del Caos y desbloquea ataques especiales devastadores.\nOptimización móvil: Compatible con emuladores PSP para Android, ofreciendo un rendimiento estable y gráficos de alta calidad.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/lmpgsj35q33xtvo/God_Of_War_Chains_Of_Olympus_1.0_apkgstore.co.apk/file?action=check"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [],
+   "updated": "2026-11-16",
+   "ts": 1794890518522,
+   "badge": "Nuevo"
+  },
+  {
    "id": "proton-vpn-pro",
    "name": "Proton VPN Pro",
    "version": "5.20.57.0",
