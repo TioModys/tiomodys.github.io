@@ -251,6 +251,20 @@ body.hasnav .toast{bottom:calc(108px + env(safe-area-inset-bottom,0px));z-index:
   body.hasnav .toast{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 }
 @media (prefers-reduced-motion:reduce){#nav,#nav .nvh,#nav .nvh svg,#nj .njc{transition:none;animation:none}}
+
+/* ===== Portada de la publicación (opcional) ===== */
+:root{--hc:var(--bg)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--hc:var(--surface)}}
+:root[data-theme="dark"]{--hc:var(--surface)}
+.hero{position:relative;margin:-16px -16px 0;height:clamp(170px,56vw,360px);overflow:hidden;background:var(--surface)}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(180deg,rgba(0,0,0,0),var(--bg));pointer-events:none}
+.hero .back{position:absolute;top:12px;left:12px;z-index:2;padding:7px 14px;border-radius:999px;background:var(--nvb);color:var(--nvx);border:1px solid var(--nvl);-webkit-backdrop-filter:blur(14px) saturate(1.6);backdrop-filter:blur(14px) saturate(1.6);font-weight:600}
+.hcard{position:relative;z-index:1;margin:-60px 2px 8px;padding:18px 16px 6px;border-radius:28px;background:var(--hc);border:1px solid var(--line);box-shadow:0 10px 36px rgba(0,0,0,.10)}
+.hcard .stats{margin:16px 0 0;border-bottom:0}
+@media (min-width:1000px){.hero{border-radius:0 0 28px 28px}}
+.cvp{margin:6px 0 10px;max-width:420px}
+.cvp img{width:100%;aspect-ratio:2/1;object-fit:cover;border-radius:14px;border:1px solid var(--line);display:block}
 </style>
 </head>
 <body>
@@ -478,9 +492,12 @@ function simHTML(a){
 }
 function detail(a){
   const dls=(a.downloads||[]).map((d,i)=>`<a class="btn" data-u="${esc(fixUrl(d.url))}" href="${esc(fixUrl(d.url))}" target="_blank" rel="noopener">${esc(d.label||'Descargar')}</a>`).join('');
-  app.innerHTML=`<button class="back" id="bk">‹ Volver</button>
-  <div class="top"><div class="ico">${ico(a)}</div><div><h1>${esc(a.name)}</h1><div class="dev">${esc(a.cat)}</div><div class="pill">Versión ${esc(a.version)}</div><div class="meta">${badge(a)}${playBtn(a)}</div></div></div>
-  <div class="stats"><div><b>${esc(a.rating)} ★</b><small>Calificación</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b id="vv">${VIS[a.id]==null?'…':fmtV(VIS[a.id])}</b><small>Visitas</small></div></div>
+  const topH=`<div class="top"><div class="ico">${ico(a)}</div><div><h1>${esc(a.name)}</h1><div class="dev">${esc(a.cat)}</div><div class="pill">Versión ${esc(a.version)}</div><div class="meta">${badge(a)}${playBtn(a)}</div></div></div>`;
+  const statsH=`<div class="stats"><div><b>${esc(a.rating)} ★</b><small>Calificación</small></div><div><b>${esc(a.size)}</b><small>Tamaño</small></div><div><b id="vv">${VIS[a.id]==null?'…':fmtV(VIS[a.id])}</b><small>Visitas</small></div></div>`;
+  /* Portada opcional: si la app tiene "cover" se muestra arriba; si no, se ve como siempre */
+  const hdr=a.cover?`<div class="hero"><img src="${esc(a.cover)}" alt=""><button class="back" id="bk">‹ Volver</button></div><div class="hcard">${topH}${statsH}</div>`
+    :`<button class="back" id="bk">‹ Volver</button>\n  ${topH}\n  ${statsH}`;
+  app.innerHTML=hdr+`
   ${dls}
   ${(a.shots&&a.shots.length)?`<div class="car"><div class="cs" id="cs">${a.shots.map(s=>`<img src="${esc(s)}" alt="">`).join('')}</div>${a.shots.length>1?`<button class="cn p" id="cp">‹</button><button class="cn n" id="cx">›</button><div class="dots" id="cd">${a.shots.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`:''}</div>`:''}
   ${slotsHTML('app-mid')}
@@ -490,6 +507,8 @@ function detail(a){
   ${slotsHTML('app-bottom')}
   ${REDES.chat?`<h2>¿Tienes dudas u opiniones?</h2><a class="btn alt" href="${esc(REDES.chat)}" target="_blank" rel="noopener">Únete al chat de Telegram</a>`:''}`;
   $('#bk').onclick=()=>{location.hash=''};
+  const hi=app.querySelector('.hero img');
+  if(hi)hi.onerror=()=>{const hr=app.querySelector('.hero'),b=hr.querySelector('.back'),hc=app.querySelector('.hcard');hr.replaceWith(b);if(hc)hc.style.marginTop='0'};
   app.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.v});
   contraible($('#mbox'),4,4);contraible($('#dbox'),15,15);montarSlots(app);
   app.querySelectorAll('[data-u]').forEach(b=>{
@@ -992,6 +1011,12 @@ function adForm(i){
   <label class="pill">Enlace de Play Store (opcional)</label>
   <input class="in" id="f11" placeholder="https://play.google.com/store/apps/details?id=..." value="${esc(a.play||'')}">
   <label class="pill"><input type="checkbox" id="f12"${a.mod?' checked':''}> Mostrar etiqueta MOD en el icono</label>
+  <label class="pill">Portada (opcional): imagen grande que aparece arriba en la publicación. Pega el enlace o sube una imagen.</label>
+  <input class="in" id="f16" placeholder="Enlace de la imagen de portada" value="${esc(a.cover&&!/^img\//.test(a.cover)?a.cover:'')}" autocapitalize="none" autocorrect="off" spellcheck="false">
+  <div class="cvp" id="cvp"></div>
+  <input type="file" id="fc" accept="image/*" hidden>
+  <button class="btn alt" id="fcb" type="button">📷 Subir imagen de portada</button>
+  <button class="chip" id="fcq" type="button">Quitar portada</button>
   <label class="pill">Imágenes del carrusel (opcional)</label>
   <div class="thumbs" id="th"></div>
   <input type="file" id="fi" accept="image/*" multiple hidden>
@@ -1001,6 +1026,13 @@ function adForm(i){
   $('#bk').onclick=adList;
   $('#fl').onclick=()=>{const t=$('#f7');t.value+=(t.value&&!t.value.endsWith('\n')?'\n':'')+'Descargar APK | ';t.focus()};
   $('#f0').onchange=()=>{$('#f3').innerHTML=opts($('#f0').value,'')};
+  let cvNew=null,cvKeep=(a.cover&&/^img\//.test(a.cover))?a.cover:'';
+  const rcv=()=>{const ty=$('#f16').value.trim(),src=cvNew||(ty?fixUrl(ty):cvKeep);$('#cvp').innerHTML=src?`<img src="${esc(src)}" alt="">`:'';$('#fcq').style.display=src?'':'none'};
+  $('#f16').oninput=()=>{cvNew=null;cvKeep='';rcv()};
+  $('#fcb').onclick=()=>$('#fc').click();
+  $('#fc').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{cvNew=await comprimir(f);$('#f16').value='';cvKeep='';rcv()}catch(x){toast('No pude leer la imagen')}};
+  $('#fcq').onclick=()=>{cvNew=null;cvKeep='';$('#f16').value='';rcv()};
+  rcv();
   let imgs=(a.shots||[]).map(src=>({src,nuevo:false}));
   const rt=()=>{$('#th').innerHTML=imgs.map((m,k)=>`<div class="thumb"><img src="${esc(m.src)}" alt=""><b data-x="${k}">✕</b></div>`).join('');$('#th').querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>{imgs.splice(+b.dataset.x,1);rt()})};rt();
   $('#fa').onclick=()=>$('#fi').click();
@@ -1020,7 +1052,14 @@ function adForm(i){
       if(await subirImg(AD.c,path,m.src))shots.push(path);
       else{toast('No se pudo subir una imagen. Intenta de nuevo.');btn.disabled=false;btn.textContent='Guardar';return}
     }
-    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),modinfo:$('#f13').value.trim()||undefined,downloads,play:fixUrl(v(11)),mod:$('#f12').checked,shots,pkg:v(14)||undefined,vc:parseInt(v(15))||undefined};
+    let cover=cvKeep;
+    if(cvNew){
+      toast('Subiendo portada…');
+      const pc='img/'+id+'-portada-'+Date.now()+'.jpg';
+      if(await subirImg(AD.c,pc,cvNew))cover=pc;
+      else{toast('No se pudo subir la portada. Intenta de nuevo.');btn.disabled=false;btn.textContent='Guardar';return}
+    }else if(v(16))cover=fixUrl(v(16));
+    const o={id,name,version:v(2),type:$('#f0').value,cat:$('#f3').value,icon:v(4)||'📱',size:v(5),rating:parseFloat(v(8))||5,desc:v(6),modinfo:$('#f13').value.trim()||undefined,downloads,play:fixUrl(v(11)),mod:$('#f12').checked,shots,cover:cover||undefined,pkg:v(14)||undefined,vc:parseInt(v(15))||undefined};
     if(n){o.updated=hoy();o.ts=Date.now();o.badge='Nuevo';AD.apps.unshift(o)}
     else{o.updated=a.updated;o.ts=a.ts;o.badge=a.badge;if(o.version!==a.version||o.vc!==a.vc||$('#f9').checked){o.updated=hoy();o.ts=Date.now();o.badge='Actualizado'}AD.apps[i]=o}
     (await adSave((n?'Agregar ':'Editar ')+name))?adList():adLoad(AD.c);
