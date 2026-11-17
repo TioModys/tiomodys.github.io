@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "dragon-ball-xenoverse",
+   "name": "Dragon Ball Xenoverse",
+   "version": "0.1.46.1",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://apkgstore.co/wp-content/uploads/2026/11/Xenoverse-logo-300x300.webp",
+   "size": "112 MB",
+   "rating": 4.3,
+   "desc": "Dragon Ball Xenoverse es un juego de lucha y acción en 3D donde creas tu propio guerrero y participas en las batallas más importantes de Dragon Ball Z para corregir alteraciones en la historia. Puedes combatir junto a Goku, Vegeta y otros personajes de la serie, aprender sus técnicas especiales, volar por escenarios abiertos y enfrentarte a enemigos como Freezer, Cell y Majin Buu.\n\nDesarrollado por Dimps y publicado por Bandai Namco en 2015, el juego introduce una historia original que combina acontecimientos del anime con nuevos personajes y viajes en el tiempo. A diferencia de otros títulos de Dragon Ball, aquí no solo controlas a los protagonistas conocidos, sino que construyes tu propio luchador y desarrollas sus habilidades mientras avanzas en la Patrulla del Tiempo.",
+   "modinfo": "Ten en cuenta que el juego descargará aproximadamente 10,8 GB de datos adicionales. Se recomienda disponer de al menos 22 GB de espacio libre para completar la descarga e instalación.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://download2435.mediafire.com/wrqkjzk192igjQDh0zdFtn-kNQENv1FtLft0Fd-0LxamWXWEtkFpRmgS5k18tAtnm1rC7KDu-HYUzBtjWcW4FAXWJ4E9P8XAN9ofn_d-37Zi6iG3lpA5Be23Kz6hCekhQ-DiOx0K0GT9nG426ZWBb-nK_cgX3bN_bSQWU1YkQ65_PjY/wten7ngw7962ycj/Xenoverse+PC+%C2%B7+Shadow+ll+%C2%B7+brunosousaf_v0.1.46.1.apk"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/dragon-ball-xenoverse-1794890989386-0.jpg",
+    "img/dragon-ball-xenoverse-1794890991525-1.jpg"
+   ],
+   "updated": "2026-11-16",
+   "ts": 1794890993739,
+   "badge": "Nuevo"
+  },
+  {
    "id": "god-of-war-chains-of-olympus",
    "name": "God Of War Chains Of Olympus",
    "version": "1.0",
