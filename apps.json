@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "nazi-zombies-port",
+   "name": "Nazi Zombies: Port",
+   "version": "2.3.16.r2",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://apkgstore.co/wp-content/uploads/2026/11/Nz-logo-300x300.jpg",
+   "size": "90 MB",
+   "rating": 4,
+   "desc": "Sobrevive a las oleadas de zombis\nEn Nazi Zombies: Portable, cada ronda aumenta la cantidad de enemigos y la dificultad de los enfrentamientos. Los zombis aparecen por diferentes accesos y pueden destruir las barricadas de las ventanas, por lo que tendrás que repararlas mientras buscas una posición segura para defenderte.\n\nLos puntos obtenidos durante los combates permiten desbloquear puertas y acceder a otras habitaciones, donde puedes encontrar armas y rutas para escapar cuando la situación se vuelve peligrosa. Sin embargo, abrir demasiadas zonas también puede facilitar que los zombis te ataquen desde diferentes direcciones.\n\nEl juego recupera escenarios clásicos como Nacht der Untoten, además de otros mapas creados por la comunidad. Cada escenario presenta una distribución diferente de habitaciones, obstáculos y lugares donde conseguir equipamiento.\n\nArmas, mejoras y ventajas\nDurante las partidas puedes utilizar pistolas, escopetas, subfusiles y otras armas que se consiguen gastando los puntos acumulados. También está disponible la caja misteriosa, que entrega un arma aleatoria y puede ayudarte a conseguir equipamiento más potente para las rondas avanzadas.\n\nOtra característica son las máquinas de ventajas, que permiten mejorar determinadas capacidades del personaje, como la resistencia a los ataques o la velocidad al recargar. Además, los zombis pueden dejar bonificaciones temporales, entre ellas munición máxima y multiplicadores de puntos.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://download2290.mediafire.com/hg9ztn9syzrgUasPeBdJURC0R_EbiCG8msKZwqqw78uydL1gG3h2rKJ_ykzjZD5y4hzBq6J6iY4swaND-LeNmZUBa1ZpGWfW9xMTX3kZ1HFGaixr4QGBB1ZMBkKPZkLQ8oPoCB1M5xFlnF7WKkuhCXh-yxqaQWNfqdfDpLg8k_OKBw/tritteys7owudki/Nazi+Zombies-+Portable_v2.3.16-r2.apk"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/nazi-zombies-port-1794966997010-0.jpg",
+    "img/nazi-zombies-port-1794967000249-1.jpg",
+    "img/nazi-zombies-port-1794967002128-2.jpg"
+   ],
+   "updated": "2026-11-17",
+   "ts": 1794967004405,
+   "badge": "Nuevo"
+  },
+  {
    "id": "crash-team-racing-nitro-fueled",
    "name": "Crash Team Racing Nitro-Fueled",
    "version": "0.5.1",
