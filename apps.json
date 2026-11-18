@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "pgt-pro",
+   "name": "PGT+ Pro",
+   "version": "0.26.5",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://play-lh.googleusercontent.com/SrS9CYKH_uNeH9h7tOqrxIYSplZn2c-t7tdqzA5HNoaDckxotfb448hTVJ3-3j6tPgcVBy-WvV9dXBej5Sl77A=w240-h480-rw",
+   "size": "6.25 MB",
+   "rating": 4.3,
+   "desc": "Una utilidad GFX esencial para optimizar y aumentar los FPS en juegos móviles específicos.\n\nPGT: Pro Graphics Toolkit es una potente utilidad de lanzamiento diseñada para maximizar el rendimiento de los juegos, desbloquear gráficos ultra y eliminar el lag. Ya sea que busques gráficos impresionantes en dispositivos antiguos o 165 FPS ultrarrápidos en teléfonos de gama alta, PGT te da control total.\n\nDestacado en el portal XDA\nAdapta la configuración básica, miscelánea, avanzada y experimental para lograr el equilibrio perfecto entre gráficos impresionantes y una jugabilidad fluida.\n\nCaracterísticas de rendimiento profesional:\n• Compatibilidad universal: Compatible con todas las versiones principales del sistema operativo Android (7.0 a 16+)\n• Desbloquea FPS extremos: Rompe los límites y juega hasta a 90/120/165 FPS\n• Aceleración de hardware: Optimización avanzada de la GPU y ajustes de renderizado\n• Modo cero lag: Ajustes optimizados para estabilizar la velocidad de fotogramas\n• Control de resolución: Cambia la resolución de HD a 2K/4K\n• Gráficos de alta gama: Aplica gráficos HDR y UHD en dispositivos de gama baja\n• Personalización visual: Personaliza sombras, aplica suavizado (X2, X4) y más\n• Ultra Audio: Mejora la calidad del sonido en el juego\n• Solución de problemas inteligente: Detección de problemas integrada y Guías de configuración de Shizuku/ADB\n• Interfaz de usuario moderna: Diseño Material limpio con tema oscuro y colores dinámicos\n\nCompatible con todas las versiones: Global, CN, LITE, KR, VN, TW, BETA.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/pi5pu0wi8vam915/PGT%252B_0.26.5.apk/file"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=inc.trilokia.pubgfxtool",
+   "mod": true,
+   "shots": [],
+   "pkg": "inc.trilokia.pubgfxtool",
+   "vc": 297,
+   "updated": "2026-11-18",
+   "ts": 1795029460555,
+   "badge": "Nuevo"
+  },
+  {
    "id": "nazi-zombies-port",
    "name": "Nazi Zombies: Port",
    "version": "2.3.16.r2",
