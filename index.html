@@ -265,6 +265,54 @@ body.hasnav .toast{bottom:calc(108px + env(safe-area-inset-bottom,0px));z-index:
 @media (min-width:1000px){.hero{border-radius:0 0 28px 28px}}
 .cvp{margin:6px 0 10px;max-width:420px}
 .cvp img{width:100%;aspect-ratio:2/1;object-fit:cover;border-radius:14px;border:1px solid var(--line);display:block}
+
+/* ===== Aviso: desactiva el bloqueador de anuncios ===== */
+html.abon{overflow:hidden}
+#abw{position:fixed;inset:0;z-index:100;display:none;overflow:auto;padding:18px 14px;background:rgba(8,12,10,.76);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+#abw.on{display:flex}
+#abw:focus{outline:none}
+#abw .abx{margin:auto;width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center}
+#abw .abi{width:min(290px,74vw);position:relative;z-index:2;margin-bottom:-16px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.28))}
+#abw .abi svg{display:block;width:100%;height:auto;animation:abf 4.5s ease-in-out infinite}
+#abw .abc{width:100%;padding:30px 22px 22px;border-radius:30px;background:var(--bg);color:var(--text);border:1px solid var(--line);box-shadow:0 24px 70px rgba(0,0,0,.45);text-align:center}
+#abw h2{margin:0 0 8px;font-size:22px;line-height:1.2}
+#abw .abp{margin:0 0 14px;color:var(--muted);font-size:15px;line-height:1.45}
+#abw ol{list-style:none;margin:0 0 16px;padding:0;text-align:left;counter-reset:ab}
+#abw ol li{counter-increment:ab;display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:14px;background:var(--surface);margin-top:6px;font-size:14.5px;line-height:1.35}
+#abw ol li::before{content:counter(ab);flex:none;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--accent-text);display:grid;place-items:center;font-weight:800;font-size:13px}
+#abw .abb{width:100%;padding:14px;border:0;border-radius:999px;background:var(--accent);color:var(--accent-text);font:700 16px/1 inherit;font-family:inherit;cursor:pointer}
+#abw .abb:disabled{opacity:.6;cursor:wait}
+#abw .abm{min-height:20px;margin-top:10px;font-size:13.5px;color:var(--muted)}
+#abw .abm.err{color:#e5484d}
+#abw .abc.absh{animation:absh .45s}
+#abw .abant{transform-box:fill-box;transform-origin:50% 100%;animation:abs 3s ease-in-out infinite}
+#abw .abbub{animation:abu 2.4s ease-in infinite}
+#abw .abspk{animation:abt 1.8s ease-in-out infinite}
+@keyframes abf{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes abs{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg)}}
+@keyframes abu{0%{transform:translateY(0);opacity:.8}100%{transform:translateY(-16px);opacity:0}}
+@keyframes abt{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes absh{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+@media (orientation:landscape) and (max-height:520px){
+  #abw .abx{flex-direction:row;max-width:780px}
+  #abw .abi{width:230px;margin:0 -14px 0 0;flex:none}
+  #abw .abc{padding:16px 18px}
+  #abw h2{font-size:18px}
+  #abw .abp{font-size:13.5px;margin-bottom:8px}
+  #abw ol{margin-bottom:10px}
+  #abw ol li{padding:6px 8px;font-size:13px;margin-top:4px}
+  #abw .abb{padding:11px}
+}
+@media (orientation:portrait) and (max-height:720px){
+  #abw .abi{width:min(215px,58vw);margin-bottom:-12px}
+  #abw .abc{padding:22px 16px 16px}
+  #abw h2{font-size:19px}
+  #abw .abp{font-size:13.5px;margin-bottom:10px}
+  #abw ol{margin-bottom:12px}
+  #abw ol li{padding:6px 9px;font-size:13px}
+  #abw .abb{padding:12px;font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){#abw *{animation:none!important}}
 </style>
 </head>
 <body>
@@ -1264,6 +1312,68 @@ fetch('apps.json?v='+Date.now()).then(r=>r.json()).then(j=>{APPS=j.apps||[];ADS=
   const id=location.hash.slice(1);
   if(!id)home();else if(['apps-top','juegos-top'].includes(id))listView(id);
 });
+
+/* ---------- Aviso: desactiva el bloqueador de anuncios ---------- */
+(function(){
+  const ACTIVAR_ANTIBLOQUEO=true;           // pon false para quitar este aviso
+  if(!ACTIVAR_ANTIBLOQUEO)return;
+  const SALVO=['admin','anuncios','cuadros','verificar'];   // el panel nunca se bloquea
+  const exento=()=>SALVO.indexOf(location.hash.slice(1))>=0;
+  const U1='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',U2='https://securepubads.g.doubleclick.net/tag/js/gpt.js',UC='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js';
+  let bloqueado=false,ocupado=false;
+  const ILUS=`<svg viewBox="0 0 320 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Un Android verde relajado en una silla tomando una bebida"><ellipse cx="160" cy="238" rx="112" ry="9" fill="#000" opacity=".16"/><circle cx="160" cy="124" r="104" fill="#3ddc84" opacity=".13"/><!-- silla --><rect x="96" y="84" width="128" height="130" rx="34" fill="#f97316"/><rect x="108" y="96" width="104" height="104" rx="26" fill="#fb923c"/><rect x="62" y="132" width="38" height="82" rx="17" fill="#ea580c"/><rect x="220" y="132" width="38" height="82" rx="17" fill="#ea580c"/><rect x="84" y="172" width="152" height="44" rx="18" fill="#fdba74"/><rect x="94" y="208" width="14" height="30" rx="6" fill="#9a3412"/><rect x="212" y="208" width="14" height="30" rx="6" fill="#9a3412"/><!-- piernas --><rect x="128" y="176" width="22" height="52" rx="11" fill="#2fc774"/><rect x="170" y="176" width="22" height="52" rx="11" fill="#3ddc84" transform="rotate(-16 181 178)"/><!-- brazo izquierdo: detras de la cabeza, relajado --><path d="M122 120 L88 108 L124 78" stroke="#2fc774" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" fill="none"/><!-- torso --><rect x="118" y="106" width="84" height="78" rx="18" fill="#3ddc84"/><!-- cabeza --><g class="abant"><path d="M135 68 L122 43" stroke="#3ddc84" stroke-width="4.5" stroke-linecap="round"/><path d="M185 68 L198 43" stroke="#3ddc84" stroke-width="4.5" stroke-linecap="round"/></g><path d="M123 98 A37 37 0 0 1 197 98 Z" fill="#3ddc84"/><!-- gafas de sol --><rect x="129" y="76" width="26" height="16" rx="7" fill="#111827"/><rect x="165" y="76" width="26" height="16" rx="7" fill="#111827"/><rect x="154" y="80" width="12" height="3.5" rx="1.7" fill="#111827"/><path d="M134 80 L141 80" stroke="#fff" stroke-opacity=".6" stroke-width="2.2" stroke-linecap="round"/><path d="M170 80 L177 80" stroke="#fff" stroke-opacity=".6" stroke-width="2.2" stroke-linecap="round"/><!-- bebida --><path d="M218 46 H252 L248 100 Q248 105 243 105 H227 Q222 105 222 100 Z" fill="#fff" fill-opacity=".4" stroke="#fff" stroke-opacity=".85" stroke-width="2"/><path d="M220.500 62 H249.500 L246.500 99 Q246.500 102.500 243 102.500 H227 Q223.500 102.500 223 99 Z" fill="#fb7185"/><rect x="229" y="70" width="10" height="10" rx="2.200" fill="#fff" opacity=".65" transform="rotate(16 234 75)"/><circle class="abbub" cx="242" cy="88" r="2.400" fill="#fff" opacity=".75"/><path d="M244 70 L244 30 L206 62" stroke="#ef4444" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="253" cy="49" r="9" fill="#fde047"/><circle cx="253" cy="49" r="5.500" fill="#fef9c3"/><path d="M222 38 L236 22 L248 38 Z" fill="#a78bfa"/><path d="M236 22 V50" stroke="#7c3aed" stroke-width="2"/><!-- brazo derecho sosteniendo la bebida --><path d="M202 122 L240 144 L234 98" stroke="#3ddc84" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" fill="none"/><!-- destellos --><g class="abspk" fill="#fde047"><path d="M268 56 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/><path d="M52 70 l2.2 6 6 2.2 -6 2.2 -2.2 6 -2.2 -6 -6 -2.2 6 -2.2z"/></g></svg>`;
+  function armar(){
+    const w=document.createElement('div');w.id='abw';w.setAttribute('role','dialog');w.setAttribute('aria-modal','true');w.setAttribute('aria-labelledby','abt');w.setAttribute('tabindex','-1');
+    w.innerHTML=`<div class="abx"><div class="abi">${ILUS}</div><div class="abc"><h2 id="abt">Desactiva el bloqueador de anuncios</h2><p class="abp">Detectamos un bloqueador de anuncios. Para poder utilizar la página, desactívalo. Los anuncios nos ayudan a mantener todas las apps y juegos gratis. 💚</p><ol><li><span>Abre tu bloqueador (AdBlock, uBlock, AdGuard, DNS privado…).</span></li><li><span>Desactívalo para <b>este sitio</b>.</span></li><li><span>Toca <b>Ya lo desactivé</b>.</span></li></ol><button class="abb" id="abr" type="button">Ya lo desactivé</button><div class="abm" id="abm" aria-live="polite"></div></div></div>`;
+    w.querySelector('#abr').onclick=revisar;
+    return w;
+  }
+  function mostrar(){
+    if(exento())return;
+    bloqueado=true;
+    let w=document.getElementById('abw');
+    if(!w){w=armar();document.body.appendChild(w)}
+    w.classList.add('on');
+    document.documentElement.classList.add('abon');
+    document.querySelectorAll('body > :not(#abw):not(script)').forEach(e=>{e.inert=true});
+    if(!w.contains(document.activeElement))w.focus({preventScroll:true});
+  }
+  function ocultar(mantener){
+    if(!mantener)bloqueado=false;
+    const w=document.getElementById('abw');if(w)w.classList.remove('on');
+    document.documentElement.classList.remove('abon');
+    document.querySelectorAll('body > [inert]').forEach(e=>{e.inert=false});
+  }
+  /* 1) cebo con nombres que los bloqueadores ocultan; 2) peticiones a servidores de anuncios (bloqueadores de red y DNS) */
+  async function cebo(){
+    const d=document.createElement('div');
+    d.className='adsbox ad-banner ad-placement pub_300x250 pub_728x90 text-ad textAd banner_ad adsbygoogle';
+    d.setAttribute('style','position:absolute!important;left:-9999px!important;top:-9999px!important;width:300px!important;height:250px!important;pointer-events:none!important');
+    d.innerHTML='&nbsp;';document.body.appendChild(d);
+    await new Promise(r=>setTimeout(r,200));
+    const cs=getComputedStyle(d);
+    const oculto=!d.isConnected||d.offsetHeight===0||d.offsetWidth===0||cs.display==='none'||cs.visibility==='hidden'||cs.opacity==='0';
+    d.remove();return oculto;
+  }
+  const ping=u=>Promise.race([fetch(u,{method:'HEAD',mode:'no-cors',cache:'no-store'}).then(()=>true,()=>false),new Promise(r=>setTimeout(()=>r(true),6000))]);
+  async function red(){const r=await Promise.all([ping(U1),ping(U2),ping(UC)]);return r[2]&&!r[0]&&!r[1]}   // solo cuenta si hay internet (UC responde) y los dos de anuncios fallan
+  const detectar=async full=>(await cebo())||(full?await red():false);
+  async function revisar(){
+    if(ocupado)return;ocupado=true;
+    const m=document.getElementById('abm'),b=document.getElementById('abr');
+    if(m){m.className='abm';m.textContent='Comprobando…'}if(b)b.disabled=true;
+    const aun=await detectar(true);
+    if(b)b.disabled=false;ocupado=false;
+    if(!aun){if(m)m.textContent='¡Listo! Cargando…';location.reload()}
+    else if(m){m.className='abm err';m.textContent='Todavía detectamos el bloqueador. Desactívalo para este sitio y vuelve a tocar el botón.';const c=document.querySelector('#abw .abc');c.classList.remove('absh');void c.offsetWidth;c.classList.add('absh')}
+  }
+  async function chequear(){if(exento()||bloqueado||ocupado)return;if(await detectar(true))mostrar()}
+  if(document.readyState==='complete')setTimeout(chequear,900);else addEventListener('load',()=>setTimeout(chequear,900));
+  addEventListener('hashchange',()=>{if(exento())ocultar(true);else if(bloqueado)mostrar()});
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&bloqueado&&!exento())revisar()});
+  setInterval(async()=>{if(exento())return;if(bloqueado){const w=document.getElementById('abw');if(!w||!w.classList.contains('on'))mostrar()}else if(await cebo())mostrar()},5000);
+  new MutationObserver(()=>{if(bloqueado&&!exento()&&!document.getElementById('abw'))mostrar()}).observe(document.body,{childList:true});
+})();
 </script>
 </body>
 </html>
