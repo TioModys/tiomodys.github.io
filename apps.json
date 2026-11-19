@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "win-11-launcher-pro",
+   "name": "Win 11 Launcher Pro",
+   "version": "9.146",
+   "type": "app",
+   "cat": "Personalización",
+   "icon": "https://play-lh.googleusercontent.com/yHrCzEXsDJ7t535jrLwKj3AtG0XCNzvkJ3D_39MmyETMXBxZzTlrUyp8pNMWdIhC9gh08UCVPlJBsBziDJJM_p8",
+   "size": "13.41M",
+   "rating": 4.5,
+   "desc": "El iniciador de Win 11 más esperado ya está disponible para Android TM!\n\n¿Estás aburrido con la interfaz de usuario de Android y quieres disfrutar del lanzador de estilo Windows en tu Android? No, espera ahora. Win 11 y Win 10 Launcher están aquí para usted (inspirado en Win 11 y Win 10 OS). Personaliza tu teléfono con una apariencia única con el lanzador rápido, limpio y de bajo consumo. Sorprende a tus amigos con la nueva apariencia de tu Android y también compártelo con tus seres queridos.\n\nCaracterísticas:\nAdministrador de archivos\n- Cortar, copiar, pegar, renombrar archivos\n- Comprimir/Descomprimir Archivos\n- Ver propiedades del archivo\n- Crear Carpetas\n- Crear accesos directos\nTemas\n- Colores de tema personalizables\n- Aplicaciones de Android en azulejos con estilo\n- Las mejores aplicaciones están disponibles en One Click\n- Experiencia de Windows Phone en tu Android\n- Navegación fácil a las aplicaciones",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/z9dkcddu6qlv6aq/Win+11+Launcher_9.146.apk/file"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.real.launcher.wp.ten",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.real.launcher.wp.ten",
+   "vc": 1046,
+   "updated": "2026-11-19",
+   "ts": 1795069540961,
+   "badge": "Nuevo"
+  },
+  {
    "id": "pgt-pro",
    "name": "PGT+ Pro",
    "version": "0.26.5",
