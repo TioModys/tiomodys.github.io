@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "waze-pro",
+   "name": "Waze Pro",
+   "version": "5.27.5.0",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmdpJ5EFh8QTJyMmEaCCZuGL5yv1xl9nzI5uMjwmw6gvJrPPkJLvvl8Rg&s=10",
+   "size": "149.52 MB",
+   "rating": 4.8,
+   "desc": "Evita sorpresas, actualizaciones al instante de tráfico, policía y más. Usa Waze\n\nEstá siempre al tanto de lo que está sucediendo en la vía con Waze. Aún si tu conoces el camino, Waze te avisa sobre el tráfico, construcciones, policía, accidentes y más en tiempo real. Si el tráfico está pesado en tu ruta, Waze la cambiará para ahorrarte tiempo. \n\n¿Por qué Waze?\n◦ Observa qué está sucediendo - alertas sobre tráfico, policía, peligros y más en tu ruta\n◦ Llega más rápido - Cambios de ruta al instante para evitar el tráfico y ahorrar tiempo\n◦ Waze Audio Player - escucha música, podcasts y más, todo con Waze.\n◦ Conoce con anticipación la tu hora de llegada - tu ETA se basa en datos de tráfico en vivo \n◦ Paga menos por combustible - encuentra la estación de combustible más económica en tu ruta\n◦ Conduzca con Android Auto - use Waze en la pantalla de su auto\n◦ Encuentra siempre el camino - elige entre una variedad de voces para que te guíen mientras conduces  \n\n¡Prepárate, conduce con Waze!",
+   "modinfo": "✅ Premium\n✅ Cero anuncios",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/pe2us72qucsg1wi/Waze_5.27.5.0.apk/file"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.waze",
+   "mod": true,
+   "shots": [],
+   "cover": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/03/Waze-Real-Time-Traffic.jpg?fit=1200%2C800&quality=70&strip=all&ssl=1",
+   "pkg": "com.waze",
+   "vc": 1030750,
+   "updated": "2026-11-20",
+   "ts": 1795163442490,
+   "badge": "Nuevo"
+  },
+  {
    "id": "privacify-pro",
    "name": "Privacify Pro",
    "version": "2.7",
