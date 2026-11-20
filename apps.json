@@ -408,23 +408,23 @@
    "type": "app",
    "cat": "Herramientas",
    "icon": "https://play-lh.googleusercontent.com/SAQg5K7HdNlXs_xVXdAJCJjQFhJFZMzXgwbX-DDyNwQc-CUAOmNw451ud4YyFTdzgw5qkvsuB-6DztRoH1ljxw",
-   "size": "78.61 MB",
+   "size": "144.89 MB",
    "rating": 4.5,
    "desc": "La mejor app para DJ: mezcle canciones, cree música y grabe mezclas fantásticas\n\nLlegó edjing Mix: la nueva versión de la famosa app de DJ, rehecha por completo para ofrecerte un rendimiento aún mejor.\n\nDiseñada junto con DJ profesionales, edjing Mix convierte tu dispositivo en un verdadero equipo de DJ y amplía los límites del mezclado desde el teléfono, con libertad creativa total.\n\nAcerca de edjing Mix\n\nEs un estudio de DJ de bolsillo completo y de nivel profesional: mezcla canciones, audios, instrumentales y mucho más. La desarrollaron profesionales de la industria para que uses funciones de nivel pro desde tu teléfono o tu tablet.\n\nAccede a millones de tracks de Spotify, Beatport, TIDAL, SoundCloud y de todas tus carpetas locales, y remezcla al instante con más de 20 efectos y funciones de DJ. Además tienes el sampler y la conexión con controladores para llevar el DJing móvil mucho más lejos.\n\nSer DJ nunca fue tan fácil. Mezcla canciones, audios, instrumentales y beats como un profesional.\n\nExplora tu creatividad con edjing Mix\n\n- crea mezclas y beats con calidad de estudio\n- separa voces, batería e instrumentos fácilmente\n- mejora tu técnica de mezcla y de audio\n- edita instrumentales y canciones con calidad de estudio\n- aprende nuevas técnicas y conviértete en un beatmaker profesional\n- lleva un estudio de DJ profesional en el bolsillo\n- mezcla canciones, audios e instrumentales con funciones de estudio",
    "downloads": [
     {
      "label": "Descargar APK",
-     "url": "https://www.mediafire.com/file/70dmeewodv1vywi/edjing+Mix_7.41.00.apk/file"
+     "url": "https://www.mediafire.com/file/1rml1xi9p4ujijd/edjing+Mix_7.42.00.apk/file"
     }
    ],
    "play": "https://play.google.com/store/apps/details?id=com.edjing.edjingdjturntable",
    "mod": true,
    "shots": [],
    "pkg": "com.edjing.edjingdjturntable",
-   "vc": 63074100,
-   "updated": "2026-11-14",
-   "ts": 1794717379708,
-   "badge": "Nuevo"
+   "vc": 63073600,
+   "updated": "2026-11-20",
+   "ts": 1795217935745,
+   "badge": "Actualizado"
   },
   {
    "id": "az-screen-recorder-pro",
