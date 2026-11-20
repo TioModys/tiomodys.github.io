@@ -1323,7 +1323,7 @@
   {
    "id": "musify-pro",
    "name": "Musify Pro",
-   "version": "10.7.0",
+   "version": "10.7.1",
    "type": "app",
    "cat": "Música y audio",
    "icon": "https://img.utdstc.com/icon/d52/8d3/d528d366ad273608ed6689f965f25b3a1dba263cf03b75507abe1f5abf987e6d:600",
@@ -1333,7 +1333,7 @@
    "downloads": [
     {
      "label": "Descargar APK",
-     "url": "https://www.mediafire.com/file/pa17hn4dt2ohrcg/Musify_10.7.0.apk/file"
+     "url": "https://www.mediafire.com/file/a7dvxg246qqmovv/Musify_10.7.1.apk/file"
     }
    ],
    "play": "",
@@ -1343,9 +1343,9 @@
     "img/musify-pro-1793537335404-1.jpg"
    ],
    "pkg": "com.gokadzev.musify",
-   "vc": 2187,
-   "updated": "2026-11-15",
-   "ts": 1794802588581,
+   "vc": 1,
+   "updated": "2026-11-20",
+   "ts": 1795184026707,
    "badge": "Actualizado"
   },
   {
