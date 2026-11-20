@@ -194,7 +194,7 @@
   {
    "id": "proton-vpn-pro",
    "name": "Proton VPN Pro",
-   "version": "5.20.57.0",
+   "version": "5.21.57.0",
    "type": "app",
    "cat": "Herramientas",
    "icon": "https://m.media-amazon.com/images/I/51gvJaXQh4L.png",
@@ -205,7 +205,7 @@
    "downloads": [
     {
      "label": "Descargar APK",
-     "url": "https://www.mediafire.com/file/kd150yew9vihtnb/Proton+VPN_5.20.57.0.apk/file"
+     "url": "https://www.mediafire.com/file/uogjhji1ns6npqt/Proton_VPN_Premium_v5.21.57.0_.apk/file"
     }
    ],
    "play": "https://play.google.com/store/apps/details?id=ch.protonvpn.android",
@@ -214,7 +214,7 @@
    "pkg": "ch.protonvpn.android",
    "vc": 1,
    "updated": "2026-11-19",
-   "ts": 1795146689040,
+   "ts": 1795147242829,
    "badge": "Actualizado"
   },
   {
