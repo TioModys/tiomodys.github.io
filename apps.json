@@ -1,6 +1,32 @@
 {
  "apps": [
   {
+   "id": "rave-pro",
+   "name": "Rave Pro",
+   "version": "9.0.66",
+   "type": "app",
+   "cat": "Entretenimiento",
+   "icon": "https://cdn.aptoide.com/imgs/b/4/0/b40409280af85b8f37e2cf3df17ef874_icon.png",
+   "size": "114.40 MB",
+   "rating": 4.5,
+   "desc": "Mira Netflix, YouTube, Disney+, Amazon Prime Video y más con tus amigos!\n\n¡Mira los principales programas de TV y películas en Netflix, Disney+, YouTube, Amazon Prime Video, HBO MAX y más con amigos mientras chateas en tiempo real! ¡Ver programas de TV y películas nunca fue tan divertido!\n\nRave hace que sea fácil experimentar programas de TV y películas con tus amigos, Elige tu plataforma de ‘streaming’ (Netflix, Disney+, Amazon Prime Video, HBO Max, YouTube y más), ¡e invita a tus amigos a ver juntos, online! \n\n¡Únete a Rave y nunca más tendrás que ver películas o programas de TV solo!\n\n🌎 CHATEA online con tus amigos mientras miras tus películas y programas de TV favoritos con mensajes de texto dentro de la aplicación o por videoconferencia. Habla acerca de películas populares en Netflix, videos que son tendencia en YouTube o escuchen música juntos. \n\n🥳 DISFRUTA creando un Grupo de visualización para ver películas y programas de TV en YouTube, Netflix, Disney+, Amazon Prime Video, HBO Max y más sitios de ‘streaming’. ¡Mira en una sola sentada los programas de TV más populares, mira películas que son tendencia y descubre nuevo contenido con tus amigos!",
+   "modinfo": "✅ Anuncios eliminados\n\n🚨 Nota importante🚨 \nUsa el modo del email para iniciar sección",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/ft29m1kpvcixjzp/Rave_9.0.66.apk/file"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.wemesh.android",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.wemesh.android",
+   "vc": 2366,
+   "updated": "2026-11-22",
+   "ts": 1795342907008,
+   "badge": "Nuevo"
+  },
+  {
    "id": "ccleaner",
    "name": "CCleaner",
    "version": "26.16.1",
