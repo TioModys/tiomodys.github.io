@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "ccleaner",
+   "name": "CCleaner",
+   "version": "26.16.1",
+   "type": "app",
+   "cat": "Personalización",
+   "icon": "https://s3-eu-west-1.amazonaws.com/tpd/logos/4886212f0000640005030438/0x0.png",
+   "size": "82.35 MB",
+   "rating": 4.7,
+   "desc": "Limpiador de archivos basura: limpie su dispositivo para tener más espacio\n\nLos creadores del software de limpieza para PC y Mac más popular del mundo presentan CCleaner para Android.\nElimine los archivos basura, recupere espacio, supervise el estado del sistema y navegue de forma segura. \n\n\nMás espacio de almacenamiento\n● Desinstale las aplicaciones no deseadas de forma rápida y sencilla\n● Libere valioso espacio de almacenamiento en el dispositivo\n● Elimine los archivos basura, como aquellos obsoletos o en desuso\n\nAnálisis del impacto de las aplicaciones\n● Compruebe qué aplicaciones consumen sus datos\n● Averigüe qué aplicaciones agotan la batería\n● Descubra cuáles son las aplicaciones que no utiliza\n\nFacilidad de uso\n● Desplácese fácilmente por una interfaz de usuario sencilla e intuitiva\n● La función Estadísticas permite determinar al instante el impacto global que tienen determinadas aplicaciones en el dispositivo\n\n\nSupervisión del estado del sistema\n● Compruebe el uso que se hace de la CPU\n● Controle el espacio de almacenamiento interno y la RAM disponibles\n● Consulte la temperatura y el nivel de la batería\n\n\nEsta aplicación utiliza el permiso de accesibilidad para ayudar a personas con discapacidades y otros usuarios a detener todas las aplicaciones que se ejecutan en segundo plano con un solo toque.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://www.mediafire.com/file/ojk5p5vr0ert12h/CCleaner_26.16.1.apk/file"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.piriform.ccleaner",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.piriform.ccleaner",
+   "vc": 800011534,
+   "updated": "2026-11-22",
+   "ts": 1795331491933,
+   "badge": "Nuevo"
+  },
+  {
    "id": "minecraft-dungeons-ii",
    "name": "Minecraft Dungeons II",
    "version": "1.1.3",
