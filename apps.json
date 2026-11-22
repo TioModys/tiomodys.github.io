@@ -1,6 +1,41 @@
 {
  "apps": [
   {
+   "id": "left-4-dead",
+   "name": "Left 4 Dead",
+   "version": "1.0.4",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://cdn2.steamgriddb.com/icon/b1240b6b84295352c62c556aa739a840.ico",
+   "size": "6.7 GB",
+   "rating": 4.5,
+   "desc": "Left 4 Dead es un juego de acción y supervivencia en primera persona donde tendrás que enfrentarte a enormes hordas de zombis mientras intentas escapar de una ciudad afectada por una peligrosa infección. Acompañado de otros tres supervivientes, recorrerás hospitales, calles abandonadas, túneles y zonas rurales utilizando distintas armas para abrirte paso entre los infectados. El juego también cuenta con un port no oficial para Android, basado en la versión de Xbox 360.\n\nLa historia sigue a Bill, Zoey, Francis y Louis, cuatro personas que buscan ponerse a salvo mientras la infección se extiende por diferentes lugares. Su objetivo es atravesar zonas infestadas, encontrar refugios y llegar a los puntos de evacuación.",
+   "modinfo": "Instalación de Left 4 Dead para Android\n\n1. Descarga el APK correspondiente a tu dispositivo (Adreno o Mali) y los datos del juego.\n\n2. Descomprime los datos utilizando ZArchiver.\n\n3. Instala el APK y ábrelo. Pulsa «Importar juego», selecciona «Imagen de disco (.ISO)» y busca el archivo «Left 4 Dead GOTY.iso» en la carpeta descomprimida. Selecciónalo y espera a que termine la importación para comenzar a jugar.\n\nRequisitos:\n\nAndroid 10 o superior.\nProcesador de 64 bits (ARM64).\nCompatibilidad con Vulkan 1.1.\n\nCréditos: gabs (shitty) ports, desarrollador del port para Android.",
+   "downloads": [
+    {
+     "label": "Descargar APK SnapDragon",
+     "url": "https://des.apkgstore.co/L4D1Recomp-1.0.4-snapdragon.apk"
+    },
+    {
+     "label": "Descargar APK Mali",
+     "url": "https://des.apkgstore.co/L4D1Recomp-1.0.4-mali.apk"
+    },
+    {
+     "label": "Descargar DATOS",
+     "url": "https://des.apkgstore.co/Left%204%20Dead%20GOTY.zip"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/left-4-dead-1795356907315-0.jpg",
+    "img/left-4-dead-1795356909502-1.jpg"
+   ],
+   "updated": "2026-11-22",
+   "ts": 1795356911743,
+   "badge": "Nuevo"
+  },
+  {
    "id": "rave-pro",
    "name": "Rave Pro",
    "version": "9.0.66",
