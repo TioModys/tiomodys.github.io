@@ -694,18 +694,34 @@
   {
    "id": "gta-5-mobile",
    "name": "GTA 5 Mobile",
-   "version": "3.0.9",
+   "version": "1.61.1",
    "type": "juego",
    "cat": "Acción",
    "icon": "https://wallpaperaccess.com/full/8365742.jpg",
    "size": "309 MB",
    "rating": 4.4,
    "desc": "Grand Theft Auto V APK es una versión para Android inspirada en el conocido juego de acción y mundo abierto de Rockstar Games. Su propuesta intenta trasladar a dispositivos móviles elementos reconocibles como la exploración libre, la conducción y las actividades dentro de una ciudad abierta.\n\nEl contenido disponible puede cambiar según la versión instalada. Algunas ediciones se centran principalmente en recorrer el mapa y utilizar vehículos, mientras que otras incorporan personajes, misiones o mecánicas adicionales.\n\nExplora libremente la ciudad de Los Santos\nUno de los mayores atractivos del juego es la posibilidad de moverse por una ciudad amplia sin permanecer limitado a un circuito o una ruta específica. Puedes recorrer avenidas, calles secundarias, zonas residenciales y otros espacios mientras decides qué hacer en cada momento.\n\nLa exploración permite conocer mejor el mapa, encontrar caminos alternativos y descubrir lugares alejados de las áreas principales. Esto hace que incluso una partida corta pueda centrarse únicamente en conducir y recorrer la ciudad sin seguir una misión concreta.\n\nConduce diferentes vehículos por la ciudad\nLos vehículos tienen un papel fundamental en la experiencia. Puedes utilizar automóviles, motocicletas y otros medios de transporte para desplazarte rápidamente o participar en persecuciones.\n\nCada vehículo puede ofrecer una respuesta diferente al acelerar, girar o frenar. Los modelos rápidos permiten recorrer grandes distancias en poco tiempo, aunque también requieren más cuidado para evitar perder el control en curvas o zonas con tráfico.",
-   "modinfo": "El APK pesa aproximadamente 300 MB. Sin embargo, al abrir el juego por primera vez, se iniciará la descarga de datos adicionales de aproximadamente 14 GB. Se recomienda disponer de suficiente espacio de almacenamiento y una conexión Wi-Fi estable.",
+   "modinfo": "Opción 1: Versión rusa — APK + Datos\n \n\n1. Descarga el APK de GTA 5 y sus datos adicionales.\n\n2. Descomprime el archivo de datos utilizando ZArchiver. Al finalizar, encontrarás una carpeta llamada GTA 5 datos.\n\n3. Instala el APK y abre el launcher.\n\n4. Pulsa Seleccionar y concede los permisos necesarios para que el launcher pueda acceder a los archivos del dispositivo.\n\n5. Pulsa nuevamente Seleccionar y elige Memoria del dispositivo.\n\n6. Busca la ubicación donde descargaste y descomprimiste los datos. Entra en la carpeta GTA 5 datos, abre files y selecciona la carpeta game.\n\n7. Pulsa Usar esta carpeta y confirma el acceso si Android lo solicita.\n\n8. Cuando aparezca el mensaje «Juego listo», simplemente pulsa en la pantalla para iniciar el juego.\n\n \n\nIMPORTANTE: Debes seleccionar la carpeta game, ubicada dentro de GTA 5 datos/files/, no la carpeta principal ni sus archivos individuales.\n\n \n\nCréditos: thegwchr. y colaboradores de la versión rusa.\n\n \nOpción 2: Versión china (XHYN-V) — APK + Datos + Save Prólogo\n \n\n1. Descarga GTA 5 APK y los datos correspondientes.\n\n2. Descomprime los datos utilizando ZArchiver. Abre la carpeta descomprimida y busca la carpeta Games.\n\n3. Mueve la carpeta Games a la raíz del almacenamiento interno de tu teléfono, junto a las carpetas Download, Android, DCIM y Pictures, no dentro de ellas.\n\nLa ruta debe quedar así:\n\nAlmacenamiento interno/Games/GTAV/\n\n4. Una vez colocados los datos, instala el APK, abre GTA 5 y concede los permisos necesarios.\n\n5. El launcher reconocerá automáticamente los datos. Pulsa Start Game y espera a que cargue.\n\n \nSi no puedes pasar el prólogo\n \n\nSi el juego no te permite avanzar después del prólogo, descarga GTA 5 Save Prólogo.\n\n1. Descomprime el archivo y copia los dos archivos de guardado que encontrarás dentro.\n\n2. Ve a la carpeta:\n\nAlmacenamiento interno/Games/GTAV/save/\n\n3. Pega los dos archivos directamente en la carpeta save.\n\n4. Abre nuevamente GTA 5 y continúa desde la partida guardada.\n\n \n\nIMPORTANTE: Cada versión utiliza sus propios datos. No mezcles los archivos de la versión rusa con los de la versión china. En la versión china, la carpeta Games debe estar directamente en la memoria interna, nunca dentro de Download, Android/data ni Android/obb.\n\n \n\nCréditos: XHYN-PH y desarrolladores originales del port chino.\n\n \n\nRecomendaciones\n \n\nSi el juego indica que faltan archivos, que los datos están dañados o no los reconoce, comprueba que las carpetas estén ubicadas correctamente.\n\nSi la descarga de los datos se interrumpió, quedó incompleta o terminó con algún error, vuelve a descargar el archivo completo. Se recomienda utilizar una conexión estable y evitar interrupciones durante la descarga, ya que un archivo incompleto puede provocar errores al descomprimirlo o impedir que el juego funcione correctamente.",
    "downloads": [
     {
-     "label": "Descargar APK",
-     "url": "https://www.mediafire.com/file/mc9y6mr6qt81iss/GTA_V_v3.0.9.apk/file"
+     "label": "Descargar APK-1",
+     "url": "https://des.apkgstore.co/game_android_final.apk"
+    },
+    {
+     "label": "Descargar DATOS-1",
+     "url": "https://des.apkgstore.co/GTA%205%20Datos.7z"
+    },
+    {
+     "label": "Descargar APK-2",
+     "url": "https://www.mediafire.com/file/j8okot70uty49ef/XHYN-V-0.3.apk/file"
+    },
+    {
+     "label": "Descargar DATOS-2",
+     "url": "https://des.apkgstore.co/GTA_V_Android.zip"
+    },
+    {
+     "label": "Descargar SAVE PROLOGO",
+     "url": "https://des.apkgstore.co/GTA-5-Save-Prologo.rar"
     }
    ],
    "play": "",
@@ -715,8 +731,9 @@
     "img/gta-5-mobile-1794226899540-1.jpg",
     "img/gta-5-mobile-1794226901462-2.jpg"
    ],
-   "updated": "2026-11-09",
-   "ts": 1794227299680,
+   "cover": "https://apkgstore.co/wp-content/uploads/2026/09/GTA-3.jpg",
+   "updated": "2026-11-22",
+   "ts": 1795329805348,
    "badge": "Actualizado"
   },
   {
