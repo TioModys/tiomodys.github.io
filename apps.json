@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "smart-launcher-pro",
+   "name": "Smart Launcher Pro",
+   "version": "6.6",
+   "type": "app",
+   "cat": "Personalización",
+   "icon": "https://img.utdstc.com/icon/ea6/71b/ea671b3299503d236e2e36bea13b3163535e40c2a923ef20e9590a42a01d4f75:600",
+   "size": "21.76 MB",
+   "rating": 4.5,
+   "desc": "Pantalla de inicio Android más rápida, con orden automático, widgets y búsqueda\n\nHaz que tu pantalla de inicio de Android sea más rápida, limpia y realmente tuya.\n\nSmart Launcher organiza automáticamente tus apps, adapta los colores al fondo de pantalla y mantiene a mano lo que usas más.\n\n🏅 Con la confianza de más de 50 millones de usuarios en todo el mundo.\n-----\nPOR QUÉ TE ENCANTARÁ SMART LAUNCHER\n\n• Tus apps, organizadas automáticamente\n\nSmart Launcher agrupa tus apps por categorías, para que el teléfono siga ordenado y todo sea más fácil de encontrar.\n\n• Una pantalla de inicio que encaja con tu estilo\n\nLos colores se adaptan automáticamente al fondo de pantalla. También puedes personalizar cada parte del tema, elegir entre miles de Google Fonts y usar tus paquetes de iconos favoritos.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://send.now/x79z84qum0gk"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=ginlemon.flowerfree",
+   "mod": true,
+   "shots": [],
+   "pkg": "ginlemon.flowerfree",
+   "vc": 660111,
+   "updated": "2026-11-22",
+   "ts": 1795370452584,
+   "badge": "Nuevo"
+  },
+  {
    "id": "left-4-dead",
    "name": "Left 4 Dead",
    "version": "1.0.4",
