@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "deezer-pro",
+   "name": "Deezer Pro",
+   "version": "9.0.27.3",
+   "type": "app",
+   "cat": "Música y audio",
+   "icon": "https://img.utdstc.com/icon/574/8f7/5748f7a5ecf472d1f91f5ba6a7309fecfffff78e3b090573385b7b662e8be7b7:600",
+   "size": "61.28 MB",
+   "rating": 4.2,
+   "desc": "Qué es Deezer Premium APK MOD para Android?\nDeezer Premium APK MOD es como una versión modificada de la app original. Está hecha para quitar límites y usar cosas premium sin tener que pagar. Con esta versión, puedes bajar canciones, escuchar sin anuncios molestos y pasar pistas todas las veces que quieras.\n\nCon la versión MOD, puedes escuchar música en calidad alta, como el sonido Hi-Fi que solo tienen las cuentas premium. Esto hace que la app sea perfecta para quienes quieren disfrutar de Deezer sin tener que preocuparse por pagar suscripciones.\n\nSi le gusta tener todo el control de su música, Deezer MOD APK es genial para Android. Esta opción desbloquea las funciones premium, lo que hace que todo sea mejor. Así, la experiencia se vuelve más completa y divertida para los usuarios. Es una buena manera de disfrutar más de la música.",
+   "modinfo": "Funciones del MOD:\n- Premium desbloqueado\n- Interruptores de calidad de audio\n- Laboratorios Deezer desbloqueados\n- Opción de desarrollador desbloqueada\n- Descargar álbumes/listas de reproducción/podcast\n- Capaz de omitir FWD/BWD\n- Capaz de buscar FWD/BWD\n- Selecciona cualquier canción\n- Reproducir cualquier álbum\n- Capaz de reproducir cualquier lista de reproducción\n- Capaz de reproducir cualquier podcast\n- Restricciones aleatorias eliminadas\n- Se eliminaron las depuraciones y el análisis de fallas\n- Anuncios visuales y de audio para discapacitados\nDesbloqueadas las funciones de la versión Premium (escucha música de alta calidad, descarga música, anuncios eliminados, etc.).\n\nNOTA: Para usar la versión MOD, debes iniciar sesión con Gmail o crear una nueva cuenta (nombre de usuario, cuenta y dirección de correo electrónico obligatorios).",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://send.now/yr04ma7x1n6e"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=deezer.android.app",
+   "mod": true,
+   "shots": [],
+   "cover": "https://cdn-images.dzcdn.net/images/misc/3bf380bb9ae9bce8fb6bf101264228ef/0x1800-000000-100-0-0.png",
+   "pkg": "deezer.android.app",
+   "vc": 9002303,
+   "updated": "2026-11-22",
+   "ts": 1795389756596,
+   "badge": "Nuevo"
+  },
+  {
    "id": "smart-launcher-pro",
    "name": "Smart Launcher Pro",
    "version": "6.6",
