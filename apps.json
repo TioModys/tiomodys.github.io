@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "lark-player-pro",
+   "name": "Lark Player Pro",
+   "version": "2026.16.5",
+   "type": "app",
+   "cat": "Música y audio",
+   "icon": "https://play-lh.googleusercontent.com/fqJjTgcT93KrBF3NmRt7tnH7-rtuGphOIyGw7vG2BSmvButGAIyekjetX4nfO3yk2c8",
+   "size": "26.01 MB",
+   "rating": 4.7,
+   "desc": "Reproductor de música sin internet, con amplificador de volumen y bajos\n\nLark Player es 100% el mejor reproductor de música grátis e reproductor de video para Android, soporta la mayoría de los formatos más usados de video y música MP3 sin conexión. Esta app de música gratis posee un poderoso ecualizador, letras y la mejor interfaz de usuario. También soporta manejo de archivos en el dispositivo, como borrar archivos, crear listas de reproducción musical. Actualmente, mas de 100 millones de usuarios alrededor del mundo usan Lark Player para escuchar música gratis.\n\nPersonaliza tu experiencia musical\nCon nuestros modos preestablecidos y poderosos ecualizadores en este reproductor de música, puedes fácilmente personalizar la manera en la que escuchas tus canciones favoritas.\nHay modos dedicados para tus géneros favoritos: pop, reggaetón, rock, rap/trap y más en este app de música grátis.\n\nSoporta todos los formatos populares\nNo solo un reproductor de mp3 sin conexión, sino formatos de audio soportados: MP3, MIDI, WAV, FLAC, AC3, AAC, WMA, ACC, etc.\nNo solo un reproductor de mp4 sin conexión, sino formatos de audio soportados: MP4, 3GP, WEBM, MOV, MKV, etc.\n\nAdministra fácilmente tus archivos\nExplore tu música guardada por canción, artista, álbum, género y más en este app de música grátis. También puedes crear y administrar listas de reproducción.\nAdemás, admite la eliminación por lotes de archivos que no necesitas para ahorrar espacio en tu teléfono.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://send.now/cj922lqucu8f"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.dywx.larkplayer",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.dywx.larkplayer",
+   "vc": 2026160509,
+   "updated": "2026-11-22",
+   "ts": 1795407785116,
+   "badge": "Nuevo"
+  },
+  {
    "id": "zedge-pro",
    "name": "Zedge Pro",
    "version": "9.6.1",
