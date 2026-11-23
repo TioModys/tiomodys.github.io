@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "rar-pro",
+   "name": "RAR Pro",
+   "version": "7.23",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://play-lh.googleusercontent.com/wWn5oCBNr1mP0CFWGK9esgaY62mNbHsm6T4gDCxFTz2ymSXVNpGEbigW_0oiE-TEMHAwu7BLofIQvPlBAlAdow",
+   "size": "6.19 MB",
+   "rating": 4.5,
+   "desc": "Create RAR and ZIP, unpack RAR, ZIP, TAR, GZ, BZ2, XZ, 7z, ISO, ARJ archives.\n\nRAR de RARLAB es un programa de compresión todo en uno original, libre, simple, fácil y rápido, un ayudante, un extractor, un gestor e incluso un explorador de archivos básico.\n\nRAR puede crear archivos RAR y ZIP y descomprimir archivos RAR, ZIP, TAR, GZ, BZ2, XZ, 7z, ISO y ARJ. La lista de funciones incluye reparación de archivos ZIP y RAR dañados, pruebas de velocidad compatibles com WinRAR de RARLAB, registro de recuperación, los volumenes habituales y de recuperación, cifrado, archivos sólidos, utilización de múltiples nucleos de CPU para comprimir datos.\n\nAdicionalmente a los archivos ZIP estándard, la función de descompresión soporta ZIP y ZIPX con compresión BZIP2, LZMA, PPMD y XZ. La función de descomprimir está disponible para todas las versiones de archivos RAR incluyendo la última RAR5. También puede descomprimir archivos ISO en formato UDF e ISO9660.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://send.now/cyz0xrv6ejd7"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.rarlab.rar",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.rarlab.rar",
+   "vc": 134,
+   "updated": "2026-11-22",
+   "ts": 1795408423715,
+   "badge": "Nuevo"
+  },
+  {
    "id": "lark-player-pro",
    "name": "Lark Player Pro",
    "version": "2026.16.5",
