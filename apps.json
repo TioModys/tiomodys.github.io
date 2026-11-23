@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "7fon-pro",
+   "name": "7fon Pro",
+   "version": "6.3.73",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://cdn.aptoide.com/imgs/8/7/e/87e5f4c6e144bcbd4f72cf2e2f376eb5_icon.png",
+   "size": "17.98 MB",
+   "rating": 4.4,
+   "desc": "Explora 300,000+ fondos HD y 4K por color. Configura el cambio automático.\n\n7Fon reúne más de 300,000 fondos de pantalla HD y 4K para teléfonos y tabletas Android. El catálogo se amplía cada hora y las imágenes se revisan antes de aparecer en la app.\n\nExplora más de 70 categorías de fondos\nDescubre naturaleza, animales, autos, espacio, vistas urbanas, arte abstracto y diseños minimalistas en más de 70 categorías. Alterna entre las últimas incorporaciones, las imágenes mejor calificadas y las opciones populares para explorar la colección.\n\n¿Buscas un tono específico? Usa la búsqueda por color para combinar el fondo con los íconos de tus apps. Las palabras clave y las etiquetas te ayudan a encontrar un tema o seguir explorando imágenes relacionadas.\n\nGuarda fondos para más adelante\nAgrega a favoritos los fondos que quieras volver a ver. Descarga una selección en la galería o en una tarjeta SD si tu dispositivo es compatible. Abre una imagen en pantalla completa y ajusta el recorte antes de ponerla en la pantalla de inicio, la de bloqueo o ambas. Cada pantalla puede tener su propio fondo.\n\nUn fondo diferente según tu horario\nConfigura el cambio automático de fondo con la fuente y el intervalo que prefieras. Elige favoritos como fuente para alternar tu colección sin seleccionar una imagen cada vez.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://send.now/qyq19jqlqodu"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=ru.wall7Fon",
+   "mod": true,
+   "shots": [],
+   "pkg": "ru.wall7Fon",
+   "vc": 455,
+   "updated": "2026-11-23",
+   "ts": 1795464938282,
+   "badge": "Nuevo"
+  },
+  {
    "id": "rar-pro",
    "name": "RAR Pro",
    "version": "7.23",
