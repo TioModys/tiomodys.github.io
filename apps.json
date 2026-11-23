@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "zedge-pro",
+   "name": "Zedge Pro",
+   "version": "9.6.1",
+   "type": "app",
+   "cat": "Personalización",
+   "icon": "https://play-lh.googleusercontent.com/yZE3z9bljF_mO62maMkoVJbV5c3YPreSMmSnIXfk4fJXoOPYbqOz0sTv7HBYsKm88yl3HdworolmrsvbqQel",
+   "size": "73.80 MB",
+   "rating": 4.8,
+   "desc": "Encuentra millones de fondos de pantalla, tonos de llamada y notificación\n\nDescarga Zedge™ y personaliza tu teléfono con millones de fondos de pantalla y fondos en vivo en HD, además de geniales tonos de llamada, sonidos de alarma y de notificación, ¡todo GRATIS! Explora y descarga millones de obras de arte, desde colecciones de artistas populares hasta arte de fusión, arte 3D y paquetes de iconos. Con probablemente la colección de fondos de pantalla y tonos de llamada más grande de cualquier aplicación, Zedge™ es el destino número uno para encontrar tonos de llamada, fondos de pantalla y obras de arte digitales premium. Busca, encuentra o crea cualquier cosa con Zedge™.\n\nFondos de pantalla Parallax \nY ahora, estamos encantados de presentar Parallax Wallpapers, un truco visual en el que las imágenes de fondo se mueven de forma diferente a las de primer plano, creando una sensación de profundidad e inmersión. Solo tienes que elegir tu fondo de pantalla favorito de la enorme colección de Zedge, tocar para activar el efecto de Parallax y ver cómo tu pantalla cobra vida. \n\n¿POR QUÉ Zedge™?\n• Descarga millones de contenidos destacados gratuitos y premium\n• Accede a contenidos de creadores de primer nivel, desde los mejores músicos de todo el mundo hasta artistas locales.\n\nGenerador de IA de Zedge™ – CREADOR DE FONDOS DE PANTALLA CON IA\nDescribe el fondo de pantalla de tus sueños en cualquier estilo, tema o estética, y nuestro generador de arte Zedge™ AI lo diseñará para ti.\n• Convierte palabras y frases en tu fondo de pantalla perfecto. \n• Convierte tu obra de arte única en fondo de pantalla o pantalla de bloqueo, y guárdala para usarla más adelante\n• Explora la galería de la comunidad e inspírate con otras obras maestras de la IA",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://send.now/04luwy1nrkff"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=net.zedge.android",
+   "mod": true,
+   "shots": [],
+   "pkg": "net.zedge.android",
+   "vc": 90400100,
+   "updated": "2026-11-22",
+   "ts": 1795406943344,
+   "badge": "Nuevo"
+  },
+  {
    "id": "deezer-pro",
    "name": "Deezer Pro",
    "version": "9.0.27.3",
