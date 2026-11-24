@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "fx-player-pro",
+   "name": "FX player Pro",
+   "version": "3.9.1",
+   "type": "app",
+   "cat": "Entretenimiento",
+   "icon": "https://play-lh.googleusercontent.com/YQ3CQRFz8f3upcAFO7m3PhbUkTIZP4OnktVh44e_HhfMaGXeYOx9ltcnk0T2YJoz5Sn2BUyM85JEsx0emXs3sw=w240-h480-rw",
+   "size": "20.41 MB",
+   "rating": 4.4,
+   "desc": "¡Disfruta de una transmisión HD sin interrupciones con el mejor reproductor!\n\nFX Player ofrece características avanzadas y una experiencia completamente libre de interrupciones. Transmite, descarga y edita videos de redes sociales fácilmente. Reproduce todos los formatos, códecs y subtítulos, tanto en línea como fuera de línea. Disfruta herramientas avanzadas como extracción de MP3, recorte de videos y creación de GIF. ¡Descarga FX Player ahora y desbloquea reproducción ilimitada!\n\n■ Reproductor de video todo en uno\n• Reproductor de video: Cambia fácilmente entre pantalla completa, mini y vista previa.\n• Reproductor de subtítulos: Compatible con todos los formatos de subtítulos (SRT, SMI, SUB, VTT, etc.).\n• Reproductor Chromecast: Transmite videos a tu TV con subtítulos.\n• Reproductor flotante (PIP): Multitarea con reproducción en ventana flotante.\n• Reproductor en red: Transmite videos desde FTP, SMB, WebDAV o URL con subtítulos.\n\n■ Descargador de videos web\n• Descarga videos de las principales plataformas de redes sociales.\n• Administra descargas con un gestor integrado.\n• Guarda sitios web como favoritos para un acceso más rápido.\n\n■ Herramientas de edición de video\n• Extracción de MP3: Convierte videos en archivos de audio fácilmente.\n• Recorte y corte: Ajusta tus clips con precisión.\n• Crea GIFs: Genera GIFs animados al instante desde tus videos.\n\n■ Compatible con todos los formatos y códecs\n• Resoluciones: SD, HD, Full HD, UHD, 4K, 10-bit y más.\n• Formatos: MP4, MKV, AVI, FLV, MOV, TS, WebM, WMV, etc.\n• Códecs de video: H264, H265, VP8, VP9, DivX, Xvid, HEVC, entre otros.\n• Códecs de audio: AAC, MP3, WMA, FLAC, OPUS, DTS, entre otros.",
+   "modinfo": "Premium desbloqueado\n\nNOTA: Todas las funciones de la versión Premium se han desbloqueado. Puedes descargarlo y utilizarlo de forma gratuita.",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://send.now/puygwcia11ir"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=tv.fipe.fplayer",
+   "mod": true,
+   "shots": [],
+   "cover": "https://fipeplayer.web.app/images/img_promotion.png",
+   "pkg": "tv.fipe.fplayer",
+   "vc": 273,
+   "updated": "2026-11-23",
+   "ts": 1795487354956,
+   "badge": "Nuevo"
+  },
+  {
    "id": "7fon-pro",
    "name": "7fon Pro",
    "version": "6.3.73",
