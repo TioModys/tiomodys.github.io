@@ -1,6 +1,35 @@
 {
  "apps": [
   {
+   "id": "assassin-s-creed-4-black-flag",
+   "name": "Assassin’s Creed 4 Black Flag",
+   "version": "3.0",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://i0.wp.com/adescargar.net/wp-content/uploads/2026/11/ac4-black-flag-logo.jpg?fit=300%2C300&ssl=1",
+   "size": "11 GB",
+   "rating": 4.3,
+   "desc": "Assassin’s Creed IV: Black Flag es un juego de acción y aventura de mundo abierto ambientado en el Caribe durante el siglo XVIII, cuando los piratas recorrían las rutas comerciales en busca de riquezas. La historia sigue a Edward Kenway, un joven corsario galés que termina involucrado en el enfrentamiento entre los Asesinos y los Templarios. El jugador puede explorar ciudades coloniales, navegar por el océano, atacar barcos enemigos y participar en misiones que combinan combate, infiltración y exploración. Esta aventura también cuenta con una adaptación no oficial para Android basada en la edición de Nintendo Switch.\n\nUna de las características más destacadas es la libertad para recorrer el Caribe a bordo del Jackdaw, el barco de Edward. Puedes descubrir islas, buscar tesoros, conquistar fortalezas y mejorar tu embarcación con los materiales obtenidos durante las batallas. En tierra firme, el protagonista puede escalar edificios, desplazarse por los tejados y utilizar armas como espadas, pistolas y hojas ocultas para enfrentarse a sus enemigos.\n\nLa historia de Edward Kenway\nLa aventura comienza en 1715, cuando Edward busca conseguir fortuna como pirata. Sus ambiciones lo llevan a descubrir una conspiración relacionada con los Templarios y un misterioso lugar conocido como el Observatorio.\n\nDurante su viaje conoce a personajes históricos como Barbanegra, Charles Vane, Anne Bonny y Calicó Jack. También visita Nassau, uno de los principales refugios de los piratas, donde presencia los conflictos que amenazan la libertad que sus habitantes intentan mantener.\n\nA medida que avanza la historia, Edward comienza a comprender las consecuencias de sus decisiones y el verdadero significado del conflicto entre los Asesinos y los Templarios.",
+   "modinfo": "1. Descarga el APK y los datos del juego.\n\n2. Instala el APK y abre el juego.\n\n3. Selecciona el idioma de tu preferencia y pulsa «Play».\n\n4. Pulsa «Choose the game data...» y busca los datos que descargaste.\n\n5. Selecciona el archivo de datos para que el juego pueda cargarlo y continuar con el inicio.\n\nNota: No descomprimas los datos. Selecciona directamente el archivo descargado desde el launcher.\n\nRequisitos\nAndroid 10 o superior.\nProcesador ARM de 64 bits.\nCompatibilidad con Vulkan 1.1 o superior.\n\nCréditos: Port para Android desarrollado por ports1de, basado en Assassin's Creed IV: Black Flag de Nintendo Switch",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://download2280.mediafire.com/f2lihnq8o9lgT87fhWApiWCcg1vZYPRv7EZJZK8xRsfEwR80ws9hWtZopzQr4Y6MIUiEFVKs9zqNS5nrTNR_zaZRBGvwVEiNQ1Z2rSKOX40aA3_7YXRkCLNWSw9aEOgY7Aw6in3lsR-qv8BcvMameXzlrfJzuM7Eeam7KJTFdJeliOU/1j5rsl5lkmatkjy/ac4-black-flag-3.0.apk"
+    },
+    {
+     "label": "Descargar DATOS",
+     "url": "https://des.apkgstore.co/AC4-cache.romfs"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [],
+   "cover": "https://adescargar.net/wp-content/uploads/2026/11/ac4-black-flag-1.webp",
+   "updated": "2026-11-25",
+   "ts": 1795639247175,
+   "badge": "Nuevo"
+  },
+  {
    "id": "descargador-de-v-deos-pro",
    "name": "Descargador de vídeos Pro",
    "version": "2.7.9",
