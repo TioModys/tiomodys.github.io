@@ -624,23 +624,23 @@
    "type": "app",
    "cat": "Herramientas",
    "icon": "https://m.media-amazon.com/images/I/51gvJaXQh4L.png",
-   "size": "44.40 MB",
+   "size": "59.20 MB",
    "rating": 4.8,
    "desc": "Usa una VPN rápida, privada y gratuita sin registros ni límite de datos\n\nProton VPN es la única aplicación de VPN gratuita de todo el mundo que es segura de usar y respeta su privacidad.\n\n⭐ Wired: “[Proton VPN] es la mejor VPN que se puede comprar”.\n⭐ Mashable: “[Proton VPN] es la mejor VPN para la gran mayoría de las personas. Brinda un valor excepcional”.\n\n✔ Millones de personas en todo el mundo confían en Proton VPN.\n✔ Sin necesidad de registrarse para usar nuestra VPN rápida.\n✔ Política estricta de cero registros: privacidad con protección VPN segura.\n✔ VPN gratuita de verdad: sin restricciones de ancho de banda ni límites de velocidad.\n\n🛡️ Funciones de la VPN gratuita\n\n• Conexión VPN rápida con un solo toque: sin necesidad de iniciar sesión ni registrarse.\n• Navegación con datos ilimitados.\n• Política de cero registros: jamás rastreamos ni guardamos su actividad.\n• Acceso a servidores VPN seguros en 10 países.\n• Protección en cualquier red: Wi-Fi, 5G, 4G y otras.\n• Encriptación segura y protección ante filtraciones de DNS, hackers y fisgones.\n• Interruptor de bloqueo automático para protegerle si se corta la conexión VPN.\n\n🌟 Funciones prémium\n\n• Más de 20 000 servidores VPN privados en más de 140 países.\n• Servidores VPN rápidos con hasta 10 Gbps para descargar y subir a alta velocidad.\n• Conexión de hasta 10 dispositivos a la vez.\n• NetShield bloquea anuncios y malware, y elude los rastreadores de los sitios web.\n• Conexiones seguras diseñadas para el intercambio de archivos y tráfico P2P.\n• Protección ante los ataques de red con una VPN con salto múltiple entre servidores (Secure Core).\n• Posibilidad de elegir cuáles aplicaciones usan la VPN gracias al túnel dividido.",
    "modinfo": "Proton VPN Morphe se refiere a una versión modificada o parcheada de la aplicación oficial de Proton VPN para Android, creada con el marco ReVanced, cuyo objetivo es desbloquear funciones premium (como el bloqueo de anuncios con NetShield, múltiples ubicaciones de servidores) de forma gratuita en dispositivos Android.\n\n✅ Eliminar el retraso del cambio de servidor\n\n✅ Desbloquear el túnel dividido",
    "downloads": [
     {
      "label": "Descargar APK",
-     "url": "https://www.mediafire.com/file/uogjhji1ns6npqt/Proton_VPN_Premium_v5.21.57.0_.apk/file"
+     "url": "https://send.now/gjchenxz7lkf"
     }
    ],
    "play": "https://play.google.com/store/apps/details?id=ch.protonvpn.android",
    "mod": true,
    "shots": [],
-   "pkg": "ch.protonvpn.android",
-   "vc": 1,
-   "updated": "2026-11-19",
-   "ts": 1795147242829,
+   "pkg": "ch.protonvpn.android.reproducible",
+   "vc": 2,
+   "updated": "2026-11-25",
+   "ts": 1795641618412,
    "badge": "Actualizado"
   },
   {
