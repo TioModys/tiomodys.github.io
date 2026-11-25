@@ -592,27 +592,27 @@
   {
    "id": "walli-4k-pro",
    "name": "Walli 4K Pro",
-   "version": "2.15.6",
+   "version": "2.16.7",
    "type": "app",
    "cat": "Personalización",
    "icon": "https://play-lh.googleusercontent.com/99eMo6DjXxASPREDjjbsHFYl9N9Fks6mpgIvKS170g1h_Cots3dtUU7UU1T2gFolR6ZsOQMUtPDbrNJ1xWo7VOo",
-   "size": "32.58 MB",
+   "size": "39.85 MB",
    "rating": 4.5,
    "desc": "Explora fondos artísticos 4K creados por artistas reales.\n\n🎉🎉 Los fondos de pantalla de Walli se presentan en los dispositivos Google Pixel y en la aplicación Google Wallpaper. Estamos muy orgullosos de haber sido seleccionados por Google. 🎉🎉\n\nEn promedio, hoy en día, revisamos nuestro teléfono más de cien veces al día. El fondo de pantalla de nuestro teléfono es lo primero que vemos, realmente puede influir en nuestro estado de ánimo y también es una excelente manera de expresar nuestra personalidad única.\n\nEs por eso que lanzamos Walli, una aplicación de fondos de pantalla creativa, para asegurarnos de que siempre tengas un fondo de pantalla genial a mano. Creemos que es importante que pueda encontrar fácilmente fondos de pantalla hermosos e inspiradores que lo harán feliz y se sentirá genial cada vez que tome su teléfono.\n\nEsta no es una aplicación más de fondos de pantalla y fondos, que ofrece las mismas fotos habituales de flores, automóviles y paisajes \n\nFondos de pantalla creativos | Walli es una colección selectiva de alta calidad de fondos de pantalla únicos y geniales hechos exclusivamente por artistas, para su dispositivo. Su teléfono y tableta nunca han sido tan atractivos :)\n\nUna comunidad de los mejores artistas | Walli es también una comunidad selectiva de artistas de todo el mundo, cada uno con su estilo único, seleccionados cuidadosamente uno por uno por el equipo de Walli. Buscamos a los mejores artistas gráficos del mundo para que tú no tengas que hacerlo. ¡Descubre nuevos talentos, explora sus obras de arte y encuentra tu próximo fondo de pantalla favorito para móvil o tableta!",
    "downloads": [
     {
      "label": "Descargar APK",
-     "url": "https://www.mediafire.com/file/hmkd4cqd3xmi32h/Walli+4K_2.15.6.apk/file"
+     "url": "https://send.now/g9tu3hazia88"
     }
    ],
    "play": "https://play.google.com/store/apps/details?id=com.shanga.walli",
    "mod": true,
    "shots": [],
    "pkg": "com.shanga.walli",
-   "vc": 215006,
-   "updated": "2026-11-15",
-   "ts": 1794779010207,
-   "badge": "Nuevo"
+   "vc": 216007,
+   "updated": "2026-11-25",
+   "ts": 1795635140088,
+   "badge": "Actualizado"
   },
   {
    "id": "mivo-al-art-face-swap-video-pro",
