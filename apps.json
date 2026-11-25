@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "descargador-de-v-deos-pro",
+   "name": "Descargador de vídeos Pro",
+   "version": "2.7.9",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "https://play-lh.googleusercontent.com/oju7a2AuqaQSc_l5O-2yRw8F_M0rUlHnBHjp_MqHNSAT3CXq7xbSqRVL7VSPNhMRjzaM2ft-LBoA05-q9hqmhg",
+   "size": "26.73 MB",
+   "rating": 4.8,
+   "desc": "Una aplicación sencilla para descargar videos y música desde Internet.\n\nDescarga videos y música fácilmente desde Internet a tu dispositivo. Todos los formatos son compatibles. ¡100% gratis!\n\nEl descargador de videos detecta automáticamente videos, puedes descargarlos con un solo clic. El potente administrador de descarga te permite pausar y reanudar descargas, descargar en segundo plano y descargar varios archivos al mismo tiempo. Revisa primero la vista previa, descarga rápidamente y reproduce el video fuera de línea.\n\nCaracterísticas\n* Navega por los videos con el navegador integrado\n* Reproduce videos fuera de línea con el reproductor integrado\n* Todos los formatos de descarga son compatibles, mp3, m4a, mp4, m4v, mov, avi, wmv, doc, xls, pdf, txt, etc.\n* Detecta videos automáticamente y los descarga fácilmente\n* Administrador de descarga completo para pausar, reanudar y eliminar descargas\n* Descarga varios archivos al mismo tiempo\n* Guarda archivos descargados en una carpeta protegida con contraseña\n* Descarga videos en segundo plano\n* Compatibilidad con tarjeta SD\n* Reanuda las descargas que fallaron\n* Alta velocidad de descarga\n* Revisa el progreso en la barra de descarga\n* Compatible con descargas de videos en HD\n* Compatible con descargas de archivos grandes\n* Descarga videos, música e imágenes\n* Agrega marcadores para tus páginas web favoritas",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://send.now/3v7j4lb8de5h"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=video.downloader.videodownloader",
+   "mod": true,
+   "shots": [],
+   "pkg": "video.downloader.videodownloader",
+   "vc": 179,
+   "updated": "2026-11-25",
+   "ts": 1795636216434,
+   "badge": "Nuevo"
+  },
+  {
    "id": "xrecorder-pro",
    "name": "XRecorder Pro",
    "version": "2.5.7",
