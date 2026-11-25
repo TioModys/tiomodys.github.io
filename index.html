@@ -1086,8 +1086,12 @@ function adForm(i){
   const snMsg=(txt,err)=>{snM.textContent=txt;snM.style.color=err?'#e5484d':'var(--muted)'};
   const snLink=raw=>{
     let j=null;try{j=JSON.parse(raw)}catch(e){}
-    const c=j?[j.link,j.url,j.download_url,j.file_url,j.file,j.result].find(x=>typeof x==='string'&&/^https?:\/\//.test(x)):null;
-    if(c)return c;
+    const o=Array.isArray(j)?j[0]:j;
+    if(o&&typeof o==='object'){
+      const c=[o.link,o.url,o.download_url,o.file_url].find(x=>typeof x==='string'&&/^https?:\/\//.test(x));
+      if(c)return c;
+      if(o.file_code)return 'https://send.now/'+o.file_code;
+    }
     const m=raw.match(/https?:\/\/send\.now\/[^\s"'<>]+/);return m?m[0]:null;
   };
   const snAdd=l=>{snT.value=(snT.value.trim()?snT.value.trim()+'\n':'')+l};
