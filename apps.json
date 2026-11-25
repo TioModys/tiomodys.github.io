@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "xrecorder-pro",
+   "name": "XRecorder Pro",
+   "version": "2.5.7",
+   "type": "app",
+   "cat": "Productividad",
+   "icon": "https://play-lh.googleusercontent.com/bfewUxobdHumF6r7pj6teHAPnLWXWpRapcgipF4-WjU8ziVwQpm5nyOhM9FNq2-G2axH74JiDU9z3Fc_5FeS",
+   "size": "41.17 MB",
+   "rating": 4.8,
+   "desc": "Grabador de pantalla ara tomar videos en vivo & capturas de pantalla!\n\nGrabar Pantalla- grabador pantalla te ayuda a capturar suave & claro videos de pantalla, capturas de pantalla de la manera más fácil. Solo con un toque en la ventana flotante, puedes grabar video tutorial en HD, llamadas de video. Y nunca más perderás los programas de juegos en vivo, y los momentos importantes. \n\n¡Descarga el mejor Grabar Pantalla para capturar lo que quieras!\n\n🏅CARACTERÍSTICAS SUPERIORES:\n● Captura de pantalla para tomar una clara Captura de pantalla\n● Grabar Gameplay en tu teléfono\n● Exportar Full HD video con ajustes personalizados: 240p to 1080p, 60FPS, 12Mbps\n● Sin marcas de agua: grabar un video limpio & captura de pantalla\n● No límite de tiempo de grabación & No root necesitado\n● Ventana flotante: Un toque para controlar y ajustar el momento exacto fácilmente\n● Contador regresivo: será un grabador completamente preparado\n● Ubicación alternativa de almacenamiento: almacenamiento interno/ tarjeta SD\n● Fácil de pausar/ reanudar la grabación, girar la pantalla",
+   "modinfo": "✅ PREMIUM",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://send.now/xylfht6iyizj"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=videoeditor.videorecorder.screenrecorder",
+   "mod": true,
+   "shots": [],
+   "cover": "https://i.postimg.cc/v850tnhG/Screenshot-20261125-083810.jpg",
+   "pkg": "videoeditor.videorecorder.screenrecorder",
+   "vc": 2570000,
+   "updated": "2026-11-25",
+   "ts": 1795617595473,
+   "badge": "Nuevo"
+  },
+  {
    "id": "fx-player-pro",
    "name": "FX player Pro",
    "version": "3.9.1",
