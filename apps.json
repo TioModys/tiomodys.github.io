@@ -1,6 +1,33 @@
 {
  "apps": [
   {
+   "id": "prueba",
+   "name": "Prueba",
+   "version": "",
+   "type": "app",
+   "cat": "Herramientas",
+   "icon": "📱",
+   "size": "",
+   "rating": 4.5,
+   "desc": "",
+   "downloads": [
+    {
+     "label": "index",
+     "url": "https://send.now/e9n5v0ofgngh"
+    },
+    {
+     "label": "Inicio",
+     "url": "https://send.now/mrr6r5vbw7b3"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [],
+   "updated": "2026-11-25",
+   "ts": 1795588044512,
+   "badge": "Nuevo"
+  },
+  {
    "id": "fx-player-pro",
    "name": "FX player Pro",
    "version": "3.9.1",
