@@ -1055,6 +1055,11 @@ function adForm(i){
   <label class="pill">Texto del MOD o tutorial (opcional, aparece arriba de la descripción)</label>
   <textarea class="in" id="f13" rows="4" placeholder="Qué trae el MOD, cómo instalarlo, tutorial…">${esc(a.modinfo||'')}</textarea>
   <textarea class="in" id="f7" rows="4" placeholder="Enlaces de descarga, uno por línea:&#10;Descargar APK | https://...&#10;Descargar (Mega) | https://...">${esc(links)}</textarea>
+<div class="pill" style="margin-top:10px">☁️ Subir archivos a Send.now (se agregan como botones de descarga)</div>
+<input class="in" id="snk" type="password" placeholder="Clave de API de Send.now" autocapitalize="none" autocorrect="off" spellcheck="false">
+<input class="in" id="snf" type="file" multiple>
+<button class="btn alt" id="snb" type="button">☁️ Subir y agregar botones</button>
+<div id="snm" style="font-size:13.5px;color:var(--muted);min-height:20px;margin-top:8px"></div>
   <button class="chip" id="fl" type="button">+ Otro enlace</button>
   <label class="pill">Enlace de Play Store (opcional)</label>
   <input class="in" id="f11" placeholder="https://play.google.com/store/apps/details?id=..." value="${esc(a.play||'')}">
@@ -1074,6 +1079,44 @@ function adForm(i){
   $('#bk').onclick=adList;
   $('#fl').onclick=()=>{const t=$('#f7');t.value+=(t.value&&!t.value.endsWith('\n')?'\n':'')+'Descargar APK | ';t.focus()};
   $('#f0').onchange=()=>{$('#f3').innerHTML=opts($('#f0').value,'')};
+  /* Subir archivos a Send.now y agregar cada enlace como botón de descarga (líneas "nombre | enlace" en #f7) */
+  const snK=$('#snk'),snF=$('#snf'),snB=$('#snb'),snM=$('#snm'),snT=$('#f7');
+  snK.value=localStorage.getItem('sendnow_key')||'';
+  snK.onchange=()=>localStorage.setItem('sendnow_key',snK.value.trim());
+  const snMsg=(txt,err)=>{snM.textContent=txt;snM.style.color=err?'#e5484d':'var(--muted)'};
+  const snLink=raw=>{
+    let j=null;try{j=JSON.parse(raw)}catch(e){}
+    const c=j?[j.link,j.url,j.download_url,j.file_url,j.file,j.result].find(x=>typeof x==='string'&&/^https?:\/\//.test(x)):null;
+    if(c)return c;
+    const m=raw.match(/https?:\/\/send\.now\/[^\s"'<>]+/);return m?m[0]:null;
+  };
+  const snAdd=l=>{snT.value=(snT.value.trim()?snT.value.trim()+'\n':'')+l};
+  snB.onclick=async()=>{
+    const key=snK.value.trim();
+    if(!key){snMsg('Pega tu clave de API de Send.now',1);return}
+    localStorage.setItem('sendnow_key',key);
+    const files=[...snF.files];
+    if(!files.length){snMsg('Elige uno o más archivos',1);return}
+    snB.disabled=true;let ok=0;
+    for(let i=0;i<files.length;i++){
+      const f=files[i];
+      snMsg(`Subiendo ${i+1} de ${files.length}: ${f.name}…`);
+      try{
+        const r=await fetch('https://send.now/api/upload/server?key='+encodeURIComponent(key));
+        const sv=await r.json();
+        if(!sv.result)throw new Error('no me dieron dirección de subida (revisa la clave)');
+        const fd=new FormData();fd.append('sess_id',sv.sess_id);fd.append('file_0',f,f.name);
+        const up=await fetch(sv.result,{method:'POST',body:fd});
+        const txt=await up.text();
+        const link=snLink(txt);
+        if(link){snAdd(f.name.replace(/\.[^.]+$/,'')+' | '+link);ok++}
+        else snMsg('Se subió '+f.name+' pero no encontré el enlace. Respuesta: '+txt.slice(0,160),1);
+      }catch(e){snMsg('Error al subir '+f.name+': '+(e.message||e),1)}
+    }
+    snB.disabled=false;snF.value='';
+    if(ok===files.length)snMsg(`Listo: ${ok} archivo(s) agregados a las descargas. Revisa los nombres y pulsa Guardar.`);
+    else if(ok)snMsg(`Se agregaron ${ok} de ${files.length}. Revisa los mensajes de arriba.`,1);
+  };
   let cvNew=null,cvKeep=(a.cover&&/^img\//.test(a.cover))?a.cover:'';
   const rcv=()=>{const ty=$('#f16').value.trim(),src=cvNew||(ty?fixUrl(ty):cvKeep);$('#cvp').innerHTML=src?`<img src="${esc(src)}" alt="">`:'';$('#fcq').style.display=src?'':'none'};
   $('#f16').oninput=()=>{cvNew=null;cvKeep='';rcv()};
