@@ -1,6 +1,32 @@
 {
  "apps": [
   {
+   "id": "ungoogled-maps",
+   "name": "Ungoogled Maps",
+   "version": "26.47.00.1022347503",
+   "type": "app",
+   "cat": "Productividad",
+   "icon": "https://i.postimg.cc/dQhbpw2p/d156e257e0549461d9c94b2ae5d59c23.png",
+   "size": "265.43 MB",
+   "rating": 4.5,
+   "desc": "Características principales\n\n• Privacidad y uso sin cuenta. Permite buscar ubicaciones, navegar y guardar un historial local de lugares visitados sin necesidad de iniciar sesión con una cuenta de Google ni depender de Google Play Services.\n• Interfaz limpia y personalizable. Incluye parches para ocultar pines patrocinados y anuncios, aplicar temas oscuros puros (AMOLED), cambiar el tamaño de los textos del mapa y ajustar la velocidad de refresco.\n• Soporte opcional de MicroG. Para quienes desean sincronizar sus listas guardadas o acceder a funciones de cuenta sin usar los servicios oficiales de Google, los parches ofrecen integración experimental con MicroG-RE.\n• Limitaciones actuales. Al no usar servicios oficiales de Google, algunas funciones como la cronología (Timeline), las reseñas o la compatibilidad nativa con Android Auto suelen presentar fallos o requerir parches adicionales",
+   "modinfo": "• Anuncios: Elimina pines patrocinados y sugerencias comerciales.\n• Rastreo: Bloquea la telemetría y el envío de datos de uso a Google.\n• Dependencia de Google: Funciona sin Google Play Services ni inicio de sesión obligatorio (usa el GPS nativo del sistema).\n\n✅ Qué le añadieron\n\n• Ahorro de energía de Pixel: Desbloquea el modo minimalista de bajo consumo exclusivo de los teléfonos Google Pixel.\n• Mapas offline grandes: Permite descargar áreas mucho más extensas sin conexión de una sola vez.\n• Personalización visual: Incluye modo oscuro puro (AMOLED), cambio de tamaño de textos/flechas y colores personalizados del mapa.\n• Más control: Permite configurar un proxy, cambiar el país de referencia para fronteras/nombres y hacer zoom libre al conducir.\nSi quieres dar el siguiente paso, dime:\n• Si te interesa saber qué funciones originales se pierden (ej. reseñas o cronología)\n• Si buscas los pasos para instalarlo en tu teléfono",
+   "downloads": [
+    {
+     "label": "DESCARGA APK",
+     "url": "https://send.now/2ap49rwujn4i"
+    }
+   ],
+   "play": "",
+   "mod": true,
+   "shots": [],
+   "pkg": "org.ungoogled.android.apps.maps",
+   "vc": 1068892333,
+   "updated": "2026-11-25",
+   "ts": 1795669835329,
+   "badge": "Nuevo"
+  },
+  {
    "id": "assassin-s-creed-4-black-flag",
    "name": "Assassin’s Creed 4 Black Flag",
    "version": "3.0",
