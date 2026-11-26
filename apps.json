@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "inshot",
+   "name": "InShot",
+   "version": "2.261.1561",
+   "type": "app",
+   "cat": "Fotografía y video",
+   "icon": "https://play-lh.googleusercontent.com/SwG0XbEyZC-fh5codVCcC1c-Vw6G-Ap7BDLPO5LYgeGPaYYBzPFcGgfIllbo-uS63gB2hPbFCFEb-YB4bW5OEg=w240-h480-rw",
+   "size": "89.93 MB",
+   "rating": 4.5,
+   "desc": "Potente editor de videos y fotos con musica; app para cortar videos profesional\n\nInShot- Editor de video profesional y Editor de fotos que puede ayudarlo a crear videos hermosos y fotos geniales. Con InShot, puedes añadir musica a video, recortar video, cortar video, fusión de videos, añadir texto a video y blur fondo!\n\nDescarga InShot para dar un impulso a tus redes sociales como Youtube, Instagram, Tik Tok, Whatsapp, etc. Comparte tu vida diaria!\n\n🤩Nuevas características:\n★Imagen en imagen (PIP): Agregue capas de video y fotos encima del clip.\n★Clave de croma: Elimina el color seleccionado. Puede utilizar esta herramienta para crear videos de pantalla verde.\n★Fotogramas clave: Agregue animaciones de fotogramas clave a texto, pegatinas y PIP.\n★Máscara: Agrega una máscara de forma al PIP.\n★Mezclas: Combina tu video con el modo de fusión.\n\nIntroducción de funciones:\n\nEditor de Video Profesional\n- Crear videos con fotos y música fácilmente. Creador de videos con todas las funciones para Youtube, Instagram, Tik Tok.\n- Editar videos con música y fotos. Aplicacion de editar videos profesional.\n- Recortar, comprime & convierte videos, cortador de videos y aplicación para combinar videos.\n- Cortar videos y editarlos. Divide videos en varios clips.\n- Recortar la longitud de lienzo video que quieras. \n- Editar videos y expórtalo en calidad HD. Editor de videos gratuito y fácil de utilizar para Youtube.\n- Aplicación de recorte de video y aplicación de edición de video de fácil uso.\n\nEditor de fotos y collage\n- Editar foto con filtros,efecto, texto, pegatinas únicos y fondo borroso.\n- Un montón de diseño con estilo.\n- Lindo marco, memes divertidos.\n- Recortar fotos como quieras.",
+   "downloads": [
+    {
+     "label": "DESCARGA APK",
+     "url": "https://send.now/9h1fm2fdz7pc"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.camerasideas.instashot",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.camerasideas.instashot",
+   "vc": 1561,
+   "updated": "2026-11-26",
+   "ts": 1795720460578,
+   "badge": "Nuevo"
+  },
+  {
    "id": "phonto-pro",
    "name": "Phonto Pro",
    "version": "1.7.144",
