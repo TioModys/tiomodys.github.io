@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "phonto-pro",
+   "name": "Phonto Pro",
+   "version": "1.7.144",
+   "type": "app",
+   "cat": "Fotografía y video",
+   "icon": "https://pbs.twimg.com/profile_images/378800000532678698/16efb74077d88a378a3e1df0d13a364f_400x400.png",
+   "size": "23.87 MB",
+   "rating": 4.8,
+   "desc": "Phonto es una sencilla aplicación que te permite añadir texto a las imágenes.\n\n★ Más de 200 fuentes están disponibles.\n★ Puede instalar otras fuentes.\n★ tamaño del texto se puede cambiar.\n★ Texto de color se puede cambiar.\n★ Texto es giratorio.\n★ Color del trazo y el ancho es variable.\n★ Fondo del texto se puede cambiar.\n★ Letter spacing is changeable\n★ Line spacing is changeable",
+   "downloads": [
+    {
+     "label": "DESCARGA APK",
+     "url": "https://send.now/8vxsvwhued49"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.youthhr.phonto",
+   "mod": true,
+   "shots": [],
+   "pkg": "com.youthhr.phonto",
+   "vc": 169,
+   "updated": "2026-11-26",
+   "ts": 1795711705638,
+   "badge": "Nuevo"
+  },
+  {
    "id": "ungoogled-maps",
    "name": "Ungoogled Maps",
    "version": "26.47.00.1022347503",
