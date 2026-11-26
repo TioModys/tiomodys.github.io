@@ -1,6 +1,38 @@
 {
  "apps": [
   {
+   "id": "wwe-2k14",
+   "name": "WWE 2K14",
+   "version": "0.4.4",
+   "type": "juego",
+   "cat": "Acción",
+   "icon": "https://recompstore.com/media/PPSA92014-icon-b87f4714.png",
+   "size": "8.35 GB",
+   "rating": 4.5,
+   "desc": "WWE 2K14 para Android es una de las entregas más aclamadas y completas de lucha libre profesional desarrollada por Yuke's y Visual Concepts, y publicada por 2K Sports. Reconocido por celebrar las tres décadas de historia del evento más grande de la compañía a través de su icónico modo 30 Years of WrestleMania, el título permite revivir más de 45 combates históricos desde Hulk Hogan y André the Giant hasta The Rock, Stone Cold Steve Austin, The Undertaker, John Cena y CM Punk, además de incluir el desafiante modo The Streak.\n\nAunque el juego fue lanzado exclusivamente para PlayStation 3 y Xbox 360 sin una versión nativa en la Google Play Store, hoy es posible disfrutarlo completo y sin conexión en smartphones Android de gama alta mediante emulación avanzada de PlayStation 3 (RPCS3 vía entornos Linux/Winlator o ports nativos de RPCS3 en Android) o emulación de Xbox 360 (Xenia en Winlator).",
+   "downloads": [
+    {
+     "label": "Descargar APK",
+     "url": "https://dl.apkvision.org/wwe-2k14/WWE-2K14-v0.4.4-apkvision.apk"
+    },
+    {
+     "label": "Descargar DATOS",
+     "url": "https://dl.apkvision.net/wwe-2k14/WWE-2K14-apkvision.zip"
+    }
+   ],
+   "play": "",
+   "mod": false,
+   "shots": [
+    "img/wwe-2k14-1795729143750-0.jpg",
+    "img/wwe-2k14-1795729146231-1.jpg",
+    "img/wwe-2k14-1795729148274-2.jpg"
+   ],
+   "cover": "https://i.postimg.cc/RVx7Zwkc/unnamed-(4).jpg",
+   "updated": "2026-11-26",
+   "ts": 1795729150114,
+   "badge": "Nuevo"
+  },
+  {
    "id": "super-smash-bros-melee",
    "name": "Super Smash Bros. Melee",
    "version": "0.4.2",
