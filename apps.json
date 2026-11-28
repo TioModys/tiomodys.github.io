@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "photo-lab",
+   "name": "Photo Lab",
+   "version": "3.13.130",
+   "type": "app",
+   "cat": "Fotografía y video",
+   "icon": "https://play-lh.googleusercontent.com/hG6hr90j7h8TYNehYnCnnVCNL6Xu199go863FZ7Xd_lUN4O-kjaZOZeaiUlSPlO1Dr7zkqrZKOQ6fYldgdXEzGk",
+   "size": "69.13 MB",
+   "rating": 4.5,
+   "desc": "Adorna tus fotos con diversos marcos, efectos, filtros y montajes!\n\nMejora tus fotos con mas de 570 diferentes marcos, filtros, efectos y fotomontajes. Photo Lab es un editor de fotos simple, rapido y divertido. No debes ser el maestro de edición de fotos para convertir tus fotos en imagenes chistosas o retratos bellos. Solo escoge un filtro, marco o fotomontaje para aplicar, despues elige un imagen ¡y ya esta! Photo Lab realiza todo el trabajo para que te relajes y obtengas toda la gloria.\n\nPhoto Lab tiene algo especial para qualquier imagen. Puedes eligir de diferentes opciones lo que te guste mas:\n- diversos fotomontajes para poner tu retrato en una tarjeta antigua o tarta de cumpleanos. \n- marcos de foto para encuadrar tus imagenes con paisajes fantasticos o personajes de dibujos animados. \n- cara en un hueco para convertirte en Iron Man, Darth Vader o Mona Lisa.\n- collages para juntar muchas y muchas fotos.\n- filtros para anadir el humor alegre o nostalgico a tus fotos.\n- tapas de revistas para hacerte el heroe de Playboy, Vogue o GQ.\n- otros efectos como sombreros, collages con celebridades, monstros, etc.\n\nAlgunas opciones especiales que son disponibles solo en la version PRO:\n- efectos estilizados para convertir tus fotos en tarjetas antiguas o peliculas retro.\n- filtros artisticos para transformar tus fotos en dibujos y pinturas bellas.\n- fotomontajes de humano a un animal para transformarte en un leon, gato o koala.\n- efectos de plantilla para cambiar el fondo de tus fotos a paisajes fabulosos o alas de mariposa.\n\nAdemas de eso, la version PRO es totalmente libre de anuncios y marcas de agua y procesa tus fotos mas rapido.",
+   "downloads": [
+    {
+     "label": "DESCARGA APK",
+     "url": "https://send.now/3lh2eiq2jrzu"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=com.vicman.photolabpro",
+   "mod": true,
+   "shots": [],
+   "pkg": "vsin.t16_funny_photo",
+   "vc": 11136,
+   "updated": "2026-11-27",
+   "ts": 1795839480382,
+   "badge": "Nuevo"
+  },
+  {
    "id": "stellio-player-pro",
    "name": "Stellio Player Pro",
    "version": "7.7.1",
