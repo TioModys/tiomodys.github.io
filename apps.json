@@ -1402,7 +1402,7 @@
   {
    "id": "youtube-pro",
    "name": "YouTube Pro",
-   "version": "21.45.9",
+   "version": "21.45.90",
    "type": "app",
    "cat": "Entretenimiento",
    "icon": "https://yt3.googleusercontent.com/6_ecK6MU_8WaCTYgIWbkVlTIatPBKcwx3DQO4UhxWzzFflSJ-luObwrcf3nnxGqkwgZJDnEaAQ=s900-c-k-c0x00ffffff-no-rj",
@@ -1425,7 +1425,7 @@
    "pkg": "com.android.youtube.premium",
    "vc": 1561307658,
    "updated": "2026-11-27",
-   "ts": 1795839640381,
+   "ts": 1795839692589,
    "badge": "Actualizado"
   },
   {
