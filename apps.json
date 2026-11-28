@@ -1,6 +1,31 @@
 {
  "apps": [
   {
+   "id": "stellio-player-pro",
+   "name": "Stellio Player Pro",
+   "version": "7.7.1",
+   "type": "app",
+   "cat": "Música y audio",
+   "icon": "https://play-lh.googleusercontent.com/OOZsNXvgSCrijabpBjaQvHlBW3ElX28LyW7EdkR9DNgq7vLWbFWPFj9RtvYZ7wyh1MO65Nnr_2u637rMzqWF",
+   "size": "43.38 MB",
+   "rating": 4.5,
+   "desc": "Reproductor de música Hi-Res: ecualizador de 20 bandas, bit-perfect USB DAC, DSD\n\nStellio es un reproductor de música Hi-Res y reproductor MP3 sin internet para la música guardada en tu teléfono. Un ecualizador paramétrico, un motor de sonido de 32 bits con salida bit-perfect a DAC USB y temas que toman sus colores de la portada del álbum, todo en una sola app.\n\nSonido Hi-Res\n• Salida Hi-Res: Android mezcla todo el sonido a 48 kHz, así que la mayoría de la música se convierte por el camino. Stellio reproduce cada pista a su propia frecuencia de muestreo en 24 bits en un DAC USB, auriculares USB o auriculares con cable que lo admitan\n• Bit-perfect cuando es posible: con un DAC USB en Android 14+ y el ecualizador y los efectos desactivados, el archivo llega al DAC sin cambios\n• DSD (DSF, DFF): se reproduce en cualquier teléfono; un DAC compatible con DSD lo recibe sin cambios (DoP)\n• Procesamiento en coma flotante de 32 bits desde el decodificador hasta la salida, un remuestreador ajustable de Rápido a Extremo y dither opcional\n• La información de audio muestra toda la ruta de la señal (archivo, decodificador, efectos, salida, dispositivo) con la frecuencia de muestreo, la profundidad de bits y el bitrate reales\n\nEcualizador y efectos\n• Ecualizador paramétrico de hasta 20 bandas: arrastra las bandas directamente sobre el gráfico, con el espectro en vivo de tu música detrás\n• Presets: Rock, Pop, Bass, Vocal, Classical y muchos más, o guarda los tuyos\n• Refuerzo de graves y agudos, preamplificador, balance\n• La normalización de volumen mantiene todas las canciones al mismo volumen (compatible con etiquetas ReplayGain)\n• Compresor, AGC y limitador; margen automático para que los refuerzos no distorsionen\n• Reverberación, eco, amplitud estéreo, crossfeed para auriculares, velocidad y tono\n• Reproducción sin pausas (gapless) y fundido cruzado entre pistas\n\nTodos tus formatos\nFLAC, ALAC, APE, WavPack, WAV, AIFF, DSD, MP3, OGG, Opus, M4A, AAC, archivos CUE y más. Escucha tu música por álbumes, artistas, géneros, compositores, años, carpetas o listas de reproducción.\n\nLetras, portadas y etiquetas\n• Letras sincronizadas en la pantalla de reproducción; busca letras en internet y guárdalas para escuchar sin conexión\n• Portadas: busca carátulas de álbumes en internet o elige tu propia imagen\n• Editor de etiquetas: corrige títulos, artistas y álbumes directamente en el reproductor de música\n\nTu año en música\nResúmenes en formato historia con tus canciones y artistas más escuchados de la semana, el mes o el año; compártelos como video con música. Las estadísticas muestran lo que más escuchas.\n\nTemas que siguen a tu música\nEl sello de Stellio: el reproductor cambia de color según la portada de la canción que suena; por eso hay un camaleón en nuestro icono. Elige el tema que va contigo, de minimalista a oscuro y difuminado; los temas extra cambian todo el aspecto del reproductor, no solo sus colores.",
+   "downloads": [
+    {
+     "label": "DESCARGA APK",
+     "url": "https://send.now/4mxqw04el4gl"
+    }
+   ],
+   "play": "https://play.google.com/store/apps/details?id=io.stellio.music",
+   "mod": true,
+   "shots": [],
+   "pkg": "io.stellio.music",
+   "vc": 40396,
+   "updated": "2026-11-27",
+   "ts": 1795833361816,
+   "badge": "Nuevo"
+  },
+  {
    "id": "wwe-2k14",
    "name": "WWE 2K14",
    "version": "0.4.4",
